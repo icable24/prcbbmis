@@ -2,7 +2,7 @@
 if (!class_exists('Database')){
 class Database{
 private static $dbname = 'prcbbmis';
-	private static $dbHost = 'localhost';
+	private static $dbHost = '127.0.0.1';
 	private static $username = 'root';
 	private static $password = '';
 

@@ -51,12 +51,14 @@
                     
                 <div class="pull-right">    
 
-                    <div class="navbar navbar-right" style="background-color: #cc0000; margin-left: 10px; margin-top: 10px;">
+                    <div class="navbar navbar-right" style="background-color: #cc0000; margin-left: 10px; margin-top: 10px;" >
                         <a data-toggle="dropdown" style="color: white">
                             <?php echo $user['fname'] ?> <b class="caret"> </b>
                             <ul class="dropdown-menu lihover" style="background-color: #ff3333;">
                             <li><a href="#"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
+                           <?php if($user['usertype'] == 'Admin'){?>
                             <li><a href="viewuser.php"><i class="glyphicon glyphicon-th-list"></i> User's List</a></li>
+                            <?php } ?>
                             <li><a href="./php/logout.php"><i class="glyphicon glyphicon-log-out"></i> Log Out</a></li>
                             </ul>
                         </a>
