@@ -53,9 +53,25 @@
 
 							<!-- Text input-->
 							<div class="control-group">
-							  <label class="control-label" for="pname">Name</label>
+							  <label class="control-label" for="pfname">First name</label>
 							  <div class="controls">
-							    <input id="pname" name="pname" type="text" placeholder="Name" class="form-control" required="" value="<?php echo $data['pname']?>">
+							    <input id="pfname" name="pfname" type="text" placeholder="first name" class="form-control" required="" value="<?php echo $data['pfname']?>">
+							    
+							  </div>
+							</div>
+                                                        <!-- Text input-->
+							<div class="control-group">
+							  <label class="control-label" for="pmname">Middle name</label>
+							  <div class="controls">
+							    <input id="pmname" name="pmname" type="text" placeholder="middle name" class="form-control" required="" value="<?php echo $data['pmname']?>">
+							    
+							  </div>
+							</div>
+                                                        <!-- Text input-->
+							<div class="control-group">
+							  <label class="control-label" for="plname">Last name</label>
+							  <div class="controls">
+							    <input id="plname" name="plname" type="text" placeholder="last name" class="form-control" required="" value="<?php echo $data['plname']?>">
 							    
 							  </div>
 							</div>

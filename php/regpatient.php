@@ -5,7 +5,9 @@
 
 		//variables
 		$pid = date("mdYhi");
-		$pname = $_POST['pname'];
+		$pfname = $_POST['pfname'];
+                $pmname = $_POST['pmname'];
+                $plname = $_POST['plname'];
 		$paddress = $_POST['paddress'];
 		$pbirthdate = $_POST['pbirthdate'];
 		$pgender = $_POST['pgender'];
@@ -20,9 +22,9 @@
 		if($valid){
 			$pdo = Database::connect();
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql = "INSERT INTO patient (pid,pname, paddress, pbirthdate, pgender, pcontact, pregdate) values(?, ?, ?, ?, ?, ?, ?)";
+			$sql = "INSERT INTO patient (pid, pfname, pmname, plname, paddress, pbirthdate, pgender, pcontact, pregdate) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			$q = $pdo->prepare($sql);
-            $q->execute(array($pid, $pname, $paddress, $pbirthdate, $pgender, $pcontact, $pregdate));
+            $q->execute(array($pid, $pfname, $pmname, $plname, $paddress, $pbirthdate, $pgender, $pcontact, $pregdate));
             Database::disconnect();
             header("Location: ../viewpatient.php");
 		}

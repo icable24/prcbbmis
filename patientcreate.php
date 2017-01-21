@@ -35,9 +35,25 @@
 
 							<!-- Text input-->
 							<div class="control-group">
-							  <label class="control-label" for="pname">Name</label>
+							  <label class="control-label" for="pfname">First name</label>
 							  <div class="controls">
-							    <input id="pname" name="pname" type="text" placeholder="Name" class="form-control" required="">
+							    <input id="pfname" name="pfname" type="text" placeholder="enter first name" class="form-control" required="">
+							    
+							  </div>
+							</div>
+                                                        <!-- Text input-->
+							<div class="control-group">
+							  <label class="control-label" for="pmname">Middle name</label>
+							  <div class="controls">
+							    <input id="pmname" name="pmname" type="text" placeholder="enter middle name" class="form-control" required="">
+							    
+							  </div>
+							</div>
+                                                        <!-- Text input-->
+							<div class="control-group">
+							  <label class="control-label" for="plname">Last name</label>
+							  <div class="controls">
+							    <input id="plname" name="plname" type="text" placeholder="enter last name" class="form-control" required="">
 							    
 							  </div>
 							</div>
@@ -93,7 +109,7 @@
 							<div class="panel-footer">	
 								<div class="form-actions text-center forms">
 									<button type="submit" class="btn btn-success">Submit</button>
-									<a class="btn" href="home.php">Back</a>
+                                                                        <a class="btn" href="viewpatient.php">Back</a>
 								</div>		
 						  	</div>		
 						</form>
