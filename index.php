@@ -3,6 +3,7 @@
 
 	<head>
 		<title>Philippine Red Cross Blood Bank Management Information System</title>
+                 <link rel="icon" type="image/png" href="img/PRClogo.png">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="./css/bootstrap.min.css">

@@ -7,7 +7,7 @@
          documentation:
          https://developers.google.com/maps/documentation/javascript/tutorial -->
     <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
-<head>
+</head>
 <body>
  <style>
        #map {
@@ -16,10 +16,10 @@
        }
     </style>
 <?php include('header.php'); ?> 
-<br><br>
+    <br><br>
 <div class="container">
 	<div class="col-lg-3">
-		<div class="list-group side_bar">
+            <div class="list-group side_bar">
                         <a href="c_Brunei.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/bruneiflg.png"></span>&nbsp;&nbsp; Brunei</a>
                         <a href="c_Cambodia.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/cambodiaflg.png"></span>&nbsp;&nbsp; Cambodia</a>
                         <a href="c_Indonesia.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/indonesiaflg.png"></span>&nbsp;&nbsp; Indonesia</a>
@@ -37,17 +37,18 @@
 		<br>
 	</div>
 </div>
-	
-   
- 
-    
+
     <script>
     
       function initMap() {
-        var ASEAN = {lat: 8.3226909, lng: 98.1730052};
+        var Vietnam = {lat: 15.7362166, lng: 96.7629782};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: ASEAN
+          zoom: 11,
+          center: Vietnam
+        });
+        var marker = new google.maps.Marker({
+          position: Vietnam,
+          map: map
         });
       }
     </script>
@@ -55,11 +56,13 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDW-KU2LLQRjmIu7W10l3jD0VDLwrQzGP0 
 &callback=initMap">
     </script>
-    <br><br>
+
+ <br><br>
     
 <?php 
 			include ('footer.php');
 		?>
-  </body>
+	
 
+</body>
 </html>

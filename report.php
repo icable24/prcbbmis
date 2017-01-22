@@ -78,12 +78,22 @@
 							<div class="control-group">
 							  <label class="control-label" for="categ">Category</label>
 							  <div class="controls">
-                                                              <select id="categ" name="categ" class="form-control" style="width: 3in">
+                                                              <select id="categ" name="categ" class="form-control" style="width: 3in" onchange="updateCheckBox(this)">
                                                                 
                                                                   <option style="align-content: center">-Select Category-</option>
-                                                                <option href="dreport.php">Donor Report</option>
+                                                                  <option value="donor">Donor Report</option>
                                                                 
 							    </select>
+                                                              <br>
+                                                              <div style="text-align:center; width: 3in; font-size: 16px" >
+                                                              <p >
+                                                                  <input type="checkbox" hidden="" name="donor"  id="donor" /> ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" hidden="" name="donor" id="chk2" /> Birthdate <br />
+                                                                  <input type="checkbox" hidden="" name="donor" id="donor" /> Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" hidden="" name="donor" id="chk2" /> Gender <br />
+                                                                  <input type="checkbox" hidden="" name="donor" id="donor" /> Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" hidden="" name="donor" id="chk2" /> Contact <br />
+                                                                  
+        </p>            
+                                                              </div>
+                                                              <br>
 							  </div>
 							</div>
                                                         
@@ -117,6 +127,26 @@
 				</div>		
 			</div>
 		</div>
+                <br>
+                <br>
+                <br>
+                <script>
+    function updateCheckBox(opts) {
+        var chks = document.getElementsByName("donor");
+
+        if (opts.value == 'donor') {
+            for (var i = 0; i <= chks.length; i++) {
+                chks[i].hidden = false;
+            }
+        }
+        else {
+            for (var i = 0; i <= chks.length; i++) {
+                chks[i].hidden = true;
+                chks[i].checked = false;
+            }
+        }
+    }
+</script>
 	
 <!--edit @ footer.php-->
 <?php

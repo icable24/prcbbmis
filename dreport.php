@@ -109,7 +109,9 @@ $select_query = mysqli_query($db_con,$query);
 $tbl = '<table style="width: 638px;" cellspacing="0">';
 
 $did = "Donor ID";
-$dfname = "Name";
+$dfname="Full Name";
+$dmname="";
+$dlname= "";
 $daddress = "Address";
 $dcontact = "Contact";
 $dtype = "Donor Type";
@@ -117,7 +119,7 @@ $dtype = "Donor Type";
 $tbl = $tbl . '
       <tr>
           <td style="border: 1px solid #ffffff; width: 130px;">'.$did.'</td>
-          <td style="border: 1px solid #ffffff; width: 110px;">'.$dfname.'</td>
+          <td style="border: 1px solid #ffffff; width: 110px;">'.$dfname.$dmname.$dlname.'</td>
           <td style="border: 1px solid #ffffff; width: 130px;">'.$daddress.'</td>
           <td style="border: 1px solid #ffffff; width: 90px;">'.$dcontact.'</td>
           <td style="border: 1px solid #ffffff; width: 90px;">'.$dtype.'</td>
@@ -125,7 +127,9 @@ $tbl = $tbl . '
 
 while($row = mysqli_fetch_array($select_query)){
   $did = $row["did"];
-  $dname = $row["dfname"];
+  $dfname = $row["dfname"];
+  $dmname = $row["dmname"];
+  $dlname = $row["dlname"];
   $daddress = $row["daddress"];
   $dcontact = $row["dcontact"];
   $dtype = $row["dtype"];
@@ -134,8 +138,8 @@ while($row = mysqli_fetch_array($select_query)){
 
   $tbl = $tbl . '
       <tr>
-          <td style="border: 1px solid #000000; width: 130px;">'.$did.'</td>
-          <td style="border: 1px solid #000000; width: 110px;">'.$dfname.'</td>
+          <td style="border: 1px solid #000000; width: 130px;">'. 'D01-' .$did.'</td>
+          <td style="border: 1px solid #000000; width: 110px;">'.$dfname.$dmname.$dlname.'</td>
           <td style="border: 1px solid #000000; width: 130px;">'.$daddress.'</td>
           <td style="border: 1px solid #000000; width: 80px;">'.$dcontact.'</td>
           <td style="border: 1px solid #000000; width: 80px;">'.$dtype.'</td>
