@@ -14,15 +14,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./jquery-timepicker-1.3.2/jquery.timepicker.min.css">
-        <link rel="stylesheet" href="./css/custom_style.css">
-
-      
-        <!-- JQuery and Javascript File -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="./jquery-timepicker-1.3.2/jquery.timepicker.min.css"></script>
         <title>Philippine Red Cross Blood Bank Management Information System</title>
 </head>
 <body>
