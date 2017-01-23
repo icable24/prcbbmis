@@ -98,7 +98,7 @@
                                     
                                     <?php if($total_exam_pending > 0){ ?>
                                         <li class="divider"></li>
-                                        <li><a><?php echo $total_exam_pending; ?> Donor Examination <br> is Pending</a></li>
+                                        <li><a href="notification.php"><?php echo $total_exam_pending; ?> Donor Examination <br> is Pending</a></li>
                                     <?php } ?>
                                     </ul>
                                     <?php } ?>

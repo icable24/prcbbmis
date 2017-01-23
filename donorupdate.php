@@ -159,7 +159,7 @@
 						<div class="control-group">
 						  <label class="control-label" for="demail">Email Address</label>
 						  <div class="controls">
-						    <input class="form-control" id="demail" name="demail" type="text" value="<?php echo $data['demail'] ?>" required="" placeholder="Email Address">
+						    <input class="form-control" id="demail" name="demail" type="text" value="<?php echo $data['demail'] ?>"  placeholder="Email Address">
 						  </div>
 						</div>
 					</div>
