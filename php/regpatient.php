@@ -26,7 +26,7 @@
 
 		$sql = "INSERT INTO patient (pfname, pmname, plname, paddress, pbirthdate, pgender, pcontact, pregdate, bloodinfo) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$q = $pdo->prepare($sql);
-        $q->execute(array($pfname, $pmname, $plname, $paddress, $pbirthdate, $pgender, $pcontact, $pregdat, $bloodinfo['bloodid']));
+        $q->execute(array($pfname, $pmname, $plname, $paddress, $pbirthdate, $pgender, $pcontact, $pregdate, $bloodinfo['bloodid']));
         Database::disconnect();
         header("Location: ../viewpatient.php");
 	}
