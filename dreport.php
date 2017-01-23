@@ -36,7 +36,7 @@ $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('Philippine Red Cross');
-$pdf->SetTitle('Donor Report');
+$pdf->SetTitle('MBD Donor Report');
 $pdf->SetSubject(' ');
 $pdf->SetKeywords(' ');
 
@@ -56,7 +56,7 @@ $txt = <<<EOD
 
 Philippine Red Cross Blood Bank Management Information System
 
-Donor Report
+MBD Donor Report
 
 
 
