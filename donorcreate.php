@@ -124,6 +124,30 @@
 							  </div>
 							</div>
 
+							<div class="control-group">
+								<label class="control-label" for="bloodgroup">Blood Group</label>
+								<div class="controls">
+									<select class="form-control" name="bloodgroup" id="bloodgroup">
+										<option></option>
+										<option>A</option>
+										<option>B</option>
+										<option>AB</option>
+										<option>O</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="control-group">
+								<label class="control-label" for="rhtype">Rh Type</label>
+								<div class="controls">
+									<select class="form-control" name="rhtype" id="rhtype">
+										<option></option>
+										<option>Positive</option>
+										<option>Negative</option>
+									</select>
+								</div>
+							</div>
+
 							<!-- Text input-->
 							<div class="control-group">
 							  <label class="control-label" for="dnationality">Nationality</label>

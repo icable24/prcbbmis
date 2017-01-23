@@ -70,7 +70,7 @@ $pages = ceil($total / $perPage);
 								echo '<td>'.$row['cfname'].' '.  substr($row['cmname'], 0 , 1) . '. ' . $row['clname'] .'</td>';
 								echo '<td>'.$row['collectiondate'].'</td>';
                                 echo '<td>'.$row['bagtype'].'</td>';
-                                echo '<td>'.$row['bloodtype'].'</td>';
+                                echo '<td>'.$row['bloodtype'].'</td>';	
                                 echo '<td>'.$row['rhtype'].'</td>';
                                                                 
 								echo '<td class="text-center">

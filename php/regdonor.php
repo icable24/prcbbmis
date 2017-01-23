@@ -19,28 +19,33 @@
 		$demail = $_POST['demail'];	
 		$dregdate = date("m-d-Y");	
 		$dremarks = 'Pending';
+
+		$bloodgroup = $_POST['bloodgroup'];
+		$rhtype = $_POST['rhtype'];
 		
-		//validate
-		$valid = true;
+		$pdo = Database::connect();
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-		//storing
-		if($valid){
-			$pdo = Database::connect();
-			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql1 = "INSERT INTO donor (dfname, dmname, dlname, daddress, dbirthdate, dgender, dreligion, dcontact, dtype, dnationality, demail, dregdate, dremarks) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-			$q1 = $pdo->prepare($sql1);
-            $q1->execute(array($dfname, $dmname, $dlname, $daddress, $dbirthdate, $dgender, $dreligion, $dcontact, $dtype, $dnationality, $demail, $dregdate, $dremarks));
+		$sql4 = "SELECT * FROM bloodinformation WHERE bloodgroup = ? AND rhtype = ?";
+		$q4 = $pdo->prepare($sql4);
+		$q4->execute(array($bloodgroup, $rhtype));
+		$bloodinfo = $q4->fetch(PDO::FETCH_ASSOC);
 
-            $did = $pdo->lastInsertId();
+		$sql1 = "INSERT INTO donor (dfname, dmname, dlname, daddress, dbirthdate, dgender, dreligion, dcontact, dtype, dnationality, demail, dregdate, dremarks, bloodinfo) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$q1 = $pdo->prepare($sql1);
+        $q1->execute(array($dfname, $dmname, $dlname, $daddress, $dbirthdate, $dgender, $dreligion, $dcontact, $dtype, $dnationality, $demail, $dregdate, $dremarks, $bloodinfo['bloodid']));
 
-            $sql2 = "INSERT INTO examination (examid, remarks) values (?, ?)";
-            $q2 = $pdo->prepare($sql2);
-            $q2->execute(array($did, $dremarks));
-            $sql3 = "INSERT INTO screening (scrid, remarks) values (?, ?)";
-            $q3 = $pdo->prepare($sql3);
-            $q3->execute(array($did, $dremarks));
-            Database::disconnect();
-            header("Location: ../viewdonor.php?id=$did");
-		}
+        $did = $pdo->lastInsertId();
+
+        $sql2 = "INSERT INTO examination (examid, remarks) values (?, ?)";
+        $q2 = $pdo->prepare($sql2);
+        $q2->execute(array($did, $dremarks));
+        $sql3 = "INSERT INTO screening (scrid, remarks) values (?, ?)";
+        $q3 = $pdo->prepare($sql3);
+        $q3->execute(array($did, $dremarks));
+        Database::disconnect();
+        header("Location: ../viewdonor.php?id=$did");
+	}else{
+		header("Location: ../donorlist");
 	}
 ?>

@@ -123,21 +123,22 @@ if($id != null){
 
 						<div class="control-group">
                             <label class="control-label" for="bloodtype">Blood Group</label>
-                            <select class="form-control" required="required" id="bloodtype" name="bloodtype">
-                                <option></option>
-                                <option value="A">A</option>
-                                <option value="B">B</option>
-                                <option value="AB">AB</option>
-                                <option value="O">O</option>
-                                </select>
+                            <input type="text" class="form-control" required id="blood" disabled="" placeholder="First Name" value="<?php 
+
+							        $sql3 = "SELECT * FROM bloodinformation where bloodid = ?";
+							        $q2 = $pdo->prepare($sql3);
+							        $q2->execute(array($data1['bloodinfo']));
+							        $data2 = $q2->fetch(PDO::FETCH_ASSOC);
+							        Database::disconnect();
+
+							        echo $data2['bloodgroup'];
+							?>">
+							<input type="text" hidden="" name="bloodtype" value="<?php echo $data2['bloodgroup'] ?>">
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="rhtype">Rh Type</label>
-                            <select class="form-control" required="required" id="rhtype" name="rhtype">
-                                <option></option>
-                                <option value="Positive">Positive</option>
-                                <option value="Negative">Negative</option>
-                                </select>
+                            <input class="form-control" value="<?php echo $data2['rhtype']?>" disabled>
+                            <input hidden name="rhtype" value="<?php echo $data2['rhtype']?>">
                         </div>
                         <br>
                         <div class="text-center">
@@ -145,7 +146,6 @@ if($id != null){
 
 
 <button type="submit" id="showModal" class="btn btn-primary" >Save</button>
-<button type="submit" class="btn btn-primary">Search</button>
 </div>
 </table>
 		</div>
