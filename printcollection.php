@@ -56,7 +56,7 @@ $txt = <<<EOD
 
 Philippine Red Cross Blood Bank Management Information System
 
-Donor Report
+Blood Service
 
 
 
@@ -93,65 +93,41 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 
 //==============================================================
 include 'dbconnect.php';
-
-define("DB_SERVER", "localhost");
-define("DB_USER", "root");
-define("DB_PASSWORD", "");
-define("DB_DATABASE", "prcbbmis");
-
-$db_con = mysqli_connect(DB_SERVER , DB_USER, DB_PASSWORD, DB_DATABASE);
-
-//$db_con = mysqli_connect("127.0.0.1","root"," ","baciwadb");
-
-$query = "SELECT * FROM `donor`";
-$select_query = mysqli_query($db_con,$query);
-
-$tbl = '<table style="width: 638px;" cellspacing="0">';
-
-$did = "Donor ID";
-$dfname="Full Name";
-$dmname="";
-$dlname= "";
-$daddress = "Address";
-$dcontact = "Contact";
-$dtype = "Donor Type";
-
-$tbl = $tbl . '
-      <tr>
-          <td style="border: 1px solid #ffffff; width: 130px;">'.$did.'</td>
-          <td style="border: 1px solid #ffffff; width: 110px;">'.$dfname.$dmname.$dlname.'</td>
-          <td style="border: 1px solid #ffffff; width: 130px;">'.$daddress.'</td>
-          <td style="border: 1px solid #ffffff; width: 90px;">'.$dcontact.'</td>
-          <td style="border: 1px solid #ffffff; width: 90px;">'.$dtype.'</td>
-      </tr>';
-
-while($row = mysqli_fetch_array($select_query)){
-  $did = $row["did"];
-  $dfname = $row["dfname"];
-  $dmname = $row["dmname"];
-  $dlname = $row["dlname"];
-  $dname = $dfname . ' ' .substr($dmname, 0, 1) . '. ' . $dlname;
-  $daddress = $row["daddress"];
-  $dcontact = $row["dcontact"];
-  $dtype = $row["dtype"];
   
-  // -----------------------------------------------------------------------------
+// $tbl = '<table style="width: 638px;" cellspacing="0">';
 
-  $tbl = $tbl . '
-      <tr>
-          <td style="border: 1px solid #000000; width: 130px;">'.$did.'</td>
-          <td style="border: 1px solid #000000; width: 110px;">'.$dname.'</td>
-          <td style="border: 1px solid #000000; width: 130px;">'.$daddress.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$dcontact.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$dtype.'</td>
-      </tr>';
-  }  
-  $tbl = $tbl . '</table>';
+$did = $_REQUEST['id'];
+
+$pdo = Database::connect();
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$sql = "SELECT * FROM collection where donorcollectid = ? ";
+$q = $pdo->prepare($sql);
+$q->execute(array($did));
+$collect = $q->fetch(PDO::FETCH_ASSOC);
+Database::disconnect();
+
+
+
+// $tbl = $tbl . '
+//       <tr>
+//           <td style="border: 1px solid #ffffff; width: 130px;">'.'Donor ID: '.$did.'</td>
+//           <td style="border: 1px solid #ffffff; width: 110px;">'.'Unit Serial Number' .$collect['unitserialno'].'</td>
+//       </tr>';
+$tbl = '<body>
+<h2>Thanks! You\'ve really made a difference</h2>
+<br><br><br><br>
+On behalf of everyone you\'ve helped by giving blood -- thank you.<br><br>
+
+Few People in the Philippines have the special gift of being able to give blood. That\'s why we rely on you to regularly give blood every twelve weeks. This ensures we have safe levels for everyone who needs it throughout the year.<br><br>
+
+Attached is your personal blood donor ID card. Each time you donate please bring it along with you. If you need to update any of your details, such as your home address, either call us on (034) 434 9286, or visit our office.<br><br>
+
+That way, we can always be in touch so you can help those who need it most. <br><br><br><br>
+
+Yours Sincerely,
+</body>';
   $pdf->writeHTML($tbl, true, false, false, false, '');
-
-
-
 //==============================================================
 
-$pdf->Output('donor_report.pdf', 'I');
+$pdf->Output('donor_acknowledgement_'.$did.'.pdf', 'I');
 ?>

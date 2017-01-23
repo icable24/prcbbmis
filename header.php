@@ -17,6 +17,27 @@
     $q = $pdo->prepare($sql);
     $q->execute();
     $user = $q->fetch(PDO::FETCH_ASSOC);
+
+    $pdo = Database::connect();
+    $notification = $pdo->prepare("
+    SELECT SQL_CALC_FOUND_ROWS * 
+    FROM examination
+    WHERE remarks LIKE 'Pending'
+    ");
+    $notification->execute();
+    $notification = $notification->fetchAll(PDO::FETCH_ASSOC);
+    $total_exam_pending = $pdo->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
+
+    $notification = $pdo->prepare("
+    SELECT SQL_CALC_FOUND_ROWS * 
+    FROM screening
+    WHERE remarks LIKE 'Pending'
+    ");
+    $notification->execute();
+    $notification = $notification->fetchAll(PDO::FETCH_ASSOC);
+    $total_screen_pending = $pdo->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
+
+    $total_notif = ((int)$total_exam_pending + (int)$total_screen_pending);
 ?>
 <!DOCTYPE html>
 
@@ -25,9 +46,9 @@
         
         <link href="css/header.css" rel="stylesheet" type="text/css"/>
         <link href="./css/custom_style.css" rel="stylesheet" type="text/css"/>
-        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/font-awesome.min.css" rel="s tylesheet" type="text/css"/>
         
-        <a href="./home.php"><link rel="icon" type="image/png" href="img/PRClogo.png"></a>
+        <a href="home.php"><link rel="icon" type="image/png" href="img/PRClogo.png"></a>
         <title>Philippine Red Cross Blood Bank Management Information System</title>
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,43 +63,49 @@
             <div class="container-fluid header">
             	
             		<div class="col-md-1" style="margin-right:0px">
-                        <img src="./img/PRClogo.png" alt="thesis-logo" id="logo"/>
+                        <a href="home.php"><img src="./img/PRClogo.png" alt="thesis-logo" id="logo"/></a>
                 	</div>
                     <div class="col-md-8">
-                		<span style="font-size:42px; letter-spacing: 1px">PHILIPPINE RED CROSS</span><br>
-                		<span style="font-size:20px;padding-top:0px; letter-spacing: 1px">10th LACSON STREET, BACOLOD CITY, 6100 NEGROS OCCIDENTAL</span>
+                		<span style="font-size:42px; letter-spacing: 1px; margin-left: 10px;" >PHILIPPINE RED CROSS</span><br>
+                		<span style="font-size:20px;padding-top:0px; letter-spacing: 1px; margin-left: 10px;">10th LACSON STREET, BACOLOD CITY, 6100 NEGROS OCCIDENTAL</span>
             		</div>
                     
-                <div class="pull-right">    
+                    <div class="pull-right">    
 
-                    <div class="navbar navbar-right" style="background-color: #cc0000; margin-left: 10px; margin-top: 10px;" >
-                        <a data-toggle="dropdown" style="color: white">
-                            <?php echo $user['fname'] ?> <b class="caret"> </b>
-                            <ul class="dropdown-menu lihover" style="background-color: #ff3333;">
-                           
-                           <?php if($user['usertype'] == 'Admin'){?>
-                            <li><a href="viewuser.php"><i class="glyphicon glyphicon-th-list"></i> User's List</a></li>
-                            <?php } ?>
-                            <li><a href="./php/logout.php"><i class="glyphicon glyphicon-log-out"></i> Log Out</a></li>
-                            </ul>
-                        </a>
+                        <div class="navbar navbar-right" style="background-color: #cc0000; margin-left: 10px; margin-top: 10px; min-height: 0px">
+                            <a data-toggle="dropdown" style="color: white">
+                                <span><?php echo $user['fname'] ?></span><b class="caret"> </b>
+                                <ul class="dropdown-menu lihover" style="background-color: #ff3333;">
+                                <?php if($user['usertype'] == 'Admin'){?>
+                                    <li><a href="viewuser.php"><i class="glyphicon glyphicon-th-list"></i> User's List</a></li>
+                                    <li class="divider"></li>                           
+                                <?php } ?>
+                                    <li><a href="./php/logout.php"><i class="glyphicon glyphicon-log-out"></i> Log Out</a></li>
+                                </ul>
+                            </a>
+                        </div>
+                        <?php if($user['usertype'] == 'Admin'){?>
+                            <div class="navbar navbar-right" style="background-color: #cc0000; margin-left: 10px; margin-top: 10px; min-height: 0px">
+                                <a data-toggle="dropdown" style="color: white">
+                                <span class="glyphicon glyphicon-envelope"><span class="notification-counter"><?php if($total_notif > 0){
+                                    echo $total_notif;
+                                    } ?></span><b class="caret"> </b></span>
+                                    
+                                    <ul class="dropdown-menu lihover" style="background-color: #ff3333;">
+                                    <?php if($total_screen_pending > 0){ ?>
+                                        <li><a href="notification.php"><?php echo $total_screen_pending; ?> Donor Screening <br/>is Pending</a></li>
+                                    <?php } ?>
+                                    
+                                    <?php if($total_exam_pending > 0){ ?>
+                                        <li class="divider"></li>
+                                        <li><a><?php echo $total_exam_pending; ?> Donor Examination <br> is Pending</a></li>
+                                    <?php } ?>
+                                    </ul>
+                                    <?php } ?>
+                                </a>
+                            </div>
                     </div>
-                    <?php if($user['usertype'] == 'Admin'){?>
-                    <div class="navbar navbar-right" style="background-color: #cc0000; margin-left: 10px; margin-top: 10px; min-height: 0px">
-                        <a data-toggle="dropdown" style="color: white">
-                            <span class="glyphicon glyphicon-envelope"></span><b class="caret"> </b>
-                            <ul class="dropdown-menu lihover" style="background-color: #ff3333;">
-                            </ul>
-                        </a>
-                    </div>
-                    <?php } ?>
                 </div>
-                
-                
-                   
-                    
-                
-            </div>
     	
             <!-- NAV BAR-->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -90,7 +117,7 @@
                 <div class="collapse navbar-collapse" id="myNavbar"">
                     <ul class="nav navbar-nav">
                         <li class="dropdown menus">
-                            <a href="home.php" data-toggle="dropdown ">PROFILES</a>
+                            <a href="#" data-toggle="dropdown ">PROFILES</a>
                             <ul class="dropdown-menu submenus">
                                 <li><a href="donorlist.php">DONOR</a></li>
                                 <li><a href="viewpatient.php">PATIENT</a></li>

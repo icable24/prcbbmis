@@ -81,8 +81,20 @@ $pages = ceil($total / $perPage);
 				<div class="col-md-5 text-right" style="padding-top:20px;">
 	                <a href="donorcreate.php" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp; Add New Donor</a>
 				</div>
-			</div>
-                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search.." title="Type in" style="width: 3in">
+			</div>	<div class="controls">
+                   		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search.." title="Type in" style="width: 3in">
+                   		<div class="pull-right">
+							<label>Filter</label>                   		
+                   			<select id="filters" name="filters" onChange="myFilter()" placeholder="filter">
+						     	<option></option>
+						    	<option>Accepted</option>
+						    	<option>Deferred</option>
+						    	<option>Pending</option>
+						    	<option>Temporarily Deferred</option>
+					    	</select>
+                   		</div>
+					    
+				  	</div>
 	      	<br>
 			<div class="table-responsive">
                             <table class="table table-hover table-striped" id="myTable">
@@ -96,11 +108,41 @@ $pages = ceil($total / $perPage);
 						</tr>
 					</thead>	
 					<tbody>					
-						<?php								
+						<?php					
+							$pdo2 = Database::connect();
+							$pdo2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+							$sql2 = $pdo2->prepare("
+									SELECT * FROM examination WHERE examid = ? 
+								");	
+							$pdo3 = Database::connect();
+							$pdo3->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+							$sql3 = $pdo3->prepare("
+									SELECT * FROM screening WHERE scrid = ? 
+								");	
 							foreach ($donor as $row) {
+									$sql2->execute(array($row['did']));
+									$data1 = $sql2->fetchAll(PDO::FETCH_ASSOC);
+									$sql3->execute(array($row['did']));
+									$data2 = $sql3->fetchAll(PDO::FETCH_ASSOC);
+								for($i = 0; $i < count($data1) && $i < count($data2); $i++ ){
+									$exams = $data1[$i];
+									$screens = $data2[$i];
+									$sql4 = 'UPDATE donor SET dremarks = ? WHERE did = ?';
+									$q = $pdo->prepare($sql4);
+
+									if($exams['remarks'] == 'Accepted' && $screens['remarks'] == 'Accepted'){
+										$q->execute(array('Accepted', $row['did']));
+									}elseif($exams['remarks'] == 'Deferred' || $screens['remarks'] == 'Deferred'){
+										$q->execute(array('Deferred', $row['did']));
+									}elseif($exams['remarks'] == 'Temporarily Deferred' || $screens['remarks'] == 'Temporarily Deferred'){
+										$q->execute(array('Temporarily Deferred', $row['did']));
+									}									else{
+										$q->execute(array('Pending', $row['did']));
+									}
+								}
 								echo '<tr>';
-									echo '<td>'. 'D01-' .$row['did'] . '</td>';
-									echo '<td>'.$row['dfname']. ' ' . substr($row['dfname'],0,1) .'. ' . $row['dlname'].'</td>';
+									echo '<td>'.$row['did'] . '</td>';
+									echo '<td>'.$row['dfname']. ' ' . substr($row['dmname'],0,1) .'. ' . $row['dlname'].'</td>';
 									echo '<td>'.$row['dregdate'].'</td>';
 									echo '<td>'.$row['dremarks'].'</td>';
 									echo '<td class="text-center">
@@ -121,6 +163,23 @@ function myFunction() {
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+function myFilter() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("filters");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[3];
     if (td) {
       if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";

@@ -172,7 +172,7 @@ if($id != null){
       $pdo = Database::connect();
 	  $donor = $pdo->prepare("
 		SELECT SQL_CALC_FOUND_ROWS * 
-		FROM donor 
+		FROM donor WHERE dremarks = 'Accepted'
 	");
 	$donor->execute();
 
