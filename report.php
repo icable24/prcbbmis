@@ -80,8 +80,14 @@
 							  <div class="controls">
                                                               <select id="categ" name="categ" class="form-control" style="width: 3in" onchange="updateCheckBox(this)">
                                                                 
-                                                                  <option style="align-content: center">-Select Category-</option>
-                                                                  <option value="donor">Donor Report</option>
+                                                                <option value="none">-- Select Category --</option>
+								<option value="donor">Donor</option>
+								<option value="patient">Patient</option>
+                                                                <option value="bd">Blood Dispensed</option>
+                                                                <option value="btc">Blood Type Component</option>
+                                                                <option value="bi">Blood Inventory</option>
+                                                                <option value="patient">Hospital</option>
+                                                                  
                                                                 
 							    </select>
                                                               <br>

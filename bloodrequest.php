@@ -131,7 +131,7 @@ if($id != null){
 							foreach ($patient as $row) {
 								echo '<tr>';
 									echo '<td>'. $row['pid'] . '</td>';
-									echo '<td>'.$row['pname'] . ' ' . '</td>';
+									echo '<td>'.$row['pfname']. ' ' . $row['pfname'].'. ' . $row['plname'].'</td>';
 									echo '<td class="text-center">
 													<a class="btn btn-primary btn-md" href="bloodrequest.php?id='.$row['pid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit">
 									  		  </td>';

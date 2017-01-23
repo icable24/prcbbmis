@@ -1,3 +1,18 @@
+<?php 
+	include 'login_success.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="./css/custom_style.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.theme.mis.css">
+	<link rel="stylesheet" href="css/datepicker.css">
+	<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+</head>
+<body>
+<?php 
+		include('header.php')  
+	?>
 <?php
 error_reporting(E_ALL ^ E_DEPRECATED);
 function backup_Database($hostName,$userName,$password,$DbName,$tables = '*')
@@ -33,6 +48,8 @@ function backup_Database($hostName,$userName,$password,$DbName,$tables = '*')
   {
     $result = mysql_query('SELECT * FROM '.$table) or die(mysql_error());
     $num_fields = mysql_num_fields($result) or die(mysql_error());
+    
+    
     
     $data.= 'DROP TABLE IF EXISTS '.$table.';';
     $row2 = mysql_fetch_row(mysql_query('SHOW CREATE TABLE '.$table));
@@ -72,13 +89,13 @@ function backup_Database($hostName,$userName,$password,$DbName,$tables = '*')
   fwrite($handle,$data);
   fclose($handle);
    
-   if($data)
+   if($data){
    		return true;
-   else
+   }else{
 		return false;
  }  // end of the function
  
- 
+}
 //  CLEAN THE QUERIES
 function clean($str) {
 	if(@isset($str)){
@@ -104,5 +121,14 @@ function clean($str) {
   else {
 	echo 'Errors in Database Backup Creating!';    
   }
- 
-?>
+
+
+  ?>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<?php 
+		include('footer.php');
+	?>
+</body>
+</html>
