@@ -132,6 +132,7 @@ if($id != null){
 								echo '<tr>';
 									echo '<td>'. $row['pid'] . '</td>';
 									echo '<td>'.$row['pfname'] . ' ' . substr($row['pmname'], 0, 1). '. ' . $row['plname'] . '</td>';
+									echo '<td>'.$row['pfname']. ' ' . $row['pfname'].'. ' . $row['plname'].'</td>';
 									echo '<td class="text-center">
 													<a class="btn btn-primary btn-md" href="bloodrequest.php?id='.$row['pid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit">
 									  		  </td>';
