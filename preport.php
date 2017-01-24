@@ -36,7 +36,7 @@ $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('Philippine Red Cross');
-$pdf->SetTitle('Donor Report');
+$pdf->SetTitle('Patient Report');
 $pdf->SetSubject(' ');
 $pdf->SetKeywords(' ');
 
@@ -56,7 +56,7 @@ $txt = <<<EOD
 
 Philippine Red Cross Blood Bank Management Information System
 
-Donor Report
+Patient Report
 
 
 
@@ -103,42 +103,49 @@ $db_con = mysqli_connect(DB_SERVER , DB_USER, DB_PASSWORD, DB_DATABASE);
 
 //$db_con = mysqli_connect("127.0.0.1","root"," ","baciwadb");
 
-$query = "SELECT * FROM `donor`";
+$query = "SELECT * FROM `patient`";
 $select_query = mysqli_query($db_con,$query);
 
 $tbl = '<table style="width: 638px;" cellspacing="0">';
 
-$did = "Donor ID";
-$dfname = "Name";
-$daddress = "Address";
-$dcontact = "Contact";
-$dtype = "Donor Type";
 
+    $pid = "Patient ID";
+    $pname = "Name";
+    $paddress = "Address";
+    $pbirthdate = "pbirthdate";
+    $pgender = "pgender";
+    $pcontact = "pcontact";
 $tbl = $tbl . '
       <tr>
-          <td style="border: 1px solid #ffffff; width: 130px;">'.$did.'</td>
-          <td style="border: 1px solid #ffffff; width: 110px;">'.$dfname.'</td>
-          <td style="border: 1px solid #ffffff; width: 130px;">'.$daddress.'</td>
-          <td style="border: 1px solid #ffffff; width: 90px;">'.$dcontact.'</td>
-          <td style="border: 1px solid #ffffff; width: 90px;">'.$dtype.'</td>
+          <td style="border: 1px solid #ffffff; width: 130px;">'.$pid.'</td>
+          <td style="border: 1px solid #ffffff; width: 110px;">'.$pname.'</td>
+          <td style="border: 1px solid #ffffff; width: 130px;">'.$paddress.'</td>
+          <td style="border: 1px solid #ffffff; width: 130px;">'.$pbirthdate.'</td>
+          <td style="border: 1px solid #ffffff; width: 130px;">'.$pgender.'</td>
+          <td style="border: 1px solid #ffffff; width: 90px;">'.$pcontact.'</td>
+
       </tr>';
 
 while($row = mysqli_fetch_array($select_query)){
-  $did = $row["did"];
-  $dname = $row["dfname"]. ' ' . substr($row["dmname"],0 , 1 ).'. '. $row["dlname"];
-  $daddress = $row["daddress"];
-  $dcontact = $row["dcontact"];
-  $dtype = $row["dtype"];
+  $pid = $row["pid"];
+  $pname = $row["pname"];
+  $paddress = $row["paddress"];
+  $pbirthdate = $row["pbirthdate"];
+  $pgender = $row["pgender"];
+  $pcontact = $row["pcontact"];
+
   
   // -----------------------------------------------------------------------------
 
   $tbl = $tbl . '
       <tr>
-          <td style="border: 1px solid #000000; width: 130px;">'.$did.'</td>
-          <td style="border: 1px solid #000000; width: 110px;">'.$dname.'</td>
-          <td style="border: 1px solid #000000; width: 130px;">'.$daddress.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$dcontact.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$dtype.'</td>
+          <td style="border: 1px solid #ffffff; width: 130px;">'.$pid.'</td>
+          <td style="border: 1px solid #ffffff; width: 110px;">'.$pname.'</td>
+          <td style="border: 1px solid #ffffff; width: 130px;">'.$paddress.'</td>
+          <td style="border: 1px solid #ffffff; width: 130px;">'.$pbirthdate.'</td>
+          <td style="border: 1px solid #ffffff; width: 130px;">'.$pgender.'</td>
+          <td style="border: 1px solid #ffffff; width: 90px;">'.$pcontact.'</td>
+
       </tr>';
   }  
   $tbl = $tbl . '</table>';
