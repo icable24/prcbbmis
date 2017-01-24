@@ -8,7 +8,7 @@
     
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM patient where pname = ?";
+        $sql = "SELECT * FROM patient where pfname = ?";
         $q = $pdo->prepare($sql);
         $data = $q->fetch(PDO::FETCH_ASSOC);
         Database::disconnect();
@@ -131,7 +131,8 @@ if($id != null){
 							foreach ($patient as $row) {
 								echo '<tr>';
 									echo '<td>'. $row['pid'] . '</td>';
-									echo '<td>'.$row['pname'] . ' ' . '</td>';
+									echo '<td>'.$row['pfname'] . ' ' . substr($row['pmname'], 0, 1). '. ' . $row['plname'] . '</td>';
+									echo '<td>'.$row['pfname']. ' ' . $row['pfname'].'. ' . $row['plname'].'</td>';
 									echo '<td class="text-center">
 													<a class="btn btn-primary btn-md" href="bloodrequest.php?id='.$row['pid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit">
 									  		  </td>';

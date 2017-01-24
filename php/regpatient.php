@@ -4,7 +4,6 @@
 	if(!empty($_POST)){
 
 		//variables
-		$pid = date("mdYhi");
 		$pfname = $_POST['pfname'];
                 $pmname = $_POST['pmname'];
                 $plname = $_POST['plname'];
@@ -13,20 +12,22 @@
 		$pgender = $_POST['pgender'];
 		$pcontact = $_POST['pcontact'];
 		$pregdate = date('m-d-Y');
-	
+		$bloodgroup = $_POST['bloodgroup'];
+		$rhtype = $_POST['rhtype'];
 		
 		//validate
-		$valid = true;
+		$pdo = Database::connect();
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-		//storing
-		if($valid){
-			$pdo = Database::connect();
-			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql = "INSERT INTO patient (pid, pfname, pmname, plname, paddress, pbirthdate, pgender, pcontact, pregdate) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-			$q = $pdo->prepare($sql);
-            $q->execute(array($pid, $pfname, $pmname, $plname, $paddress, $pbirthdate, $pgender, $pcontact, $pregdate));
-            Database::disconnect();
-            header("Location: ../viewpatient.php");
-		}
+		$sql2 = "SELECT * FROM bloodinformation WHERE bloodgroup = ? AND rhtype = ?";
+		$q2 = $pdo->prepare($sql2);
+		$q2->execute(array($bloodgroup, $rhtype));
+		$bloodinfo = $q2->fetch(PDO::FETCH_ASSOC);
+
+		$sql = "INSERT INTO patient (pfname, pmname, plname, paddress, pbirthdate, pgender, pcontact, pregdate, bloodinfo) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$q = $pdo->prepare($sql);
+        $q->execute(array($pfname, $pmname, $plname, $paddress, $pbirthdate, $pgender, $pcontact, $pregdate, $bloodinfo['bloodid']));
+        Database::disconnect();
+        header("Location: ../viewpatient.php");
 	}
 ?>

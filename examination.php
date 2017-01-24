@@ -12,12 +12,20 @@
     } else {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM donor where did = ?";
+        $sql = "SELECT * FROM donor WHERE did = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         $data = $q->fetch(PDO::FETCH_ASSOC);
         Database::disconnect();
     }
+
+    $pdo2 = Database::connect();
+    $pdo2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql2 = "SELECT * FROM examination WHERE examid = ?";
+    $q2 = $pdo2->prepare($sql2);
+    $q2->execute(array($id));
+    $data2 = $q2->fetch(PDO::FETCH_ASSOC);
+    Database::disconnect();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,14 +76,14 @@
 							<div class="control-group">
 								<label class="control-label" for="did">Donor ID</label>
 								<div class="controls">
-									<input id="bldpressure" id="did" type="text"  class="form-control" value="<?php echo 'D02-' . $data['did'] ?>" disabled>							    
+									<input id="did" type="text"  class="form-control" value="<?php echo 'D02-' . $data['did'] ?>" disabled>							    
 							  </div>
 							</div>
 							<!-- Text input-->
 							<div class="control-group">
 								<label class="control-label" for="bldpressure">Blood Pressure</label><label class="control-label eg">(eg. 120/80)</label>
 								<div class="controls">
-									<input id="bldpressure" name="bldpressure" type="text" placeholder="Blood Pressure" class="form-control" required="" autocomplete="off">							    
+									<input id="bldpressure" name="bldpressure" type="text" placeholder="Blood Pressure" class="form-control" required="" autocomplete="off" value="<?php echo $data2['bldpressure'] ?>">							    
 							  </div>
 							</div>
 
@@ -83,7 +91,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="pulserate">Pulse Rate</label><label class="control-label eg">(Beats per minute)</label>
 							  <div class="controls">
-							    <input id="pulserate" name="pulserate" type="Number" placeholder="Pulse Rate" class="form-control" required="" autocomplete="off">
+							    <input id="pulserate" name="pulserate" type="Number" placeholder="Pulse Rate" class="form-control" required="" autocomplete="off" value="<?php echo $data2['pulserate'] ?>">
 							    
 							  </div>
 							</div>
@@ -92,7 +100,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="bodytemp">Body Temperature</label><label class="control-label eg">(in &deg;C)</label>
 							  <div class="controls">
-							    <input id="bodytemp" name="bodytemp" type="Number" placeholder="Body Temperature" class="form-control" required="" autocomplete="off">
+							    <input id="bodytemp" name="bodytemp" type="Number" step="any" placeholder="Body Temperature" class="form-control" required="" autocomplete="off" value="<?php echo $data2['bodytemp'] ?>">
 							    
 							  </div>
 							</div>
@@ -102,7 +110,7 @@
 							<div class="control-group">
 								<label class="control-label" for="genapp">General Appearance</label>
 							    <div class="controls">
-							    	<input id="genapp" name="genapp" type="text" placeholder="General Appearance" class="form-control" required="" autocomplete="off">
+							    	<input id="genapp" name="genapp" type="text" placeholder="General Appearance" class="form-control" required="" autocomplete="off" value="<?php echo $data2['genapp'] ?>">
 							  	</div>
 							</div>
 
@@ -110,7 +118,7 @@
 							<div class="control-group">
 								<label class="control-label" for="skin">Skin</label>
 							    <div class="controls">
-							    	<input id="skin" name="skin" type="text" placeholder="Skin" class="form-control" required="" autocomplete="off">
+							    	<input id="skin" name="skin" type="text" placeholder="Skin" class="form-control" required="" autocomplete="off" value="<?php echo $data2['skin'] ?>">
 							  	</div>
 							</div>
 
@@ -118,7 +126,7 @@
 							<div class="control-group">
 								<label class="control-label" for="heent">HEENT</label>
 							    <div class="controls">
-							    	<input id="heent" name="heent" type="text" placeholder="Head, Eyes, Ears, Nose, and Throat" class="form-control" required="" autocomplete="off">
+							    	<input id="heent" name="heent" type="text" placeholder="Head, Eyes, Ears, Nose, and Throat" class="form-control" required="" autocomplete="off" value="<?php echo $data2['heent'] ?>">
 							  	</div>
 							</div>
 
@@ -126,7 +134,7 @@
 							<div class="control-group">
 								<label class="control-label" for="hnl">Heart and Lungs</label>
 							    <div class="controls">
-							    	<input id="hnl" name="hnl" type="text" placeholder="Heart and Lungs" class="form-control" required="" autocomplete="off">
+							    	<input id="hnl" name="hnl" type="text" placeholder="Heart and Lungs" class="form-control" required="" autocomplete="off" value="<?php echo $data2['hnl'] ?>">
 							  	</div>
 							</div>
 
@@ -134,12 +142,17 @@
 							<div class="control-group">
 								<label class="control-label" for="remarks">Remarks</label>
 							    <div class="controls">
-							    	<input id="remarks" name="remarks" type="text" placeholder="Remarks" class="form-control" autocomplete="off">
+								    <select id="remarks" name="remarks" class="form-control" required="">
+								     	<option></option>
+								    	<option <?php if($data2['remarks'] == 'Accepted') echo 'selected="selected"'; ?>>Accepted</option>
+								    	<option <?php if($data2['remarks'] == 'Deferred') echo 'selected="selected"'; ?>>Deferred</option>
+								    	<option <?php if($data2['remarks'] == 'Temporarily Deferred') echo 'selected="selected"'; ?>>Temporarily Deferred</option>
+								    </select>
 							  	</div>
 							</div>
 
 							<!-- Text input-->
-							<div class="control-group">
+							<div class="control-group" hidden="">
 								<label class="control-label" for="reason">Reason</label>
 							    <div class="controls">
 							    	<input id="reason" name="reason" type="text" placeholder="Reasons" class="form-control" autocomplete="off">

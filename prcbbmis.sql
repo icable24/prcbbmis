@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2017 at 11:11 AM
+-- Generation Time: Jan 23, 2017 at 10:09 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.5.38
 
@@ -84,9 +84,22 @@ INSERT INTO `bloodbank` (`bankid`, `bankname`, `bankaddress`, `country`, `contac
 CREATE TABLE `bloodinformation` (
   `bloodid` int(11) NOT NULL,
   `bloodgroup` varchar(3) NOT NULL,
-  `rhtype` varchar(8) NOT NULL,
-  `component` varchar(20) NOT NULL
+  `rhtype` varchar(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bloodinformation`
+--
+
+INSERT INTO `bloodinformation` (`bloodid`, `bloodgroup`, `rhtype`) VALUES
+(1, 'A', 'Positive'),
+(2, 'A', 'Negative'),
+(3, 'B', 'Positive'),
+(4, 'B', 'Negative'),
+(5, 'AB', 'Positive'),
+(6, 'AB', 'Negative'),
+(7, 'O', 'Positive'),
+(8, 'O', 'Negative');
 
 -- --------------------------------------------------------
 
@@ -96,10 +109,6 @@ CREATE TABLE `bloodinformation` (
 
 CREATE TABLE `bloodrequest` (
   `reqid` int(11) NOT NULL,
-  `hospital` varchar(100) NOT NULL,
-  `diagnosis` varchar(100) NOT NULL,
-  `transhistory` varchar(100) NOT NULL,
-  `quantity` int(3) NOT NULL,
   `reqstatus` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -145,6 +154,13 @@ CREATE TABLE `collection` (
   `rhtype` varchar(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `collection`
+--
+
+INSERT INTO `collection` (`collid`, `donorcollectid`, `cfname`, `cmname`, `clname`, `collectiondate`, `unitserialno`, `bagtype`, `bloodtype`, `rhtype`) VALUES
+(3000001, '1000011 ', 'Jimmy', 'Belviatura', 'Virtucio Jr. ', '2017-01-10', 'C213012', '250 cc', 'A', 'Positive');
+
 -- --------------------------------------------------------
 
 --
@@ -178,15 +194,21 @@ CREATE TABLE `donor` (
   `dnationality` varchar(30) NOT NULL,
   `demail` varchar(50) NOT NULL,
   `dregdate` varchar(18) NOT NULL,
-  `dremarks` varchar(20) NOT NULL
+  `dremarks` varchar(20) NOT NULL,
+  `bloodinfo` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `donor`
 --
 
-INSERT INTO `donor` (`did`, `dfname`, `dmname`, `dlname`, `daddress`, `dbirthdate`, `dgender`, `dreligion`, `dcontact`, `dtype`, `dnationality`, `demail`, `dregdate`, `dremarks`) VALUES
-(1000007, 'Allyn', 'Alipo-on', 'Able', 'Vallega St. Baranggay 1 Poblacion, Himamaylan Cit, Negros Occidental', '1996-11-24', 'male', 'Roman Catholic', '09999833269', 'Walk-in', 'Filipino', 'icable130@gmail.com', '01-20-2017', 'Pending');
+INSERT INTO `donor` (`did`, `dfname`, `dmname`, `dlname`, `daddress`, `dbirthdate`, `dgender`, `dreligion`, `dcontact`, `dtype`, `dnationality`, `demail`, `dregdate`, `dremarks`, `bloodinfo`) VALUES
+(1000007, 'Allyn', 'Alipo-on', 'Able', 'Vallega St. Baranggay 1 Poblacion, Himamaylan Cit, Negros Occidental', '1996-11-24', 'male', 'Roman Catholic', '09999833269', 'Walk-in', 'Filipino', 'icable130@gmail.com', '01-20-2017', 'Accepted', 1),
+(1000011, 'Jimmy', 'Belviatura', 'Virtucio Jr. ', 'Cebu', '1997-05-11', 'male', 'Roman Catholic', '09123828492', 'Walk-in', 'Filipino', '', '01-22-2017', 'Accepted', 1),
+(1000012, 'Luzzcia Loraine', 'Barrios', 'Alvarez', 'Murcia', '1996-02-24', 'female', 'INC', '012830182123', 'Walk-in', 'Filipino', '', '01-23-2017', 'Accepted', 1),
+(1000013, 'Jeremiah', 'Barrios', 'Canuto', 'Bacolod', '1995-12-10', 'male', 'Baptist', '01923012321', 'Walk-in', 'Filipino', '', '01-23-2017', 'Accepted', 5),
+(1000014, 'Shaun Elijah', 'Malvar', 'Dadibalos', 'Antique', '2016-12-27', 'male', 'Roman Catholic', '1231231', 'Walk-in', 'Filipino', '', '01-23-2017', 'Pending', 7),
+(1000015, 'Ana Marie', 'Garriel', 'Quilantang', 'St. Francis Village, Taculing, Bacolod City, Negros Occidental', '1980-04-18', 'female', 'Christian', '09177012395', 'Walk-in', 'Filipino', '', '01-23-2017', 'Pending', 1);
 
 -- --------------------------------------------------------
 
@@ -199,7 +221,7 @@ CREATE TABLE `examination` (
   `did` int(11) NOT NULL,
   `bldpressure` varchar(11) NOT NULL,
   `pulserate` int(11) NOT NULL,
-  `bodytemp` int(11) NOT NULL,
+  `bodytemp` float NOT NULL,
   `genapp` varchar(50) NOT NULL,
   `skin` varchar(50) NOT NULL,
   `heent` varchar(50) NOT NULL,
@@ -213,9 +235,12 @@ CREATE TABLE `examination` (
 --
 
 INSERT INTO `examination` (`examid`, `did`, `bldpressure`, `pulserate`, `bodytemp`, `genapp`, `skin`, `heent`, `hnl`, `remarks`, `reason`) VALUES
-(1000007, 0, '', 0, 0, '', '', '', '', 'Pending', ''),
-(1000008, 0, '', 0, 0, '', '', '', '', 'Pending', ''),
-(1000009, 0, '', 0, 0, '', '', '', '', 'Pending', '');
+(1000007, 0, '120/80', 75, 36, 'Unremarkable', 'Unremarkable', 'Unremarkable', 'Unremarkable', 'Accepted', ''),
+(1000011, 0, '120/80', 75, 36.4, 'Unremarkable', 'Unremarkable', 'Unremarkable', 'Unremarkable', 'Accepted', ''),
+(1000012, 0, '120/80', 75, 36, 'Unremarkable', 'Unremarkable', 'Unremarkable', 'Unremarkable', 'Accepted', ''),
+(1000013, 0, '120/80', 75, 37, 'Unremarkable', 'Unremarkable', 'Unremarkable', 'Unremarkable', 'Accepted', ''),
+(1000014, 0, '123', 123, 123, 'asd', 'asd', 'asd', 'asd', 'Accepted', ''),
+(1000015, 0, '123', 123, 123, 'asd', 'asd', 'asd', 'asd', 'Accepted', '');
 
 -- --------------------------------------------------------
 
@@ -274,7 +299,8 @@ CREATE TABLE `inventory` (
   `unitserialno` int(11) NOT NULL,
   `component` varchar(10) NOT NULL,
   `bloodtype` varchar(2) NOT NULL,
-  `rhtype` varchar(8) NOT NULL
+  `rhtype` varchar(8) NOT NULL,
+  `status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -284,22 +310,24 @@ CREATE TABLE `inventory` (
 --
 
 CREATE TABLE `patient` (
-  `pid` varchar(18) NOT NULL,
-  `pname` varchar(50) NOT NULL,
+  `pid` int(11) NOT NULL,
+  `pfname` varchar(50) NOT NULL,
+  `pmname` varchar(50) NOT NULL,
+  `plname` varchar(50) NOT NULL,
   `paddress` varchar(100) NOT NULL,
   `pbirthdate` date NOT NULL,
   `pgender` varchar(6) NOT NULL,
   `pcontact` varchar(20) NOT NULL,
-  `pregdate` varchar(18) NOT NULL
+  `pregdate` varchar(18) NOT NULL,
+  `bloodinfo` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `patient`
 --
 
-INSERT INTO `patient` (`pid`, `pname`, `paddress`, `pbirthdate`, `pgender`, `pcontact`, `pregdate`) VALUES
-('011720170947', 'Allyn A. Able', 'vallega', '2017-01-03', 'male', '123', '01-17-2017'),
-('011820170102', 'Aiai De las Alas', 'Quezon City, Philippines', '1967-09-20', 'female', '09991234513', '01-18-2017');
+INSERT INTO `patient` (`pid`, `pfname`, `pmname`, `plname`, `paddress`, `pbirthdate`, `pgender`, `pcontact`, `pregdate`, `bloodinfo`) VALUES
+(4000002, 'Allyn', 'Alipo-on', 'Able', 'Vallega', '2017-01-13', 'male', '123', '01-23-2017', 7);
 
 -- --------------------------------------------------------
 
@@ -318,15 +346,21 @@ CREATE TABLE `screening` (
   `wbc` int(25) NOT NULL,
   `pltcount` int(25) NOT NULL,
   `screendate` varchar(18) NOT NULL,
-  `remarks` varchar(20) NOT NULL
+  `remarks` varchar(20) NOT NULL,
+  `reason` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `screening`
 --
 
-INSERT INTO `screening` (`scrid`, `did`, `weight`, `spgravity`, `hemgb`, `hemtcrt`, `rbc`, `wbc`, `pltcount`, `screendate`, `remarks`) VALUES
-(1000007, 0, 0, 0, 0, 0, 0, 0, 0, '', 'Pending');
+INSERT INTO `screening` (`scrid`, `did`, `weight`, `spgravity`, `hemgb`, `hemtcrt`, `rbc`, `wbc`, `pltcount`, `screendate`, `remarks`, `reason`) VALUES
+(1000007, 0, 123, 123, 123, 123, 123, 123, 123, '01-22-2017', 'Accepted', ''),
+(1000011, 0, 0, 0, 0, 0, 0, 0, 0, '', 'Accepted', ''),
+(1000012, 0, 0, 0, 0, 0, 0, 0, 0, '01-22-2017', 'Accepted', ''),
+(1000013, 0, 0, 0, 0, 0, 0, 0, 0, '', 'Accepted', ''),
+(1000014, 0, 0, 0, 0, 0, 0, 0, 0, '', 'Pending', ''),
+(1000015, 0, 0, 0, 0, 0, 0, 0, 0, '', 'Pending', '');
 
 -- --------------------------------------------------------
 
@@ -420,7 +454,8 @@ ALTER TABLE `donor`
   ADD PRIMARY KEY (`did`),
   ADD KEY `dfname` (`dfname`,`dmname`,`dlname`),
   ADD KEY `did` (`did`),
-  ADD KEY `remarks` (`dremarks`);
+  ADD KEY `remarks` (`dremarks`),
+  ADD KEY `bloodinfo` (`bloodinfo`);
 
 --
 -- Indexes for table `examination`
@@ -446,7 +481,8 @@ ALTER TABLE `inventory`
 -- Indexes for table `patient`
 --
 ALTER TABLE `patient`
-  ADD PRIMARY KEY (`pid`);
+  ADD PRIMARY KEY (`pid`),
+  ADD KEY `bloodinfo` (`bloodinfo`);
 
 --
 -- Indexes for table `screening`
@@ -484,7 +520,7 @@ ALTER TABLE `bloodbank`
 -- AUTO_INCREMENT for table `bloodinformation`
 --
 ALTER TABLE `bloodinformation`
-  MODIFY `bloodid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `bloodid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `bloodrequest`
 --
@@ -504,7 +540,7 @@ ALTER TABLE `bloodtransfer`
 -- AUTO_INCREMENT for table `collection`
 --
 ALTER TABLE `collection`
-  MODIFY `collid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `collid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3000002;
 --
 -- AUTO_INCREMENT for table `dispensing`
 --
@@ -514,7 +550,7 @@ ALTER TABLE `dispensing`
 -- AUTO_INCREMENT for table `donor`
 --
 ALTER TABLE `donor`
-  MODIFY `did` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000008;
+  MODIFY `did` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000018;
 --
 -- AUTO_INCREMENT for table `history`
 --
@@ -525,6 +561,11 @@ ALTER TABLE `history`
 --
 ALTER TABLE `inventory`
   MODIFY `invid` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `patient`
+--
+ALTER TABLE `patient`
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4000003;
 --
 -- AUTO_INCREMENT for table `user`
 --

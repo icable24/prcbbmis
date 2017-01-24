@@ -65,15 +65,16 @@ $pages = ceil($total / $perPage);
 					<?php								
 						foreach ($collection as $row) {
 							echo '<tr>';
-								echo '<td>'. 'C01-'.$row['donorcollectid'] . '</td>';
+								echo '<td>'.$row['donorcollectid'] . '</td>';
 								echo '<td>'. $row['unitserialno'] . '</td>';
 								echo '<td>'.$row['cfname'].' '.  substr($row['cmname'], 0 , 1) . '. ' . $row['clname'] .'</td>';
 								echo '<td>'.$row['collectiondate'].'</td>';
                                 echo '<td>'.$row['bagtype'].'</td>';
-                                echo '<td>'.$row['bloodtype'].'</td>';
+                                echo '<td>'.$row['bloodtype'].'</td>';	
                                 echo '<td>'.$row['rhtype'].'</td>';
                                                                 
 								echo '<td class="text-center">
+											<a class="btn btn-primary btn-md" href="printcollection.php?id='.$row['donorcollectid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-print"></span></a>
 											<a class="btn btn-warning btn-md" href="#" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-pencil"></span></a>
 											<a class="btn btn-danger btn-md" href="#" data-toggle="tooltip" title="Delete"><span class="glyphicon glyphicon-trash"></span></a>
 							  		  </td>';

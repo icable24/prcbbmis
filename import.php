@@ -24,7 +24,7 @@ include 'header.php';
                                                               <select id="categs" name="country" class="form-control" style="width: 3in">
                                                                 <option value="none">-Select File to Import-</option>
                                                                 <option>Donor</option>
-                                                                <option>Patient</option>
+                                                                <option value="">Patient</option>
                                                                 <option>Blood Bank</option>
                                                                 <option>User</option>
                                                                 
@@ -70,11 +70,11 @@ if(isset($_POST["Import"]))
         {
             //print_r($emapData);
             //exit();
-            $sql = "INSERT into patient(pname, paddress, pbirthdate, pgender, pcontact, pregdate) values ('$emapData[0]','$emapData[1]','$emapData[2]','$emapData[3]','$emapData[4]','$emapData[5]')";
+            $sql = "INSERT into patient(pid, pfname, pmname, plname, paddress, pbirthdate, pgender, pcontact, pregdate) values ('$emapData[0]','$emapData[1]','$emapData[2]','$emapData[3]','$emapData[4]','$emapData[5]','$emapData[6]','$emapData[7]','$emapData[8]')";
             mysql_query($sql);
         }
         fclose($file);
-        echo 'CSV File has been successfully Imported';
+        
         header('Location: import.php');
     }
     else

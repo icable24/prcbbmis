@@ -37,7 +37,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="pfname">First name</label>
 							  <div class="controls">
-							    <input id="pfname" name="pfname" type="text" placeholder="enter first name" class="form-control" required="">
+							    <input id="pfname" name="pfname" type="text" placeholder="Enter first name" class="form-control" required="">
 							    
 							  </div>
 							</div>
@@ -45,7 +45,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="pmname">Middle name</label>
 							  <div class="controls">
-							    <input id="pmname" name="pmname" type="text" placeholder="enter middle name" class="form-control" required="">
+							    <input id="pmname" name="pmname" type="text" placeholder="Enter middle name" class="form-control" required="">
 							    
 							  </div>
 							</div>
@@ -53,9 +53,29 @@
 							<div class="control-group">
 							  <label class="control-label" for="plname">Last name</label>
 							  <div class="controls">
-							    <input id="plname" name="plname" type="text" placeholder="enter last name" class="form-control" required="">
+							    <input id="plname" name="plname" type="text" placeholder="Enter last name" class="form-control" required="">
 							    
 							  </div>
+							</div>
+
+							<div class="control-group">
+								<label class="control-label" for="bloodgroup">Blood Group</label>
+								<select class="form-control" id="bloodgroup" name="bloodgroup">
+									<option></option>
+									<option>A</option>
+									<option>B</option>
+									<option>AB</option>
+									<option>O</option>
+								</select>
+							</div>
+
+							<div class="control-group">
+								<label class="control-label" for="rhtype">Rh Type</label>
+								<select class="form-control" name="rhtype" id="rhtype">
+									<option></option>
+									<option>Positive</option>
+									<option>Negative</option>
+								</select>
 							</div>
 
 							<!-- Text input-->

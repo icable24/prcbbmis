@@ -18,6 +18,14 @@
         $data = $q->fetch(PDO::FETCH_ASSOC);
         Database::disconnect();
     }
+
+    $pdo2 = Database::connect();
+    $pdo2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql2 = "SELECT * FROM screening WHERE scrid = ?";
+    $q2 = $pdo2->prepare($sql2);
+    $q2->execute(array($id));
+    $data2 = $q2->fetch(PDO::FETCH_ASSOC);
+    Database::disconnect();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,33 +65,36 @@
                             <form class="form-horizontal" method="post" action="./php/addscreening.php">
 
                                 <!-- Text input-->
+                                <input class="form-control" type="hidden" id="did" name="did" value="<?php echo $data['did']?>">
                                 <div class="control-group">
-                                    <label class="control-label">Donor ID</label>
-                                    <input class="form-control" value="<?php echo $data['did']?>" disabled> 
+                                    <label class="control-label" for="did">Donor ID</label>
+                                    <div class="controls">
+                                        <input id="did" type="text"  class="form-control" value="<?php echo 'D03-' . $data['did'] ?>" disabled>                             
+                                  </div>
                                 </div>
 
                                 <div class="control-group">
-                                  <label class="control-label">Weight</label><label class="control-label eg">(in Kg)</label>
+                                  <label class="control-label" for="spgravity">Weight</label><label class="control-label eg">(in Kg)</label>
                                   <div class="controls">
-                                    <input class="form-control" required="">
+                                    <input class="form-control" id="weight" name="weight" required="">
                                     
                                   </div>
                                 </div>
 
                                 <!-- Text input-->
                                 <div class="control-group">
-                                  <label class="control-label">Specific Gravity</label><label class="control-label eg">()</label>
+                                  <label class="control-label" for="spgravity">Specific Gravity</label><label class="control-label eg">()</label>
                                   <div class="controls">
-                                    <input class="form-control" required="">
+                                    <input class="form-control" id="spgravity" name="spgravity" required="">
                                     
                                   </div>
                                 </div>
 
                                 <!-- Text input-->
                                 <div class="control-group">
-                                  <label class="control-label">Hemoglobin</label><label class="control-label eg">()</label>
+                                  <label class="control-label" for="hemgb">Hemoglobin</label><label class="control-label eg">()</label>
                                   <div class="controls">
-                                    <input class="form-control" required="">
+                                    <input class="form-control" id="hemgb" name="hemgb" required="">
                                     
                                   </div>
                                 </div>
@@ -91,38 +102,58 @@
 
                                 <!-- Text input-->
                                 <div class="control-group">
-                                    <label class="control-label">Hematocrit</label><label class="control-label eg">()</label>
+                                    <label class="control-label" for="hemtcrt">Hematocrit</label><label class="control-label eg">()</label>
                                     <div class="controls">
-                                        <input class="form-control" required="">
+                                        <input class="form-control" id="hemtcrt" name="hemtcrt" required="">
                                     </div>
                                 </div>
 
                                 <!-- Text input-->
                                 <div class="control-group">
-                                    <label class="control-label">Red Blood Cell</label><label class="control-label eg">()</label>
+                                    <label class="control-label" for="rbc">Red Blood Cell</label><label class="control-label eg">()</label>
                                     <div class="controls">
-                                        <input class="form-control" required="">
+                                        <input class="form-control" id="rbc" name="rbc" required="">
                                     </div>
                                 </div>
 
                                 <!-- Text input-->
                                 <div class="control-group">
-                                    <label class="control-label" >White Blood Cell</label>
+                                    <label class="control-label" for="wbc">White Blood Cell</label>
                                     <div class="controls">
-                                        <input class="form-control" required="">
+                                        <input class="form-control" id="wbc" name="wbc" required="">
                                     </div>
                                 </div>
 
                                 <!-- Text input-->
                                 <div class="control-group">
-                                    <label class="control-label">Platelet Count</label><label class="control-label eg">()</label>
+                                    <label class="control-label" for="pltcount">Platelet Count</label><label class="control-label eg">()</label>
                                     <div class="controls">
-                                        <input class="form-control" required="">
+                                        <input class="form-control" id="pltcount" name="pltcount" required="">
                                     </div>
                                 </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="remarks">Remarks</label>
+                                    <div class="controls">
+                                        <select id="remarks" name="remarks" class="form-control" required="">
+                                            <option></option>
+                                            <option <?php if($data2['remarks'] == 'Accepted') echo 'selected="selected"'; ?>>Accepted</option>
+                                            <option <?php if($data2['remarks'] == 'Deferred') echo 'selected="selected"'; ?>>Deferred</option>
+                                            <option <?php if($data2['remarks'] == 'Temporarily Deferred') echo 'selected="selected"'; ?>>Temporarily Deferred</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            <!-- Text input-->
+                            <div class="control-group" hidden="">
+                                <label class="control-label" for="reason">Reason</label>
+                                <div class="controls">
+                                    <input id="reason" name="reason" type="text" placeholder="Reasons" class="form-control" autocomplete="off">
+                                </div>
+                            </div>  
+
 
                         </div>
-                            </form>
 							<!--Buttons-->
 							<div class="panel-footer">	
 								<div class="form-actions text-center forms">

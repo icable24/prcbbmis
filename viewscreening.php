@@ -123,6 +123,23 @@
                                     </div>
                                 </div>
 
+                                <div class="control-group">
+                                    <label class="control-label">Remarks</label>
+                                    <div class="controls">
+                                        <input class="form-control" value="<?php echo $data['remarks'] ?>" disabled="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="control-group" hidden="">
+                                <label class="control-label" for="reason">Reason</label>
+                                <div class="controls">
+                                    <input id="reason" name="reason" type="text" placeholder="Reasons" class="form-control" autocomplete="off">
+                                </div>
+                            </div>  
+
+
                         </div>
                             </form>
                         </div>

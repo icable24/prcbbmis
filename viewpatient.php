@@ -98,7 +98,7 @@ $pages = ceil($total / $perPage);
 							$sql = 'SELECT * FROM patient ORDER BY pid DESC';							
 							foreach ($pdo->query($sql) as $row) {
 								echo '<tr>';
-									echo '<td>'. 'P01-'. $row['pid'] . '</td>';
+									echo '<td>'. $row['pid'] . '</td>';
 									echo '<td>'.$row['pfname']. ' ' . substr($row['pfname'],0,1) .'. ' . $row['plname'].'</td>';
 									echo '<td>'.$row['pregdate'].'</td>';
 									echo '<td class="text-center">

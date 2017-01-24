@@ -35,55 +35,15 @@
                                            
 
                                                 <center>
-							<!-- Text input-->
-							<div class="control-group">
-							  <label class="control-label" for="sdate">Start Date:</label>
-							  <div class="controls">
-                                                              <input id="sdate" name="sdate" type="sdate" class="form-control datepicker" style="width: 2in">
-							    <script src="js/jquery-1.9.1.min.js"></script>
-										<script src="js/bootstrap-datepicker.js"></script>
-										<script type="text/javascript">
-											// When the document is ready
-											$(document).ready(function () {
-												
-												$('#sdate').datepicker({
-													format: "yyyy-mm-dd"
-												});  
-											
-											});
-									</script>
-							  </div>
-							</div>
-                                                        <!-- Text input-->
-							<div class="control-group">
-							  <label class="control-label" for="edate">End Date:</label>
-							  <div class="controls">
-                                                              <input id="edate" name="edate" type="edate" class="form-control datepicker" style="width: 2in">
-							    <script src="js/jquery-1.9.1.min.js"></script>
-										<script src="js/bootstrap-datepicker.js"></script>
-										<script type="text/javascript">
-											// When the document is ready
-											$(document).ready(function () {
-												
-												$('#edate').datepicker({
-													format: "yyyy-mm-dd"
-												});  
-											
-											});
-									</script>
-							  </div>
-							</div>
 
                                                         <!-- Select Basic -->
 							<div class="control-group">
 							  <label class="control-label" for="categ">Category</label>
 							  <div class="controls">
-                                                              <select id="categ" name="categ" class="form-control" style="width: 3in" onchange="updateCheckBox(this)" >
+                                                              <select id="categ" name="categ" class="form-control" style="width: 3in" onchange="updateCheckBox(this)">
                                                                 
                                                                 <option value="none">-- Select Category --</option>
-								<option value="donor">Donor</option>
-								<option value="patient">Patient</option>
-                                                                <option value="odr">Office Donor Registry</option>
+								<option value="odr">Office Donor Registry</option>
 								<option value="mdr">MBD Donor Registry</option>
                                                                 <option value="bd">Blood Dispensed</option>
                                                                 <option value="btc">Blood Type/Component</option>
@@ -92,15 +52,7 @@
                                                                   
                                                                 
 							    </select>
-                                                              <br>
-                                                              <div style="text-align:center; width: 3in; font-size: 16px" >
-                                                              <p >
-                                                                  <input type="checkbox" hidden="" name="donor"  id="donor" /> ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" hidden="" name="donor" id="chk2" /> Birthdate <br />
-                                                                  <input type="checkbox" hidden="" name="donor" id="donor" /> Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" hidden="" name="donor" id="chk2" /> Gender <br />
-                                                                  <input type="checkbox" hidden="" name="donor" id="donor" /> Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" hidden="" name="donor" id="chk2" /> Contact <br />
-                                                                  
-        </p>            
-                                                              </div>
+                                                             
                                                               <br>
 							  </div>
 							</div>
@@ -138,25 +90,14 @@
                 <br>
                 <br>
                 <br>
-                <script>
-    function updateCheckBox(opts) {
-        var chks = document.getElementsByName("donor");
-
-        if (opts.value == 'donor') {
-            for (var i = 0; i <= chks.length; i++) {
-                chks[i].hidden = false;
-            }
-        }
-        else {
-            for (var i = 0; i <= chks.length; i++) {
-                chks[i].hidden = true;
-                chks[i].checked = false;
-            }
-        }
-    }
-</script>
+               <br>
+                <br>
+                <br>
+               <br>
+                <br>
+                <br>
+               
 	
-      
 <!--edit @ footer.php-->
 <?php
 	include('footer.php');

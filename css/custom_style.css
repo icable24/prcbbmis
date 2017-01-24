@@ -243,11 +243,11 @@ footer {
 
 				.notification-counter {   
 					position: absolute;
-					top: 25px;
-					left: 30px;
+					top: 7px;
+					left: 10px;
 					
-					background-color: rgba(212, 19, 13, 1);
-					color: #fff;
+					background-color: rgba(255, 255, 255, 0.78);
+					color: #c00000;
 					border-radius: 3px;
 					padding: 3px 3px 3px 3px;
 					font: 10px Verdana;
@@ -284,3 +284,18 @@ a>span>img{
 ul>li{
     list-style-type: none;
 }
+
+.nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    background-color: #ffd5d5;
+}
+
+.nav-tabs-black {
+    display: block;
+    padding: 10px 15px;
+    color: black !important;
+}
+

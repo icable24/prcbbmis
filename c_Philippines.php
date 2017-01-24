@@ -39,17 +39,14 @@
 </div>
 
     <script>
-    
       function initMap() {
-        var philippines = {lat: 13.094825989569262, lng: 122.42983411796877};
-        var bacolod = {lat: 10.6760853, lng: 122.9554483};
-        var cebu = {lat: 10.3123626, lng: 123.8896447};
+        var philippines = {lat: 11.5778583, lng: 113.5735753};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 5,
           center: philippines
         });
         var marker = new google.maps.Marker({
-          position: philippines, bacolod, cebu, 
+          position: philippines,
           map: map
         });
       }
@@ -58,10 +55,13 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDW-KU2LLQRjmIu7W10l3jD0VDLwrQzGP0 
 &callback=initMap">
     </script>
-<br><br>
+
+ <br><br>
     
 <?php 
 			include ('footer.php');
 		?>
+	
+
 </body>
 </html>
