@@ -1,3 +1,4 @@
+
 <?php
 
 require_once('tcpdf.php');
@@ -36,7 +37,7 @@ $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('Philippine Red Cross');
-$pdf->SetTitle('MBD Donor Report');
+$pdf->SetTitle('Donor Report');
 $pdf->SetSubject(' ');
 $pdf->SetKeywords(' ');
 
@@ -56,7 +57,7 @@ $txt = <<<EOD
 
 Philippine Red Cross Blood Bank Management Information System
 
-MBD Donor Report
+Donor Report
 
 
 
@@ -109,7 +110,9 @@ $select_query = mysqli_query($db_con,$query);
 $tbl = '<table style="width: 638px;" cellspacing="0">';
 
 $did = "Donor ID";
-$dfname = "Name";
+$dfname="Full Name";
+$dmname="";
+$dlname= "";
 $daddress = "Address";
 $dcontact = "Contact";
 $dtype = "Donor Type";
@@ -117,7 +120,7 @@ $dtype = "Donor Type";
 $tbl = $tbl . '
       <tr>
           <td style="border: 1px solid #ffffff; width: 130px;">'.$did.'</td>
-          <td style="border: 1px solid #ffffff; width: 110px;">'.$dfname.'</td>
+          <td style="border: 1px solid #ffffff; width: 110px;">'.$dfname.$dmname.$dlname.'</td>
           <td style="border: 1px solid #ffffff; width: 130px;">'.$daddress.'</td>
           <td style="border: 1px solid #ffffff; width: 90px;">'.$dcontact.'</td>
           <td style="border: 1px solid #ffffff; width: 90px;">'.$dtype.'</td>
@@ -125,11 +128,9 @@ $tbl = $tbl . '
 
 while($row = mysqli_fetch_array($select_query)){
   $did = $row["did"];
-  $dname = $row["dfname"]. ' ' . substr($row["dmname"],0 , 1 ).'. '. $row["dlname"];
   $dfname = $row["dfname"];
   $dmname = $row["dmname"];
   $dlname = $row["dlname"];
-  $dname = $dfname . ' ' .substr($dmname, 0, 1) . '. ' . $dlname;
   $daddress = $row["daddress"];
   $dcontact = $row["dcontact"];
   $dtype = $row["dtype"];
@@ -138,8 +139,8 @@ while($row = mysqli_fetch_array($select_query)){
 
   $tbl = $tbl . '
       <tr>
-          <td style="border: 1px solid #000000; width: 130px;">'.$did.'</td>
-          <td style="border: 1px solid #000000; width: 110px;">'.$dname.'</td>
+          <td style="border: 1px solid #000000; width: 130px;">'. 'D01-' .$did.'</td>
+          <td style="border: 1px solid #000000; width: 110px;">'.$dfname.$dmname.$dlname.'</td>
           <td style="border: 1px solid #000000; width: 130px;">'.$daddress.'</td>
           <td style="border: 1px solid #000000; width: 80px;">'.$dcontact.'</td>
           <td style="border: 1px solid #000000; width: 80px;">'.$dtype.'</td>
