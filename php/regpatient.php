@@ -5,8 +5,8 @@
 
 		//variables
 		$pfname = $_POST['pfname'];
-        $pmname = $_POST['pmname'];
-        $plname = $_POST['plname'];
+                $pmname = $_POST['pmname'];
+                $plname = $_POST['plname'];
 		$paddress = $_POST['paddress'];
 		$pbirthdate = $_POST['pbirthdate'];
 		$pgender = $_POST['pgender'];

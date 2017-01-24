@@ -14,7 +14,6 @@
         height: 400px;
         width: 100%;
        }
-
     </style>
 <?php include('header.php'); ?> 
     <br><br>
@@ -39,39 +38,16 @@
 	</div>
 </div>
 
-    <div id="map"></div>
     <script>
-
-      // This example displays a marker at the center of Australia.
-      // When the user clicks the marker, an info window opens.
-
       function initMap() {
-        var philippines = {lat: 13.094825989569262, lng: 122.42983411796877};
+        var philippines = {lat: 11.5778583, lng: 113.5735753};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 5,
           center: philippines
         });
-
-        var contentString = '<div id="content">'+
-            '<div id="siteNotice">'+
-            '</div>'+
-            '<h1 id="firstHeading" class="firstHeading"></h1>'+
-            '<div id="bodyContent">'+
-            '<p>Available Blood</p>'+
-            '</div>'+
-            '</div>';
-
-        var infowindow = new google.maps.InfoWindow({
-          content: contentString
-        });
-
         var marker = new google.maps.Marker({
           position: philippines,
-          map: map,
-          title: 'Philippines'
-        });
-        marker.addListener('click', function() {
-          infowindow.open(map, marker);
+          map: map
         });
       }
     </script>
@@ -80,10 +56,12 @@
 &callback=initMap">
     </script>
 
-<br><br>
+ <br><br>
     
 <?php 
 			include ('footer.php');
 		?>
+	
+
 </body>
 </html>

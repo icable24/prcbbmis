@@ -78,7 +78,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="categ">Category</label>
 							  <div class="controls">
-                                                              <select id="categ" name="categ" class="form-control" style="width: 3in" onchange="updateCheckBox(this)">
+                                                              <select id="categ" name="categ" class="form-control" style="width: 3in" onchange="updateCheckBox(this)" >
                                                                 
                                                                 <option value="none">-- Select Category --</option>
 								<option value="donor">Donor</option>
@@ -156,6 +156,7 @@
     }
 </script>
 	
+      
 <!--edit @ footer.php-->
 <?php
 	include('footer.php');
