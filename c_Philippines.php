@@ -18,7 +18,6 @@ body {
 }
 #map {
 	height: 100%;
-        
 }
     </style>
 <?php include('header.php'); ?> 
