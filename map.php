@@ -7,7 +7,7 @@
          documentation:
          https://developers.google.com/maps/documentation/javascript/tutorial -->
     <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
-<head>
+</head>
 <body>
  <style>
        #map {
@@ -44,7 +44,8 @@
     <script>
     
       function initMap() {
-        var ASEAN = {lat: 8.3226909, lng: 98.1730052};
+        var ASEAN = 
+                {lat: 8.3226909, lng: 98.1730052};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 4,
           center: ASEAN
