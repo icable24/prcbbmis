@@ -100,6 +100,13 @@
 									<option>Negative</option>
 								</select>
 							</div>
+                                                        <div class="control-group">
+							  <label class="control-label" for="qty">Quantity</label>
+							  <div class="controls">
+                                                              <input id="qty" name="qty" type="text" class="form-control" required="" disabled=>
+							    
+							  </div>
+							</div>
                                                         </div>
                                                         <div id="f2">
                                                         <div class="control-group">

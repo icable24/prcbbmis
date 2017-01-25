@@ -6,17 +6,20 @@
          on this page. Replace it with your own styles as described in the
          documentation:
          https://developers.google.com/maps/documentation/javascript/tutorial -->
-    <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyDW-KU2LLQRjmIu7W10l3jD0VDLwrQzGP0" type="text/javascript"></script>
 </head>
 <body>
  <style>
-       #map {
-        height: 400px;
+     
+
+	 #map {
+        height: 500px;
         width: 100%;
        }
+
     </style>
 <?php include('header.php'); ?> 
-<br><br>
+    <br><br>
 <div class="container">
 	<div class="col-lg-3">
 		<div class="list-group side_bar">
@@ -33,34 +36,70 @@
 		</div>
 	</div>
 	<div class="col-lg-9">
-		<div id='map' style='width: auto; height: 500px;'></div>
+		<div id='map'></div>
 		<br>
 	</div>
 </div>
 	
-   
- 
-    
-    <script>
-    
-      function initMap() {
-        var ASEAN = 
-                {lat: 8.3226909, lng: 98.1730052};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: ASEAN
-        });
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDW-KU2LLQRjmIu7W10l3jD0VDLwrQzGP0 
-&callback=initMap">
-    </script>
-    <br><br>
+	
+
+
+<script type="text/javascript">
+    var locations = [
+      ['<strong>Brunei</strong><br>\<p>Available Blood</p><br>\
+	<a href="c_Brunei.php">Request</a>', 4.5254025,114.1591413,9],
+      ['<strong>Cambodia</strong><br>\<p>Available Blood</p><br>\
+	<a href="c_Cambodia.php">Request</a>', 12.2963276,104.7361466,7],
+      ['<strong>Indonesia</strong><br>\<p>Available Blood</p><br>\
+	<a href="c_Indonesia.php">Request</a>', -4.824171,121.7683894,5],
+      ['<strong>Laos</strong><br>\<p>Available Blood</p><br>\
+	<a href="c_Laos.php">Request</a>', 18.1644031,99.3924702,6],
+      ['<strong>Malaysia</strong><br>\<p>Available Blood</p><br>\
+	<a href="c_Malaysia.php">Request</a>', 5.1389094,102.1199891,6],
+      ['<strong>Myanmar</strong><br>\<p>Available Blood</p><br>\
+	<a href="c_Myanmar.php">Request</a>', 18.8780807,87.6368639,5],
+      ['<strong>Philippines</strong><br>\<p>Available Blood</p><br>\
+	<a href="c_Philippines.php">Request</a>', 12.1262138,122.4515049,5],
+      ['<strong>Singapore</strong><br>\<p>Available Blood</p><br>\
+	<a href="c_Singapore.php">Request</a>', 1.3150701,103.7069325,11],
+      ['<strong>Thailand</strong><br>\<p>Available Blood</p><br>\
+	<a href="c_Thailand.php">Request</a>', 13.0109028,96.9927392,6],
+      ['<strong>Vietnam</strong><br>\<p>Available Blood</p><br>\
+	<a href="c_Vietnam.php">Request</a>', 15.86692,101.3096936,6],
+     
+    ];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 4,
+      center: new google.maps.LatLng(8.3226909, 98.1730052),
+     
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) { 
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+  </script>
+
+ <br><br>
     
 <?php 
 			include ('footer.php');
 		?>
-  </body>
+	
 
+</body>
 </html>
