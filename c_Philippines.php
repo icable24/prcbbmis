@@ -6,19 +6,17 @@
          on this page. Replace it with your own styles as described in the
          documentation:
          https://developers.google.com/maps/documentation/javascript/tutorial -->
-    <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyDW-KU2LLQRjmIu7W10l3jD0VDLwrQzGP0" type="text/javascript"></script>
 </head>
 <body>
  <style>
-         html,
-body {
-	height: 100%;
-	margin: 0;
-	padding: 0;
-}
-#map {
-	height: 100%;
-}
+     
+
+	 #map {
+        height: 500px;
+        width: 100%;
+       }
+
     </style>
 <?php include('header.php'); ?> 
     <br><br>
@@ -38,73 +36,63 @@ body {
 		</div>
 	</div>
 	<div class="col-lg-9">
-		<div id='map' style='width: auto; height: 500px;'></div>
+		<div id='map'></div>
 		<br>
 	</div>
-
-	<script src="script.js"></script>
-	<script async defer 
-					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDW-KU2LLQRjmIu7W10l3jD0VDLwrQzGP0&callback=initMap"></script>
-
-
-<script>
-var map;
-
-	function initMap() {
+</div>
 	
-	var broadway = {
-		info: 'ok',
-		lat: 41.976816,
-		long: -87.659916
-	};
+	
 
-	var belmont = {
-		info: '<strong>Chipotle on Belmont</strong><br>\
-					1025 W Belmont Ave<br> Chicago, IL 60657<br>\
-					<a href="https://goo.gl/maps/PHfsWTvgKa92">Get Directions</a>',
-		lat: 41.939670,
-		long: -87.655167
-	};
 
-	var sheridan = {
-		info: '<strong>Chipotle on Sheridan</strong><br>\r\
-					6600 N Sheridan Rd<br> Chicago, IL 60626<br>\
-					<a href="https://goo.gl/maps/QGUrqZPsYp92">Get Directions</a>',
-		lat: 42.002707,
-		long: -87.661236
-	};
-
-	var locations = [
-      [broadway.info, broadway.lat, broadway.long, 0],
-      [belmont.info, belmont.lat, belmont.long, 1],
-      [sheridan.info, sheridan.lat, sheridan.long, 2],
+<script type="text/javascript">
+    var locations = [
+      ['<strong>Philippine Red Cross Bacolod Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form.php">Request</a>', 10.6761724,122.9570703,19],
+      ['<strong>Philippine Red Cross Cebu Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form.php">Request</a>', 10.3124335,123.8917013,21],
+      ['<strong>Philippine Red Cross Cagayan Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form.php">Request</a>', 17.6132213,121.7273084,21],
+      ['<strong>Philippine Red Cross Vigan Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form.php">Request</a>', 17.5751601,120.3862903,21],
+      ['<strong>Philippine Red Cross Abra Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form.php">Request</a>', 17.5998337,120.618535,21],
+      ['<strong>Philippine Red Cross La Union Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form.php">Request</a>', 16.6146505,120.317175,21],
+      ['<strong>Philippine Red Cross Nueva Vizcaya Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form.php">Request</a>', 16.4878715,121.1597741,21],
+      ['<strong>Philippine Red Cross Quirino Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form.php">Request</a>', 16.5246079,121.5193845,21],
+      ['<strong>Philippine Red Cross Nueva Ecija Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form.php">Request</a>', 15.4900431,120.9690693,21],
+      ['<strong>Philippine Red Cross Bulacan Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form.php">Request</a>', 14.85694,120.8140655,21],
+    
     ];
 
-	var map = new google.maps.Map(document.getElementById('map'), {
-		zoom: 13,
-		center: new google.maps.LatLng(41.976816, -87.659916),
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-	});
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 6,
+      center: new google.maps.LatLng(12.1262138,122.4515049),
+     
+    });
 
-	var infowindow = new google.maps.InfoWindow({});
+    var infowindow = new google.maps.InfoWindow();
 
-	var marker, i;
+    var marker, i;
 
-	for (i = 0; i < locations.length; i++) {
-		marker = new google.maps.Marker({
-			position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-			map: map
-		});
+    for (i = 0; i < locations.length; i++) { 
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
 
-		google.maps.event.addListener(marker, 'click', (function (marker, i) {
-			return function () {
-				infowindow.setContent(locations[i][0]);
-				infowindow.open(map, marker);
-			}
-		})(marker, i));
-	}
-}
-</script>
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+  </script>
 
  <br><br>
     

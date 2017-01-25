@@ -34,13 +34,13 @@ var map;
 
 	function initMap() {
 	
-	var broadway = {
+	var BacolodChapter = {
 		info: 'ok',
 		lat: 41.976816,
 		long: -87.659916
 	};
 
-	var belmont = {
+	var CebuChapter = {
 		info: '<strong>Chipotle on Belmont</strong><br>\
 					1025 W Belmont Ave<br> Chicago, IL 60657<br>\
 					<a href="https://goo.gl/maps/PHfsWTvgKa92">Get Directions</a>',
@@ -48,7 +48,7 @@ var map;
 		long: -87.655167
 	};
 
-	var sheridan = {
+	var  = {
 		info: '<strong>Chipotle on Sheridan</strong><br>\r\
 					6600 N Sheridan Rd<br> Chicago, IL 60626<br>\
 					<a href="https://goo.gl/maps/QGUrqZPsYp92">Get Directions</a>',
