@@ -43,13 +43,13 @@
 
 <html>
     <head>
-        
+        <link rel="icon" type="image/png" href="img/PRClogo.png">
         <link href="css/header.css" rel="stylesheet" type="text/css"/>
         <link href="./css/custom_style.css" rel="stylesheet" type="text/css"/>
         <link href="css/font-awesome.min.css" rel="s tylesheet" type="text/css"/>
         
-        <a href="home.php"><link rel="icon" type="image/png" href="img/PRClogo.png"></a>
         <title>Philippine Red Cross Blood Bank Management Information System</title>
+        <link rel="icon" type="image/png" href="img/PRClogo.png">
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./css/bootstrap.min.css" type="text/css"/>
@@ -135,6 +135,7 @@
                                 <li><a href="viewdispensing.php" >DISPENSING</a></li>
                                 <li><a href="viewactivityscheduling.php" >ACTIVITY SCHEDULING</a></li>
                                 <li><a href="viewtest.php" >BLOOD TEST</a></li>
+                                <li><a href="inventory_list.php" >BLOOD INVENTORY</a></li>
                             </ul>
                         </li>
                          <?php if($user['usertype'] == 'Admin'){?>

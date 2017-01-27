@@ -99,7 +99,7 @@ $pages = ceil($total / $perPage);
 							foreach ($pdo->query($sql) as $row) {
 								echo '<tr>';
 									echo '<td>'. $row['pid'] . '</td>';
-									echo '<td>'.$row['pfname']. ' ' . substr($row['pfname'],0,1) .'. ' . $row['plname'].'</td>';
+									echo '<td>'.$row['pfname']. ' ' . substr($row['pmname'],0,1) .'. ' . $row['plname'].'</td>';
 									echo '<td>'.$row['pregdate'].'</td>';
 									echo '<td class="text-center">
 												<a class="btn btn-warning btn-md" href="patientupdate.php?id='.$row['pid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>

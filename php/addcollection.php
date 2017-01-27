@@ -13,19 +13,22 @@ if(!empty($_POST)){
 	$bagtype = $_POST['bagtype'];
 	$bloodtype = $_POST['bloodtype'];
 	$rhtype = $_POST['rhtype'];
+	$status = 'Pending';
 
-	//validate
-	$valid = true;
+	$pdo = Database::connect();
+	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$aa = $pdo->prepare('SELECT * FROM bloodinformation WHERE bloodgroup = ? AND rhtype = ?');
+	$aa->execute(array($bloodtype, $rhtype));
+	$bloodinfo = $aa->fetch(PDO::FETCH_ASSOC);
 
-	//store
-	if ($valid) {
-		$pdo = Database::connect();
-		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "INSERT INTO collection(donorcollectid, cfname, cmname, clname, unitserialno, collectiondate, bagtype, bloodtype, rhtype)values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		$q = $pdo->prepare($sql);
-		$q->execute(array($donorcollectid, $cfname, $cmname, $clname, $unitserialno, $collectiondate, $bagtype, $bloodtype, $rhtype));
-		Database::disconnect();
-		header("Location: ../viewcollection.php");
-	}
+	$sql = "INSERT INTO collection(donorcollectid, cfname, cmname, clname, unitserialno, collectiondate, bagtype, bloodinfo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+	$q = $pdo->prepare($sql);
+	$q->execute(array($donorcollectid, $cfname, $cmname, $clname, $unitserialno, $collectiondate, $bagtype, $bloodinfo['bloodid']));
 
-	} ?>
+	$sql2 = "INSERT INTO bloodbag (unitserialno, bagtype, bloodinfo) VALUES(?,?,?)";
+	$q2 = $pdo->prepare($sql2);
+	$q2->execute(array($unitserialno, $bagtype, $bloodinfo['bloodid']));
+	Database::disconnect();
+	header("Location: ../viewcollection.php");
+	} 
+?>

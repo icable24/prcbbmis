@@ -41,7 +41,7 @@
 
 <div class="control-group">
 <label for="name">Patient No.</label>
-<input type="text" class="form-control" required id="name" name="name" placeholder=" name" data-toggle="modal" data-target="#myModal" value="<?php 
+<input type="text" class="form-control" required id="pid" name="pid" placeholder="Name" data-toggle="modal" data-target="#myModal" value="<?php 
 
 $id = $_REQUEST['id'];
 if($id != null){
@@ -49,52 +49,57 @@ if($id != null){
 }else{
 	echo "";
 }?> ">
+<?php 
+			$d = $pdo->prepare("SELECT * FROM patient WHERE pid = ?");
+			$d->execute(array($id));
+			$d = $d->fetch(PDO::FETCH_ASSOC);
+
+			$blood = $pdo->prepare("SELECT * FROM bloodinformation WHERE bloodid = ?");
+			$blood->execute(array($d['bloodinfo']));
+			$blood = $blood->fetch(PDO::FETCH_ASSOC);
+
+?>
+</div>
+	<div class="control-group">
+		<label class="control-label">Patient Name</label>
+			<input class="form-control" value="<?php echo $d['pfname'] . ' ' . substr($d['pmname'], 0, 1) . '. ' . $d['plname']; 
+			?>
+			">
+			</input>
+	</div>
+			<div class="control-group">
+                <label class="control-label">Blood Type</label>
+                <input class="form-control" value="<?php echo $blood['bloodgroup'] . ' ' . $blood['rhtype'] ?>"></input>
+                <input type="hidden" name="bloodgroup" value="<?php $blood['bloodgroup'] ?>">
+                <input type="hidden" name="rhtype" value="<?php $blood['rhtype'] ?>">
+            </div>
+
+
 <div class="control-group">
-                            <label class="control-label" for="bloodtype">Blood Type</label>
-                            <select class="form-control" required="bloodtype" id="bloodtype" name="bloodtype">
-                                <option></option>
-                                <option value="">A</option>
-                                <option value="">B</option>
-                                <option value="">O</option>
-                                <option value="">AB</option>
-                                <option value="">-A</option>
-                                <option value="">-B</option>
-                                <option value="">-O</option>
-                                <option value="">-AB</option>
-                                </select>
-                        </div>
-
-
-<div class="control-group ">
-<label for="requestno">Request No.</label>
-<input type="text" class="form-control" required id="requestno" name="requestno" placeholder="Request No.">
+	<label for="component">Component</label>
+	<select class="form-control" name="component" id="component" required="">
+		<option></option>
+		<option>Whole Blood</option>
+		<option>FFP</option>
+		<option>Packed RBC</option>
+	</select>
 </div>
 
 <div class="control-group">
-<label for="hospital">Hospital</label>
-<input type="text" class="form-control" required id="hospital" name="hospital" placeholder="Hospital">
+	<label for="amount" class="control-label">Amount</label>
+	<select class="form-control" name="amount" id="amount" required="">
+		<option></option>
+		<option>250cc</option>
+		<option>450cc</option>
+	</select>
 </div>
 
 <div class="control-group">
-<label for="component">Component</label>
-<input type="text" class="form-control" required id="component" name="component" placeholder="Component">
+	<label for="quantity" class="control-label">Quantity</label>
+	<input class="form-control" name="quantity" id="quantity" required="" type="number"></input>
 </div>
 
-<div class="control-group">
-							  <label class="control-label" for="transfusion">Transfusion</label>
-							  	<input type="radio" name="transfusion" value="male" id="transfusion" checked> Yes
-			  					<input type="radio" name="transfusion" value="female" id="transfusion"> No
-							  </div>
 
-<div class="control-group">
-<label for="quantity">Quantity</label>
-<input type="text" class="form-control" required id="quantity" name="quantity" placeholder="Quantity">
-</div>
-
-<div class="control-group">
-<label for="diagnosis">Diagnosis</label>
-<input type="text" class="form-control" required id="diagnosis" name="diagnosis" placeholder="Diagnosis">
-</div>
 
 <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog "> 
@@ -132,7 +137,6 @@ if($id != null){
 								echo '<tr>';
 									echo '<td>'. $row['pid'] . '</td>';
 									echo '<td>'.$row['pfname'] . ' ' . substr($row['pmname'], 0, 1). '. ' . $row['plname'] . '</td>';
-									echo '<td>'.$row['pfname']. ' ' . $row['pfname'].'. ' . $row['plname'].'</td>';
 									echo '<td class="text-center">
 													<a class="btn btn-primary btn-md" href="bloodrequest.php?id='.$row['pid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit">
 									  		  </td>';

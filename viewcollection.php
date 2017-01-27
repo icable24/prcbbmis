@@ -21,6 +21,8 @@ $collection->execute();
 
 $collection = $collection->fetchAll(PDO::FETCH_ASSOC);
 
+
+
 // Pages
 $total = $pdo->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
 $pages = ceil($total / $perPage);
@@ -64,14 +66,17 @@ $pages = ceil($total / $perPage);
 				<tbody>					
 					<?php								
 						foreach ($collection as $row) {
+							$bloodinfo = $pdo->prepare("SELECT * FROM bloodinformation WHERE bloodid = ?");
+							$bloodinfo->execute(array($row['bloodinfo']));
+							$bloodinfo = $bloodinfo->fetch(PDO::FETCH_ASSOC);
 							echo '<tr>';
 								echo '<td>'.$row['donorcollectid'] . '</td>';
 								echo '<td>'. $row['unitserialno'] . '</td>';
 								echo '<td>'.$row['cfname'].' '.  substr($row['cmname'], 0 , 1) . '. ' . $row['clname'] .'</td>';
 								echo '<td>'.$row['collectiondate'].'</td>';
                                 echo '<td>'.$row['bagtype'].'</td>';
-                                echo '<td>'.$row['bloodtype'].'</td>';	
-                                echo '<td>'.$row['rhtype'].'</td>';
+                                echo '<td>'.$bloodinfo['bloodgroup'].'</td>';	
+                                echo '<td>'.$bloodinfo['rhtype'].'</td>';
                                                                 
 								echo '<td class="text-center">
 											<a class="btn btn-primary btn-md" href="printcollection.php?id='.$row['donorcollectid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-print"></span></a>
