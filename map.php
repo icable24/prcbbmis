@@ -53,25 +53,25 @@
       ['<strong>Indonesia</strong><br>\<p>Available Blood</p><br>\
 	<a href="c_Indonesia.php">Request</a>', -4.824171,121.7683894,5],
       ['<strong>Laos</strong><br>\<p>Available Blood</p><br>\
-	<a href="c_Laos.php">Request</a>', 18.1644031,99.3924702,6],
+	<a href="c_Laos.php">Request</a>', 19.1644031,102.3924702,6],
       ['<strong>Malaysia</strong><br>\<p>Available Blood</p><br>\
 	<a href="c_Malaysia.php">Request</a>', 5.1389094,102.1199891,6],
       ['<strong>Myanmar</strong><br>\<p>Available Blood</p><br>\
-	<a href="c_Myanmar.php">Request</a>', 18.8780807,87.6368639,5],
+	<a href="c_Myanmar.php">Request</a>', 20.8780807,96.6368639,5],
       ['<strong>Philippines</strong><br>\<p>Available Blood</p><br>\
-	<a href="c_Philippines.php">Request</a>', 12.1262138,122.4515049,5],
+	<a href="requisition_form.php">Request</a>', 12.1262138,122.4515049,5],
       ['<strong>Singapore</strong><br>\<p>Available Blood</p><br>\
 	<a href="c_Singapore.php">Request</a>', 1.3150701,103.7069325,11],
       ['<strong>Thailand</strong><br>\<p>Available Blood</p><br>\
-	<a href="c_Thailand.php">Request</a>', 13.0109028,96.9927392,6],
+	<a href="c_Thailand.php">Request</a>', 16.0109028,100.9927392,6],
       ['<strong>Vietnam</strong><br>\<p>Available Blood</p><br>\
-	<a href="c_Vietnam.php">Request</a>', 15.86692,101.3096936,6],
+	<a href="c_Vietnam.php">Request</a>', 14.86692,108.3096936,6],
      
     ];
 
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 4,
-      center: new google.maps.LatLng(8.3226909, 98.1730052),
+      center: new google.maps.LatLng(8.3226909, 105.1730052),
      
     });
 
@@ -83,6 +83,7 @@
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
         map: map
+        
       });
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {

@@ -46,6 +46,8 @@
 
 <script type="text/javascript">
     var locations = [
+      ['<strong>Philippine Red Cross Bacolod Chapter<br>(Main)</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form.php">Request</a>', 14.5720757,121.0466793,21] , 
       ['<strong>Philippine Red Cross Bacolod Chapter</strong><br>\<p>Available Blood</p><br>\
 	<a href="requisition_form.php">Request</a>', 10.6761724,122.9570703,19],
       ['<strong>Philippine Red Cross Cebu Chapter</strong><br>\<p>Available Blood</p><br>\
@@ -92,9 +94,13 @@
 	<a href="requisition_form.php">Request</a>', 13.4470746,121.8410334,21],
       ['<strong>Philippine Red Cross Camarines Sur Chapter</strong><br>\<p>Available Blood</p><br>\
 	<a href="requisition_form.php">Request</a>', 13.621737,123.1965382,21],
-             ['<strong>Philippine Red Cross Romblon Chapter</strong><br>\<p>Available Blood</p><br>\
+      ['<strong>Philippine Red Cross Romblon Chapter</strong><br>\<p>Available Blood</p><br>\
 	<a href="requisition_form.php">Request</a>', 12.5304392,122.2854133,21],
-             ['<strong>Philippine Red Cross Camarines Norte Chapter</strong><br>\<p>Available Blood</p><br>\
+      ['<strong>Philippine Red Cross Camarines Norte Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form.php">Request</a>', 13.4470746,121.8410334,21],
+      ['<strong>Philippine Red Cross Tangub Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form.php">Request</a>', 8.0611774,123.7513943,21],
+      ['<strong>Philippine Red Cross Camarines Norte Chapter</strong><br>\<p>Available Blood</p><br>\
 	<a href="requisition_form.php">Request</a>', 13.4470746,121.8410334,21],
     
     ];

@@ -19,7 +19,7 @@
 	<?php
 	include('header.php');
 	?>
-
+		<form class="form-horizontal" action="./dreport.php" method="post">
 		<div class="container">
 			<div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
 				<div class="row">
@@ -81,10 +81,10 @@
                                                               <select id="categ" name="categ" class="form-control" style="width: 3in" onchange="updateCheckBox(this)" >
                                                                 
                                                                 <option value="none">-- Select Category --</option>
-								<option value="donor">Donor</option>
-								<option value="patient">Patient</option>
+																<option value="donor">Donor</option>
+																<option value="patient">Patient</option>
                                                                 <option value="odr">Office Donor Registry</option>
-								<option value="mdr">MBD Donor Registry</option>
+																<option value="mdr">MBD Donor Registry</option>
                                                                 <option value="bd">Blood Dispensed</option>
                                                                 <option value="btc">Blood Type/Component</option>
                                                                 <option value="bi">Blood Inventory</option>
@@ -95,9 +95,12 @@
                                                               <br>
                                                               <div style="text-align:center; width: 3in; font-size: 16px" >
                                                               <p >
-                                                                  <input type="checkbox" hidden="" name="donor"  id="donor" /> ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" hidden="" name="donor" id="chk2" /> Birthdate <br />
-                                                                  <input type="checkbox" hidden="" name="donor" id="donor" /> Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" hidden="" name="donor" id="chk2" /> Gender <br />
-                                                                  <input type="checkbox" hidden="" name="donor" id="donor" /> Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" hidden="" name="donor" id="chk2" /> Contact <br />
+                                                                  <input type="checkbox" hidden="" name="donor[]" value="did"  id="donor" onchange="toggleStatus() /> ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                  <input type="checkbox" hidden="" name="donor[]" id="donor" value="dfname" onchange="toggleStatus() /> Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                  <input type="checkbox" hidden="" name="donor[]" id="donor" value="dbirthdate" onchange="toggleStatus()/> Birthdate &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                  <input type="checkbox" hidden="" name="donor[]" id="donor" name="dgender" onchange="toggleStatus()/>Gender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                  <input type="checkbox" hidden="" name="donor[]" id="donor" value="daddress" onchange="toggleStatus()/> Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                                                  <input type="checkbox" hidden="" name="donor[]" id="donor" value="dcontact" onchange="toggleStatus()/> Contact &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                                   
         </p>            
                                                               </div>
@@ -126,7 +129,7 @@
 							<!--Buttons-->
 							<div class="panel-footer">	
 								<div class="form-actions text-center forms">
-									<a href="dreport.php" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span> Generate</a>
+									<button type="submit" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span> Generate</a>
 									
 								</div>		
 						  	</div>		
@@ -134,13 +137,13 @@
 					</div>
 				</div>		
 			</div>
-		</div>
+		</form>
                 <br>
                 <br>
                 <br>
                 <script>
     function updateCheckBox(opts) {
-        var chks = document.getElementsByName("donor");
+        var chks = document.getElementsByName("donor[]");
 
         if (opts.value == 'donor') {
             for (var i = 0; i <= chks.length; i++) {
@@ -154,6 +157,28 @@
             }
         }
     }
+</script>
+<script>
+
+	
+  function toggleStatus() {
+   
+    if ($('#bc').is(':checked')) {
+        $('#f2 :input').removeAttr('disabled');
+        //
+    } else {
+        $('#f2 :input').attr('disabled', true);
+    }
+
+    if ($('#bt').is(':checked')) {
+        $('#f1 :input').removeAttr('disabled');
+        //
+    } else {
+        $('#f1 :input').attr('disabled', true);
+    }
+	}
+       
+    
 </script>
 	
       

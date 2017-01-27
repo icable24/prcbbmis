@@ -23,14 +23,13 @@ include 'header.php';
                                                               <form action="" method="post">
                                                               <select id="categs" name="country" class="form-control" style="width: 3in">
                                                                 <option value="none">-Select File to Import-</option>
-                                                                <option>Donor</option>
-                                                                <option value="">Patient</option>
-                                                                <option>Blood Bank</option>
-                                                                <option>User</option>
+                                                                <option value="1" id="d" name="need" onchange="toggleStatus()">Donor</option>
+                                                                <option value="2" id="p" name="need" onchange="toggleStatus()">Patient</option>
+                                                                <option value="3" id="bb" name="need" onchange="toggleStatus()">Blood Bank</option>
+                                                                
                                                                 
 							    </select>
-                                                             
-                                                              </form>
+                                                           
              			</div>
         <br>
         <input type="file" name="file" id="file">
@@ -49,6 +48,7 @@ include 'header.php';
 	?>
     </body>
 </html>
+<div id="i1">
 <?php
 
 error_reporting(E_ALL ^ E_DEPRECATED);
@@ -81,3 +81,60 @@ if(isset($_POST["Import"]))
         echo 'Invalid File:Please Upload CSV File';
 }
 ?>
+</div>
+<div id="i3">
+<?php
+
+error_reporting(E_ALL ^ E_DEPRECATED);
+if(isset($_POST["Import"]))
+{
+    //First we need to make a connection with the database
+    $host='localhost'; // Host Name.
+    $db_user= 'root'; //User Name
+    $db_password= '';
+    $db= 'prcbbmis'; // Database Name.
+    $conn=mysql_connect($host,$db_user,$db_password) or die (mysql_error());
+    mysql_select_db($db) or die (mysql_error());
+    echo $filename=$_FILES["file"]["tmp_name"];
+    if($_FILES["file"]["size"] > 0)
+    {
+        $file = fopen($filename, "r");
+        //$sql_data = "SELECT * FROM prod_list_1 ";
+        while (($emapData = fgetcsv($file, 10000, ",")) !== FALSE)
+        {
+            //print_r($emapData);
+            //exit();
+            $sql = "INSERT into bloodbank(bankname, bankaddress, contactdetails, country) values ('$emapData[0]','$emapData[1]','$emapData[2]','$emapData[3]')";
+            mysql_query($sql);
+        }
+        fclose($file);
+        
+        header('Location: import.php');
+    }
+    else
+        echo 'Invalid File:Please Upload CSV File';
+}
+?>
+</div>
+
+<script>
+
+	
+  function toggleStatus() {
+   
+    if ($('#bb').is(':selected')) {
+        $('#i3 :option').removeAttr('disabled');
+        //
+    } else {
+        $('#i3 :option').attr('disabled', true);
+    }
+    if ($('#p').is(':selected')) {
+        $('#i1 :option').removeAttr('disabled');
+        //
+    } else {
+        $('#i1 :option').attr('disabled', true);
+    }
+	}
+       
+    
+</script>

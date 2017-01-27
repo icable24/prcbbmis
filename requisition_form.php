@@ -82,7 +82,7 @@
 							  </div>    
                                                             <div id="f1">
 							<div class="control-group">
-                                                            <label class="control-label" for="bloodgroup">Blood Type&nbsp;&nbsp;<input type="button" value="+"></label>
+                                                            <label class="control-label" for="bloodgroup">Blood Type&nbsp;&nbsp;<input type="button" value="+" onclick="addInput()" ></label>
                                                             <select class="form-control" id="bloodgroup" name="bloodgroup" disabled >
 									<option selected="selected" disabled></option>
                                                                         <option>A</option>
@@ -103,14 +103,15 @@
                                                         <div class="control-group">
 							  <label class="control-label" for="qty">Quantity</label>
 							  <div class="controls">
-                                                              <input id="qty" name="qty" type="text" class="form-control" required="" disabled=>
+                                                              <input id="qty" name="qty" type="text" class="form-control" required="" disabled/>
 							    
 							  </div>
 							</div>
+                                                                 <span id="responce"></span>
                                                         </div>
                                                         <div id="f2">
                                                         <div class="control-group">
-                                                            <label class="control-label" for="bloodgroup">Blood Component&nbsp;&nbsp;<input type="button" value="+"></label>
+                                                            <label class="control-label" for="bloodgroup">Blood Component&nbsp;&nbsp;<input type="button" value="+" onclick="addInput()" ></label>
 								<select class="form-control" id="bloodgroup"  name="bloodgroup" >
 									<option selected="selected" disabled></option>
 									<option>Red Cell</option>
@@ -169,6 +170,15 @@
 							    
 							  </div>
 							</div>
+                                                        
+                                                        <!-- Text input-->
+							<div class="control-group">
+							  <label class="control-label" for="detail">Reason</label>
+							  <div class="controls">
+                                                              <textarea id="detail" name="detail" placeholder="Enter text here..." class="form-control" required=""></textarea>
+							    
+							  </div>
+							</div>
 							
 					</div>
 							<!--Buttons-->
@@ -183,6 +193,7 @@
 				</div>		
 			</div>
 		</div>
+  
 <script>
 
 	
@@ -205,7 +216,44 @@
        
     
 </script>
-
+<script>
+var countBox =1;
+var boxName = 0;
+function addInput()
+{
+     var boxName="textBox"+countBox; 
+     document.getElementById('responce').innerHTML+='<div class="control-group">\
+                                                     <label class="control-label" for="bloodgroup">Blood Type</label>\
+                                                     <select class="form-control" id="bloodgroup" name="bloodgroup" disabled>\
+                                                     <option selected="selected" disabled></option>\
+                                                      <option>A</option>\
+                                                        <option>B</option>\
+							<option>AB</option>\
+							<option>O</option>\
+                                                        </select>\
+                                                         <div class="control-group">\
+								<label class="control-label" for="rhtype">Rh Type</label>\
+                                                                <select class="form-control" name="rhtype" id="rhtype" disabled >\
+									<option selected="selected" disabled></option>\
+									<option>Positive</option>\
+									<option>Negative</option>\
+								</select>\
+							</div>\n\
+                                                            <div id="f2">\
+                                                        <div class="control-group">\
+                                                            <label class="control-label" for="bloodgroup">Blood Component</label>\
+								<select class="form-control" id="bloodgroup"  name="bloodgroup" >\
+									<option selected="selected" disabled></option>\
+									<option>Red Cell</option>\
+									<option>Fresh Frozen Plasma</option>\
+									<option>Platelet Concentrate</option>\
+									<option>Whole Blood</option>\
+								</select>\
+							</div>\
+                                                        </div>';
+     countBox += 1;
+}
+</script>
 	<?php 
 		include('footer.php');
 	?>

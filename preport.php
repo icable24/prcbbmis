@@ -110,25 +110,25 @@ $tbl = '<table style="width: 638px;" cellspacing="0">';
 
 
     $pid = "Patient ID";
-    $pname = "Name";
+    $pfname = "Name";
     $paddress = "Address";
-    $pbirthdate = "pbirthdate";
-    $pgender = "pgender";
-    $pcontact = "pcontact";
+    $pbirthdate = "Birthdate";
+    $pgender = "Gender";
+    $pcontact = "Contact";
 $tbl = $tbl . '
       <tr>
-          <td style="border: 1px solid #ffffff; width: 130px;">'.$pid.'</td>
-          <td style="border: 1px solid #ffffff; width: 110px;">'.$pname.'</td>
-          <td style="border: 1px solid #ffffff; width: 130px;">'.$paddress.'</td>
-          <td style="border: 1px solid #ffffff; width: 130px;">'.$pbirthdate.'</td>
-          <td style="border: 1px solid #ffffff; width: 130px;">'.$pgender.'</td>
+          <td style="border: 1px solid #ffffff; width: 100px;">'.$pid.'</td>
+          <td style="border: 1px solid #ffffff; width: 50px;">'.$pfname.'</td>
+          <td style="border: 1px solid #ffffff; width: 150px;">'.$paddress.'</td>
+          <td style="border: 1px solid #ffffff; width: 100px;">'.$pbirthdate.'</td>
+          <td style="border: 1px solid #ffffff; width: 80px;">'.$pgender.'</td>
           <td style="border: 1px solid #ffffff; width: 90px;">'.$pcontact.'</td>
 
       </tr>';
 
 while($row = mysqli_fetch_array($select_query)){
   $pid = $row["pid"];
-  $pname = $row["pname"];
+  $pfname = $row["pfname"];
   $paddress = $row["paddress"];
   $pbirthdate = $row["pbirthdate"];
   $pgender = $row["pgender"];
@@ -138,12 +138,12 @@ while($row = mysqli_fetch_array($select_query)){
   // -----------------------------------------------------------------------------
 
   $tbl = $tbl . '
-      <tr>
-          <td style="border: 1px solid #ffffff; width: 130px;">'.$pid.'</td>
-          <td style="border: 1px solid #ffffff; width: 110px;">'.$pname.'</td>
-          <td style="border: 1px solid #ffffff; width: 130px;">'.$paddress.'</td>
-          <td style="border: 1px solid #ffffff; width: 130px;">'.$pbirthdate.'</td>
-          <td style="border: 1px solid #ffffff; width: 130px;">'.$pgender.'</td>
+       <tr>
+          <td style="border: 1px solid #ffffff; width: 100px;">'.$pid.'</td>
+          <td style="border: 1px solid #ffffff; width: 50px;">'.$pfname.'</td>
+          <td style="border: 1px solid #ffffff; width: 150px;">'.$paddress.'</td>
+          <td style="border: 1px solid #ffffff; width: 100px;">'.$pbirthdate.'</td>
+          <td style="border: 1px solid #ffffff; width: 80px;">'.$pgender.'</td>
           <td style="border: 1px solid #ffffff; width: 90px;">'.$pcontact.'</td>
 
       </tr>';
