@@ -116,22 +116,26 @@
 									<th>Patient Name</th>
 									<th>Blood Type</th>
 									<th>Component</th>
-									<th>Amount</th>
-									<th>Quantity</th>
-									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php 
 								$pdo = Database::connect();
-								$request = $pdo->prepare("SELECT * FROM bloodrequest WHERE status Like 'Pending'");
-								$request->execute();
-								$request = $request->fetchAll(PDO::FETCH_ASSOC);
+								$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+								$sql2 = "SELECT * FROM bloodrequest WHERE status like 'Pending'";
+							    $q2 = $pdo->prepare($sql2);
+							    $q2->execute();
+							    $pending_request = $q2->fetchAll(PDO::FETCH_ASSOC);
 
-								foreach($request as $row){
-									echo '<td>'
-										echo 
-									echo '</td>'
+								foreach($pending_request as $row){
+									$patient = $pdo->prepare("SELECT * FROM patient WHERE pid = ?");
+									$patient->execute(array($row['pid']));
+									$patient = $patient->fetch(PDO::FETCH_ASSOC);
+									echo '<tr>';
+										echo '<td>' . $row['reqid']. '</td>';
+										echo '<td>' . $patient['pid']. '</td>';
+										echo '<td>' . $patient['pfname'] . ' ' .substr($patient['pmname'], 0, 1) . '. ' . $patient['plname'] . '</td>'; 
+									echo '</tr>';
 								}
 								?>
 							</tbody>
@@ -142,7 +146,7 @@
 				<li class="active"><a data-toggle="tab" href="#home" class="nav-tabs-black">Examination</a></li>
 				<li><a data-toggle="tab" href="#menu1" class="nav-tabs-black">Screening</a></li>
 				<li><a data-toggle="tab" href="#menu2" class="nav-tabs-black">Request</a></li>
-				<li><a data-toggle="tab" href="#menu3" class="nav-tabs-black">Dispensing</a></li>
+				<li><a data-toggle="tab" href="#menu3" class="nav-tabs-black">Blood Transfer</a></li>
 			</ul>
 			<div class="tab-content">
 			    <div id="home" class="tab-pane fade in active">
@@ -159,7 +163,7 @@
 			    </div>
 			    <div id="menu3" class="tab-pane fade">
 					<br />
-					<?php viewByCategory('Dispensing')?>
+					<?php viewByCategory('Blood Transfer')?>
 			    </div>
 			</div>
 			<script>
