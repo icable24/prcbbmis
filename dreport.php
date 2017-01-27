@@ -101,9 +101,15 @@ define("DB_DATABASE", "prcbbmis");
 
 $db_con = mysqli_connect(DB_SERVER , DB_USER, DB_PASSWORD, DB_DATABASE);
 
-//$db_con = mysqli_connect("127.0.0.1","root"," ","baciwadb");
 
-$query = "SELECT * FROM `donor`";
+$queryFields = "";
+//$db_con = mysqli_connect("127.0.0.1","root"," ","baciwadb");
+if(isset($_POST['donor'])){
+  $queryFields = implode(",", $_POST['donor']);
+  echo $queryFields;
+}
+
+$query = "SELECT $queryFields FROM `donor`";
 $select_query = mysqli_query($db_con,$query);
 
 $tbl = '<table style="width: 638px;" cellspacing="0">';
@@ -112,37 +118,42 @@ $did = "Donor ID";
 $dfname = "Name";
 $daddress = "Address";
 $dcontact = "Contact";
-$dtype = "Donor Type";
+$dgender = "Gender";
+$dbirthdate = "Birthdate";
 
 $tbl = $tbl . '
       <tr>
-          <td style="border: 1px solid #ffffff; width: 130px;">'.$did.'</td>
-          <td style="border: 1px solid #ffffff; width: 110px;">'.$dfname.'</td>
-          <td style="border: 1px solid #ffffff; width: 130px;">'.$daddress.'</td>
-          <td style="border: 1px solid #ffffff; width: 90px;">'.$dcontact.'</td>
-          <td style="border: 1px solid #ffffff; width: 90px;">'.$dtype.'</td>
+          <td style="border: 1px solid #ffffff; width: 100px;">'.$did.'</td>
+          <td style="border: 1px solid #ffffff; width: 100px;">'.$dfname.'</td>
+          <td style="border: 1px solid #ffffff; width: 100px;">'.$daddress.'</td>
+          <td style="border: 1px solid #ffffff; width: 80px;">'.$dcontact.'</td>
+          <td style="border: 1px solid #ffffff; width: 80px;">'.$dgender.'</td>
+          <td style="border: 1px solid #ffffff; width: 100px;">'.$dbirthdate.'</td>
       </tr>';
 
 while($row = mysqli_fetch_array($select_query)){
+  echo implode(",", $row);
   $did = $row["did"];
   $dname = $row["dfname"]. ' ' . substr($row["dmname"],0 , 1 ).'. '. $row["dlname"];
   $dfname = $row["dfname"];
   $dmname = $row["dmname"];
   $dlname = $row["dlname"];
+  $dbirthdate= $row["dbirthdate"];
   $dname = $dfname . ' ' .substr($dmname, 0, 1) . '. ' . $dlname;
   $daddress = $row["daddress"];
   $dcontact = $row["dcontact"];
-  $dtype = $row["dtype"];
+  $dgender = $row["dgender"];
   
   // -----------------------------------------------------------------------------
 
   $tbl = $tbl . '
       <tr>
-          <td style="border: 1px solid #000000; width: 130px;">'.$did.'</td>
-          <td style="border: 1px solid #000000; width: 110px;">'.$dname.'</td>
-          <td style="border: 1px solid #000000; width: 130px;">'.$daddress.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$dcontact.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$dtype.'</td>
+          <td style="border: 1px solid #ffffff; width: 100px;">'.$did.'</td>
+          <td style="border: 1px solid #ffffff; width: 100px;">'.$dfname.'</td>
+          <td style="border: 1px solid #ffffff; width: 100px;">'.$daddress.'</td>
+          <td style="border: 1px solid #ffffff; width: 80px;">'.$dcontact.'</td>
+          <td style="border: 1px solid #ffffff; width: 80px;">'.$dgender.'</td>
+          <td style="border: 1px solid #ffffff; width: 100px;">'.$dbirthdate.'</td>
       </tr>';
   }  
   $tbl = $tbl . '</table>';
@@ -151,6 +162,6 @@ while($row = mysqli_fetch_array($select_query)){
 
 
 //==============================================================
-
+ob_clean();
 $pdf->Output('donor_report.pdf', 'I');
 ?>

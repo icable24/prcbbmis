@@ -106,7 +106,41 @@
 						</tbody>		
 					</table>
 				</div>
+<<<<<<< HEAD
                    
+=======
+				<?php }elseif($category == 'Request'){ ?>
+					<div class="table-responsive">
+						<table class="table table-hover table-striped" id="myTable">
+							<thead>
+								<tr class="alert-info">
+									<th>Request No.</th>
+									<th>Patient No.</th>
+									<th>Patient Name</th>
+									<th>Blood Type</th>
+									<th>Component</th>
+									<th>Amount</th>
+									<th>Quantity</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php 
+								$pdo = Database::connect();
+								$request = $pdo->prepare("SELECT * FROM bloodrequest WHERE status Like 'Pending'");
+								$request->execute();
+								$request = $request->fetchAll(PDO::FETCH_ASSOC);
+
+								foreach($request as $row){
+									echo '<td>'
+										echo 
+									echo '</td>'
+								}
+								?>
+							</tbody>
+						</table>
+					</div>
+>>>>>>> 376885622521b49c57d45ce26ded642135d392c6
 				<?php } }?>
 			<ul class="nav nav-tabs nav-tabs-black">
 				<li class="active"><a data-toggle="tab" href="#home" class="nav-tabs-black">Examination</a></li>

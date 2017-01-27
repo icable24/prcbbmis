@@ -16,7 +16,16 @@
        ?> 
     <br><br><br><br>
     <p style="font-size: 50px; text-align: center; color: black; font-weight: bold">Good Day! <br>
-         <?php echo $_SESSION["username"] = $username; ?> </p>
+         <?php $_SESSION["username"] = $username; 
+            $pdo = Database::connect();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = "SELECT * FROM user WHERE username like  '$username'";
+            $q = $pdo->prepare($sql);
+            $q->execute();
+            $user = $q->fetch(PDO::FETCH_ASSOC);
+
+            echo $user['fname'];
+         ?> </p>
     <br>
 <center> <img src="img/welcome.png" alt=""/></center>
     <br><br><br><br>

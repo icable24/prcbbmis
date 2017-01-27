@@ -52,8 +52,8 @@ if($id != null){
 
 
 <div class="control-group">
-<label for="cfname">First Name</label>
-<input type="text" class="form-control" required id="cfname" name="cfname" placeholder="First Name" value="<?php 
+<label for="cfname">Name</label>
+<input type="hidden" class="form-control" required id="cfname" name="cfname" placeholder="First Name" value="<?php 
 
 		$pdo1 = Database::connect();
         $pdo1->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -65,11 +65,14 @@ if($id != null){
 
         echo $data1['dfname']
 ?>">
+<input class="form-control" type="text" id="name" value="<?php
+echo $data1['dfname'] . ' ' . substr($data1['dmname'], 0, 1). ', ' . $data1['dlname'];
+?>">
 </div>
 
 <div class="control-group">
-<label for="cmname">Middle Name</label>
-<input type="text" class="form-control" required id="cmname" name="cmname" placeholder="First Name" value="<?php 
+
+<input type="hidden" class="form-control" required id="cmname" name="cmname" placeholder="First Name" value="<?php 
 
 
         echo $data1['dmname']
@@ -77,12 +80,27 @@ if($id != null){
 </div>
 
 <div class="control-group">
-<label for="clname">Last Name</label>
-<input type="text" class="form-control" required id="clname" name="clname" placeholder="Last Name" value="<?php 
+<input type="hidden" class="form-control" required id="clname" name="clname" placeholder="Last Name" value="<?php 
 
        echo $data1['dlname']
 ?>">
 </div>
+						<div class="control-group">
+                            <label class="control-label" for="bloodtype">Blood Type</label>
+                            <input type="hidden" class="form-control" required id="bloodtype" disabled="" placeholder="First Name" value="<?php 
+
+							        $sql3 = "SELECT * FROM bloodinformation where bloodid = ?";
+							        $q2 = $pdo->prepare($sql3);
+							        $q2->execute(array($data1['bloodinfo']));
+							        $data2 = $q2->fetch(PDO::FETCH_ASSOC);
+							        Database::disconnect();
+
+							        echo $data2['bloodgroup'];
+							?>">
+							<input class="form-control" disabled="" value="<?php echo $data2['bloodgroup']. ' ' . $data2['rhtype'] ?>">
+							<input type="text" hidden="" name="bloodtype" value="<?php echo $data2['bloodgroup'] ?>">
+                        </div>
+                            <input hidden name="rhtype" value="<?php echo $data2['rhtype']?>">
 
 
 <div class="control-group">
@@ -121,25 +139,7 @@ if($id != null){
 									</script>
 </div>
 
-						<div class="control-group">
-                            <label class="control-label" for="bloodtype">Blood Group</label>
-                            <input type="text" class="form-control" required id="blood" disabled="" placeholder="First Name" value="<?php 
-
-							        $sql3 = "SELECT * FROM bloodinformation where bloodid = ?";
-							        $q2 = $pdo->prepare($sql3);
-							        $q2->execute(array($data1['bloodinfo']));
-							        $data2 = $q2->fetch(PDO::FETCH_ASSOC);
-							        Database::disconnect();
-
-							        echo $data2['bloodgroup'];
-							?>">
-							<input type="text" hidden="" name="bloodtype" value="<?php echo $data2['bloodgroup'] ?>">
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="rhtype">Rh Type</label>
-                            <input class="form-control" value="<?php echo $data2['rhtype']?>" disabled>
-                            <input hidden name="rhtype" value="<?php echo $data2['rhtype']?>">
-                        </div>
+						
                         <br>
                         <div class="text-center">
  <!--modal-->

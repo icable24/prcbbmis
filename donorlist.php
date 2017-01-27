@@ -81,20 +81,21 @@ $pages = ceil($total / $perPage);
 				<div class="col-md-5 text-right" style="padding-top:20px;">
 	                <a href="donorcreate.php" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp; Add New Donor</a>
 				</div>
-			</div>	<div class="controls">
-                   		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search.." title="Type in" style="width: 3in">
-                   		<div class="pull-right">
-							<label class="control-label">Filter</label>                   		
-                   			<select id="filters" class="form-control" name="filters" onChange="myFilter()" placeholder="filter">
-						     	<option></option>
-						    	<option>Accepted</option>
-						    	<option>Deferred</option>
-						    	<option>Pending</option>
-						    	<option>Temporarily Deferred</option>
-					    	</select>
-                   		</div>
+			</div>	
+			<div class="controls">
+	       		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search.." title="Type in" style="width: 3in">
+	       		<div class="pull-right">
+					<label class="control-label">Filter</label>                   		
+	       			<select id="filters" class="form-control" name="filters" onChange="myFilter()" placeholder="filter">
+				     	<option></option>
+				    	<option>Accepted</option>
+				    	<option>Deferred</option>
+				    	<option>Pending</option>
+				    	<option>Temporarily Deferred</option>
+			    	</select>
+	       		</div>
 					    
-				  	</div>
+		  	</div>
 	      	<br>
 			<div class="table-responsive">
                             <table class="table table-hover table-striped" id="myTable">
