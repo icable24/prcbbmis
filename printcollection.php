@@ -1,4 +1,12 @@
 <?php
+require 'dbconnect.php';
+
+$id = $_REQUEST['id'];
+
+$pdo = Database::connect();
+$donor = $pdo->prepare("SELECT * FROM donor WHERE pid = ?");
+$donor->execute(array($id));
+$donor = $donor->fetch(PDO::FETCH_ASSOC);
 
 require_once('tcpdf.php');
 
@@ -110,11 +118,13 @@ Database::disconnect();
 
 // $tbl = $tbl . '
 //       <tr>
-//           <td style="border: 1px solid #ffffff; width: 130px;">'.'Donor ID: '.$did.'</td>
+//           <td style="border: 1p x solid #ffffff; width: 130px;">'.'Donor ID: '.$did.'</td>
 //           <td style="border: 1px solid #ffffff; width: 110px;">'.'Unit Serial Number' .$collect['unitserialno'].'</td>
 //       </tr>';
-$tbl = '<body>
-<h2>Thanks! You\'ve really made a difference</h2>
+$tbl = '<body><h2>Hi '. $collect['cfname'] . ' ' .substr($collect['cmname'],0,1) . '. ' . $collect['clname']. ',</h2>' ;
+
+$tbl = $tbl . '
+<h3>Thanks! You\'ve really made a difference</h3>
 <br><br><br><br>
 On behalf of everyone you\'ve helped by giving blood -- thank you.<br><br>
 
@@ -124,7 +134,9 @@ Attached is your personal blood donor ID card. Each time you donate please bring
 
 That way, we can always be in touch so you can help those who need it most. <br><br><br><br>
 
-Yours Sincerely,
+Yours Sincerely,<br><br>
+<br>
+<br>Philippine Red Cross Family
 </body>';
   $pdf->writeHTML($tbl, true, false, false, false, '');
 //==============================================================

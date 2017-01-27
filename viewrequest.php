@@ -18,10 +18,10 @@
 	<div class="container">
 	<div class="col-lg-12">
 	<div class="container-fluid">
-		<?php 	
+		<!-- <?php 	
 				function viewByCategory($category){
 					if($category == 'ViewList'){
-		?>
+		 ?>-->
 		<div class="row" style="border-bottom:solid 1px;margin-bottom:15px;">
 				<div class="col-md-7">
 					<h2>Blood Request</h2>
@@ -94,14 +94,11 @@
 				</tbody>
 			</table>
 		</div>
-		<?php }} ?>
+			<!-- <?php }} ?> -->
 	</div>
-		<ul class="nav nav-tabs nav-tabs-black">
+		<!-- <ul class="nav nav-tabs nav-tabs-black">
 				<li class="active"><a data-toggle="tab" href="#home" class="nav-tabs-black">Blood Request List</a></li>
-				<li><a data-toggle="tab" href="#menu1" class="nav-tabs-black">For Approval</a></li>
-				<li><a data-toggle="tab" href="#menu2" class="nav-tabs-black">Approved</a></li>
-				<li><a data-toggle="tab" href="#menu3" class="nav-tabs-black">Disapproved</a></li>
-			</ul>
+		</ul>
 		<div class="tab-content">
 		    <div id="home" class="tab-pane fade in active">
 				<br />
@@ -119,7 +116,7 @@
 				<br />
 				<?php viewByCategory('Disapproved')?>
 		    </div>
-		</div>
+		</div> -->
 	</div>
          </div>
 
