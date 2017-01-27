@@ -103,7 +103,7 @@
                                                         <div class="control-group">
 							  <label class="control-label" for="qty">Quantity</label>
 							  <div class="controls">
-                                                              <input id="qty" name="qty" type="text" class="form-control" required="" disabled=>
+                                                              <input id="qty" name="qty" type="text" class="form-control" required="" disabled/>
 							    
 							  </div>
 							</div>
@@ -169,6 +169,15 @@
 							    
 							  </div>
 							</div>
+                                                        
+                                                        <!-- Text input-->
+							<div class="control-group">
+							  <label class="control-label" for="detail">Reason</label>
+							  <div class="controls">
+                                                              <textarea id="detail" name="detail" placeholder="Enter text here..." class="form-control" required=""></textarea>
+							    
+							  </div>
+							</div>
 							
 					</div>
 							<!--Buttons-->
@@ -183,6 +192,7 @@
 				</div>		
 			</div>
 		</div>
+  
 <script>
 
 	
