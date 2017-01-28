@@ -66,8 +66,14 @@
 							    
 							  </div>
 							</div>
-
-
+                                                        <!-- Text input-->
+                                                        <div class="control-group">
+							  <label class="control-label" for="bankname">Blood Bank</label>
+							  <div class="controls">
+							    <input id="bankname" name="bankname" type="text" placeholder="bankname" class="form-control" required="">
+							    
+							  </div>
+							</div>
 							<!-- Select Basic -->
 							<div class="control-group">
 							  <label class="control-label" for="usertype">User Type</label>

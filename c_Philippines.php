@@ -46,63 +46,70 @@
 
 <script type="text/javascript">
     var locations = [
-      ['<strong>Philippine Red Cross Bacolod Chapter<br>(Main)</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 14.5720757,121.0466793,21] , 
+      ['<strong>Philippine Red Cross Main<br></strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byChapters.php">Request</a>', 14.5720757,121.0466793,21] , 
       ['<strong>Philippine Red Cross Bacolod Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 10.6761724,122.9570703,19],
+	<a href="requisition_form_byChapters.php">Request</a>', 10.6761724,122.9570703,19],
       ['<strong>Philippine Red Cross Cebu Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 10.3124335,123.8917013,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 10.3124335,123.8917013,21],
       ['<strong>Philippine Red Cross Cagayan Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 17.6132213,121.7273084,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 17.6132213,121.7273084,21],
       ['<strong>Philippine Red Cross Vigan Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 17.5751601,120.3862903,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 17.5751601,120.3862903,21],
       ['<strong>Philippine Red Cross Abra Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 17.5998337,120.618535,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 17.5998337,120.618535,21],
       ['<strong>Philippine Red Cross La Union Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 16.6146505,120.317175,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 16.6146505,120.317175,21],
       ['<strong>Philippine Red Cross Nueva Vizcaya Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 16.4878715,121.1597741,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 16.4878715,121.1597741,21],
       ['<strong>Philippine Red Cross Quirino Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 16.5246079,121.5193845,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 16.5246079,121.5193845,21],
       ['<strong>Philippine Red Cross Nueva Ecija Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 15.4900431,120.9690693,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 15.4900431,120.9690693,21],
       ['<strong>Philippine Red Cross Bulacan Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 14.85694,120.8140655,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 14.85694,120.8140655,21],
       ['<strong>Philippine Red Cross Pampanga Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 15.0239591,120.6875669,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 15.0239591,120.6875669,21],
       ['<strong>Philippine Red Cross Valenzuela Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 14.6780091,120.9785221,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 14.6780091,120.9785221,21],
       ['<strong>Philippine Red Cross Malabon Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 14.6695355,120.9756652,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 14.6695355,120.9756652,21],
       ['<strong>Philippine Red Cross Caloocan Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 14.6473076,120.9918956,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 14.6473076,120.9918956,21],
       ['<strong>Philippine Red Cross Quezon Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 14.6461487,121.0520345,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 14.6461487,121.0520345,21],
       ['<strong>Philippine Red Cross Manila Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 14.5879335,120.9762516,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 14.5879335,120.9762516,21],
       ['<strong>Philippine Red Cross Rizal Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 14.5746745,121.0607448,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 14.5746745,121.0607448,21],
       ['<strong>Philippine Red Cross Pasay Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 14.5309419,121.0041027,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 14.5309419,121.0041027,21],
       ['<strong>Philippine Red Cross Laguna Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 14.2746685,121.4178782,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 14.2746685,121.4178782,21],
       ['<strong>Philippine Red Cross San Pablo Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 14.0697118,121.3257398,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 14.0697118,121.3257398,21],
       ['<strong>Philippine Red Cross Marinduque Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 13.4470746,121.8410334,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 13.4470746,121.8410334,21],
       ['<strong>Philippine Red Cross Camarines Norte Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 13.4470746,121.8410334,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 13.4470746,121.8410334,21],
       ['<strong>Philippine Red Cross Camarines Sur Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 13.621737,123.1965382,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 13.621737,123.1965382,21],
       ['<strong>Philippine Red Cross Romblon Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 12.5304392,122.2854133,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 12.5304392,122.2854133,21],
       ['<strong>Philippine Red Cross Camarines Norte Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 13.4470746,121.8410334,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 13.4470746,121.8410334,21],
       ['<strong>Philippine Red Cross Tangub Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 8.0611774,123.7513943,21],
+	<a href="requisition_form_byChapters.php">Request</a>', 8.0611774,123.7513943,21],
       ['<strong>Philippine Red Cross Camarines Norte Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 13.4470746,121.8410334,21],
-    
+	<a href="requisition_form_byChapters.php">Request</a>', 13.4470746,121.8410334,21],
+      ['<strong>Philippine Red Cross Sorsogon Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byChapters.php">Request</a>', 12.9717699,124.0015203,20],
+      ['<strong>Philippine Red Cross Masbate Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byChapters.php">Request</a>', 12.3712772,123.6246535,20],
+      ['<strong>Philippine Red Cross Northern Samar Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byChapters.php">Request</a>', 12.5035212,124.6339548,21],
+      ['<strong>Philippine Red Cross Northern Samar Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byChapters.php">Request</a>', 12.5035212,124.6339548,21],
     ];
 
     var map = new google.maps.Map(document.getElementById('map'), {
