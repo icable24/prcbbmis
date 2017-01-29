@@ -103,18 +103,15 @@ echo $data1['dfname'] . ' ' . substr($data1['dmname'], 0, 1). ', ' . $data1['dln
                             <input hidden name="rhtype" value="<?php echo $data2['rhtype']?>">
 
 
-<div class="control-group">
+						<div class="control-group">
                             <label class="control-label" for="bagtype">Blood Bag Used</label>
                             <select class="form-control" required="required" id="bagtype" name="bagtype" placeholder="Blood Bag Used">
-                                <option></option>
-                                <option value="250 cc">250 cc</option>
-                                <option value="450 cc Single">450 cc Single</option>
-                                <option value="50 cc Double">450 cc Double</option>
-                                <option value="450 cc Triple">450 cc Triple</option>
-                                <option value="450 cc Quadruple">450 cc Quadruple</option>
-                                <option value="Apheresis Platelet">Apheresis Platelet</option>
-                                <option value="FFP">FFP</option>
-                                </select>
+		                        <option></option>
+		                        <option value="450cc Single">450cc Single</option>
+		                        <option value="450cc Triple">450cc Triple</option>
+		                        <option value="450cc Quadruple">450cc Quadruple</option>
+		                        <option value="Apheresis Platelet">Apheresis Platelet</option>
+                            </select>
                         </div>
                        
                     

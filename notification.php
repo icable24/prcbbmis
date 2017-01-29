@@ -106,9 +106,7 @@
 						</tbody>		
 					</table>
 				</div>
-<<<<<<< HEAD
-                   
-=======
+
 				<?php }elseif($category == 'Request'){ ?>
 					<div class="table-responsive">
 						<table class="table table-hover table-striped" id="myTable">
@@ -144,7 +142,6 @@
 							</tbody>
 						</table>
 					</div>
->>>>>>> 376885622521b49c57d45ce26ded642135d392c6
 				<?php } }?>
 			<ul class="nav nav-tabs nav-tabs-black">
 				<li class="active"><a data-toggle="tab" href="#home" class="nav-tabs-black">Examination</a></li>

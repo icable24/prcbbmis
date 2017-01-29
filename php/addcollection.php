@@ -24,10 +24,15 @@ if(!empty($_POST)){
 	$sql = "INSERT INTO collection(donorcollectid, cfname, cmname, clname, unitserialno, collectiondate, bagtype, bloodinfo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 	$q = $pdo->prepare($sql);
 	$q->execute(array($donorcollectid, $cfname, $cmname, $clname, $unitserialno, $collectiondate, $bagtype, $bloodinfo['bloodid']));
+	$collid = $pdo->lastInsertId();
 
 	$sql2 = "INSERT INTO bloodbag (unitserialno, bagtype, bloodinfo) VALUES(?,?,?)";
 	$q2 = $pdo->prepare($sql2);
 	$q2->execute(array($unitserialno, $bagtype, $bloodinfo['bloodid']));
+
+	
+	$q3 = $pdo->prepare("INSERT INTO componentsprep(collid, bagserialno, remarks) VALUES (?, ?, ?)");
+	$q3->execute(array($collid, $unitserialno, $status));
 	Database::disconnect();
 	header("Location: ../viewcollection.php");
 	} 

@@ -144,6 +144,10 @@ ul.nav li.menus:hover > ul.submenus {
     border-color: #ffd5d5 !important;
 }
 
+.sub-panel{
+    border-color: #ffd5d5 !important;
+}
+
 .panel-heading{
     background-color: #ffd5d5 !important;
     border-color: #ffd5d5 !important;
