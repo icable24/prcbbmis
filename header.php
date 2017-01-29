@@ -134,7 +134,7 @@
                                 <li><a href="viewrequest.php">BLOOD REQUEST</a></li>
                                 <li><a href="viewdispensing.php" >DISPENSING</a></li>
                                 <li><a href="viewactivityscheduling.php" >ACTIVITY SCHEDULING</a></li>
-                                <li><a href="viewtest.php" >BLOOD TEST</a></li>
+                                <li><a href="viewtest.php" >SEROLOGY</a></li>
                                 <li><a href="inventory_list.php" >BLOOD INVENTORY</a></li>
                                 <li><a href="components_prep.php">COMPONENTS PREP</a></li>
                             </ul>

@@ -4,7 +4,7 @@
 
 	$pdo = Database::connect();
 
-	$inventory = $pdo->prepare("SELECT * FROM inventory");
+	$inventory = $pdo->prepare("SELECT * FROM inventory WHERE remarks = 'Ok' ");
 	$inventory->execute();
 	$inventory = $inventory->fetchAll(PDO::FETCH_ASSOC);
 ?>
