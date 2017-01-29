@@ -26,5 +26,8 @@
 			$q->execute(array($pid, $bloodinfo, $component, $amount, $quantity, $status));
 			Database::disconnect();
 			header("Location: ../viewrequest.php");
+		}else{
+			header("Location: ../viewrequest.php");
 		}
+		
  ?>

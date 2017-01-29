@@ -82,6 +82,8 @@ if($id != null){
 		<option>Whole Blood</option>
 		<option>FFP</option>
 		<option>Packed RBC</option>
+		<option>Cryoprecipitate</option>
+		<option>Platelet Concentrate</option>
 	</select>
 </div>
 
@@ -89,7 +91,6 @@ if($id != null){
 	<label for="amount" class="control-label">Amount</label>
 	<select class="form-control" name="amount" id="amount" required="">
 		<option></option>
-		<option>250cc</option>
 		<option>450cc</option>
 	</select>
 </div>
@@ -147,10 +148,6 @@ if($id != null){
 					</tbody>
 				</table>
 			</div>
-      </div>
-      <div class="modal-footer">
-      	<button type="submit" class="btn btn-primary">Save</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

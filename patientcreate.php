@@ -35,7 +35,7 @@
 
 							<!-- Text input-->
 							<div class="control-group">
-							  <label class="control-label" for="pfname">First name</label>
+							  <label class="control-label" for="pfname">First Name</label>
 							  <div class="controls">
 							    <input id="pfname" name="pfname" type="text" placeholder="Enter first name" class="form-control" required="">
 							    
@@ -43,7 +43,7 @@
 							</div>
                                                         <!-- Text input-->
 							<div class="control-group">
-							  <label class="control-label" for="pmname">Middle name</label>
+							  <label class="control-label" for="pmname">Middle Name</label>
 							  <div class="controls">
 							    <input id="pmname" name="pmname" type="text" placeholder="Enter middle name" class="form-control" required="">
 							    
@@ -51,7 +51,7 @@
 							</div>
                                                         <!-- Text input-->
 							<div class="control-group">
-							  <label class="control-label" for="plname">Last name</label>
+							  <label class="control-label" for="plname">Last Name</label>
 							  <div class="controls">
 							    <input id="plname" name="plname" type="text" placeholder="Enter last name" class="form-control" required="">
 							    
@@ -129,7 +129,7 @@
 							<div class="panel-footer">	
 								<div class="form-actions text-center forms">
 									<button type="submit" class="btn btn-success">Submit</button>
-                                                                        <a class="btn" href="viewpatient.php">Back</a>
+                                    <a class="btn" href="viewpatient.php">Back</a>
 								</div>		
 						  	</div>		
 						</form>

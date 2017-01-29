@@ -1,6 +1,12 @@
 <?php 
 	include 'login_success.php';
 	require 'dbconnect.php';
+
+	$pdo = Database::connect();
+
+	$inventory = $pdo->prepare("SELECT * FROM inventory WHERE remarks = 'Ok' ");
+	$inventory->execute();
+	$inventory = $inventory->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,17 +22,30 @@
 					</div>
 				</div>
 				<div class="table-responsive">
-					<table class="table table-hover">
+					<table class="table table-hover table-striped">
 						<thead>
 							<tr class="alert-info">
-								<th>Unit Serial Number</th>
+								<th>Unit Serial No.</th>
 								<th>Component</th>
 								<th>Status</th>
-								<th>Action</th>
+								<th>Blood Type</th>
+								<th>Amount</th>
 							</tr>
 						</thead>
 						<tbody>
-							<?php 
+							<?php
+								foreach($inventory as $row){
+									$bloodinfo = $pdo->prepare("SELECT * FROM bloodinformation WHERE bloodid = ?");
+									$bloodinfo->execute(array($row['bloodinfo']));
+									$bloodinfo = $bloodinfo->fetch(PDO::FETCH_ASSOC); 
+									echo '<tr>';
+										echo '<td>' . $row['unitserialno'] . '</td>';
+										echo '<td>' . $row['component'] . '</td>';
+										echo '<td>' . $row['status'] . '</td>';
+										echo '<td>' . $bloodinfo['bloodgroup'] . ' ' . $bloodinfo['rhtype'] . '</td>';
+										echo '<td>' . $row['amount'] . ' ml' . '</td>';	
+									echo '</tr>';
+								}
 							?>
 						</tbody>
 					</table>
