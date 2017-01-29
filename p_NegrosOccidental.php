@@ -46,40 +46,38 @@
 
 <script type="text/javascript">
     var locations = [
-      ['<strong>Philippine Red Cross Main<br></strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 14.5720757,121.0466793,21] , 
-      ['<strong>Philippine Red Cross Bacolod Chapter</strong><br>\<p>Available Blood</p><br>\
-	<p><a href="requisition_form_byChapters.php">Request</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n\
-        <a href="requisition_form_byChapters.php" style="text-align: right">Go to </a></p>'
-       , 10.6761724,122.9570703,19],
-      ['<strong>Philippine Red Cross Cebu Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 10.3124335,123.8917013,21],
-      ['<strong>Philippine Red Cross Cagayan Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 17.6132213,121.7273084,21],
-      ['<strong>Philippine Red Cross Vigan Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 17.5751601,120.3862903,21],
-      ['<strong>Philippine Red Cross Abra Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 17.5998337,120.618535,21],
-      ['<strong>Philippine Red Cross La Union Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 16.6146505,120.317175,21],
-      ['<strong>Philippine Red Cross Nueva Vizcaya Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 16.4878715,121.1597741,21],
-      ['<strong>Philippine Red Cross Quirino Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 16.5246079,121.5193845,21],
-      ['<strong>Philippine Red Cross Nueva Ecija Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 15.4900431,120.9690693,21],
-      ['<strong>Philippine Red Cross Bulacan Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 14.85694,120.8140655,21],
-      ['<strong>Philippine Red Cross Pampanga Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 15.0239591,120.6875669,21],
-      ['<strong>Philippine Red Cross Valenzuela Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 14.6780091,120.9785221,21],
-      ['<strong>Philippine Red Cross Malabon Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 14.6695355,120.9756652,21],
-      ['<strong>Philippine Red Cross Caloocan Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 14.6473076,120.9918956,21],
+      ['<strong>Alfredo F. Marañon, Sr. Memorial District Hospital<br></strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byHospitals.php">Request</a>', 10.807708,123.372701,21] , 
+      ['<strong>Bacolod Adventist Medical Center</strong><br>\<p>Available Blood</p><br>\
+        <a href="requisition_form_byHospitals.php">Request</a>', 10.6476608,122.9494671,21],
+      ['<strong>Bacolod Our Lady of Mercy Specialty Hospital</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byHospitals.php">Request</a>', 10.6898607,122.9714516,21],
+      ['<strong>Bago City Hospital</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byHospitals.php">Request</a>', 10.5353332,122.8475057,21],
+      ['<strong>Binalbagan Infirmary</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byHospitals.php">Request</a>', 10.2044765,122.9758139,21],
+      ['<strong>Cadiz District Hospital</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byHospitals.php">Request</a>', 10.9475969,123.2898107,21],
+      ['<strong>Calatrava District Hospital</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byHospitals.php">Request</a>', 10.5956043,123.4828658,21],
+      ['<strong>Cauayan Municipal Hospital</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byHospitals.php">Request</a>', 9.9718374,122.5873684,21],
+      ['<strong>Corazon Locsin Montelibano Memorial Regional Hospital</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byHospitals.php">Request</a>', 10.685624,122.9572993,21],
+      ['<strong>Don Salvador Benedicto Memorial Hospital</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byHospitals.php">Request</a>', 10.4228147,122.9137014,21],
+      ['<strong>Dr. Gumersindo Garcia, Sr. Memorial Hospital</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byHospitals.php">Request</a>', 9.9897914,122.8132915,21],
+      ['<strong>Dr. Pablo O. Torre, Sr. Memorial Hospital</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byHospitals.php">Request</a>', 10.6827911,122.9581273,21],
+      ['<strong>E.R. ELumba Clinic</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byHospitals.php">Request</a>', 10.3219475,123.019397,21],
+      ['<strong>Eleuterio T. Decena Memorial Hospital</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byHospitals.php">Request</a>', 9.6295611,122.4662582,17],
+      ['<strong>Gov. Valeriano M. Gatuslao Memorial Hospital</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byHospitals.php">Request</a>', 10.114413,122.8713687,21],
       ['<strong>Philippine Red Cross Quezon Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 14.6461487,121.0520345,21],
+	<a href="requisition_form_byHospitals.php">Request</a>', 14.6461487,121.0520345,21],
       ['<strong>Philippine Red Cross Manila Chapter</strong><br>\<p>Available Blood</p><br>\
 	<a href="requisition_form_byChapters.php">Request</a>', 14.5879335,120.9762516,21],
       ['<strong>Philippine Red Cross Rizal Chapter</strong><br>\<p>Available Blood</p><br>\
@@ -115,8 +113,8 @@
     ];
 
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 6,
-      center: new google.maps.LatLng(12.1262138,122.4515049),
+      zoom: 8,
+      center: new google.maps.LatLng(10.3105497,122.8722771),
      
     });
 
