@@ -11,7 +11,7 @@
     } else {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT COUNT  FROM bloodbank";
+        $sql = "SELECT SQL_CALC_FOUND_ROWS *  FROM inventory WHERE remarks LIKE 'Ok'";
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         $data = $q->fetch(PDO::FETCH_ASSOC);
@@ -53,6 +53,7 @@
 			<a href="c_Vietnam.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/vietnamflg.png"></span>&nbsp;&nbsp; Vietnam</a>
 		</div>
 	</div>
+    
 	<div class="col-lg-9">
 		<div id='map'></div>
 		<br>
@@ -61,7 +62,7 @@
                     <a href="p_NegrosOccidental_1.php">By Hospitals?</a>
     </div>
 	</div>
-    
+    </form>
 </div>
 	
 	
@@ -71,9 +72,9 @@
     var locations = [
       ['<strong>Philippine Red Cross Main<br></strong><br>\<p>Available Blood</p><br>\
 	<a href="requisition_form_byChapters.php">Request</a>', 14.5720757,121.0466793,21] , 
-      ['<strong>Philippine Red Cross Bacolod Chapter</strong><br>\<p>Available Blood</p><br>\
-        <p></p>\
-	<p><a href="requisition_form_byChapters.php">Request</a>', 10.6761724,122.9570703,19],
+      ['<form action="inventory_list.php" method="post">\<strong>Philippine Red Cross Bacolod Chapter</strong><br>\<p>Available Blood</p>\
+        <p style="font-weight: bold"><?php echo $data['component']?></p>\
+	<p><a href="requisition_form_byChapters.php">Request</a></form>', 10.6761724,122.9570703,19],
       ['<strong>Philippine Red Cross Cebu Chapter</strong><br>\<p>Available Blood</p><br>\
 	<a href="requisition_form_byChapters.php">Request</a>', 10.3124335,123.8917013,21],
       ['<strong>Philippine Red Cross Cagayan Chapter</strong><br>\<p>Available Blood</p><br>\
