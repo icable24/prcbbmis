@@ -1,0 +1,12 @@
+<markers>
+    <marker id="1" name="Brunei" href="c_Myanmar.php" lat="4.5254025" lng="114.1591413" type="Country"/>
+    <marker id="2" name="Cambodia" lat="12.2963276" lng="104.7361466" type="Country"/>
+    <marker id="3" name="Indonesia" lat="-4.824171" lng="121.7683894" type="Country"/>
+    <marker id="4" name="Laos" lat="19.1644031" lng="102.3924702" type="Country"/>
+    <marker id="5" name="Malaysia" lat="3.1389094" lng="101.7599891" type="Country"/>
+    <marker id="6" name="Myanmar" lat="20.8780807" lng="96.6368639" type="Country"/>
+    <marker id="7" name="Philippines" lat=" 12.1262138" lng="122.4515049" type="Country"/>
+    <marker id="8" name="Singapore" lat="1.3150701" lng="103.7069325" type="Country"/>
+    <marker id="9" name="Thailand" lat="16.0109028" lng="100.9927392" type="Country"/>
+    <marker id="10" name="Vietnam" lat="14.86692" lng="108.3096936" type="Country"/>
+</markers>

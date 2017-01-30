@@ -122,7 +122,6 @@
 							</div>
 
                                                         </div>
-                                                        
 
 							<!-- Text input-->
 							<div class="control-group">

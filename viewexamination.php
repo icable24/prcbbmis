@@ -20,7 +20,6 @@
         $data = $q->fetch(PDO::FETCH_ASSOC);
         Database::disconnect();
     }
-
     $uname = $_SESSION['login_username'];
 
     $pdo = Database::connect();

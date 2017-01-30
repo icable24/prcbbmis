@@ -7,6 +7,7 @@
 	$test = $pdo->prepare("SELECT * FROM bloodbag WHERE status LIKE 'For Testing'");
 	$test->execute();
 	$test = $test->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <!--Start of Html-->
 <!DOCTYPE html>
@@ -34,7 +35,7 @@
 						<th>Bag Type</th>
 						<th>Blood Type</th>
 						<th>Status</th>
-						<th class="text-center">Action</th>
+						<th class="text-center">Action</th>				
 					</tr>
 				</thead>
 				<tbody>					

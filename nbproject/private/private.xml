@@ -3,8 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/xampp/htdocs/prcbbmis/sample/add.php</file>
             <file>file:/C:/xampp/htdocs/prcbbmis/map.php</file>
+=======
+            <file>file:/C:/xampp/htdocs/prcbbmis/sample/newXmlSchema.xsd</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/js/addnewfieldr1.js</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/sample/markers.xml</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/requisition_form_byHospitals.php</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/map.php</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/js/addnewfieldr2.js</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/sample/mysqlmaps.php</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/sample/maps.sql</file>
+>>>>>>> 496a4d5ddcbbc03fdcad6307ef3bd1cf2ef5b770
         </group>
     </open-files>
 </project-private>

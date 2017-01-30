@@ -1,0 +1,100 @@
+<!--
+- phpMyAdmin XML Dump
+- version 4.6.4
+- https://www.phpmyadmin.net
+-
+- Host: localhost
+- Generation Time: Oct 31, 2016 at 11:49 PM
+- Server version: 5.7.16
+- PHP Version: 5.5.38
+--><pma_xml_export version="1.0"><!--
+    - Structure schemas
+    -->
+<pma:structure_schemas><pma:database name="map_markers" collation="latin1_swedish_ci" charset="latin1"><pma:table name="markers">
+                CREATE TABLE `markers` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `name` varchar(60) NOT NULL,
+                  `address` varchar(80) NOT NULL,
+                  `lat` float(10,6) NOT NULL,
+                  `lng` float(10,6) NOT NULL,
+                  `type` varchar(30) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+            </pma:table></pma:database></pma:structure_schemas><!--
+    - Database: 'map_markers'
+    -->
+<database name="map_markers"><!-- Table markers -->
+<table name="markers">
+    <column name="id">18</column>
+    <column name="name">Billy Kwong</column>
+    <column name="address">1/28 Macleay Street, Elizabeth Bay, NSW</column>
+    <column name="lat">-33.869843</column>
+    <column name="lng">151.225769</column>
+    <column name="type">restaurant</column>
+</table>
+<table name="markers">
+    <column name="id">17</column>
+    <column name="name">Love.Fish</column>
+    <column name="address">580 Darling Street, Rozelle, NSW</column>
+    <column name="lat">-33.861034</column>
+    <column name="lng">151.171936</column>
+    <column name="type">restaurant</column>
+</table>
+<table name="markers">
+    <column name="id">15</column>
+    <column name="name">Young Henrys</column>
+    <column name="address">76 Wilford Street, Newtown, NSW</column>
+    <column name="lat">-33.898113</column>
+    <column name="lng">151.174469</column>
+    <column name="type">bar</column>
+</table>
+<table name="markers">
+    <column name="id">16</column>
+    <column name="name">Hunter Gatherer</column>
+    <column name="address">Greenwood Plaza, 36 Blue St, North Sydney NSW </column>
+    <column name="lat">-33.840282</column>
+    <column name="lng">151.207474</column>
+    <column name="type">bar</column>
+</table>
+<table name="markers">
+    <column name="id">14</column>
+    <column name="name">The Potting Shed</column>
+    <column name="address">7A, 2 Huntley Street, Alexandria, NSW</column>
+    <column name="lat">-33.910751</column>
+    <column name="lng">151.194168</column>
+    <column name="type">bar</column>
+</table>
+<table name="markers">
+    <column name="id">10</column>
+    <column name="name">Nomad</column>
+    <column name="address">16 Foster Street, Surry Hills, NSW</column>
+    <column name="lat">-33.879917</column>
+    <column name="lng">151.210449</column>
+    <column name="type">bar</column>
+</table>
+<table name="markers">
+    <column name="id">9</column>
+    <column name="name">Three Blue Ducks</column>
+    <column name="address">43 Macpherson Street, Bronte, NSW</column>
+    <column name="lat">-33.906357</column>
+    <column name="lng">151.263763</column>
+    <column name="type">restaurant</column>
+</table>
+<table name="markers">
+    <column name="id">19</column>
+    <column name="name">Single Origin Roasters</column>
+    <column name="address">60-64 Reservoir Street, Surry Hills, NSW</column>
+    <column name="lat">-33.881123</column>
+    <column name="lng">151.209656</column>
+    <column name="type">restaurant</column>
+</table>
+<table name="markers">
+    <column name="id">21</column>
+    <column name="name">Red Lantern</column>
+    <column name="address">60 Riley Street, Darlinghurst, NSW</column>
+    <column name="lat">-33.874737</column>
+    <column name="lng">151.215530</column>
+    <column name="type">restaurant</column>
+</table>
+</database>
+</pma_xml_export>

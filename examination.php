@@ -199,4 +199,9 @@
 	?>
 
 </body>
+<<<<<<< HEAD
 </html
+=======
+</html>
+
+>>>>>>> 496a4d5ddcbbc03fdcad6307ef3bd1cf2ef5b770
