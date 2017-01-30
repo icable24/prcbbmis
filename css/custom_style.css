@@ -267,6 +267,11 @@ footer {
     border-color: #ffd5d5 !important;
 }
 
+.notif-divider{
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+}
+
 .table tr th{
     border-bottom: #ffd5d5 !important;
 }

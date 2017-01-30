@@ -117,6 +117,7 @@
 									<th>Patient Name</th>
 									<th>Blood Type</th>
 									<th>Component</th>
+									<th class="text-center">Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -132,10 +133,19 @@
 									$patient = $pdo->prepare("SELECT * FROM patient WHERE pid = ?");
 									$patient->execute(array($row['pid']));
 									$patient = $patient->fetch(PDO::FETCH_ASSOC);
+
+									$bloodinfo = $pdo->prepare("SELECT * FROM bloodinformation WHERE bloodid = ?");
+									$bloodinfo->execute(array($patient['bloodinfo']));
+									$bloodinfo = $bloodinfo->fetch(PDO::FETCH_ASSOC);
 									echo '<tr>';
 										echo '<td>' . $row['reqid']. '</td>';
 										echo '<td>' . $patient['pid']. '</td>';
-										echo '<td>' . $patient['pfname'] . ' ' .substr($patient['pmname'], 0, 1) . '. ' . $patient['plname'] . '</td>'; 
+										echo '<td>' . $patient['pfname'] . ' ' .substr($patient['pmname'], 0, 1) . '. ' . $patient['plname'] . '</td>';
+										echo '<td>' . $bloodinfo['bloodgroup'] . ' ' . $bloodinfo['rhtype'] . '</td>';
+										echo '<td>' . $row['component'] . '</td>';
+										echo '<td class="text-center">
+														<a class="btn btn-primary btn-md" href="viewrequest.php?id='.$row['reqid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
+										  		  </td>';
 									echo '</tr>';
 								}
 								?>

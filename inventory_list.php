@@ -3,6 +3,20 @@
 	require 'dbconnect.php';
 
 	$pdo = Database::connect();
+	$bag = $pdo->prepare("SELECT * FROM bloodbag WHERE status LIKE 'Inventory'");
+	$bag->execute();
+	$bag = $bag->fetchAll(PDO::FETCH_ASSOC);
+
+	foreach($bag as $row){
+		$update = $pdo->prepare("SELECT * FROM inventory WHERE unitserialno = ?");
+		$update->execute(array($row['unitserialno']));	
+		$update = $update->fetchAll(PDO::FETCH_ASSOC);
+
+		foreach ($update as $row2) {
+			$sql = $pdo->prepare("UPDATE inventory SET remarks = ?, status = ? WHERE unitserialno = ?");
+			$sql->execute(array('Ok', 'Inventory', $row['unitserialno']));
+		}
+	}
 
 	$inventory = $pdo->prepare("SELECT * FROM inventory WHERE remarks = 'Ok' ");
 	$inventory->execute();

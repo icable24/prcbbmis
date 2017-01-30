@@ -1,6 +1,11 @@
 <?php 
 	include 'login_success.php';
 	require 'dbconnect.php';
+
+	$pdo = Database::connect();
+	$test = $pdo->prepare("SELECT * FROM bloodbag WHERE status LIKE 'For Testing'");
+	$test->execute();
+	$test = $test->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +19,11 @@
 	<?php
 	include('header.php');
 	?>
+	<div class="container">
+		<div class="col-lg-12">
 	
+		</div>
+	</div>
 	<?php
 		include('footer.php');
 	?>

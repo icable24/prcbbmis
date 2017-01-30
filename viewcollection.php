@@ -52,13 +52,12 @@ $pages = ceil($total / $perPage);
 			<table class="table table-hover table-striped">
 				<thead>
 					<tr class="alert-info">
-						<th class="text-center">Donor No.</th>
-						<th class="text-center">Blood Bag No.</th>
-						<th class="text-center">Donor Name</th>
-						<th class="text-center">Collection Date</th>
-						<th class="text-center">Blood Bag Type</th>
-						<th class="text-center">Blood Group</th>
-						<th class="text-center">Rh Type</th>
+						<th>Donor No.</th>
+						<th>Blood Bag No.</th>
+						<th>Donor Name</th>
+						<th>Collection Date</th>
+						<th>Blood Bag Type</th>
+						<th>Blood Type</th>
 						<th class="text-center">Action</th>
 						
 					</tr>
@@ -75,8 +74,7 @@ $pages = ceil($total / $perPage);
 								echo '<td>'.$row['cfname'].' '.  substr($row['cmname'], 0 , 1) . '. ' . $row['clname'] .'</td>';
 								echo '<td>'.$row['collectiondate'].'</td>';
                                 echo '<td>'.$row['bagtype'].'</td>';
-                                echo '<td>'.$bloodinfo['bloodgroup'].'</td>';	
-                                echo '<td>'.$bloodinfo['rhtype'].'</td>';
+                                echo '<td>'.$bloodinfo['bloodgroup'] . ' ' . $bloodinfo['rhtype'] . '</td>';	
                                                                 
 								echo '<td class="text-center">
 											<a class="btn btn-primary btn-md" href="printcollection.php?id='.$row['donorcollectid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-print"></span></a>

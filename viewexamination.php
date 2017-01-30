@@ -20,6 +20,12 @@
         $data = $q->fetch(PDO::FETCH_ASSOC);
         Database::disconnect();
     }
+    $uname = $_SESSION['login_username'];
+
+    $pdo = Database::connect();
+    $user = $pdo->prepare("SELECT * FROM user WHERE username like '$uname'");
+    $user->execute();
+    $user = $user->fetch(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,9 +47,11 @@
                         &nbsp;&nbsp; Donor's Profile
                     </h2>
                 </div>
+                <?php if($user['usertype'] == 'Admin'){ ?>
                 <div class="col-md-6 text-right" style="padding-top:20px;">
                     <a href="examination.php?id=<?php echo $_GET['id'] ?>" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Edit</a>
                 </div>
+                <?php } ?>
             </div>
             <?php 
             include 'donor_side.php'

@@ -8,7 +8,7 @@
     
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM patient where pfname = ?";
+        $sql = "SELECT * FROM patient WHERE pfname = ?";
         $q = $pdo->prepare($sql);
         $data = $q->fetch(PDO::FETCH_ASSOC);
         Database::disconnect();
@@ -69,7 +69,7 @@ if($id != null){
 	</div>
 			<div class="control-group">
                 <label class="control-label">Blood Type</label>
-                <input class="form-control" value="<?php echo $blood['bloodgroup'] . ' ' . $blood['rhtype'] ?>"></input>
+                <input class="form-control" value="<?php echo $blood['bloodgroup'] . ' ' . $blood['rhtype'] ?>" disabled></input>
                 <input type="hidden" name="bloodgroup" value="<?php $blood['bloodgroup'] ?>">
                 <input type="hidden" name="rhtype" value="<?php $blood['rhtype'] ?>">
             </div>

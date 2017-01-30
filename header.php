@@ -37,7 +37,26 @@
     $notification = $notification->fetchAll(PDO::FETCH_ASSOC);
     $total_screen_pending = $pdo->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
 
-    $total_notif = ((int)$total_exam_pending + (int)$total_screen_pending);
+    $notification = $pdo->prepare("
+    SELECT SQL_CALC_FOUND_ROWS * 
+    FROM bloodrequest
+    WHERE status LIKE 'Pending' 
+    ");
+    $notification->execute();
+    $notification = $notification->fetchAll(PDO::FETCH_ASSOC);
+    $total_request_pending = $pdo->query("SELECT FOUND_ROWS() AS total")->fetch()['total'];
+
+    $notification = $pdo->prepare("
+    SELECT SQL_CALC_FOUND_ROWS * 
+    FROM componentsprep
+    WHERE remarks LIKE 'Pending' 
+    ");
+    $notification->execute();
+    $notification = $notification->fetchAll(PDO::FETCH_ASSOC);
+    $total_prep_pending = $pdo->query("SELECT FOUND_ROWS() AS total")->fetch()['total'];
+
+
+    $total_notif = ((int)$total_exam_pending + (int)$total_screen_pending + (int)$total_request_pending + (int)$total_prep_pending);
 ?>
 <!DOCTYPE html>
 
@@ -87,20 +106,33 @@
                         <?php if($user['usertype'] == 'Admin'){?>
                             <div class="navbar navbar-right" style="background-color: #cc0000; margin-left: 10px; margin-top: 10px; min-height: 0px">
                                 <a data-toggle="dropdown" style="color: white">
-                                <span class="glyphicon glyphicon-envelope"><span class="notification-counter"><?php if($total_notif > 0){
-                                    echo $total_notif;
-                                    } ?></span><b class="caret"> </b></span>
-                                    
-                                    <ul class="dropdown-menu lihover" style="background-color: #ff3333;">
-                                    <?php if($total_screen_pending > 0){ ?>
-                                        <li><a href="notification.php"><?php echo $total_screen_pending; ?> Donor Screening <br/>is Pending</a></li>
-                                    <?php } ?>
-                                    
-                                    <?php if($total_exam_pending > 0){ ?>
-                                        <li class="divider"></li>
-                                        <li><a href="notification.php"><?php echo $total_exam_pending; ?> Donor Examination <br> is Pending</a></li>
-                                    <?php } ?>
-                                    </ul>
+                                <span class="glyphicon glyphicon-envelope"><span class="notification-counter">
+                                    <?php if($total_notif > 0){
+                                        echo $total_notif;
+                                        } ?></span><b class="caret"> </b></span>
+                                        
+                                        <ul class="dropdown-menu lihover" style="background-color: #ff3333;">
+                                            <?php if($total_screen_pending > 0){ ?>
+                                                <li><a href="notification.php"><?php echo $total_screen_pending; ?> Donor Screening <br>is Pending</a></li>
+                                            <?php } ?>
+                                            
+                                            <?php if($total_exam_pending > 0){ ?>
+                                                <hr class="notif-divider" />
+                                                <li><a href="notification.php"><?php echo $total_exam_pending; ?> Donor Examination <br> is Pending</a></li>
+                                            <?php } ?>
+
+                                            <?php if($total_request_pending > 0){ ?>
+                                                <hr class="notif-divider"/>
+                                                <li><a href="notification.php"><?php echo $total_request_pending; ?> Blood 
+                                                Request <br> waiting for Approval</a></li>
+                                            <?php } ?>
+
+                                            <?php if($total_prep_pending > 0){ ?>
+                                                <hr class="notif-divider"/>
+                                                <li><a href="notification.php"><?php echo $total_prep_pending; ?>  
+                                                Components<br> Preparation is Pending</a></li>
+                                            <?php } ?>
+                                        </ul>
                                     <?php } ?>
                                 </a>
                             </div>
