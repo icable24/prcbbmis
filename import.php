@@ -158,19 +158,19 @@ if(isset($_POST["Import"]))
   function toggleStatus() {
    
     if ($('#bb').is(':selected')) {
-        $('#i3 :option').addData('bloodbank');
+        $('#i3 :option').add('bloodbank');
         //
     } else {
         $('#i3 :option').attr('disabled', true);
     }
     if ($('#p').is(':selected')) {
-        $('#i2 :option').addData('patient');
+        $('#i2 :option').add('patient');
         //
     } else {
         $('#i2 :option').attr('disabled', true);
     }
     if ($('#d').is(':selected')) {
-        $('#i1 :option').addData('donor');
+        $('#i1 :option').add('donor');
         //
     } else {
         $('#i1 :option').attr('disabled', true);
