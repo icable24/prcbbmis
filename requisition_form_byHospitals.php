@@ -114,7 +114,6 @@
                                                             <label class="control-label" for="bloodgroup">Blood Component&nbsp;&nbsp;<input type="button" value="+" onclick="addInput()" ></label>
 								<select class="form-control" id="bloodgroup"  name="bloodgroup" >
 									<option selected="selected" disabled></option>
-									<option>Red Cell</option>
 									<option>Fresh Frozen Plasma</option>
 									<option>Platelet Concentrate</option>
 									<option>Whole Blood</option>
@@ -184,7 +183,7 @@
 							<div class="panel-footer">	
 								<div class="form-actions text-center forms">
 									<button type="submit" class="btn btn-success">Request</button>
-                                                                        <a class="btn" href="viewpatient.php">Cancel</a>
+                                                                        <a class="btn" href="p_NegrosOccidental_1.php">Cancel</a>
 								</div>		
 						  	</div>		
 						</form>

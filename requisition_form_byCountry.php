@@ -136,7 +136,7 @@
 							<div class="panel-footer">	
 								<div class="form-actions text-center forms">
 									<button type="submit" class="btn btn-success">Request</button>
-                                                                        <a class="btn" href="viewpatient.php">Cancel</a>
+                                                                        <a class="btn" href="maps.php">Cancel</a>
 								</div>		
 						  	</div>		
 						</form>

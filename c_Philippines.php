@@ -6,7 +6,7 @@
          on this page. Replace it with your own styles as described in the
          documentation:
          https://developers.google.com/maps/documentation/javascript/tutorial -->
-    <script src="http://maps.google.com/maps/api/js?key=AIzaSyDW-KU2LLQRjmIu7W10l3jD0VDLwrQzGP0" type="text/javascript"></script>
+   
 </head>
 <body>
  <style>
@@ -39,11 +39,32 @@
 		<div id='map'></div>
 		<br>
 	</div>
+    <div>
+        <a href="c_Philippines.php">By Chapter?</a>
+        <a href="p_NegrosOccidental.php">By Hospitals?</a>
+    </div>
 </div>
 	
 	
 
+<script>
+      var customLabel = {
+        chapter: {
+          label: 'C'
+        }
+      };
 
+<<<<<<< HEAD
+        function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: new google.maps.LatLng(12.1262138,122.4515049),
+          zoom: 6,
+          
+        });
+        var infoWindow = new google.maps.InfoWindow{
+    
+        }
+=======
 <script type="text/javascript">
     var locations = [
       ['<strong>Philippine Red Cross Main<br></strong><br>\<p>Available Blood</p><br>\
@@ -114,33 +135,67 @@
       ['<strong>Philippine Red Cross Northern Samar Chapter</strong><br>\<p>Available Blood</p><br>\
 	<a href="requisition_form_byChapters.php">Request</a>', 12.5035212,124.6339548,21],
     ];
+>>>>>>> 6f9fe6099a5d831e0cc72842dc14316d09b8bba7
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 6,
-      center: new google.maps.LatLng(12.1262138,122.4515049),
-     
-    });
+          // Change this depending on the name of your PHP or XML file
+          downloadUrl('', function(data) {
+            var xml = data.responseXML;
+            var markers = xml.documentElement.getElementsByTagName('marker');
+            Array.prototype.forEach.call(markers, function(markerElem) {
+              var name = markerElem.getAttribute('name');
+              var address = markerElem.getAttribute('address');
+              var type = markerElem.getAttribute('type');
+              var point = new google.maps.LatLng(
+                  parseFloat(markerElem.getAttribute('lat')),
+                  parseFloat(markerElem.getAttribute('lng')));
 
-    var infowindow = new google.maps.InfoWindow();
+              var infowincontent = document.createElement('div');
+              var strong = document.createElement('strong');
+              strong.textContent = name
+              infowincontent.appendChild(strong);
+              infowincontent.appendChild(document.createElement('br'));
 
-    var marker, i;
-
-    for (i = 0; i < locations.length; i++) { 
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
-      });
-
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
+              var text = document.createElement('text');
+              text.textContent = address
+              infowincontent.appendChild(text);
+              var icon = customLabel[type] || {};
+              var marker = new google.maps.Marker({
+                map: map,
+                position: point,
+                label: icon.label
+              });
+              marker.addListener('click', function() {
+                infoWindow.setContent(infowincontent);
+                infoWindow.open(map, marker);
+              });
+            });
+          });
         }
-      })(marker, i));
-    }
-  </script>
 
- <br><br>
+
+
+      function downloadUrl(url, callback) {
+        var request = window.ActiveXObject ?
+            new ActiveXObject('Microsoft.XMLHTTP') :
+            new XMLHttpRequest;
+
+        request.onreadystatechange = function() {
+          if (request.readyState == 4) {
+            request.onreadystatechange = doNothing;
+            callback(request, request.status);
+          }
+        };
+
+        request.open('GET', url, true);
+        request.send(null);
+      }
+
+      function doNothing() {}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDW-KU2LLQRjmIu7W10l3jD0VDLwrQzGP0&callback=initMap">
+    </script>
+    <br><br>
     
 <?php 
 			include ('footer.php');
