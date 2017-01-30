@@ -29,7 +29,7 @@
 			<a href="c_Laos.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/laosflg.png"></span>&nbsp;&nbsp; Laos</a>
 			<a href="c_Malaysia.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/malaysiaflg.png"></span>&nbsp;&nbsp; Malaysia</a>
 			<a href="c_Myanmar.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/myanmarflg.png"></span>&nbsp;&nbsp; Myanmar</a>
-                        <a href="c_Philippines.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/philippinesflg.png"></span>&nbsp;&nbsp; Philippines</a>
+                        <a href="c_Philippines_1.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/philippinesflg.png"></span>&nbsp;&nbsp; Philippines</a>
 			<a href="c_Singapore.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/singaporeflg.png"></span>&nbsp;&nbsp; Singapore</a>
 			<a href="c_Thailand.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/thailandflg.png"></span>&nbsp;&nbsp; Thailand</a>
 			<a href="c_Vietnam.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/vietnamflg.png"></span>&nbsp;&nbsp; Vietnam</a>
@@ -47,25 +47,25 @@
 <script type="text/javascript">
     var locations = [
       ['<strong>Brunei</strong><br>\<p>Available Blood</p><br>\
-	<a href="c_Brunei.php">Request</a>', 4.5254025,114.1591413,9],
+	<a href="requisition_form_byCountry.php">Request</a>', 4.5254025,114.1591413,9],
       ['<strong>Cambodia</strong><br>\<p>Available Blood</p><br>\
-	<a href="c_Cambodia.php">Request</a>', 12.2963276,104.7361466,7],
+	<a href="requisition_form_byCountry.php">Request</a>', 12.2963276,104.7361466,7],
       ['<strong>Indonesia</strong><br>\<p>Available Blood</p><br>\
-	<a href="c_Indonesia.php">Request</a>', -4.824171,121.7683894,5],
+	<a href="requisition_form_byCountry.php">Request</a>', -4.824171,121.7683894,5],
       ['<strong>Laos</strong><br>\<p>Available Blood</p><br>\
-	<a href="c_Laos.php">Request</a>', 19.1644031,102.3924702,6],
+	<a href="requisition_form_byCountry.php">Request</a>', 19.1644031,102.3924702,6],
       ['<strong>Malaysia</strong><br>\<p>Available Blood</p><br>\
-	<a href="c_Malaysia.php">Request</a>', 5.1389094,102.1199891,6],
+	<a href="requisition_form_byCountry.php">Request</a>', 5.1389094,102.1199891,6],
       ['<strong>Myanmar</strong><br>\<p>Available Blood</p><br>\
-	<a href="c_Myanmar.php">Request</a>', 20.8780807,96.6368639,5],
+	<a href="requisition_form_byCountry.php">Request</a>', 20.8780807,96.6368639,5],
       ['<strong>Philippines</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form.php">Request</a>', 12.1262138,122.4515049,5],
+	<a href="requisition_form_byCountry.php">Request</a>', 12.1262138,122.4515049,5],
       ['<strong>Singapore</strong><br>\<p>Available Blood</p><br>\
-	<a href="c_Singapore.php">Request</a>', 1.3150701,103.7069325,11],
+	<a href="requisition_form_byCountry.php">Request</a>', 1.3150701,103.7069325,11],
       ['<strong>Thailand</strong><br>\<p>Available Blood</p><br>\
-	<a href="c_Thailand.php">Request</a>', 16.0109028,100.9927392,6],
+	<a href="requisition_form_byCountry.php">Request</a>', 16.0109028,100.9927392,6],
       ['<strong>Vietnam</strong><br>\<p>Available Blood</p><br>\
-	<a href="c_Vietnam.php">Request</a>', 14.86692,108.3096936,6],
+	<a href="requisition_form_byCountry.php">Request</a>', 14.86692,108.3096936,6],
      
     ];
 

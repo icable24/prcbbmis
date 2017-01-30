@@ -23,9 +23,9 @@ include 'header.php';
                                                               <form action="" method="post">
                                                               <select id="categs" name="country" class="form-control" style="width: 3in">
                                                                 <option value="none">-Select File to Import-</option>
-                                                                <option value="1" id="d" name="need" onchange="toggleStatus()">Donor</option>
-                                                                <option value="2" id="p" name="need" onchange="toggleStatus()">Patient</option>
-                                                                <option value="3" id="bb" name="need" onchange="toggleStatus()">Blood Bank</option>
+                                                                <option value="1" id="d" name="d" onchange="toggleStatus()">Donor</option>
+                                                                <option value="2" id="p" name="p" onchange="toggleStatus()">Patient</option>
+                                                                <option value="3" id="bb" name="bb" onchange="toggleStatus()">Blood Bank</option>
                                                                 
                                                                 
 							    </select>
@@ -122,13 +122,13 @@ if(isset($_POST["Import"]))
 	
   function toggleStatus() {
    
-    if ($('#bb').is(':selected')) {
+    if ($('#bb').is(':checked')) {
         $('#i3 :option').removeAttr('disabled');
         //
     } else {
         $('#i3 :option').attr('disabled', true);
     }
-    if ($('#p').is(':selected')) {
+    if ($('#p').is(':checked')) {
         $('#i1 :option').removeAttr('disabled');
         //
     } else {
