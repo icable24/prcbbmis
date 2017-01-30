@@ -1,0 +1,61 @@
+
+    .img2{
+         width:30px;
+        height: 30px;
+    }
+    body{
+    background-color: #cc0000;
+    }
+    h1{
+        font-family: stencil;
+        font-size: 60px;
+        text-align: center;
+    }     
+    h2{
+        font-family: stencil;
+        font-size: 20px;
+        text-align: justify;
+    }
+    div{
+        width: 6in;
+        height: 4.5in;
+        background-color:#990000 ;
+        font-family: stencil;
+    }
+    
+    .btn{
+        background-color: #cc0000;
+        width: 95px;
+        height: 40px;
+        font-size: 18px;
+        font-family: Stencil;
+        cursor: pointer;
+    }
+    .urmfld{
+        width: 250px;
+        height: 30px;
+        font-size: 18px;
+    }
+    .pwdfld{
+        width: 250px;
+        height: 30px;
+        font-size: 18px;
+    }
+    .tb1{
+        text-align: center;
+        font-size: 18px;
+    }
+    .h1{
+        font-size: 25px;
+    }
+    .img{
+        width: 400px;
+        height: 100px;
+    }
+    .img1{
+        
+        width: 750px;
+        height: 300px;
+    }
+
+    
