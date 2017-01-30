@@ -30,9 +30,17 @@ require '../dbconnect.php';
 		$q2 = $pdo->prepare($sql2);
 		$q2->execute(array($unitserialno, $bagtype, $bloodinfo['bloodid']));
 
+		if($bagtype == '450cc Single'){
+			$q1 = $pdo->prepare("INSERT INTO inventory(unitserialno, component, status, bloodinfo, amount, quality) VALUES(?, ?, ?, ?, ?, ?)");
+			$q1->execute(array($unitserialno, 'Whole Blood', 'For Testing', $bloodinfo['bloodid'], '450', 'Good Quality'));
+			$q4 = $pdo->prepare("UPDATE bloodbag SET status = 'For Testing' WHERE unitserialno = '$unitserialno'");
+			$q4->execute();
+
+		}else{
+			$q3 = $pdo->prepare("INSERT INTO componentsprep(collid, bagserialno, remarks) VALUES (?, ?, ?)");
+			$q3->execute(array($collid, $unitserialno, $status));
+		}
 		
-		$q3 = $pdo->prepare("INSERT INTO componentsprep(collid, bagserialno, remarks) VALUES (?, ?, ?)");
-		$q3->execute(array($collid, $unitserialno, $status));
 		Database::disconnect();
 		header("Location: ../viewcollection.php");
 	} 

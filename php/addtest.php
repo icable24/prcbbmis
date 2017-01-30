@@ -90,7 +90,23 @@
 		if($r1 < 2 && $r2 < 2 && $r3 < 2 && $r4 < 2 && $r5 < 2){
 			$query = $pdo->prepare("UPDATE bloodbag SET status = 'Inventory' WHERE unitserialno = ?");
 			$query->execute(array($bagserialno));
+		}elseif($r1 >= 2){
+			$query = $pdo->prepare("UPDATE bloodbag SET status = 'Hepatitis B Positive' WHERE unitserialno = ?");
+			$query->execute(array($bagserialno));
+		}elseif($r2 >= 2){
+			$query = $pdo->prepare("UPDATE bloodbag SET status = 'Syphillis Positive' WHERE unitserialno = ?");
+			$query->execute(array($bagserialno));
+		}elseif($r3 >= 2){
+			$query = $pdo->prepare("UPDATE bloodbag SET status = 'Hepatitis C Positive' WHERE unitserialno = ?");
+			$query->execute(array($bagserialno));
+		}elseif($r4 >= 2){
+			$query = $pdo->prepare("UPDATE bloodbag SET status = 'HIV Positive' WHERE unitserialno = ?");
+			$query->execute(array($bagserialno));
+		}elseif($r5 >= 2){
+			$query = $pdo->prepare("UPDATE bloodbag SET status = 'Malaria Positive' WHERE unitserialno = ?");
+			$query->execute(array($bagserialno));
 		}
+		header("Location: ../viewtest.php");
 	}else{
 		header("Location: ../viewtest.php");
 	}
