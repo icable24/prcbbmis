@@ -49,13 +49,10 @@
       ['<strong>Philippine Red Cross Main<br></strong><br>\<p>Available Blood</p><br>\
 	<a href="requisition_form_byChapters.php">Request</a>', 14.5720757,121.0466793,21] , 
       ['<strong>Philippine Red Cross Bacolod Chapter</strong><br>\<p>Available Blood</p><br>\
-<<<<<<< HEAD
-	<a href="requisition_form_byChapters.php">Request</a>', 10.6761724,122.9570703,19],
-=======
 	<p><a href="requisition_form_byChapters.php">Request</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n\
         <a href="requisition_form_byChapters.php" style="text-align: right">Go to </a></p>'
        , 10.6761724,122.9570703,19],
->>>>>>> 496a4d5ddcbbc03fdcad6307ef3bd1cf2ef5b770
+
       ['<strong>Philippine Red Cross Cebu Chapter</strong><br>\<p>Available Blood</p><br>\
 	<a href="requisition_form_byChapters.php">Request</a>', 10.3124335,123.8917013,21],
       ['<strong>Philippine Red Cross Cagayan Chapter</strong><br>\<p>Available Blood</p><br>\

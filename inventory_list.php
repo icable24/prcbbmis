@@ -3,7 +3,6 @@
 	require 'dbconnect.php';
 
 	$pdo = Database::connect();
-<<<<<<< HEAD
 	$bag = $pdo->prepare("SELECT * FROM bloodbag WHERE status LIKE 'Inventory'");
 	$bag->execute();
 	$bag = $bag->fetchAll(PDO::FETCH_ASSOC);
@@ -18,8 +17,6 @@
 			$sql->execute(array('Ok', 'Inventory', $row['unitserialno']));
 		}
 	}
-=======
->>>>>>> 496a4d5ddcbbc03fdcad6307ef3bd1cf2ef5b770
 
 	$inventory = $pdo->prepare("SELECT * FROM inventory WHERE remarks = 'Ok' ");
 	$inventory->execute();
