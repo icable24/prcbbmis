@@ -1,4 +1,5 @@
 <?php
+include 'login_success.php';
 require 'dbconnect.php';
 
 $id = $_REQUEST['id'];
@@ -7,6 +8,8 @@ $pdo = Database::connect();
 $donor = $pdo->prepare("SELECT * FROM donor WHERE pid = ?");
 $donor->execute(array($id));
 $donor = $donor->fetch(PDO::FETCH_ASSOC);
+
+
 
 require_once('tcpdf.php');
 
@@ -27,11 +30,18 @@ class MYPDF extends TCPDF {
     // Page footer
     public function Footer() {
         // Position at 15 mm from bottom
+        $uname = $_SESSION['login_username'];
+
+        $pdo = Database::connect();
+        $user = $pdo->prepare("SELECT * FROM user WHERE username = '$uname'");
+        $user->execute();
+        $user = $user->fetch(PDO::FETCH_ASSOC);
+
         $this->SetY(-15);
         // Set font
         $this->SetFont('times', 'R', 12);
         // Title
-        $this->Cell(0, 10, 'Philippine Red Cross Blood Bank Management Information System', 0, false, 'C', 0, '', 0, false, 'M', 'M');
+        $this->Cell(0, 8, 'Printed by: ' . $user['fname'] . ' ' .  substr($user['mname'], 0, 1) . '. ' . $user['lname'] , 0, false, 'C', 0, '', 0, false, 'M', 'M');
         // Page number
         $this->Cell(0, 10, 'Page '.$this->getAliasNumPage().'/'.$this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
     }

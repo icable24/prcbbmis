@@ -17,11 +17,7 @@
 	?>
 	<div class="container">
 	<div class="col-lg-12">
-	<div class="container-fluid">
-		<!-- <?php 	
-				function viewByCategory($category){
-					if($category == 'ViewList'){
-		 ?>-->
+	<div class="container-fluid">	
 		<div class="row" style="border-bottom:solid 1px;margin-bottom:15px;">
 				<div class="col-md-7">
 					<h2>Blood Request</h2>
@@ -84,8 +80,7 @@
 								echo '<td>'. $row['status'] .'</td>';
                                                                 
 								echo '<td class="text-center">
-											<a class="btn btn-warning btn-md" href="#" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-pencil"></span></a>
-											<a class="btn btn-danger btn-md" href="#" data-toggle="tooltip" title="Delete"><span class="glyphicon glyphicon-trash"></span></a>
+											<a class="btn btn-primary btn-md" href="#" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
 							  		  </td>';
 							echo '</tr>';
 						}
@@ -94,31 +89,9 @@
 				</tbody>
 			</table>
 		</div>
-			<!-- <?php }} ?> -->
-	</div>
-		<!-- <ul class="nav nav-tabs nav-tabs-black">
-				<li class="active"><a data-toggle="tab" href="#home" class="nav-tabs-black">Blood Request List</a></li>
-		</ul>
-		<div class="tab-content">
-		    <div id="home" class="tab-pane fade in active">
-				<br />
-				<?php viewByCategory('ViewList')?>
-		    </div>
-		    <div id="menu1" class="tab-pane fade">
-				<br />
-				<?php viewByCategory('Approval')?>
-		    </div>
-		    <div id="menu2" class="tab-pane fade">
-				<br />
-				<?php viewByCategory('Approved')?>
-		    </div>
-		    <div id="menu3" class="tab-pane fade">
-				<br />
-				<?php viewByCategory('Disapproved')?>
-		    </div>
-		</div> -->
-	</div>
-         </div>
+		</div>
+		</div>
+		</div>
 
 <!--edit @ footer.php-->
 <?php

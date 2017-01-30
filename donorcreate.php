@@ -170,7 +170,7 @@
 							<div class="panel-footer">	
 								<div class="form-actions text-center forms">
 									<button type="submit" class="btn btn-success">Submit</button>
-									<a class="btn" href="home.php">Back</a>
+									<a class="btn" href="donorlist.php">Back</a>
 								</div>		
 						  	</div>		
 						</form>

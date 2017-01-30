@@ -19,6 +19,13 @@
         $data = $q->fetch(PDO::FETCH_ASSOC);
         Database::disconnect();
     }
+
+    $uname = $_SESSION['login_username'];
+
+    $pdo = Database::connect();
+    $user = $pdo->prepare("SELECT * FROM user WHERE username like '$uname'");
+    $user->execute();
+    $user = $user->fetch(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,10 +43,12 @@
 					&nbsp;&nbsp; Donor's Profile
 				</h2>
 			</div>
+			<?php if($user['usertype'] == 'Admin'){ ?>
 			<div class="col-md-6 text-right" style="padding-top:20px;">
 	                <a href="donorupdate.php?id=<?php echo $_GET['id'] ?>" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Edit</a>
 	                <button type="button" class="btn btn-danger btn-md deleteB" rel="tooltip" title="Delete Patient" data-toggle="modal" data-target="#myModal" value="<?php echo $_GET['id'] ?>"><span class="glyphicon glyphicon-trash"></span></button>
 			</div>
+			<?php } ?>
 		</div>
 		<?php 
 			include 'donor_side.php';
@@ -56,7 +65,7 @@
 
 						<div class="control-group">
 							<label class="control-label">Donor ID</label>
-							<div class="controls"><input class="form-control" value="<?php echo 'D01-' . $data['did']?>" disabled>
+							<div class="controls"><input class="form-control" value="<?php echo $data['did']?>" disabled>
 							</div>
 						</div>
 						<!-- Text input-->

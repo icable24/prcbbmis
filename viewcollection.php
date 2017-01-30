@@ -77,8 +77,7 @@ $pages = ceil($total / $perPage);
                                 echo '<td>'.$bloodinfo['bloodgroup'] . ' ' . $bloodinfo['rhtype'] . '</td>';	
                                                                 
 								echo '<td class="text-center">
-											<a class="btn btn-primary btn-md" href="printcollection.php?id='.$row['donorcollectid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-print"></span></a>
-											<a class="btn btn-warning btn-md" href="#" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-pencil"></span></a>
+											<a class="btn btn-primary btn-md" href="printcollection.php?id='.$row['donorcollectid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-print"></span></a>	
 							  		  </td>';
 							echo '</tr>';
 						}

@@ -50,7 +50,7 @@
 								echo '<td>'.$bloodinfo['bloodgroup'] . ' ' . $bloodinfo['rhtype'] .'</td>';
 								echo '<td>'.$row['status'].'</td>';                                                             
 								echo '<td class="text-center">
-											<a class="btn btn-warning btn-md" href="#" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-pencil"></span></a>	
+											<a class="btn btn-primary btn-md" href="bloodtest.php?bagserialno='.$row['unitserialno'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>	
 							  		  </td>';
 							echo '</tr>';
 						}
