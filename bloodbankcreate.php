@@ -30,7 +30,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="bankname">Name</label>
 							  <div class="controls">
-							    <input id="bankname" name="bankname" type="text" placeholder="Name" class="form-control" required="">
+							    <input id="bankname" name="bankname" type="text" placeholder="Name" class="form-control" required>
 							    
 							  </div>
 							</div>
@@ -39,7 +39,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="bankaddress">Address</label>
 							  <div class="controls">
-							    <input id="bankaddress" name="bankaddress" type="text" placeholder="Address" class="form-control" required="">
+							    <input id="bankaddress" name="bankaddress" type="text" placeholder="Address" class="form-control" required>
 							    
 							  </div>
 							</div>
@@ -57,7 +57,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="country">Country</label>
 							  <div class="controls">
-							    <select id="country" name="country" class="form-control">
+                                                              <select id="country" name="country" class="form-control" required>
                                                                 <option>Brunei</option>
                                                                 <option>Cambodia</option>
                                                                 <option>Indonesia</option>
@@ -68,6 +68,17 @@
                                                                 <option>Singapore</option>
                                                                 <option>Thailand</option>
                                                                 <option>Vietnam</option>
+							    </select>
+							  </div>
+							</div>
+                                                        
+                                                        <!-- Select Basic -->
+							<div class="control-group">
+							  <label class="control-label" for="bankcateg">Blood Bank Category</label>
+							  <div class="controls">
+                                                              <select id="bankcateg" name="bankcateg" class="form-control" required>
+                                                                <option value="Chapter">Chapter</option>
+                                                                <option value="Hospital">Hospital</option>
 							    </select>
 							  </div>
 							</div>

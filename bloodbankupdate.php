@@ -102,7 +102,7 @@
 							<div class="panel-footer">	
 								<div class="form-actions text-center forms">
 									<button type="submit" class="btn btn-warning">Update</button>
-                                                                        <a class="btn" href="viewubloodbank.php">Back</a>
+                                                                        <a class="btn" href="viewbloodbank.php">Back</a>
 								</div>		
 						  	</div>	
 						</form>

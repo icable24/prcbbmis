@@ -54,9 +54,9 @@
 
 							<!-- Text input-->
 							<div class="control-group">
-							  <label class="control-label" for="pfname">Requester</label>
+							  <label class="control-label" for="requester">Requester</label>
 							  <div class="controls">
-							    <input id="pfname" name="pfname" type="text" placeholder="Fullname" class="form-control" required="">
+							    <input id="requester" name="requester" type="text" placeholder="Fullname" class="form-control" required="">
 							    
 							  </div>
 							</div>
@@ -89,7 +89,7 @@
                                                            
                                                                      <td>
                                                             <label class="control-label" for="bloodgroup">Blood Type</label>
-                                                            <select class="form-control" id="bloodgroup" name="bloodgroup" disabled style="width: 100px">
+                                                            <select class="form-control" id="bloodgroup" name="bloodtype" disabled style="width: 100px">
 									<option selected="selected" disabled></option>
                                                                         <option>A</option>
 									<option>B</option>
@@ -100,14 +100,14 @@
                                                                      </td>
                                                                      <td style="padding-left: 20px">
 								<label class="control-label" for="rhtype">Rh Type</label>
-                                                                <select class="form-control" name="rhtype" id="rhtype" disabled style="width: 100px">
+                                                                <select class="form-control" name="rh" id="rhtype" disabled style="width: 100px">
 									<option selected="selected" disabled></option>
 									<option>Positive</option>
 									<option>Negative</option>
 								</select>
                                                                      </td>
                                                                      <td style="padding-left: 20px">
-							  <label class="control-label" for="qty">Quantity</label>
+							  <label class="control-label" for="btqty">Quantity</label>
 							  <div class="controls">
                                                               <input id="qty" name="qty" type="text" class="form-control" required="" disabled style="width: 100px">
 							     
@@ -129,7 +129,7 @@
                                                         <tr class="control-group">
                                                             <td>
                                                             <label class="control-label" for="bloodgroup">Blood Component</label>
-                                                            <select class="form-control" id="bloodgroup"  name="bloodgroup" disabled style="width: 2.3in"> 
+                                                            <select class="form-control" id="bloodgroup"  name="bloodcomponent" disabled style="width: 2.3in"> 
 									<option selected="selected" disabled></option>
 									<option>Fresh Frozen Plasma</option>
 									<option>Platelet Concentrate</option>
@@ -139,7 +139,7 @@
                                                             <td style="padding-left: 20px">
 							  <label class="control-label" for="qty">Quantity</label>
 							  <div class="controls">
-                                                              <input id="qty" name="qty" type="text" class="form-control" required="" disabled style="width: 100px">
+                                                              <input id="qty" name="bcqty" type="text" class="form-control" required="" disabled style="width: 100px">
 							     
 							  </div>
                                                                      </td>
@@ -155,16 +155,16 @@
 
 							<!-- Text input-->
 							<div class="control-group">
-							  <label class="control-label" for="pbirthdate">Date Needed</label>
+							  <label class="control-label" for="dateneeded">Date Needed</label>
 							  <div class="controls">
-							    <input id="pbirthdate" name="pbirthdate" type="date" class="form-control" required="">
+							    <input id="dateneeded" name="dateneeded" type="date" class="form-control" required="">
 							   		<script src="js/jquery-1.9.1.min.js"></script>
 										<script src="js/bootstrap-datepicker.js"></script>
 										<script type="text/javascript">
 											// When the document is ready
 											$(document).ready(function () {
 												
-												$('#pbirthdate').datepicker({
+												$('#dateneeded').datepicker({
 													format: "yyyy-mm-dd"
 												});  
 											
@@ -202,9 +202,9 @@
                                                         
                                                         <!-- Text input-->
 							<div class="control-group">
-							  <label class="control-label" for="detail">Reason</label>
+							  <label class="control-label" for="reason">Reason</label>
 							  <div class="controls">
-                                                              <textarea id="detail" name="detail" placeholder="Enter text here..." class="form-control" required=""></textarea>
+                                                              <textarea id="reason" name="reason" placeholder="Enter text here..." class="form-control" required=""></textarea>
 							    
 							  </div>
 							</div>

@@ -13,15 +13,25 @@
                 $usertype = $_POST['usertype'];
                 
 	
-		
+                if($bankname == $bankname){
+                    $pdo = Database::connect();
+                   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                   $sql = "SELECT bankname FROM bloodbank WHERE status LIKE 'registered'";
+                   $q = $pdo->prepare($sql);
+                   $q->execute(array($id));
+                   $data = $q->fetch(PDO::FETCH_ASSOC);
+                   Database::disconnect();
 	
 			$pdo = Database::connect();
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql = "INSERT INTO user (fname, mname, lname, username, password, bankname, usertype) values(?, ?, ?, ?, ?, ?, ?)";
+			$sql = "INSERT INTO user (fname, mname, lname, username, password, usertype) values(?, ?, ?, ?, ?, ?)";
 			$q = $pdo->prepare($sql);
-            $q->execute(array($fname, $mname, $lname, $username, $password, $bankname, $usertype));
+            $q->execute(array($fname, $mname, $lname, $username, $password, $usertype));
             Database::disconnect();
             header("Location: ../viewuser.php");
-		}
+        }else{
+            echo "Unregister blood bank";
+        }
+     }
 	
 ?>

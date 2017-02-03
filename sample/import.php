@@ -25,7 +25,7 @@ for ($i = 1; $i <= 4; $i++)
 {
 ?>
 <option value="<?=$i?>" <? if ($item == $i) { print "SELECTED";}?>> <?=$product[$i]?></option>
-<?      php
+<?php
 }
 ?>
 </select>

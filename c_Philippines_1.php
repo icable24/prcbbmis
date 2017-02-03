@@ -133,8 +133,18 @@
 	<a href="requisition_form_byChapters.php">Request</a>', 12.3712772,123.6246535,20],
       ['<strong>Philippine Red Cross Northern Samar Chapter</strong><br>\<p>Available Blood</p><br>\
 	<a href="requisition_form_byChapters.php">Request</a>', 12.5035212,124.6339548,21],
-      ['<strong>Philippine Red Cross Northern Samar Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 12.5035212,124.6339548,21],
+      ['<strong>Philippine Red Cross Aklan Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byChapters.php">Request</a>', 11.7065734,122.3663461,21],
+      ['<strong>Philippine Red Cross Capiz Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byChapters.php">Request</a>', 11.5760018,122.7567348,18],
+      ['<strong>Philippine Red Cross Capiz Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byChapters.php">Request</a>', 11.5760018,122.7567348,18],
+      ['<strong>Philippine Red Cross Capiz Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byChapters.php">Request</a>', 11.5760018,122.7567348,18],
+      ['<strong>Philippine Red Cross Capiz Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byChapters.php">Request</a>', 11.5760018,122.7567348,18],
+            
+            
     ];
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 6,

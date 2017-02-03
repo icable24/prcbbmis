@@ -77,8 +77,20 @@ $pages = ceil($total / $perPage);
 				<div class="col-md-5 text-right" style="padding-top:20px;">
                                     <a href="bloodbankcreate.php" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span>Add Blood Bank</a>
 				</div>
-			</div>
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search.." title="Type in" style="width: 3in">
+                </div>
+            <div class="controls">
+	       		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search.." title="Type in" style="width: 3in">
+	       		<div class="pull-right">
+					<label class="control-label">Filter</label>                   		
+	       			<select id="filters" class="form-control" name="filters" onChange="myFilter()" placeholder="filter">
+				     	<option></option>
+				    	<option>Chapter</option>
+				    	<option>Hospital</option>
+				    	<option>Country</option>
+			    	</select>
+	       		</div>
+					    
+		  	</div>
 	      	<br>
 		<div class="table-responsive">
                     <table class="table table-hover table-striped" id="myTable">
@@ -88,6 +100,7 @@ $pages = ceil($total / $perPage);
 						<th class="text-center">Address</th>
 						<th class="text-center">Contact No.</th>
 						<th class="text-center">Country</th>
+                                                <th class="text-center">Category</th>
 						<th class="text-center">Action</th>
 					</tr>
 				</thead>
@@ -99,9 +112,10 @@ $pages = ceil($total / $perPage);
 								echo '<td>'.$row['bankaddress'].'</td>';
 								echo '<td>'.$row['contactdetails'].'</td>';
 								echo '<td>'.$row['country'].'</td>';
+                                                                echo '<td>'.$row['bankcateg'].'</td>';
 								echo '<td class="text-center">
 									<a class="btn btn-warning btn-md" href="bloodbankupdate.php?id='.$row['bankid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
-									<a class="btn btn-danger btn-md" href="bloodbankdelete.php?id='.$row['bankid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-trash"></span></a>
+									<a class="btn btn-danger btn-md" href="bloodbankdelete.php?id='.$row['bankid'].'" data-toggle="tooltip" title="Delete"><span class="glyphicon glyphicon-trash"></span></a>
 							  		  </td>';
 							echo '</tr>';
 						}
@@ -133,6 +147,25 @@ function myFunction() {
     }       
   }
 }
+
+function myFilter() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("filters");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[4];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
 </script>
 		</div>
 		<nav class="text-center">

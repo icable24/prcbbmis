@@ -6,9 +6,9 @@
 		//variables
 		date_default_timezone_set("Asia/Taipei");
 
-		$fname.$mname.$lname = $_POST['fullname'];
-		$bankaddress = $_POST['bankaddress'];
-		$dbirthdate = $_POST['dbirthdate'];
+		$fname.$mname.$lname = $_POST['requester'];
+		$bloodtype = $_POST['bloodtype'];
+		$rhtype = $_POST['rh'];
 		$dgender = $_POST['dgender'];
 		$dreligion = $_POST['dreligion'];
 		$dcontact = $_POST['dcontact'];
@@ -26,8 +26,13 @@
 
 		$sql4 = "SELECT * FROM bloodbank WHERE bankname = ? AND bankaddress = ? AND contactdetails = ?";
 		$q4 = $pdo->prepare($sql4);
-		$q4->execute(array($bloodgroup, $rhtype));
-		$bloodinfo = $q4->fetch(PDO::FETCH_ASSOC);
+		$q4->execute(array($bankname, $bankaddress, $contactdetails));
+		$bankname.$bankaddress.$contactdetails = $q4->fetch(PDO::FETCH_ASSOC);
+                
+                $sql4 = "SELECT fname,mname,lname FROM user WHERE bloodtype LIKE 'Admin'";
+		$q4 = $pdo->prepare($sql4);
+		$q4->execute(array($bankname, $bankaddress, $contactdetails));
+		$bankname.$bankaddress.$contactdetails = $q4->fetch(PDO::FETCH_ASSOC);
 
 		$sql1 = "INSERT INTO donor (dfname, dmname, dlname, daddress, dbirthdate, dgender, dreligion, dcontact, dtype, dnationality, demail, dregdate, dremarks, bloodinfo) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$q1 = $pdo->prepare($sql1);
