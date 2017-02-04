@@ -3,11 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/prcbbmis/css/style.css</file>
-            <file>file:/C:/xampp/htdocs/prcbbmis/sample/hospital.sql</file>
-            <file>file:/C:/xampp/htdocs/prcbbmis/viewbloodbank.php</file>
-            <file>file:/C:/xampp/htdocs/prcbbmis/bloodbankcreate.php</file>
-            <file>file:/C:/xampp/htdocs/prcbbmis/css/login2.css</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/php/reguser.php</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/requisition_form_byChapters.php</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/viewuser.php</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/usercreate.php</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/SampleFiles/server.php</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/SampleFiles/includes/classes/Database.php</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/login_success.php</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/SampleFiles/includes/classes/Chat.php</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/sample/chapters.sql</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/SampleFiles/includes/config.php</file>
         </group>
     </open-files>
 </project-private>

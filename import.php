@@ -66,7 +66,7 @@ if(isset($_POST["Import"]))
     {
         $file = fopen($filename, "r");
         //$sql_data = "SELECT * FROM prod_list_1 ";
-        while (($emapData = fgetcsv($file, 10000, ",")) !== FALSE)
+        if (($emapData = fgetcsv($file, 10000, ",")) !== FALSE)
         {
             //print_r($emapData);
             //exit();

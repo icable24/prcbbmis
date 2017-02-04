@@ -50,9 +50,10 @@ $pages = ceil($total / $perPage);
 				<thead>
 					<tr class="alert-info">
                                             <th class="text-center">Name</th>  
-						<th class="text-center">Username</th>
-						<th class="text-center">User Type</th>
-						<th class="text-center">Action</th>
+                                            <th>Username</th>
+                                            <th>User Type</th>
+                                            <th>Blood Bank</th>
+                                            <th class="text-center">Action</th>
 					</tr>
 				</thead>
 				<tbody>					
@@ -66,6 +67,7 @@ $pages = ceil($total / $perPage);
 									echo '<td>'.$row['lname']. ', ' . $row['fname'] .' ' . $row['mname'].'</td>';
 									echo '<td>'.$row['username'].'</td>';
 									echo '<td>'.$row['usertype'].'</td>';
+                                                                        echo '<td>'.$row['bankname'].'</td>';
 									echo '<td class="text-center">
 												<a class="btn btn-warning btn-md" href="userupdate.php?id='.$row['userid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
 												<a class="btn btn-danger btn-md" href="userdelete.php?id='.$row['userid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-trash"></span></a>

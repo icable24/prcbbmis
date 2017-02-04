@@ -2,21 +2,18 @@
 	include 'login_success.php';
 	require 'dbconnect.php';
 
-	$id = null;
-    if ( !empty($_GET['id'])) {
-        $id = $_REQUEST['id'];
-    
-     
-   
-    } else {
+        $username = $_SESSION['login_username'];
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT bankname, bankaddress, contactdetails FROM bloodbank";
-        $q = $pdo->prepare($sql);
-        $q->execute(array($id));
-        $data = $q->fetch(PDO::FETCH_ASSOC);
+        
+        $user = $pdo->prepare("SELECT * FROM user WHERE username = ?");
+        $user->execute(array($username));
+        $user = $user->fetch(PDO::FETCH_ASSOC);
+
+        $bloodbank = $pdo->prepare("SELECT * FROM bloodbank WHERE bankname = ?");
+        $bloodbank->execute(array($user['bankname']));
+        $bloodbank = $bloodbank->fetch(PDO::FETCH_ASSOC);
         Database::disconnect();
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +53,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="requester">Requester</label>
 							  <div class="controls">
-							    <input id="requester" name="requester" type="text" placeholder="Fullname" class="form-control" required="">
+                                                              <input id="requester" name="requester" value="<?php echo $user['fname'].' '. substr($user['mname'],0,1).'. '.$user['lname'] ?>" type="text" placeholder="Fullname" class="form-control" required="">
 							    
 							  </div>
 							</div>
@@ -178,7 +175,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="bankname">Blood Bank</label>
 							  <div class="controls">
-							    <input id="bankname" name="bankname" type="text" placeholder="Name" class="form-control" required="" value="<?php echo $data['bankname']?>" disabled>
+							    <input id="bankname" name="bankname" type="text" placeholder="Name" class="form-control" required="" value="<?php echo $bloodbank['bankname']?>" disabled>
 							    
 							  </div>
 							</div>
@@ -186,7 +183,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="bankaddress">Address</label>
 							  <div class="controls">
-                                                              <input id="bankaddress" name="bankaddress" type="text" placeholder="Address" class="form-control" required="" value="<?php echo $data['bankaddress']?>"disabled>
+                                                              <input id="bankaddress" name="bankaddress" type="text" placeholder="Address" class="form-control" required="" value="<?php echo $bloodbank['bankaddress']?>"disabled>
 							    
 							  </div>
 							</div>
@@ -195,7 +192,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="contactdetails">Contact Number</label>
 							  <div class="controls">
-                                                              <input id="contactdetails" name="contactdetails" type="text" placeholder="Contact Number" class="form-control" required="" value="<?php echo $data['contactdetails']?>" disabled>
+                                                              <input id="contactdetails" name="contactdetails" type="text" placeholder="Contact Number" class="form-control" required="" value="<?php echo $bloodbank['contactdetails']?>" disabled>
 							    
 							  </div>
 							</div>

@@ -1,8 +1,8 @@
  <?php 
-error_reporting(E_ALL ^ E_DEPRECATED);
+
 //connect to the database
-$connect = mysql_connect("localhost","root","");
-mysql_select_db("prcbbmis",$connect); //select the table
+$connect = mysql_connect("localhost","username","password");
+mysql_select_db("database",$connect); //select the table
 //
 
 if ($_FILES[csv][size] > 0) {

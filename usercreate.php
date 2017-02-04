@@ -92,7 +92,7 @@
                                                               <select class="form-control" id="bankname" name="bankname">
                                                               <?php
                                                               foreach($bank as $row){
-                                                                 echo '<option value="'.$row['bloodbank'].'">'.$row['bankname'].'</option>';
+                                                                 echo '<option value="'.$row['bankname'].'">'.$row['bankname'].'</option>';
                                                               }
                                                               ?>
                                                               </select>
@@ -105,8 +105,7 @@
 							  <label class="control-label" for="bankname">Blood Bank</label>
 							  <div class="controls">
 							    <select id="bankname" name="bankname" class="form-control">
-							      <option value="<?php echo $data['bankname']?>"></option>
-                                                              <option value="<?php echo $data['bankname']?>"></option>
+							      <option value=""></option>
 							    </select>
 							  </div>
 							</div>-->
