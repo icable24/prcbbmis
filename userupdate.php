@@ -1,14 +1,15 @@
 <?php 
 	include 'login_success.php';
+?>
+<?php 
 	require 'dbconnect.php';
-
-	$id = null;
+    $id = null;
     if ( !empty($_GET['id'])) {
         $id = $_REQUEST['id'];
     }
      
     if ( null==$id ) {
-        header("Location: viewpatient.php");
+        header("Location: viewuser.php");
     } else {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -38,7 +39,7 @@
 		<div class="container">
 			<div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
 				<div class="row">
-					<h2 style="text-align: center;">Register New PRC User</h2>
+					<h2 style="text-align: center;">Update PRC User</h2>
 					<br />
 				</div>
 						
@@ -48,8 +49,16 @@
 					</div>
 					
 					<div class="panel-body">
-						<form class="form-horizontal" action="./php/reguser.php" method="post">
-
+                                            <form class="form-horizontal" action="./php/update_user.php" method="post">
+                                                    
+                                                        <!-- Text input-->
+                                                    <div class="control-group">
+							<div class="controls">
+							<label class="control-label" for="userid">User ID</label>
+							<input class="form-control" type="hidden" name="userid" value="<?php echo $data['userid']?>">
+							<input class="form-control" value="<?php echo $data['userid']?>" disabled>
+							</div>
+                                                    </div>
 							<!-- Text input-->
 							<div class="control-group">
 							  <label class="control-label" for="fname">First Name</label>
@@ -86,7 +95,16 @@
 							<div class="control-group">
 							  <label class="control-label" for="password">Password</label>
 							  <div class="controls">
-                                                              <input id="password" name="password" type="password" class="form-control" disabled="" value="<?php echo $data['usertype']?>">
+                                                              <input id="password" name="password" type="password" class="form-control" disabled="" value="<?php echo $data['password']?>">
+							    
+							  </div>
+							</div>
+                                                        
+                                                         <!-- Text input-->
+							<div class="control-group">
+							  <label class="control-label" for="bankname">Blood Bank</label>
+							  <div class="controls">
+                                                              <input id="bankname" name="bankname" type="text" class="form-control" disabled="" value="<?php echo $data['bankname']?>">
 							    
 							  </div>
 							</div>
@@ -116,7 +134,7 @@
 					</div>
 				</div>		
 			</div>
-		</div>
+		
 	
 <!--edit @ footer.php-->
 <?php
