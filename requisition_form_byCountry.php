@@ -2,21 +2,18 @@
 	include 'login_success.php';
 	require 'dbconnect.php';
 
-	$id = null;
-    if ( !empty($_GET['id'])) {
-        $id = $_REQUEST['id'];
-    
-     
-   
-    } else {
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT bankname, bankaddress, contactdetails FROM bloodbank";
-        $q = $pdo->prepare($sql);
-        $q->execute(array($id));
-        $data = $q->fetch(PDO::FETCH_ASSOC);
-        Database::disconnect();
-    }
+        $username = $_SESSION['login_username'];
+	$pdo = Database:: connect();
+	$pdo->setAttribute(PDO:: ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        $user = $pdo->prepare("SELECT * FROM user WHERE username = ?");
+        $user->execute(array($username));
+	$user = $user->fetch(PDO:: FETCH_ASSOC);
+
+        $bloodbank = $pdo->prepare("SELECT * FROM bloodbank WHERE bankname = ?");
+        $bloodbank->execute(array($user['bankname']));
+        $bloodbank = $bloodbank->fetch(PDO:: FETCH_ASSOC);
+	Database:: disconnect();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,13 +46,14 @@
 					</div>
 					
 					<div class="panel-body">
-                                            <form class="form-horizontal" action="./php/regbloodbank.php" method="post">
+                                            <form class="form-horizontal" action="./php/addRequisitionbyChapters.php" method="post">
 
 							<!-- Text input-->
 							<div class="control-group">
-							  <label class="control-label" for="fullname">Requester</label>
+							  <label class="control-label" for="requester">Requester</label>
 							  <div class="controls">
-							    <input id="fullname" name="fullname" type="text" placeholder="Fullname" class="form-control" required="">
+							  <input class="form-control" value="<?php echo $user['fname'].' '. substr($user['mname'],0,1).'. '.$user['lname'] ?>" disabled>
+                                                              <input id="requester" name="requester" value="<?php echo $user['fname'].' '. substr($user['mname'],0,1).'. '.$user['lname'] ?>" type="hidden" placeholder="Fullname" class="form-control" required="">
 							    
 							  </div>
 							</div>
@@ -77,17 +75,17 @@
 
 							<!-- Text input-->
 							<div class="control-group">
-							  <label class="control-label" for="date">Date Needed</label>
+							  <label class="control-label" for="dateneeded">Date Needed</label>
 							  <div class="controls">
-							    <input id="date" name="date" type="date" class="form-control" required="">
+							    <input id="dateneeded" name="dateneeded" type="date" class="form-control" required="">
 							   		<script src="js/jquery-1.9.1.min.js"></script>
 										<script src="js/bootstrap-datepicker.js"></script>
 										<script type="text/javascript">
 											// When the document is ready
 											$(document).ready(function () {
 												
-												$('#date').datepicker({
-													format: "yyyy-mm-dd"
+												$('#dateneeded').datepicker({
+					                                                                                         format: "yyyy-mm-dd"
 												});  
 											
 											});
@@ -100,7 +98,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="bankname">Blood Bank</label>
 							  <div class="controls">
-							    <input id="bankname" name="bankname" type="text" placeholder="Name" class="form-control" required="" value="<?php echo $data['bankname']?>" disabled>
+							    <input id="bankname" name="bankname" type="text" placeholder="Name" class="form-control" required="" value="<?php echo $bloodbank['bankname']?>" disabled>
 							    
 							  </div>
 							</div>
@@ -108,7 +106,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="bankaddress">Address</label>
 							  <div class="controls">
-                                                              <input id="bankaddress" name="bankaddress" type="text" placeholder="Address" class="form-control" required="" value="<?php echo $data['bankaddress']?>"disabled>
+                                                          <input id="bankaddress" name="bankaddress" type="text" placeholder="Address" class="form-control" required="" value="<?php echo $bloodbank['bankaddress']?>"disabled>
 							    
 							  </div>
 							</div>
@@ -117,26 +115,25 @@
 							<div class="control-group">
 							  <label class="control-label" for="contactdetails">Contact Number</label>
 							  <div class="controls">
-                                                              <input id="contactdetails" name="contactdetails" type="text" placeholder="Contact Number" class="form-control" required="" value="<?php echo $data['contactdetails']?>" disabled>
+							  <input class="form-control" value="<?php echo $bloodbank['contactdetails']?>" disabled></input>
+                                  <input id="contactdetails" name="contactdetails" type="hidden" placeholder="Contact Number" class="form-control" required="" value="<?php echo $bloodbank['contactdetails']?>">
 							    
 							  </div>
 							</div>
                                                         
                                                         <!-- Text input-->
 							<div class="control-group">
-							  <label class="control-label" for="detail">Reason</label>
+							  <label class="control-label" for="reason">Reason</label>
 							  <div class="controls">
-                                                              <textarea id="detail" name="detail" placeholder="Enter text here..." class="form-control" required=""></textarea>
+                                                              <textarea id="reason" name="reason" placeholder="Enter text here..." class="form-control" required=""></textarea>
 							    
 							  </div>
 							</div>
-							
-					</div>
 							<!--Buttons-->
 							<div class="panel-footer">	
 								<div class="form-actions text-center forms">
 									<button type="submit" class="btn btn-success">Request</button>
-                                                                        <a class="btn" href="maps.php">Cancel</a>
+                                                                        <a class="btn" href="map.php">Cancel</a>
 								</div>		
 						  	</div>		
 						</form>

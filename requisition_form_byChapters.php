@@ -3,17 +3,17 @@
 	require 'dbconnect.php';
 
         $username = $_SESSION['login_username'];
-					                                                                                $pdo = Database:: connect();
-					                                                                         $pdo->setAttribute(PDO:: ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$pdo = Database:: connect();
+	$pdo->setAttribute(PDO:: ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
         $user = $pdo->prepare("SELECT * FROM user WHERE username = ?");
         $user->execute(array($username));
-					                                                                       $user = $user->fetch(PDO:: FETCH_ASSOC);
+	$user = $user->fetch(PDO:: FETCH_ASSOC);
 
         $bloodbank = $pdo->prepare("SELECT * FROM bloodbank WHERE bankname = ?");
         $bloodbank->execute(array($user['bankname']));
-					                                                             $bloodbank = $bloodbank->fetch(PDO:: FETCH_ASSOC);
-					                                                                                       Database:: disconnect();
+        $bloodbank = $bloodbank->fetch(PDO:: FETCH_ASSOC);
+	Database:: disconnect();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -193,7 +193,7 @@
 							  <label class="control-label" for="contactdetails">Contact Number</label>
 							  <div class="controls">
 							  <input class="form-control" value="<?php echo $bloodbank['contactdetails']?>" disabled></input>
-                                  <input id="contactdetails" name="contactdetails" type="hidden" placeholder="Contact Number" class="form-control" required="" value="<?php echo $bloodbank['contactdetails']?>">
+                                                          <input id="contactdetails" name="contactdetails" type="hidden" placeholder="Contact Number" class="form-control" required="" value="<?php echo $bloodbank['contactdetails']?>">
 							    
 							  </div>
 							</div>
