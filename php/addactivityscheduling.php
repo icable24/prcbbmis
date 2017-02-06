@@ -7,7 +7,7 @@
 		$actname = $_POST['actname'];
 		$detail = $_POST['detail'];
 		$place = $_POST['place'];
-		$date = $_POST['date'];
+		$date = $_POST['date'];      
 		
 
 

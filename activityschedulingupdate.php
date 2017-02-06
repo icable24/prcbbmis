@@ -1,5 +1,23 @@
 <?php 
-	include('login_success.php')
+	include 'login_success.php';
+	require 'dbconnect.php';
+
+	$id = null;
+    if ( !empty($_GET['id'])) {
+        $id = $_REQUEST['id'];
+    }
+     
+    if ( null==$id ) {
+        header("Location: viewactivityscheduling.php");
+    } else {
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "SELECT * FROM activityschedule where actid = ?";
+        $q = $pdo->prepare($sql);
+        $q->execute(array($id));
+        $data = $q->fetch(PDO::FETCH_ASSOC);
+        Database::disconnect();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +45,7 @@
 		<div class="container">
 			<div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
 				<div class="row">
-					<h2 style="text-align: center;">Add New Activity</h2>
+					<h2 style="text-align: center;">Update Activity</h2>
 					<br />
 				</div>
 						
@@ -37,13 +55,21 @@
 					</div>
 					
 					<div class="panel-body">
-                                            <form class="form-horizontal" action="./php/addactivityscheduling.php" method="post">
+                                            <form class="form-horizontal" action="./php/update_activityscheduling.php" method="post">
 
+                                                 <!-- Text input-->
+                                                    <div class="control-group">
+							<div class="controls">
+							<label class="control-label" for="actid">Activity Scheduling ID</label>
+							<input class="form-control" type="hidden" name="actid" value="<?php echo $data['actid']?>">
+							<input class="form-control" value="<?php echo $data['actid']?>" disabled>
+							</div>
+                                                    </div>
 							<!-- Text input-->
 							<div class="control-group">
 							  <label class="control-label" for="actname">Activity Name</label>
 							  <div class="controls">
-							    <input id="actname" name="actname" type="text" placeholder="Activity Name" class="form-control" required="">
+							    <input id="actname" name="actname" type="text" placeholder="Activity Name" class="form-control" value="<?php echo $data['actname']?>">
 							    
 							  </div>
 							</div>
@@ -52,7 +78,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="detail">Details</label>
 							  <div class="controls">
-                                                              <textarea id="detail" name="detail" placeholder="Details" class="form-control" required=""></textarea>
+                                                              <textarea id="detail" name="detail" placeholder="Details" class="form-control"><?php echo $data['detail']?></textarea>
 							    
 							  </div>
 							</div>
@@ -61,7 +87,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="place">Place</label>
 							  <div class="controls">
-							    <input id="place" name="place" type="text" placeholder="Place" class="form-control">
+							    <input id="place" name="place" type="text" placeholder="Place" class="form-control" value="<?php echo $data['place']?>">
 							    
 							  </div>
 							</div>
@@ -70,8 +96,8 @@
 							<div class="control-group">
 							  <label class="control-label" for="date">Date</label>
 							  <div class="controls">
-                                                            <input id="date" name="date" type="date" class="form-control datepicker">
-                                                                <script src="js/jquery-1.9.1.min.js"></script>
+                                  <input id="date" name="date" type="date" class="form-control datepicker" value="<?php echo $data['date']?>">
+                                 	 <script src="js/jquery-1.9.1.min.js"></script>
 										<script src="js/bootstrap-datepicker.js"></script>
 										<script type="text/javascript">
 											// When the document is ready
@@ -86,16 +112,17 @@
 							    
 							  </div>
 							</div>
-                                                        
+
 
 					</div>
 							<!--Buttons-->
 							<div class="panel-footer">	
 								<div class="form-actions text-center forms">
-									<button type="submit" class="btn btn-success">Submit</button>
-									<a class="btn" href="home.php">Back</a>
+									<button type="submit" class="btn btn-warning">Update</button>
+                                                                        <a class="btn" href="viewactivityscheduling.php">Back</a>
 								</div>		
-						  	</div>		
+						  	</div>	
+						
 						</form>
 					</div>
 				</div>		
