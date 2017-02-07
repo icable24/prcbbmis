@@ -2,7 +2,7 @@
 	require '../dbconnect.php';
 
 	
-        if ( !empty($_POST['btid'])) {
+        if(!empty($_POST)){
 
 		//variables
                 $bloodtype = $_POST['bloodtype'];
@@ -15,7 +15,6 @@
                 $sql = "INSERT INTO tmpbloodtype (bloodtype, rhtype, btqty) values(?, ?, ?)";
                 $q = $pdo->prepare($sql);     
                 $q->execute(array($bloodtype, $rhtype, $btqty));
-                Database::disconnect();
                 header("Location: ../requisition_form_byChapters.php");
                 
      }

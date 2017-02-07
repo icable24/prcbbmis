@@ -60,7 +60,7 @@ $id = null;
 					</div>
 					
 					<div class="panel-body">
-                                            <form class="form-horizontal" action="./php/addRequisitionbyChapters.php" method="post">
+                                            <form class="form-horizontal" action="./php/addtmpbloodtype.php" method="post">
 
 							<!-- Text input-->
 							<div class="control-group">
@@ -97,7 +97,7 @@ $id = null;
                                 <table id="f1">
                                                              
                                     <tr class="control-group">
-                                   <form action="./php/addtmpbloodtype.php" method="post">
+                                   
                                              <td>
                                                  
                                     <label class="control-label" for="bloodgroup">Blood Type</label>
@@ -112,7 +112,7 @@ $id = null;
                                                                      </td>
 					                      <td style="padding-left: 20px">
 								<label class="control-label" for="rhtype">Rh Type</label>
-					                       <select class="form-control" name="rh" id="rhtype" disabled style="width: 100px">
+					                       <select class="form-control" name="rhtype" id="rhtype" disabled style="width: 100px">
 									<option selected="selected" disabled></option>
 									<option>Positive</option>
 									<option>Negative</option>
@@ -131,9 +131,10 @@ $id = null;
                                                                      
                                                            
                                                         </tr>
-                                   </form>
+                                  
                                                        
                                                             </table>
+                                                        </form>
                                                         <br>
                                                        <!-- Table -->
                                                         <div class="table-responsive" style="width: 5in" id="f1">
@@ -155,7 +156,7 @@ $id = null;
 							foreach ($pdo->query($sql) as $row) {
 								echo '<tr>';
 									echo '<td>'.$row['bloodtype']. '</td>';
-									echo '<td>'.$row['rh'].'</td>';
+									echo '<td>'.$row['rhtype'].'</td>';
 									echo '<td>'.$row['btqty'].'</td>';
 									echo '<td class="text-center">
 												<a class="btn btn-warning btn-md" href="userupdate.php?id='.$row['btid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
@@ -295,7 +296,7 @@ $id = null;
                                                                         <a class="btn" href="c_Philippines_1.php">Cancel</a>
 								</div>		
 						  	</div>		
-						</form>
+						
 					</div>
                                       </div>
                         </div>
