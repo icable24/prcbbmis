@@ -57,6 +57,55 @@
 
 
     $total_notif = ((int)$total_exam_pending + (int)$total_screen_pending + (int)$total_request_pending + (int)$total_prep_pending);
+
+    $pdo = Database::connect();
+    $d = $pdo->prepare("
+        SELECT SQL_CALC_FOUND_ROWS * 
+        FROM donor 
+    ");
+    $d->execute();
+    $d = $d->fetchAll(PDO::FETCH_ASSOC);
+    $pdo2 = Database::connect();
+    $pdo2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql2 = $pdo2->prepare("
+            SELECT * FROM examination WHERE examid = ? 
+        "); 
+    $pdo3 = Database::connect();
+    $pdo3->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql3 = $pdo3->prepare("
+            SELECT * FROM screening WHERE scrid = ? 
+        "); 
+
+    foreach ($d as $row) {
+        $sql2->execute(array($row['did']));
+        $d1 = $sql2->fetchAll(PDO::FETCH_ASSOC);
+
+        $sql3->execute(array($row['did']));
+        $d2 = $sql3->fetchAll(PDO::FETCH_ASSOC);
+
+        $pdo4 = Database::connect();
+        $pdo4->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql4 = $pdo4->prepare("SELECT * FROM bloodinformation WHERE bloodid = ?");
+        $sql4->execute(array($row['bloodinfo']));
+        $d3 = $sql4->fetch(PDO::FETCH_ASSOC);
+
+        for($i = 0; $i < count($d1) && $i < count($d2); $i++ ){
+            $exams = $d1[$i];
+            $screens = $d2[$i];
+            $sql4 = 'UPDATE donor SET dremarks = ? WHERE did = ?';
+            $q = $pdo->prepare($sql4);
+
+            if($exams['remarks'] == 'Accepted' && $screens['remarks'] == 'Accepted'){
+                $q->execute(array('Accepted', $row['did']));
+            }elseif($exams['remarks'] == 'Deferred' || $screens['remarks'] == 'Deferred'){
+                $q->execute(array('Deferred', $row['did']));
+            }elseif($exams['remarks'] == 'Temporarily Deferred' || $screens['remarks'] == 'Temporarily Deferred'){
+                $q->execute(array('Temporarily Deferred', $row['did']));
+            }                                   else{
+                $q->execute(array('Pending', $row['did']));
+            }
+        }   
+    }
 ?>
 <!DOCTYPE html>
 

@@ -80,7 +80,7 @@
 								echo '<td>'. $row['status'] .'</td>';
                                                                 
 								echo '<td class="text-center">
-											<a class="btn btn-primary btn-md" href="#" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
+											<a class="btn btn-primary btn-md" href="confirmrequest.php?id='.$row['reqid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
 							  		  </td>';
 							echo '</tr>';
 						}

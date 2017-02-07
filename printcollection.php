@@ -21,29 +21,34 @@ class MYPDF extends TCPDF {
         //$image_file = K_PATH_IMAGES.'logo_example.jpg';
        // $this->Image($image_file, 10, 10, 15, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
         // Set font
-        $this->SetY(15);
+        $this->SetY(15);   
+
         $this->SetFont('times', 'B', 24);
-        // Title
+        $this->Image("img/watermark.png");
         $this->Cell(0, 15, 'Philippine Red Cross ', 0, false, 'C', 0, '', 0, false, 'M', 'M');
+
     }
 
     // Page footer
     public function Footer() {
         // Position at 15 mm from bottom
+        date_default_timezone_set("Asia/Taipei");
         $uname = $_SESSION['login_username'];
 
         $pdo = Database::connect();
         $user = $pdo->prepare("SELECT * FROM user WHERE username = '$uname'");
         $user->execute();
         $user = $user->fetch(PDO::FETCH_ASSOC);
-
         $this->SetY(-15);
         // Set font
-        $this->SetFont('times', 'R', 12);
+        $this->SetFont('times', 'R', 8);
         // Title
-        $this->Cell(0, 8, 'Printed by: ' . $user['fname'] . ' ' .  substr($user['mname'], 0, 1) . '. ' . $user['lname'] , 0, false, 'C', 0, '', 0, false, 'M', 'M');
+       // $this->Cell(0, 10, 'Printed by: ' . $user['fname'] . ' ' .  substr($user['mname'], 0, 1) . '. ' . $user['lname'] , 0, false, 'L', 0, '', 0, false, 'M', 'M');
+        $this->Cell(0, 10,'Printed by: '. $user['fname'] . ' ' .  substr($user['mname'], 0, 1) . '. ' . $user['lname'] . '              '. date("m-d-Y H:i:s"), 0, false, 'L', 0, '', 0, false, 'M', 'M');
         // Page number
         $this->Cell(0, 10, 'Page '.$this->getAliasNumPage().'/'.$this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
+
+        $this->Cell(0, 10, '', 0, false, 'C', 0, '', 0, false, 'T', 'M');
     }
 }
 
@@ -72,7 +77,7 @@ $pdf->AddPage();
 $txt = <<<EOD
 
 
-Philippine Red Cross Blood Bank Management Information System
+Blood Bank Management Information System
 
 Blood Service
 

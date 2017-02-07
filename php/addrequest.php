@@ -16,16 +16,16 @@
 			$pdo = Database::connect();
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-			$sql4 = "SELECT bloodid FROM bloodinformation WHERE bloodgroup = ? OR rhtype = ?";
+			$sql4 = "SELECT * FROM bloodinformation WHERE bloodgroup = ? AND rhtype = ?";
 			$q4 = $pdo->prepare($sql4);
 			$q4->execute(array($bloodgroup, $rhtype));
 			$bloodinfo = $q4->fetch(PDO::FETCH_ASSOC);
 
 			$sql = "INSERT INTO bloodrequest (pid, bloodid, component, amount, quantity, status) values(?, ?, ?, ?, ?, ?)";
 			$q = $pdo->prepare($sql);
-			$q->execute(array($pid, $bloodinfo, $component, $amount, $quantity, $status));
+			$q->execute(array($pid, $bloodinfo['bloodid'], $component, $amount, $quantity, $status));
 			Database::disconnect();
-			header("Location: ../viewrequest.php");
+			
 		}else{
 			header("Location: ../viewrequest.php");
 		}

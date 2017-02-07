@@ -9,8 +9,8 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.theme.mis.css">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="/resources/demos/style.css">
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+                          <script src="https: //code.jquery.com/jquery-1.12.4.js"></script>
+                          <script src="https: //code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
     $( "#datepicker" ).datepicker();
@@ -27,7 +27,7 @@
 		<div class="container">
 			<div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
 				<div class="row">
-					<h2 style="text-align: center;">Add New Activity</h2>
+                       <h2 style="text-align: center;">Add New Activity</h2>
 					<br />
 				</div>
 						
@@ -37,7 +37,7 @@
 					</div>
 					
 					<div class="panel-body">
-                                            <form class="form-horizontal" action="./php/addactivityscheduling.php" method="post">
+                        <form class="form-horizontal" action="./php/addactivityscheduling.php" method="post">
 
 							<!-- Text input-->
 							<div class="control-group">
@@ -52,8 +52,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="detail">Details</label>
 							  <div class="controls">
-                                                              <textarea id="detail" name="detail" placeholder="Details" class="form-control" required=""></textarea>
-							    
+                                  <textarea id="detail" name="detail" placeholder="Details" class="form-control" required=""></textarea>
 							  </div>
 							</div>
 
@@ -62,7 +61,6 @@
 							  <label class="control-label" for="place">Place</label>
 							  <div class="controls">
 							    <input id="place" name="place" type="text" placeholder="Place" class="form-control">
-							    
 							  </div>
 							</div>
 
@@ -70,25 +68,19 @@
 							<div class="control-group">
 							  <label class="control-label" for="date">Date</label>
 							  <div class="controls">
-                                                            <input id="date" name="date" type="date" class="form-control datepicker">
-                                                                <script src="js/jquery-1.9.1.min.js"></script>
-										<script src="js/bootstrap-datepicker.js"></script>
-										<script type="text/javascript">
-											// When the document is ready
-											$(document).ready(function () {
-												
-												$('#date').datepicker({
-													format: "yyyy-mm-dd"
-												});  
-											
-											});
-									</script>
-							    
+                                  <input id="date" name="date" type="date" class="form-control datepicker">
+                             	  <script src="js/jquery-1.9.1.min.js"></script>
+						          <script src="js/bootstrap-datepicker.js"></script>
+								  <script type="text/javascript">
+									$(document).ready(function () {
+										$('#date').datepicker({
+                              			format: "yyyy-mm-dd"
+										});  
+									});
+								</script> 
 							  </div>
 							</div>
-                                                        
-
-					</div>
+						</div>
 							<!--Buttons-->
 							<div class="panel-footer">	
 								<div class="form-actions text-center forms">
@@ -105,7 +97,7 @@
   <div class="modal-dialog "> 
 
     <!-- Modal content-->
-    <div class="modal-content" style="margin-top: 40%">
+<div class="modal-content" style="margin-top: 40%">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Error Date!</h4>
@@ -126,7 +118,7 @@ Date already has a Schedule, Please pick another Date to set your Activity.
 	<?php 
 
 
-$url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+                                $url = "http: //".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 if(strpos($url, 'error=date')!==false){
 	echo "<script type='text/javascript'>
 			$(document).ready(function(){
