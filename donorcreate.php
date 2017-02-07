@@ -43,7 +43,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="dmname">Middle Name</label>
 							  <div class="controls">
-							    <input id="dmname" name="dmname" type="text" placeholder="Middle Name" class="form-control" required="">
+							    <input id="dmname" name="dmname" type="text" placeholder="Middle Name" class="form-control">
 							    
 							  </div>
 							</div>

@@ -58,16 +58,16 @@
 							  <label class="control-label" for="country">Country</label>
 							  <div class="controls">
 							    <select id="country" name="country" class="form-control">
-                                                                <option>Brunei</option>
-                                                                <option>Cambodia</option>
-                                                                <option>Indonesia</option>
-                                                                <option>Laos</option>
-                                                                <option>Malaysia</option>
-                                                                <option>Myanmar</option>
-                                                                <option>Philippines</option>
-                                                                <option>Singapore</option>
-                                                                <option>Thailand</option>
-                                                                <option>Vietnam</option>
+                                    <option>Brunei</option>
+                                    <option>Cambodia</option>
+                                    <option>Indonesia</option>
+                                    <option>Laos</option>
+                                    <option>Malaysia</option>
+                                    <option>Myanmar</option>
+                                    <option>Philippines</option>
+                                    <option>Singapore</option>
+                                    <option>Thailand</option>
+                                    <option>Vietnam</option>
 							    </select>
 							  </div>
 							</div>
@@ -90,3 +90,4 @@
 ?>
 </body>
 </html>
+

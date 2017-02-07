@@ -70,8 +70,8 @@ if($id != null){
 			<div class="control-group">
                 <label class="control-label">Blood Type</label>
                 <input class="form-control" value="<?php echo $blood['bloodgroup'] . ' ' . $blood['rhtype'] ?>" disabled></input>
-                <input type="hidden" name="bloodgroup" value="<?php $blood['bloodgroup'] ?>">
-                <input type="hidden" name="rhtype" value="<?php $blood['rhtype'] ?>">
+                <input type="hidden" name="bloodgroup" value="<?php echo $blood['bloodgroup'] ?>">
+                <input type="hidden" name="rhtype" value="<?php echo $blood['rhtype'] ?>">
             </div>
 
 

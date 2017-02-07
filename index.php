@@ -26,33 +26,34 @@
 			</div>
 		</div>	
 		
-		<div class="container-fluid wrapper">
-		<div class="row">
-			<div class="col-lg-8 text-center content">
-			<br><br>
-                <img src="./img/1.png" /><br/>	
+			<div class="row" style="padding-bottom: 0px;">
+				<div class="col-lg-8 text-center content">
+				<br><br>
+	                <img src="./img/1.png" style="width: 600px" /><br/>	
+				</div>
+				<div class="col-lg-4" style="background-color: #ff3333;"><br>
+	                <div class="container loginContainer">
+	                    <div class="card card-container">
+	                        <img id="profile-img" class="profile-img-card" src="./img/give.png" />
+	                        <p id="profile-name" class="profile-name-card"></p>
+	                        <form class="form-signin" name="loginform" method="POST" action="./php/checklogin.php">
+	                            <span id="reauth-email" class="reauth-email"></span>
+	                            <input type="text" id="inputText" name="username" class="form-control" placeholder="Username" required autofocus>
+	                            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+	                            <div id="remember" class="checkbox">
+	                                <label>
+	                                    <input type="checkbox" class="checkbox-control" value="remember-me"> Remember me
+	                                </label>
+	                            </div>
+	                            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Log in</button>
+	                        </form><!-- /form -->
+	                    </div><!-- /card-container -->
+	                </div>
+	                <br>
+	                <br>
+	                <br><!-- /container -->
+				</div>
 			</div>
-			<div class="col-lg-4"><br>
-                <div class="container loginContainer">
-                    <div class="card card-container">
-                        <img id="profile-img" class="profile-img-card" src="./img/give.png" />
-                        <p id="profile-name" class="profile-name-card"></p>
-                        <form class="form-signin" name="loginform" method="POST" action="./php/checklogin.php">
-                            <span id="reauth-email" class="reauth-email"></span>
-                            <input type="text" id="inputText" name="username" class="form-control" placeholder="Username" required autofocus>
-                            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-                            <div id="remember" class="checkbox">
-                                <label>
-                                    <input type="checkbox" class="checkbox-control" value="remember-me"> Remember me
-                                </label>
-                            </div>
-                            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Log in</button>
-                        </form><!-- /form -->
-                    </div><!-- /card-container -->
-                </div><!-- /container -->
-			</div>
-		</div>
-		</div>	
 	<?php 
 			include ('footer.php');
 		?>
