@@ -221,14 +221,16 @@
                                 <li><a href="viewtransfer.php">BLOOD TRANSFER</a></li>
                             </ul>
                         </li>
-                         <?php if($user['usertype'] == 'Admin'){?>
+                         <?php if($user['usertype'] == 'Admin'){ ?>
                         <li><a href="report.php">REPORTS</a></li>
                         
                         <li> <a href="export.php">BACK-UP</a> </li>
-                       
-                        <?php } ?> 
-                        <li><a href="map.php">MAPS</a></li>
-                           
+                        
+                        <li><a href="map.php">MAP</a></li>
+                         <?php } ?>  
+                        <?php if($user['usertype'] == 'PRC User'){ ?>
+                        <li><a href="PRC_Map.php">MAP</a></li>
+                        <?php } ?>
                         
                     </ul>
                 </div>  

@@ -25,7 +25,7 @@
 			<a href="c_Laos.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/laosflg.png"></span>&nbsp;&nbsp; Laos</a>
 			<a href="c_Malaysia.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/malaysiaflg.png"></span>&nbsp;&nbsp; Malaysia</a>
 			<a href="c_Myanmar.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/myanmarflg.png"></span>&nbsp;&nbsp; Myanmar</a>
-                        <a href="c_Philippines_1.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/philippinesflg.png"></span>&nbsp;&nbsp; Philippines</a>
+                        <a href="PRCPhil_Map.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/philippinesflg.png"></span>&nbsp;&nbsp; Philippines</a>
 			<a href="c_Singapore.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/singaporeflg.png"></span>&nbsp;&nbsp; Singapore</a>
 			<a href="c_Thailand.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/thailandflg.png"></span>&nbsp;&nbsp; Thailand</a>
 			<a href="c_Vietnam.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/vietnamflg.png"></span>&nbsp;&nbsp; Vietnam</a>
@@ -34,6 +34,10 @@
 	<div class="col-lg-9">
 		<div id='map'></div>
 		<br>
+                <div>
+                    <a href="PRCPhil_Map.php">By Chapter?</a>
+                    <a href="PRCNeg_Map_.php">By Hospitals?</a>
+    </div>
 	</div>
 </div>
 	
@@ -43,9 +47,9 @@
 <script>
       var customLabel = {
         hospital: {
-          label: 'H'
-          
+          label: 'H'        
         }
+        
       };
 
         function initMap() {

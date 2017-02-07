@@ -1,3 +1,6 @@
+<?php 
+include 'login_success.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>

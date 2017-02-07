@@ -1,0 +1,10 @@
+INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Brunei', '', '4.5254025', '114.1591413', 'country');
+INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Cambodia', '', '12.2963276','104.7361466', 'country');
+INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Indonesia', '', '-4.824171','121.7683894', 'country');
+INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Laos', '', '19.1644031','102.3924702', 'country');
+INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Malaysia', '', '5.1389094', '102.1199891', 'country');
+INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Myanmar', '', '20.8780807', '96.6368639', 'country');
+INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Philippines', '', '12.1262138', '122.4515049', 'country');
+INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Singapore', '', '1.3150701', '103.7069325', 'country');
+INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Thailand', '', '16.0109028', '100.9927392', 'country');
+INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Vietnam', '', '14.86692', '108.3096936', 'country');

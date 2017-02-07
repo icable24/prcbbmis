@@ -121,12 +121,8 @@
 	<a href="requisition_form_byChapters.php">Request</a>', 13.621737,123.1965382,21],
       ['<strong>Philippine Red Cross Romblon Chapter</strong><br>\<p>Available Blood</p><br>\
 	<a href="requisition_form_byChapters.php">Request</a>', 12.5304392,122.2854133,21],
-      ['<strong>Philippine Red Cross Camarines Norte Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 13.4470746,121.8410334,21],
       ['<strong>Philippine Red Cross Tangub Chapter</strong><br>\<p>Available Blood</p><br>\
 	<a href="requisition_form_byChapters.php">Request</a>', 8.0611774,123.7513943,21],
-      ['<strong>Philippine Red Cross Camarines Norte Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 13.4470746,121.8410334,21],
       ['<strong>Philippine Red Cross Sorsogon Chapter</strong><br>\<p>Available Blood</p><br>\
 	<a href="requisition_form_byChapters.php">Request</a>', 12.9717699,124.0015203,20],
       ['<strong>Philippine Red Cross Masbate Chapter</strong><br>\<p>Available Blood</p><br>\
@@ -137,12 +133,29 @@
 	<a href="requisition_form_byChapters.php">Request</a>', 11.7065734,122.3663461,21],
       ['<strong>Philippine Red Cross Capiz Chapter</strong><br>\<p>Available Blood</p><br>\
 	<a href="requisition_form_byChapters.php">Request</a>', 11.5760018,122.7567348,18],
-      ['<strong>Philippine Red Cross Capiz Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 11.5760018,122.7567348,18],
-      ['<strong>Philippine Red Cross Capiz Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 11.5760018,122.7567348,18],
-      ['<strong>Philippine Red Cross Capiz Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 11.5760018,122.7567348,18],
+      ['<strong>Philippine Red Cross Eastern Samar Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byChapters.php">Request</a>', 11.6031462,125.4380918,21],
+      ['<strong>Philippine Red Cross Western Samar Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byChapters.php">Request</a>', 11.7745712,124.8822337,17],
+      ['<strong>Philippine Red Cross Lapu-Lapu/Cordova Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byChapters.php">Request</a>', 10.3105818,123.9487775,21],
+      ['<strong>Philippine Red Cross Southern Leyte Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byChapters.php">Request</a>', 10.1329767,124.8459536,20],
+      ['<strong>Philippine Red Cross Bohol Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byChapters.php">Request</a>', 10.1329133,124.8458691,21],
+      ['<strong>Philippine Red Cross Negros Oriental Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byChapters.php">Request</a>', 9.320709,123.3090277,21],
+      ['<strong>Philippine Red Cross Oroquieta Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byChapters.php">Request</a>', 8.4859089,123.798924,20],
+      ['<strong>Philippine Red Cross Isabela Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byChapters.php">Request</a>', 8.2144354,124.2419161,18],
+      ['<strong>Philippine Red Cross Bukidnon Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byChapters.php">Request</a>', 8.1554386,125.1297649,21],
+      ['<strong>Philippine Red Cross Davao Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byChapters.php">Request</a>', 7.0727081,125.6111537,21],
+      ['<strong>Philippine Red Cross Cotabato Chapter</strong><br>\<p>Available Blood</p><br>\
+	<a href="requisition_form_byChapters.php">Request</a>', 7.2213638,124.2437607,21],
+     
             
             
     ];
