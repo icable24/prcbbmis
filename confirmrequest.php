@@ -50,7 +50,7 @@ $blood = $blood->fetch(PDO::FETCH_ASSOC);
 						</div>
 						<div class="panel-footer text-center">
 							<a href="php/confirmRequest.php?id=0&&pid=<?php echo $patient['pid'] ?>" class="btn btn-success">Approve</a>
-							<a href="php/confirmRequest.php?id=1" class="btn btn-danger">Deny</a>
+							<a href="php/confirmRequest.php?id=1<?php echo $patient['pid'] ?>" class="btn btn-danger">Deny</a>
 							<a href="viewrequest.php" class="btn">Back</a>	
 						</div>
 					</div>

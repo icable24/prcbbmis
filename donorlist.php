@@ -134,22 +134,6 @@ $pages = ceil($total / $perPage);
 									$sql4->execute(array($row['bloodinfo']));
 									$data3 = $sql4->fetch(PDO::FETCH_ASSOC);
 
-								for($i = 0; $i < count($data1) && $i < count($data2); $i++ ){
-									$exams = $data1[$i];
-									$screens = $data2[$i];
-									$sql4 = 'UPDATE donor SET dremarks = ? WHERE did = ?';
-									$q = $pdo->prepare($sql4);
-
-									if($exams['remarks'] == 'Accepted' && $screens['remarks'] == 'Accepted'){
-										$q->execute(array('Accepted', $row['did']));
-									}elseif($exams['remarks'] == 'Deferred' || $screens['remarks'] == 'Deferred'){
-										$q->execute(array('Deferred', $row['did']));
-									}elseif($exams['remarks'] == 'Temporarily Deferred' || $screens['remarks'] == 'Temporarily Deferred'){
-										$q->execute(array('Temporarily Deferred', $row['did']));
-									}									else{
-										$q->execute(array('Pending', $row['did']));
-									}
-								}
 								echo '<tr>';
 									echo '<td>'.$row['did'] . '</td>';
 									echo '<td>'.$row['dfname']. ' ' . substr($row['dmname'],0,1) .'. ' . $row['dlname'].'</td>';

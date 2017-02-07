@@ -19,6 +19,7 @@
 	$bloodinfo = $bloodinfo->fetch(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 	<link rel="stylesheet" href="/xampp/htdocs/pr1/css/custom_style.css">
@@ -65,7 +66,11 @@
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks11">Remarks</label>
-										<input class="form-control" type="text" name="remarks11">
+										<select name="remarks11" id="remarks11" class="form-control">
+											<option></option>
+											<option value="Positive">Positive</option>
+											<option value="Negative">Negative</option>
+										</select>
 									</div>	
 								</div>
 								<div class="control-group">
@@ -75,7 +80,11 @@
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks12">Remarks</label>
-										<input class="form-control" type="text" name="remarks12">
+										<select name="remarks12" id="remarks12" class="form-control">
+											<option></option>
+											<option value="Positive">Positive</option>
+											<option value="Negative">Negative</option>
+										</select>
 									</div>
 								</div>
 								<div class="control-group">
@@ -85,7 +94,11 @@
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks13">Remarks</label>
-										<input class="form-control" type="text" name="remarks13">
+										<select name="remarks13" id="remarks13" class="form-control">
+											<option></option>
+											<option value="Positive">Positive</option>
+											<option value="Negative">Negative</option>
+										</select>
 									</div>
 								</div>
 								<div class="control-group">
@@ -95,7 +108,11 @@
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks14">Remarks</label>
-										<input class="form-control" type="text" name="remarks14">
+										<select name="remarks14" id="remarks14" class="form-control">
+											<option></option>
+											<option value="Positive">Positive</option>
+											<option value="Negative">Negative</option>
+										</select>
 									</div>
 								</div>
 								<div class="control-group">
@@ -105,7 +122,11 @@
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks15">Remarks</label>
-										<input class="form-control" type="text" name="remarks15">
+										<select name="remarks15" id="remarks15" class="form-control">
+											<option></option>
+											<option value="Positive">Positive</option>
+											<option value="Negative">Negative</option>
+										</select>
 									</div>
 								</div>
 							</div>
@@ -123,7 +144,11 @@
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks21">Remarks</label>
-										<input class="form-control" type="text" name="remarks21">
+										<select name="remarks21" id="remarks21" class="form-control">
+											<option></option>
+											<option value="Positive">Positive</option>
+											<option value="Negative">Negative</option>
+										</select>
 									</div>	
 								</div>
 								<div class="control-group">

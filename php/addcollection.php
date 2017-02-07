@@ -26,9 +26,9 @@ require '../dbconnect.php';
 		$q->execute(array($donorcollectid, $cfname, $cmname, $clname, $unitserialno, $collectiondate, $bagtype, $bloodinfo['bloodid']));
 		$collid = $pdo->lastInsertId();
 
-		$sql2 = "INSERT INTO bloodbag (unitserialno, bagtype, bloodinfo) VALUES(?,?,?)";
+		$sql2 = "INSERT INTO bloodbag (unitserialno, bagtype, bloodinfo, status) VALUES(?,?,?,?)";
 		$q2 = $pdo->prepare($sql2);
-		$q2->execute(array($unitserialno, $bagtype, $bloodinfo['bloodid']));
+		$q2->execute(array($unitserialno, $bagtype, $bloodinfo['bloodid']), 'For Testing');
 
 		if($bagtype == '450cc Single'){
 			$q1 = $pdo->prepare("INSERT INTO inventory(unitserialno, component, status, bloodinfo, amount, quality) VALUES(?, ?, ?, ?, ?, ?)");
