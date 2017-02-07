@@ -158,7 +158,11 @@
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks22">Remarks</label>
-										<input class="form-control" type="text" name="remarks22">
+										<select name="remarks22" id="remarks22" class="form-control">
+											<option></option>
+											<option value="Positive">Positive</option>
+											<option value="Negative">Negative</option>
+										</select>
 									</div>
 								</div>
 								<div class="control-group">
@@ -168,7 +172,11 @@
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks23">Remarks</label>
-										<input class="form-control" type="text" name="remarks23">
+										<select name="remarks23" id="remarks23" class="form-control">
+											<option></option>
+											<option value="Positive">Positive</option>
+											<option value="Negative">Negative</option>
+										</select>
 									</div>
 								</div>
 								<div class="control-group">
@@ -178,7 +186,11 @@
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks24">Remarks</label>
-										<input class="form-control" type="text" name="remarks24">
+										<select name="remarks24" id="remarks24" class="form-control">
+											<option></option>
+											<option value="Positive">Positive</option>
+											<option value="Negative">Negative</option>
+										</select>
 									</div>
 								</div>
 								<div class="control-group">
@@ -188,7 +200,11 @@
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks25">Remarks</label>
-										<input class="form-control" type="text" name="remarks25">
+										<select name="remarks25" id="remarks25" class="form-control">
+											<option></option>
+											<option value="Positive">Positive</option>
+											<option value="Negative">Negative</option>
+										</select>
 									</div>
 								</div>
 							</div>
@@ -205,7 +221,11 @@
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks31">Remarks</label>
-										<input class="form-control" type="text" name="remarks31">
+										<select name="remarks31" id="remarks31" class="form-control">
+											<option></option>
+											<option value="Positive">Positive</option>
+											<option value="Negative">Negative</option>
+										</select>
 									</div>	
 								</div>
 								<div class="control-group">
@@ -215,7 +235,11 @@
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks32">Remarks</label>
-										<input class="form-control" type="text" name="remarks32">
+										<select name="remarks32" id="remarks32" class="form-control">
+											<option></option>
+											<option value="Positive">Positive</option>
+											<option value="Negative">Negative</option>
+										</select>
 									</div>
 								</div>
 								<div class="control-group">
@@ -225,7 +249,11 @@
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks33">Remarks</label>
-										<input class="form-control" type="text" name="remarks33">
+										<select name="remarks33" id="remarks33" class="form-control">
+											<option></option>
+											<option value="Positive">Positive</option>
+											<option value="Negative">Negative</option>
+										</select>
 									</div>
 								</div>
 								<div class="control-group">
@@ -235,7 +263,11 @@
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks34">Remarks</label>
-										<input class="form-control" type="text" name="remarks34">
+										<select name="remarks34" id="remarks34" class="form-control">
+											<option></option>
+											<option value="Positive">Positive</option>
+											<option value="Negative">Negative</option>
+										</select>
 									</div>
 								</div>
 								<div class="control-group">
@@ -245,7 +277,11 @@
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks35">Remarks</label>
-										<input class="form-control" type="text" name="remarks35">
+										<select name="remarks35" id="remarks35" class="form-control">
+											<option></option>
+											<option value="Positive">Positive</option>
+											<option value="Negative">Negative</option>
+										</select>
 									</div>
 								</div>
 							</div>

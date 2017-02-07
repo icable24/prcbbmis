@@ -141,7 +141,7 @@ $pages = ceil($total / $perPage);
 									echo '<td>'.$row['dremarks'].'</td>';
 									echo '<td>'.$data3['bloodgroup']. ' ' . $data3['rhtype'].'</td>';
 									echo '<td class="text-center">
-												<a class="btn btn-primary btn-md" href="viewdonor.php?id='.$row['did'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
+												<a class="btn btn-primary btn-md" href="viewdonor.php?id='.$row['did'].'" data-toggle="tooltip" title="View"><span class="glyphicon glyphicon-edit"></span></a>
 								  		  </td>';									
 								echo '</tr>';
 							}
