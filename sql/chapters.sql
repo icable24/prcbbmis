@@ -1,6 +1,6 @@
 INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Philippine Red Cross Bacolod', 'PRC 10th St, Bacolod, 6001 Negros Occidental', '10.6761724', '122.9570703', 'Chapter');
 INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Philippine Red Cross Cebu', 'Osmeña Blvd, Cebu City, Cebu', '10.3124335', '123.8917013', 'Chapter');
 INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Philippine Red Cross Cagayan', 'PRC 10th St, Bacolod, 6001 Negros Occidental', '10.6761724', '122.9570703', 'Chapter');
-INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Bacolod Adventist Medical Center', 'Osmeña Blvd, Cebu City, Cebu', '10.3124335', '123.8917013', 'Chapter');
-INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Philippine Red Cross Bacolod Chapter', 'PRC 10th St, Bacolod, 6001 Negros Occidental', '10.6761724', '122.9570703', 'Chapter');
-INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Bacolod Adventist Medical Center', 'Osmeña Blvd, Cebu City, Cebu', '10.3124335', '123.8917013', 'Chapter');
+INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Philippine Red Cross Vigan', 'Vigan City, Ilocos Sur', '17.5751601', '120.3862903', 'Chapter');
+INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Philippine Red Cross Abra', ' Corner Taft & Washington Street, Zone 6, Bangued, Abra ', '17.5998337', '120.618535', 'Chapter');
+INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Philippine Red Cross La Union', ' Don Pablo Campos Bldg., Widdoes St., Barangay 2, San Fernando, 2500, La Union ', '16.6146505', '120.317175', 'Chapter');

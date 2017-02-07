@@ -4,7 +4,7 @@
 	require 'dbconnect.php'; 
 
 	$pdo = Database::connect();
-	$query = $pdo->prepare("SELECT * FROM componentsprep WHERE remarks = 'Pending'");
+	$query = $pdo->prepare("SELECT * FROM transfer WHERE remarks = 'Pending'");
 	$query->execute();
 	$query = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -25,19 +25,17 @@
 					<table class="table  table-hover table-striped">
 						<thead>
 							<tr class="alert-info ">
-								<th>Collection ID</th>
-								<th>Blood Bag Serial Number</th>
-								<th>Bag Type</th>
+								<th>Requester</th>
+								<th>Blood Group</th>
+								<th>Date Needed</th>
+                                                                <th>Bank Name</th>
 								<th>Remarks</th>
 								<th class="text-center">Action</th>
 							</tr>							
 						</thead>
 						<tbody>
-							<?php 
-								foreach($query as $row){
-									$q = $pdo->prepare("SELECT * FROM collection WHERE collid = ?");
-									$q->execute(array($row['collid']));
-									$q = $q->fetch(PDO::FETCH_ASSOC);
+							
+						
 									echo '<tr>';
 										echo '<td>' . $row['collid'] . '</td>';
 										echo '<td>' . $row['bagserialno'] . '</td>';
@@ -48,7 +46,7 @@
 									  		  </td>';
 									echo '</tr>';
 								}		
-							?>
+						
 						</tbody>
 					</table>
 				</div>

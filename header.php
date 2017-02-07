@@ -169,7 +169,7 @@
                                 <li><a href="viewtest.php" >SEROLOGY</a></li>
                                 <li><a href="inventory_list.php" >BLOOD INVENTORY</a></li>
                                 <li><a href="components_prep.php">COMPONENTS PREP</a></li>
-                                <li><a href="blood_transfer.php">BLOOD TRANSFER</a></li>
+                                <li><a href="viewtransfer.php">BLOOD TRANSFER</a></li>
                             </ul>
                         </li>
                          <?php if($user['usertype'] == 'Admin'){?>

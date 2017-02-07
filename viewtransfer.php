@@ -39,18 +39,18 @@ $pages = ceil($total / $perPage);
 	<div class="col-lg-12">
 		<div class="row" style="border-bottom:solid 1px;margin-bottom:15px;">
 				<div class="col-md-7">
-					<h2>PRC User List</h2>
+					<h2>Blood Request for Transfer</h2>
 				</div>
-				<div class="col-md-5 text-right" style="padding-top:20px;">
-                                    <a href="requisition_form_byChapters.php" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span> Add PRC User</a>
-				</div>
+				
 			</div>
 		<div class="table-responsive">
 			<table class="table table-hover table-striped">
 				<thead>
 					<tr class="alert-info">
-                                            <th class="text-center">Requester</th>  
-						<th class="text-center">Blood Bank</th>
+                                                <th class="text-center">Requester</th>  
+                                                <th class="text-center">Date Needed</th>
+						<th class="text-center">Blood Group</th>
+                                                <th class="text-center">Blood Bank</th>
 						<th class="text-center">Remarks</th>
 						<th class="text-center">Action</th>
 					</tr>
@@ -64,11 +64,12 @@ $pages = ceil($total / $perPage);
 							foreach ($pdo->query($sql) as $row) {
 								echo '<tr>';
 									echo '<td>'.$row['requester'].'</td>';
+                                                                        echo '<td>'.$row['dateneeded'].'</td>';
+                                                                        echo '<td>'.$row['bloodtype']. '/n ' . $row['bloodgroup'].'</td>';
 									echo '<td>'.$row['bloodname'].'</td>';
 									echo '<td>'.$row['remarks'].'</td>';
 									echo '<td class="text-center">
-												<a class="btn btn-warning btn-md" href="userupdate.php?id='.$row['userid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
-												<a class="btn btn-danger btn-md" href="userdelete.php?id='.$row['userid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-trash"></span></a>
+												<a class="btn btn-warning btn-md" href="viewrequestfortransfer.php?id='.$row['reqid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
 								  		  </td>';
 								echo '</tr>';
 							}

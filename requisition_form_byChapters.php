@@ -1,7 +1,20 @@
 <?php 
 	include 'login_success.php';
 	require 'dbconnect.php';
-
+$id = null;
+    if ( !empty($_GET['id'])) {
+        $id = $_REQUEST['id'];
+    
+     
+   
+    } else {
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "SELECT *  FROM inventory WHERE status LIKE 'inventory'";
+        $q = $pdo->prepare($sql);
+        $q->execute();
+        $bank = $q->fetchAll(PDO::FETCH_ASSOC);
+    }
         $username = $_SESSION['login_username'];
 	$pdo = Database:: connect();
 	$pdo->setAttribute(PDO:: ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -127,12 +140,13 @@
                                                         <tr class="control-group">
                                                             <td>
                                                             <label class="control-label" for="bloodgroup">Blood Component</label>
-					      <select class="form-control" id="bloodgroup"  name="bloodcomponent" disabled style="width: 2.3in">
-									<option selected="selected" disabled></option>
-									<option>Fresh Frozen Plasma</option>
-									<option>Platelet Concentrate</option>
-									<option>Whole Blood</option>
-								</select>
+                                                            <select class="form-control" id="bankname" name="bloodcomponent" disabled style="width: 2.3in">
+                                                              <?php
+                                                              foreach($bank as $row){
+                                                                 echo '<option value="'.$row['component'].'">'.$row['component'].'</option>';
+                                                              }
+                                                              ?>
+                                                              </select>
                                                             </td>
 					                                                                        <td style="padding-left: 20px">
 							  <label class="control-label" for="bcqty">Quantity</label>
@@ -238,7 +252,7 @@
         //
     } else {
         $('#f1 :input').attr('disabled', true);
-    }				                                                                                         $('#f1: input').attr('disabled', true);
+    }
     }
 	
        
