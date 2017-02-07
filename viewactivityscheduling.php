@@ -42,7 +42,7 @@ $pages = ceil($total / $perPage);
 					<h2>Schedule of Activities</h2>
 				</div>
 				<div class="col-md-5 text-right" style="padding-top:20px;">
-                                    <a href="activityschedulingcreate.php" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign">Add New Activity</span></a>
+                                    <a href="activityschedulingcreate.php" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign">Add Activity</span></a>
 				</div>
 			</div>
 		<div class="table-responsive">

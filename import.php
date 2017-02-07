@@ -50,17 +50,6 @@ include 'header.php';
 </html>
 <div id="i1">
 <?php
-
-error_reporting(E_ALL ^ E_DEPRECATED);
-if(isset($_POST["Import"]))
-{
-    //First we need to make a connection with the database
-    $host='localhost'; // Host Name.
-    $db_user= 'root'; //User Name
-    $db_password= '';
-    $db= 'prcbbmis'; // Database Name.
-    $conn=mysql_connect($host,$db_user,$db_password) or die (mysql_error());
-    mysql_select_db($db) or die (mysql_error());
     echo $filename=$_FILES["file"]["tmp_name"];
     if($_FILES["file"]["size"] > 0)
     {
@@ -77,24 +66,16 @@ if(isset($_POST["Import"]))
         
         header('Location: import.php');
     }
-    else
+    else{
         echo 'Invalid File:Please Upload CSV File';
-}
+    }
 ?>
 </div>
 <div id="i2">
     <?php
 
-error_reporting(E_ALL ^ E_DEPRECATED);
 if(isset($_POST["Import"]))
 {
-    //First we need to make a connection with the database
-    $host='localhost'; // Host Name.
-    $db_user= 'root'; //User Name
-    $db_password= '';
-    $db= 'prcbbmis'; // Database Name.
-    $conn=mysql_connect($host,$db_user,$db_password) or die (mysql_error());
-    mysql_select_db($db) or die (mysql_error());
     echo $filename=$_FILES["file"]["tmp_name"];
     if($_FILES["file"]["size"] > 0)
     {
@@ -120,16 +101,8 @@ if(isset($_POST["Import"]))
 <div id="i3">
 <?php
 
-error_reporting(E_ALL ^ E_DEPRECATED);
 if(isset($_POST["Import"]))
 {
-    //First we need to make a connection with the database
-    $host='localhost'; // Host Name.
-    $db_user= 'root'; //User Name
-    $db_password= '';
-    $db= 'prcbbmis'; // Database Name.
-    $conn=mysql_connect($host,$db_user,$db_password) or die (mysql_error());
-    mysql_select_db($db) or die (mysql_error());
     echo $filename=$_FILES["file"]["tmp_name"];
     if($_FILES["file"]["size"] > 0)
     {
@@ -152,30 +125,32 @@ if(isset($_POST["Import"]))
 ?>
 </div>
 
-<script>
+ <script>
 
 	
   function toggleStatus() {
-   
     if ($('#bb').is(':selected')) {
-        $('#i3 :option').add('bloodbank');
+        $('#f3 :input').removeAttr('disabled');
         //
     } else {
-        $('#i3 :option').attr('disabled', true);
+        $('#f2 :input').attr('disabled', true);
     }
+        
     if ($('#p').is(':selected')) {
-        $('#i2 :option').add('patient');
+        $('#f2 :input').removeAttr('disabled');
         //
     } else {
-        $('#i2 :option').attr('disabled', true);
+        $('#f2 :input').attr('disabled', true);
     }
+
     if ($('#d').is(':selected')) {
-        $('#i1 :option').add('donor');
+        $('#f1 :input').removeAttr('disabled');
         //
     } else {
-        $('#i1 :option').attr('disabled', true);
+        $('#f1 :input').attr('disabled', true);
+    }				                                                                                         $('#f1: input').attr('disabled', true);
     }
-	}
+	
        
     
 </script>
