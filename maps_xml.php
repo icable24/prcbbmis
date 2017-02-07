@@ -45,6 +45,8 @@ while ($row = @mysql_fetch_assoc($result)){
   echo 'lat="' . $row['lat'] . '" ';
   echo 'lng="' . $row['lng'] . '" ';
   echo 'type="' . $row['type'] . '" ';
+
+  
   echo '/>';
 }
 

@@ -1,4 +1,4 @@
-INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Alfredo F. Marañon, Sr. Memorial District Hospital', 'Bato, Sagay City', '10.807708', '123.372701', 'hospital');
+INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Alfredo F. Maranon, Sr. Memorial District Hospital', 'Bato, Sagay City', '10.807708', '123.372701', 'hospital');
 INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Bacolod Adventist Medical Center', 'C.V. Ramos Avenue, Taculing', '10.6476608', '122.9494671', 'hospital');
 INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Bacolod Our Lady of Mercy Specialty Hospital', 'Eroreco, Mandalagan, Bacolod', '10.6898607', '122.9714516', 'hospital');
 INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES ('Bago City Hospital', 'Rafael Salas, Bago City', '10.5353332', '122.8475057', 'hospital');

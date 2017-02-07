@@ -107,7 +107,7 @@ $pages = ceil($total / $perPage);
 									echo '<td>'.$row['pregdate'].'</td>';
 									echo '<td class="text-center">
 												<a class="btn btn-warning btn-md" href="patientupdate.php?id='.$row['pid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
-												<a class="btn btn-danger btn-md" href="patientdelete.php?id='.$row['pid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-trash"></span></a>
+												<a class="btn btn-danger btn-md" href="patientdelete.php?id='.$row['pid'].'" data-toggle="tooltip" title="Delete"><span class="glyphicon glyphicon-trash"></span></a>
 								  		  </td>';
 								echo '</tr>';
 							}

@@ -97,8 +97,9 @@ $id = null;
                                 <table id="f1">
                                                              
                                     <tr class="control-group">
-                                   
+                                   <form action="./php/addtmpbloodtype.php" method="post">
                                              <td>
+                                                 
                                     <label class="control-label" for="bloodgroup">Blood Type</label>
 					            <select class="form-control" id="bloodgroup" name="bloodtype" disabled style="width: 100px">
 									<option selected="selected" disabled></option>
@@ -109,7 +110,7 @@ $id = null;
                                                                         
 								</select>
                                                                      </td>
-					                                                                        <td style="padding-left: 20px">
+					                      <td style="padding-left: 20px">
 								<label class="control-label" for="rhtype">Rh Type</label>
 					                       <select class="form-control" name="rh" id="rhtype" disabled style="width: 100px">
 									<option selected="selected" disabled></option>
@@ -120,21 +121,55 @@ $id = null;
 					                                                                        <td style="padding-left: 20px">
 							  <label class="control-label" for="btqty">Quantity</label>
 							  <div class="controls">
-					 		  <input id="qty" name="btqty" type="text" class="form-control" required="" disabled style="width: 100px">
+                                                              <input id="qty" name="btqty" type="number" class="form-control" required="" disabled style="width: 100px">
 							     
 							  </div>
                                                                      </td>
-					                                                                        <td style="padding-left: 20px; padding-top: 25px">
-                                                                          <div class="controls">
-                                                                              <input type="button" value="+" onclick="addInput()" disabled >
-                                                                          </div>
+					                             <td style="padding-left: 20px; padding-top: 25px">
+                                                                         <button type="submit" class="btn btn-default" name="btid">+</button>
                                                                      </td>
                                                                      
                                                            
                                                         </tr>
-                                                        
+                                   </form>
+                                                       
                                                             </table>
-                                                        <span id='responce1'></span>
+                                                        <br>
+                                                       <!-- Table -->
+                                                        <div class="table-responsive" style="width: 5in" id="f1">
+			<table class="table table-hover table-striped">
+				<thead>
+					<tr class="alert-info">
+                                            <th class="text-center">Blood Type</th>  
+                                            <th class="text-center">RH Type</th>
+                                            <th class="text-center">Quantity</th>
+                                            <th class="text-center">Action</th>
+					</tr>
+				</thead>
+				<tbody>					
+					<?php
+						require 'dbconnect.php';
+							$pdo = Database::connect();
+							$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+							$sql = 'SELECT * FROM tmpbloodtype ORDER BY bloodtype';							
+							foreach ($pdo->query($sql) as $row) {
+								echo '<tr>';
+									echo '<td>'.$row['bloodtype']. '</td>';
+									echo '<td>'.$row['rh'].'</td>';
+									echo '<td>'.$row['btqty'].'</td>';
+									echo '<td class="text-center">
+												<a class="btn btn-warning btn-md" href="userupdate.php?id='.$row['btid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
+												<a class="btn btn-danger btn-md" href="userdelete.php?id='.$row['btid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-trash"></span></a>
+								  		  </td>';
+								echo '</tr>';
+							}
+							Database::disconnect();
+						?>
+				</tbody>
+			</table>
+		</div>
+                                                        <!--End of Table-->
+                                                        
                                                         <!-- Drop Down List -->
                                                         <table id="f2">
                                                         <tr class="control-group">
@@ -148,21 +183,52 @@ $id = null;
                                                               ?>
                                                               </select>
                                                             </td>
-					                                                                        <td style="padding-left: 20px">
+					                  <td style="padding-left: 20px">
 							  <label class="control-label" for="bcqty">Quantity</label>
 							  <div class="controls">
-					<input id="qty" name="bcqty" type="text" class="form-control" required="" disabled style="width: 100px">
+					<input id="qty" name="bcqty" type="number" class="form-control" required="" disabled style="width: 100px">
 							     
 							  </div>
                                  </td>
 									<td style="padding-left: 20px; padding-top: 25px">
-									<div class="controls">
-									<input type="button" value="+" onclick="add()" disabled >
-									</div>
+									<button type="submit" class="btn btn-default">+</button>
 									</td>
 									</tr>
                                 </table>
-                                                        <span id='responce2'></span>
+                                                        
+                                                        <br>
+                                                       <!-- Table -->
+                                                        <div class="table-responsive" style="width: 5in">
+			<table class="table table-hover table-striped">
+				<thead>
+					<tr class="alert-info">
+                                            <th class="text-center">Blood Component</th>  
+                                            <th class="text-center">Quantity</th>
+                                            <th class="text-center">Action</th>
+					</tr>
+				</thead>
+				<tbody>					
+					<?php
+						require 'dbconnect.php';
+							$pdo = Database::connect();
+							$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+							$sql = 'SELECT * FROM tmpbloodcomponent ORDER BY bloodcomponent';							
+							foreach ($pdo->query($sql) as $row) {
+								echo '<tr>';
+									echo '<td>'.$row['bloodcomponent']. '</td>';
+									echo '<td>'.$row['bcqty'].'</td>';
+									echo '<td class="text-center">
+												<a class="btn btn-warning btn-md" href="userupdate.php?id='.$row['bcid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
+												<a class="btn btn-danger btn-md" href="userdelete.php?id='.$row['bcid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-trash"></span></a>
+								  		  </td>';
+								echo '</tr>';
+							}
+							Database::disconnect();
+						?>
+				</tbody>
+			</table>
+		</div>
+                                                        <!--End of Table-->
 
 							<!-- Text input-->
 							<div class="control-group">
