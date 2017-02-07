@@ -8,6 +8,8 @@
 		$bankaddress = $_POST['bankaddress'];
 		$contactdetails = $_POST['contactdetails'];
 		$country = $_POST['country'];
+                $bankcateg = $_POST['bankcateg'];
+                
 		
 	
 		
@@ -18,9 +20,9 @@
 		if($valid){
 			$pdo = Database::connect();
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql = "INSERT INTO bloodbank (bankname, bankaddress, contactdetails, country) values(?, ?, ?, ?)";
+			$sql = "INSERT INTO bloodbank (bankname, bankaddress, contactdetails, country, bankcateg) values(?, ?, ?, ?, ?)";
 			$q = $pdo->prepare($sql);
-            $q->execute(array($bankname, $bankaddress, $contactdetails, $country));
+            $q->execute(array($bankname, $bankaddress, $contactdetails, $country, $bankcateg));
             Database::disconnect();
             header("Location: ../viewbloodbank.php");
 		}

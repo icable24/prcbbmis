@@ -42,7 +42,7 @@ $pages = ceil($total / $perPage);
 					<h2>Schedule of Activities</h2>
 				</div>
 				<div class="col-md-5 text-right" style="padding-top:20px;">
-                                    <a href="activityschedulingcreate.php" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign">Add New Activity</span></a>
+                                    <a href="activityschedulingcreate.php" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign">Add Activity</span></a>
 				</div>
 			</div>
 		<div class="table-responsive">
@@ -65,8 +65,8 @@ $pages = ceil($total / $perPage);
 								echo '<td>'.$row['place'].'</td>';
 								echo '<td>'.$row['date'].'</td>';
 								echo '<td class="text-center">
-											<button type="button" class="btn btn-warning btn-md updateB" rel="tooltip" title="Update Item" data-toggle="modal" data-target="#updateModal" value="'.$row['actid'].'"><span class="glyphicon glyphicon-pencil"></span></button>
-										<button type="button" class="btn btn-danger btn-md deleteB" rel="tooltip" title="Delete Item" data-toggle="modal" data-target="#myModal" value="'.$row['actid'].'"><span class="glyphicon glyphicon-trash"></span></button>
+											<a class="btn btn-warning btn-md" href="activityschedulingupdate.php?id='.$row['actid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
+                                                                                        <a class="btn btn-danger btn-md" href="activityschedulingdelete.php?id='.$row['actid'].'" data-toggle="tooltip" title="Delete"><span class="glyphicon glyphicon-trash"></span></a>
 							  		  </td>';
 							echo '</tr>';
 						}

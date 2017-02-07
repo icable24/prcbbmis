@@ -7,11 +7,11 @@ document.getElementById('responce2').innerHTML+='<table>\
                                                         <tr class="control-group">\
                                                             <td>\
                                                             <select class="form-control" id="bloodgroup"  name="bloodgroup" style="width: 2.3in">\
-									<option selected="selected" disabled></option>\
-									<option>Red Cell</option>\
-									<option>Fresh Frozen Plasma</option>\
-									<option>Platelet Concentrate</option>\
-									<option>Whole Blood</option>\
+									 <?php\
+									foreach($bank as $row){\
+									'echo '<option value="'.$row['component'].'">'.$row['component'].'</option>';'\
+									}\
+									?>\
 								</select>\
                                                             </td>\
                                                             <td style="padding-left: 20px">\

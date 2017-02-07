@@ -75,8 +75,12 @@ $pages = ceil($total / $perPage);
 						<h2>Patient List</h2>
 					</div>
 					<div class="col-md-5 text-right" style="padding-top:20px;">
-						<a href="patientcreate.php" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span> Add Patient</a>
-					</div>
+                                           <!-- Import -->
+                                            <a class="btn btn-success btn-md" data-toggle="modal" data-target="#myImport" style="background-color: #0088cc; border-color: #0088cc" title="Import"><span class="glyphicon glyphicon-import"></span></a>
+                                            <!--end-->
+                                            <a href="patientcreate.php" class="btn btn-success btn-md" title="Add Patient"><span class="glyphicon glyphicon-plus-sign"></span></a>
+                                               
+                                        </div>
 				</div>
                       <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search.." title="Type in" style="width: 3in">
 	      	<br>
@@ -157,7 +161,7 @@ function myFunction() {
 			</nav>
 		</div>
 	</div>
-   
+   <!-- Delete Modal -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document" >
 			<div class="modal-content" style="margin-top:40%;">
@@ -178,11 +182,72 @@ function myFunction() {
 			</div>
 		</div>
   	</div>
+   <!-- end -->
+   <!-- Import -->
+   <div class="modal fade" id="myImport" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document" >
+			<div class="modal-content" style="margin-top:50%;">
+                            <div class="modal-header" style="background-color: #99ccff">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Import Patient</h4>
+				</div>
+                            
+				<form enctype="multipart/form-data" method="post" role="form">
+                                    <center>
+                                        <br>
+                                            <input type="file" name="file" id="file">
+                                                    <br><br>
+                                                    <p class="help-block">Only Excel/CSV File Import.</p>
+                                        
+                                    
+                                    </center>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                                <a href="./php/patient_import.php"><button type="submit" class="btn" style="background-color: #ddd" name="Import" value="Import" id="Import">Import</button></a>
+					</div>
+                                                    </div>
+				</form>
+			</div>
+		</div>
+  	</div>
 
+<!-- end -->
 
 <!--edit @ footer.php-->
 <?php
 	include('footer.php');
+?>
+
+<?php
+error_reporting(E_ALL ^ E_DEPRECATED);
+if(isset($_POST["Import"]))
+{
+    //First we need to make a connection with the database
+    $host='localhost'; // Host Name.
+    $db_user= 'root'; //User Name
+    $db_password= '';
+    $db= 'prcbbmis'; // Database Name.
+    $conn=mysql_connect($host,$db_user,$db_password) or die (mysql_error());
+    mysql_select_db($db) or die (mysql_error());
+    echo $filename=$_FILES["file"]["tmp_name"];
+    if($_FILES["file"]["size"] > 0)
+    {
+        $file = fopen($filename, "r");
+        //$sql_data = "SELECT * FROM prod_list_1 ";
+        while (($emapData = fgetcsv($file, 10000, ",")) !== FALSE)
+        {
+            //print_r($emapData);
+            //exit();
+            $sql = "INSERT into patient(pid, pfname, pmname, plname, paddress, pbirthdate, pgender, pcontact, pregdate) values ('$emapData[0]','$emapData[1]','$emapData[2]','$emapData[3]','$emapData[4]','$emapData[5]','$emapData[6]','$emapData[7]','$emapData[8]')";
+            mysql_query($sql);
+        }
+        fclose($file);
+        
+        header('Location: ../viewpatient.php');
+    }
+    else
+        echo 'Invalid File:Please Upload CSV File';
+}
 ?>
 </body>
 </html>

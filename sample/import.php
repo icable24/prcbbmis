@@ -1,37 +1,53 @@
-<!DOCTYPE html>
-<html>
+ <?php 
+error_reporting(E_ALL ^ E_DEPRECATED);
+//connect to the database
+$connect = mysql_connect("localhost","root","");
+mysql_select_db("prcbbmis",$connect); //select the table
+//
+
+if ($_FILES[csv][size] > 0) {
+
+    //get the csv file
+    $file = $_FILES[csv][tmp_name];
+    $handle = fopen($file,"r");
+    
+    //loop through the csv file and insert into database
+    do {
+        if ($data[0]) {
+            mysql_query("INSERT INTO contacts (contact_first, contact_last, contact_email) VALUES
+                (
+                    '".addslashes($data[0])."',
+                    '".addslashes($data[1])."',
+                    '".addslashes($data[2])."'
+                )
+            ");
+        }
+    } while ($data = fgetcsv($handle,1000,",","'"));
+    //
+
+    //redirect
+    header('Location: import.php?success=1'); die;
+
+}
+
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Import a CSV File with PHP & MySQL</title>
 </head>
+
 <body>
-<table border="0" cellpadding="0" cellspacing="0" width=100%>
-<td width = "10%" valign="center" align="center"><p>Product</p></td>
-<td width = "10%" valign="top" align="center">
-<?php
-$item = $_GET["product"];
-if ($item == "")
-{
-	$item = 1;
-}
-?>
-<select onChange="window.location='ban.php?product='+this.value" >
-<?php
-$product = array(
-	"",
-	"PC",
-	"Scanner",
-	"Printer",
-	"Monitor");
-for ($i = 1; $i <= 4; $i++)
-{
-?>
-<option value="<?=$i?>" <? if ($item == $i) { print "SELECTED";}?>> <?=$product[$i]?></option>
-<?      php
-}
-?>
-</select>
-</td>
-<td width= "50" valign="middle"><img src = "<?=$item?>.gif" width="32" height="20"/>
-</td>
-</table>
+
+<?php if (!empty($_GET[success])) { echo "<b>Your file has been imported.</b><br><br>"; } //generic success notice ?>
+
+<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  Choose your file: <br />
+  <input name="csv" type="file" id="csv" />
+  <input type="submit" name="Submit" value="Submit" />
+</form>
+
 </body>
 </html>

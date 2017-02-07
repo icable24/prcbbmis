@@ -1,3 +1,22 @@
+<?php 
+	include 'login_success.php';
+	require 'dbconnect.php';
+
+	$id = null;
+    if ( !empty($_GET['id'])) {
+        $id = $_REQUEST['id'];
+    
+     
+   
+    } else {
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "SELECT *  FROM bloodbank WHERE status LIKE 'registered'";
+        $q = $pdo->prepare($sql);
+        $q->execute();
+        $bank = $q->fetchAll(PDO::FETCH_ASSOC);
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,13 +86,30 @@
 							  </div>
 							</div>
                                                         <!-- Text input-->
-                                                        <div class="control-group">
+                                                       <div class="control-group">
 							  <label class="control-label" for="bankname">Blood Bank</label>
 							  <div class="controls">
-							    <input id="bankname" name="bankname" type="text" placeholder="bankname" class="form-control" required="">
-							    
+                                                              <select class="form-control" id="bankname" name="bankname">
+                                                              <?php
+                                                              foreach($bank as $row){
+                                                                 echo '<option value="'.$row['bankname'].'">'.$row['bankname'].'</option>';
+                                                              }
+                                                              ?>
+                                                              </select>
 							  </div>
 							</div>
+                                                        
+                                                       
+                                                        <!-- Select Basic -->
+							<!-- <div class="control-group">
+							  <label class="control-label" for="bankname">Blood Bank</label>
+							  <div class="controls">
+							    <select id="bankname" name="bankname" class="form-control">
+							      <option value=""></option>
+							    </select>
+							  </div>
+							</div>-->
+                                                        
 							<!-- Select Basic -->
 							<div class="control-group">
 							  <label class="control-label" for="usertype">User Type</label>
@@ -91,7 +127,7 @@
 							<div class="panel-footer">	
 								<div class="form-actions text-center forms">
 									<button type="submit" class="btn btn-success">Submit</button>
-									<a class="btn" href="home.php">Back</a>
+                                                                        <a class="btn" href="viewuser.php">Back</a>
 								</div>		
 						  	</div>		
 						</form>

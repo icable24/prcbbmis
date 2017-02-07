@@ -4,7 +4,7 @@
 	require 'dbconnect.php'; 
 
 	$pdo = Database::connect();
-	$query = $pdo->prepare("SELECT * FROM componentsprep WHERE remarks = 'Pending'");
+	$query = $pdo->prepare("SELECT * FROM transfer WHERE remarks = 'Pending'");
 	$query->execute();
 	$query = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -18,17 +18,21 @@
 			<div class="col-lg-12">
 				<div class="row" style="border-bottom:solid 1px;margin-bottom:15px;">
 					<div class="col-md-7">
-						<h2>Components Prep</h2>
+						<h2>Blood Transfer</h2>
 					</div>
 				</div>
 				<div class="table-responsive">
 					<table class="table  table-hover table-striped">
 						<thead>
 							<tr class="alert-info ">
-								<th>Collection ID</th>
-								<th>Blood Bag Serial Number</th>
-								<th>Bag Type</th>
-								<th>Remarks</th>
+								<th>Requester</th>
+								<th>Blood Type</th>
+								<th>RH Type</th>
+                                                                <th>Quantity</th>
+								<th>Blood Component</th>
+                                                                <th>Quantity</th>
+                                                                <th>Bank Name</th>
+                                                                
 								<th class="text-center">Action</th>
 							</tr>							
 						</thead>

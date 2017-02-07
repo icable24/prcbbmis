@@ -1,3 +1,23 @@
+<?php 
+	include 'login_success.php';
+	require 'dbconnect.php';
+
+	$id = null;
+    if ( !empty($_GET['id'])) {
+        $id = $_REQUEST['id'];
+    
+     
+   
+    } else {
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "SELECT SQL_CALC_FOUND_ROWS *  FROM inventory WHERE remarks LIKE 'Ok'";
+        $q = $pdo->prepare($sql);
+        $q->execute(array($id));
+        $data = $q->fetch(PDO::FETCH_ASSOC);
+        Database::disconnect();
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,6 +68,9 @@
 
 <script type="text/javascript">
     var locations = [
+      ['<form action="inventory_list.php" method="post">\<strong>Philippine Red Cross Bacolod Chapter</strong><br>\<p>Available Blood</p>\
+        <p style="font-weight: bold"><?php echo $data['component']?></p>\
+	<p><a href="requisition_form_byChapters.php">Request</a></form>', 10.6761724,122.9570703,19],
       ['<strong>Alfredo F. Marañon, Sr. Memorial District Hospital<br></strong><br>\<p>Available Blood</p><br>\
 	<a href="requisition_form_byHospitals.php">Request</a>', 10.807708,123.372701,21] , 
       ['<strong>Bacolod Adventist Medical Center</strong><br>\<p>Available Blood</p><br>\

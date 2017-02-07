@@ -8,7 +8,7 @@
     }
      
     if ( null==$id ) {
-        header("Location: patientlist.php");
+        header("Location: view.php");
     } else {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -38,7 +38,7 @@
 		<div class="container">
 			<div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
 				<div class="row">
-					<h2 style="text-align: center;">Register New Patient</h2>
+					<h2 style="text-align: center;">Update Patient Information</h2>
 					<br />
 				</div>
 
@@ -49,8 +49,16 @@
 					</div>
 					
 					<div class="panel-body">
-						<form class="form-horizontal" action="./php/regpatient.php" method="post">
+                                            <form class="form-horizontal" action="./php/update_patient.php" method="post">
 
+                                                 <!-- Text input-->
+                                                    <div class="control-group">
+							<div class="controls">
+                                                            <label class="control-label" for="pid">Patients ID</label>
+							<input class="form-control" type="hidden" name="pid" value="<?php echo $data['pid']?>">
+							<input class="form-control" value="<?php echo $data['pid']?>" disabled>
+							</div>
+                                                    </div>
 							<!-- Text input-->
 							<div class="control-group">
 							  <label class="control-label" for="pfname">First name</label>

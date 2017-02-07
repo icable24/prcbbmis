@@ -1,13 +1,14 @@
 <?php 
 	include 'login_success.php';
+     
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<link rel="stylesheet" href="./css/custom_style.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.theme.mis.css">
-	<link rel="stylesheet" href="css/datepicker.css">
-	<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+	<link rel="stylesheet" href="./css/datepicker.css">
+	<link rel="stylesheet" href="./css/bootstrap-datetimepicker.min.css">
 </head>
 <body>
 <?php 
@@ -51,6 +52,7 @@ function backup_Database($hostName,$userName,$password,$DbName,$tables = '*')
     
     
     
+    $data = 'DROP TABLE IF EXISTS '.$table.';';
     $data.= 'DROP TABLE IF EXISTS '.$table.';';
     $row2 = mysql_fetch_row(mysql_query('SHOW CREATE TABLE '.$table));
     $data.= "\n\n".$row2[1].";\n\n";
@@ -80,14 +82,14 @@ function backup_Database($hostName,$userName,$password,$DbName,$tables = '*')
 	
     $data.="\n\n\n";
   }  // end of the foreach*/
-  
+   
     $return .= 'SET FOREIGN_KEY_CHECKS=1;' . "\r\n";
 	$return.= 'COMMIT;';
   
   //SAVE THE BACKUP AS SQL FILE
   $handle = fopen($DbName.'-Database-Backup-'.date('Y-m-d @ h-i-s').'.sql','w+');
   fwrite($handle,$data);
-  fclose($handle);
+        fclose($handle);
    
    if($data){
    		return true;
@@ -112,20 +114,16 @@ function clean($str) {
  
  
 ?>
+    <div style="text-align: center; font-size: 20px">
 <?php
  // CALL TO THE FUNCTION
  $backup_response = backup_Database('localhost','root','','prcbbmis');
-  if($backup_response) {
-	echo 'Database Backup Successfully Created!';  
-  }
-  else {
-	echo 'Errors in Database Backup Creating!';    
-  }
-
-
+ if($backup_response){
+     echo '<a href="home.php" ><img src="./img/bloodbag.PNG" alt="icon" /></a>';
+ }
   ?>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+<br><br><br><br><br><br>
 
 <?php 
 		include('footer.php');

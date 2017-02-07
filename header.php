@@ -218,17 +218,14 @@
                                 <li><a href="viewtest.php" >SEROLOGY</a></li>
                                 <li><a href="inventory_list.php" >BLOOD INVENTORY</a></li>
                                 <li><a href="components_prep.php">COMPONENTS PREP</a></li>
+                                <li><a href="viewtransfer.php">BLOOD TRANSFER</a></li>
                             </ul>
                         </li>
                          <?php if($user['usertype'] == 'Admin'){?>
                         <li><a href="report.php">REPORTS</a></li>
-                        <li class="dropdown menus">
-                            <a href="#" data-toggle="dropdown">MAINTENANCE</a>
-                            <ul class="dropdown-menu submenus">
-                                <li><a href="import.php">IMPORT</a></li>
-                                <li><a href="export.php">BACK-UP</a></li>
-                            </ul>  
-                        </li>
+                        
+                        <li> <a href="export.php">BACK-UP</a> </li>
+                       
                         <?php } ?> 
                         <li><a href="map.php">MAPS</a></li>
                            

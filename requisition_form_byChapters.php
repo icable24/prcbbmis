@@ -1,8 +1,7 @@
 <?php 
 	include 'login_success.php';
 	require 'dbconnect.php';
-
-	$id = null;
+$id = null;
     if ( !empty($_GET['id'])) {
         $id = $_REQUEST['id'];
     
@@ -11,12 +10,23 @@
     } else {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT bankname, bankaddress, contactdetails FROM bloodbank";
+        $sql = "SELECT *  FROM inventory WHERE status LIKE 'inventory'";
         $q = $pdo->prepare($sql);
-        $q->execute(array($id));
-        $data = $q->fetch(PDO::FETCH_ASSOC);
-        Database::disconnect();
+        $q->execute();
+        $bank = $q->fetchAll(PDO::FETCH_ASSOC);
     }
+        $username = $_SESSION['login_username'];
+	$pdo = Database:: connect();
+	$pdo->setAttribute(PDO:: ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        $user = $pdo->prepare("SELECT * FROM user WHERE username = ?");
+        $user->execute(array($username));
+	$user = $user->fetch(PDO:: FETCH_ASSOC);
+
+        $bloodbank = $pdo->prepare("SELECT * FROM bloodbank WHERE bankname = ?");
+        $bloodbank->execute(array($user['bankname']));
+        $bloodbank = $bloodbank->fetch(PDO:: FETCH_ASSOC);
+	Database:: disconnect();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +49,7 @@
 		<div class="container">
 			<div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
 				<div class="row">
-					<h2 style="text-align: center;">Blood Request</h2>
+                      <h2 style="text-align: center;">Blood Request</h2>
 					<br />
 				</div>
 
@@ -50,13 +60,14 @@
 					</div>
 					
 					<div class="panel-body">
-                                            <form class="form-horizontal" action="./php/regbloodbank.php" method="post">
+                                            <form class="form-horizontal" action="./php/addRequisitionbyChapters.php" method="post">
 
 							<!-- Text input-->
 							<div class="control-group">
-							  <label class="control-label" for="pfname">Requester</label>
+							  <label class="control-label" for="requester">Requester</label>
 							  <div class="controls">
-							    <input id="pfname" name="pfname" type="text" placeholder="Fullname" class="form-control" required="">
+							  <input class="form-control" value="<?php echo $user['fname'].' '. substr($user['mname'],0,1).'. '.$user['lname'] ?>" disabled>
+                                                              <input id="requester" name="requester" value="<?php echo $user['fname'].' '. substr($user['mname'],0,1).'. '.$user['lname'] ?>" type="hidden" placeholder="Fullname" class="form-control" required="">
 							    
 							  </div>
 							</div>
@@ -83,13 +94,13 @@
 							  	<input type="checkbox" name="need" value="2" id="bc" onchange="toggleStatus()"> Blood Component?		
 							  </div>    
                                                         <!-- Drop down list -->
-                                                        <table id="f1">
+                                <table id="f1">
                                                              
-                                                            <tr class="control-group">
-                                                           
-                                                                     <td>
-                                                            <label class="control-label" for="bloodgroup">Blood Type</label>
-                                                            <select class="form-control" id="bloodgroup" name="bloodgroup" disabled style="width: 100px">
+                                    <tr class="control-group">
+                                   
+                                             <td>
+                                    <label class="control-label" for="bloodgroup">Blood Type</label>
+					            <select class="form-control" id="bloodgroup" name="bloodtype" disabled style="width: 100px">
 									<option selected="selected" disabled></option>
                                                                         <option>A</option>
 									<option>B</option>
@@ -98,22 +109,22 @@
                                                                         
 								</select>
                                                                      </td>
-                                                                     <td style="padding-left: 20px">
+					                                                                        <td style="padding-left: 20px">
 								<label class="control-label" for="rhtype">Rh Type</label>
-                                                                <select class="form-control" name="rhtype" id="rhtype" disabled style="width: 100px">
+					                       <select class="form-control" name="rh" id="rhtype" disabled style="width: 100px">
 									<option selected="selected" disabled></option>
 									<option>Positive</option>
 									<option>Negative</option>
 								</select>
                                                                      </td>
-                                                                     <td style="padding-left: 20px">
-							  <label class="control-label" for="qty">Quantity</label>
+					                                                                        <td style="padding-left: 20px">
+							  <label class="control-label" for="btqty">Quantity</label>
 							  <div class="controls">
-                                                              <input id="qty" name="qty" type="text" class="form-control" required="" disabled style="width: 100px">
+					 		  <input id="qty" name="btqty" type="text" class="form-control" required="" disabled style="width: 100px">
 							     
 							  </div>
                                                                      </td>
-                                                                     <td style="padding-left: 20px; padding-top: 25px">
+					                                                                        <td style="padding-left: 20px; padding-top: 25px">
                                                                           <div class="controls">
                                                                               <input type="button" value="+" onclick="addInput()" disabled >
                                                                           </div>
@@ -129,43 +140,43 @@
                                                         <tr class="control-group">
                                                             <td>
                                                             <label class="control-label" for="bloodgroup">Blood Component</label>
-                                                            <select class="form-control" id="bloodgroup"  name="bloodgroup" disabled style="width: 2.3in"> 
-									<option selected="selected" disabled></option>
-									<option>Fresh Frozen Plasma</option>
-									<option>Platelet Concentrate</option>
-									<option>Whole Blood</option>
-								</select>
+                                                            <select class="form-control" id="bankname" name="bloodcomponent" disabled style="width: 2.3in">
+                                                              <?php
+                                                              foreach($bank as $row){
+                                                                 echo '<option value="'.$row['component'].'">'.$row['component'].'</option>';
+                                                              }
+                                                              ?>
+                                                              </select>
                                                             </td>
-                                                            <td style="padding-left: 20px">
-							  <label class="control-label" for="qty">Quantity</label>
+					                                                                        <td style="padding-left: 20px">
+							  <label class="control-label" for="bcqty">Quantity</label>
 							  <div class="controls">
-                                                              <input id="qty" name="qty" type="text" class="form-control" required="" disabled style="width: 100px">
+					<input id="qty" name="bcqty" type="text" class="form-control" required="" disabled style="width: 100px">
 							     
 							  </div>
-                                                                     </td>
-                                                                     <td style="padding-left: 20px; padding-top: 25px">
-                                                                          <div class="controls">
-                                                                              <input type="button" value="+" onclick="add()" disabled >
-                                                                          </div>
-                                                                     </td>
-                                                        </tr>
-
-                                                        </table>
+                                 </td>
+									<td style="padding-left: 20px; padding-top: 25px">
+									<div class="controls">
+									<input type="button" value="+" onclick="add()" disabled >
+									</div>
+									</td>
+									</tr>
+                                </table>
                                                         <span id='responce2'></span>
 
 							<!-- Text input-->
 							<div class="control-group">
-							  <label class="control-label" for="pbirthdate">Date Needed</label>
+							  <label class="control-label" for="dateneeded">Date Needed</label>
 							  <div class="controls">
-							    <input id="pbirthdate" name="pbirthdate" type="date" class="form-control" required="">
+							    <input id="dateneeded" name="dateneeded" type="date" class="form-control" required="">
 							   		<script src="js/jquery-1.9.1.min.js"></script>
 										<script src="js/bootstrap-datepicker.js"></script>
 										<script type="text/javascript">
 											// When the document is ready
 											$(document).ready(function () {
 												
-												$('#pbirthdate').datepicker({
-													format: "yyyy-mm-dd"
+												$('#dateneeded').datepicker({
+					                                                                                         format: "yyyy-mm-dd"
 												});  
 											
 											});
@@ -178,7 +189,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="bankname">Blood Bank</label>
 							  <div class="controls">
-							    <input id="bankname" name="bankname" type="text" placeholder="Name" class="form-control" required="" value="<?php echo $data['bankname']?>" disabled>
+							    <input id="bankname" name="bankname" type="text" placeholder="Name" class="form-control" required="" value="<?php echo $bloodbank['bankname']?>" disabled>
 							    
 							  </div>
 							</div>
@@ -186,7 +197,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="bankaddress">Address</label>
 							  <div class="controls">
-                                                              <input id="bankaddress" name="bankaddress" type="text" placeholder="Address" class="form-control" required="" value="<?php echo $data['bankaddress']?>"disabled>
+                                  <input id="bankaddress" name="bankaddress" type="text" placeholder="Address" class="form-control" required="" value="<?php echo $bloodbank['bankaddress']?>"disabled>
 							    
 							  </div>
 							</div>
@@ -195,16 +206,17 @@
 							<div class="control-group">
 							  <label class="control-label" for="contactdetails">Contact Number</label>
 							  <div class="controls">
-                                                              <input id="contactdetails" name="contactdetails" type="text" placeholder="Contact Number" class="form-control" required="" value="<?php echo $data['contactdetails']?>" disabled>
+							  <input class="form-control" value="<?php echo $bloodbank['contactdetails']?>" disabled></input>
+                                                          <input id="contactdetails" name="contactdetails" type="hidden" placeholder="Contact Number" class="form-control" required="" value="<?php echo $bloodbank['contactdetails']?>">
 							    
 							  </div>
 							</div>
                                                         
                                                         <!-- Text input-->
 							<div class="control-group">
-							  <label class="control-label" for="detail">Reason</label>
+							  <label class="control-label" for="reason">Reason</label>
 							  <div class="controls">
-                                                              <textarea id="detail" name="detail" placeholder="Enter text here..." class="form-control" required=""></textarea>
+                                                              <textarea id="reason" name="reason" placeholder="Enter text here..." class="form-control" required=""></textarea>
 							    
 							  </div>
 							</div>
@@ -228,8 +240,7 @@
 
 	
   function toggleStatus() {
-   
-    if ($('#bc').is(':checked')) {
+   if ($('#bc').is(':checked')) {
         $('#f2 :input').removeAttr('disabled');
         //
     } else {
@@ -242,7 +253,8 @@
     } else {
         $('#f1 :input').attr('disabled', true);
     }
-	}
+    }
+	
        
     
 </script>

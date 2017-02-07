@@ -38,7 +38,7 @@
 		<div class="container">
 			<div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
 				<div class="row">
-					<h2 style="text-align: center;">Register New Blood Bank/h2>
+					<h2 style="text-align: center;">Update Blood Bank</h2>
 					<br />
 				</div>
 						
@@ -48,13 +48,21 @@
 					</div>
 					
 					<div class="panel-body">
-                                            <form class="form-horizontal" action="./php/regbloodbank.php" method="post">
+                                            <form class="form-horizontal" action="./php/update_bloodbank.php" method="post">
 
+                                                     <!-- Text input-->
+                                                    <div class="control-group">
+							<div class="controls">
+							<label class="control-label" for="bankid">Blood Bank ID</label>
+							<input class="form-control" type="hidden" name="bankid" value="<?php echo $data['bankid']?>">
+							<input class="form-control" value="<?php echo $data['bankid']?>" disabled>
+							</div>
+                                                    </div>
 							<!-- Text input-->
 							<div class="control-group">
 							  <label class="control-label" for="bankname">Name</label>
 							  <div class="controls">
-							    <input id="bankname" name="bankname" type="text" placeholder="Name" class="form-control" required="" value="<?php echo $data['bankname']?>" >
+                                                              <input id="bankname" name="bankname" type="text" placeholder="Name" class="form-control" disabled required="" value="<?php echo $data['bankname']?>" >
 							    
 							  </div>
 							</div>
@@ -81,7 +89,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="country">Country</label>
 							  <div class="controls">
-							    <select id="country" name="country" class="form-control">
+                                                              <select id="country" name="country" class="form-control" disabled="">
                                                                 <option>Select Country</option>
                                                                 <option <?php if($data['country'] == 'Brunei')echo 'selected="selected"'; ?>>Brunei</option>
                                                                 <option <?php if($data['country'] == 'Cambodia')echo 'selected="selected"'; ?>>Cambodia</option>
@@ -96,13 +104,25 @@
 							    </select>
 							  </div>
 							</div>
+                                                        
+                                                         <!-- Select Basic -->
+							<div class="control-group">
+							  <label class="control-label" for="bankcateg">Blood Bank Category</label>
+							  <div class="controls">
+                                                              <select id="bankcateg" name="bankcateg" class="form-control" disabled="">
+                                                                <option  <?php if($data['bankcateg'] == 'Chapter')echo 'selected="selected"'; ?>>Chapter</option>
+                                                                <option <?php if($data['bankcateg'] == 'Hospital')echo 'selected="selected"'; ?>>Hospital</option>
+							    </select>
+							  </div>
+							</div>
+
 
 					</div>
 							<!--Buttons-->
 							<div class="panel-footer">	
 								<div class="form-actions text-center forms">
 									<button type="submit" class="btn btn-warning">Update</button>
-                                                                        <a class="btn" href="viewubloodbank.php">Back</a>
+                                                                        <a class="btn" href="viewbloodbank.php">Back</a>
 								</div>		
 						  	</div>	
 						</form>

@@ -78,7 +78,7 @@ $pages = ceil($total / $perPage);
 					<h2>Donor List</h2>
 				</div>
 				<div class="col-md-5 text-right" style="padding-top:20px;">
-	                <a href="donorcreate.php" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp; Add New Donor</a>
+	                <a href="donorcreate.php" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp; Add Donor</a>
 				</div>
 			</div>	
 			<div class="controls">
