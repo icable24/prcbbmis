@@ -73,8 +73,7 @@ $pages = ceil($total / $perPage);
 									echo '<td>'.$row['bankname'].'</td>';
 									echo '<td>'.$row['remarks'].'</td>';
 									echo '<td class="text-center">
-											<a class="btn btn-warning btn-md" href="updatetransferbyCountry.php?id='.$row['cid'].'" data-toggle="tooltip" title="View"><span class="glyphicon glyphicon-eye-open"></span></a>
-                                                                                        <a class="btn btn-danger btn-md" href="deletetransferbyCountry.php?id='.$row['cid'].'" data-toggle="tooltip" title="Decline"><span class="glyphicon glyphicon-remove"></span></a>	
+											<a class="btn btn-primary btn-md" href="printfortransfer.php?id='.$row['cid'].'" data-toggle="tooltip" title="Print"><span class="glyphicon glyphicon-print"></span></a>
 								  		  </td>';
 								echo '</tr>';
 							}

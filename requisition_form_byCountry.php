@@ -115,9 +115,9 @@
 							<!-- Text input-->
 							<div class="control-group">
 							  <label class="control-label" for="contactdetails">Contact Number</label>
-							  <div class="controls">
+							   <div class="controls">
 							  <input class="form-control" value="<?php echo $bloodbank['contactdetails']?>" disabled></input>
-                                                        <input id="contactdetails" name="contactdetails" type="hidden" placeholder="Contact Number" class="form-control" required="" value="<?php echo $bloodbank['contactdetails']?>">
+                                                        <input id="contactdetails" name="contactdetails" type="hidden" placeholder="contact number" class="form-control" required="" value="<?php echo $bloodbank['contactdetails']?>">
 							    
 							  </div>
 							</div>

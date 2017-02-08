@@ -175,7 +175,7 @@
 							    $pending_screen = $q2->fetchAll(PDO::FETCH_ASSOC);
 
 								foreach ($pending_screen as $row) {
-									$sql3 = "SELECT * FROM byCountry WHERE cid = ?";
+									$sql3 = "SELECT * FROM bycountry WHERE cid = ?";
 									$q3 = $pdo->prepare($sql3);
 									$q3->execute(array($row['cid']));
 									$donor = $q3->fetch(PDO::FETCH_ASSOC);
@@ -186,7 +186,7 @@
 									echo '<td>'.$row['bankname'].'</td>';
 									echo '<td>'.$row['remarks'].'</td>';
 									echo '<td class="text-center">
-														<a class="btn btn-primary btn-md" href="updatetransferbycountry.php?id='.$row['cid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
+														<a class="btn btn-warning btn-md" href="updatetransferbycountry.php?id='.$row['cid'].'" data-toggle="tooltip" title="Review"><span class="glyphicon glyphicon-eye-open"></span></a>
                                                                                                                 <a class="btn btn-danger btn-md" href="deletetransferbyCountry.php?id='.$row['cid'].'" data-toggle="tooltip" title="Decline"><span class="glyphicon glyphicon-remove"></span></a>
 										  		  </td>';
 									echo '</tr>';
