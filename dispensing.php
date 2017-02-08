@@ -9,9 +9,11 @@
 	$dispense->execute(array($id));
 	$dispense = $dispense->fetch(PDO::FETCH_ASSOC);
 
-	$blood = $pdo->prepare("SELECT * FROM inventory WHERE status = 'INVENTORY' AND remarks = 'Ok' AND component = ?");
-	$blood->execute(array($dispense['component']));
+	$blood = $pdo->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM inventory WHERE component = ? AND bloodinfo = ? AND status = ?");
+	$blood->execute(array($dispense['component'], $dispense['bloodid'], 'Inventory'));
 	$blood = $blood->fetchAll(PDO::FETCH_ASSOC);
+
+	if(!count($blood) < $dispense['quantity']){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,10 +30,6 @@
 
 		<div class="container">
 			<div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
-				<div class="row">
-					<h2 style="text-align: center;">Dispensing</h2>
-					<br />
-				</div>
 						
 				<div class="panel panel-info">
 					<div class="panel-heading">
@@ -39,7 +37,7 @@
 					</div>
 					<div class="panel-body">
 						<form class="form-horizontal" action="./php/adddispensing.php" method="post">
-						<?php for($i = 0; $i <= $dispense['quantity']; $i++){ 
+						<?php for($i = 0; $i < $dispense['quantity']; $i++){ 
 								$b = $blood[$i];
 							?>
 							<div class="control-group">
@@ -110,3 +108,6 @@
 ?>
 </body>
 </html>
+<?php }else{
+	header("Location: ./viewrequest.php?error=1");
+	} ?>

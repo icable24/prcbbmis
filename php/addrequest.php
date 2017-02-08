@@ -25,6 +25,7 @@
 			$q = $pdo->prepare($sql);
 			$q->execute(array($pid, $bloodinfo['bloodid'], $component, $amount, $quantity, $status));
 			Database::disconnect();
+			header("Location: ../viewrequest.php");
 			
 		}else{
 			header("Location: ../viewrequest.php");

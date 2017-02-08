@@ -3,7 +3,10 @@
 	require 'dbconnect.php';
 
 // User Input
-
+	$error = 0;
+	if($_REQUEST != NULL){
+	$error = $_REQUEST['error'];
+	}
 ?>
 <!--Start of Html-->
 <!DOCTYPE html>
@@ -20,6 +23,13 @@
 	<div class="col-lg-12">
 	<div class="container-fluid">	
 		<div class="row" style="border-bottom:solid 1px;margin-bottom:15px;">
+
+				<?php if($error == 1){ ?>
+				<div class="row">
+					<h2 style="text-align: center; color: red;">Not Enough Blood Bag in the Inventory</h2>
+					<br />
+				</div>
+				<?php } ?>
 				<div class="col-md-7">
 					<h2>Blood Request</h2>
 				</div>
