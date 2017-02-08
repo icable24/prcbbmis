@@ -5,7 +5,7 @@ $id = null;
     if ( !empty($_GET['id'])) {
         $id = $_REQUEST['id'];
     
-     
+       
    
     } else {
         $pdo = Database::connect();
@@ -15,6 +15,7 @@ $id = null;
         $q->execute();
         $bank = $q->fetchAll(PDO::FETCH_ASSOC);
     }
+     
         $username = $_SESSION['login_username'];
 	$pdo = Database:: connect();
 	$pdo->setAttribute(PDO:: ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -26,7 +27,9 @@ $id = null;
         $bloodbank = $pdo->prepare("SELECT * FROM bloodbank WHERE bankname = ?");
         $bloodbank->execute(array($user['bankname']));
         $bloodbank = $bloodbank->fetch(PDO:: FETCH_ASSOC);
-	Database:: disconnect();
+
+       
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,8 +63,8 @@ $id = null;
 					</div>
 					
 					<div class="panel-body">
-                                            <form class="form-horizontal" action="./php/addtmpbloodtype.php" method="post">
-
+                                          
+                                            
 							<!-- Text input-->
 							<div class="control-group">
 							  <label class="control-label" for="requester">Requester</label>
@@ -71,36 +74,21 @@ $id = null;
 							    
 							  </div>
 							</div>
-                                                        <!-- Text input-->
-							<!--<div class="control-group">
-							  <label class="control-label" for="pmname">Middle name</label>
-							  <div class="controls">
-							    <input id="pmname" name="pmname" type="text" placeholder="Enter middle name" class="form-control" required="">
-							    
-							  </div>
-							</div> -->
-                                                        <!-- Text input-->
-							<!--<div class="control-group">
-							  <label class="control-label" for="plname">Last name</label>
-							  <div class="controls">
-							    <input id="plname" name="plname" type="text" placeholder="Enter last name" class="form-control" required="">
-							    
-							  </div>
-							</div>-->
+                                                        
                                                         <!-- Multiple Radios -->
 							<div class="control-group">
 							  <label class="control-label" for="need">Need</label>&nbsp;&nbsp;
                                                                 <input type="checkbox" name="need" value="1" id="bt" onchange="toggleStatus()"> Blood Type?
 							  	<input type="checkbox" name="need" value="2" id="bc" onchange="toggleStatus()"> Blood Component?		
 							  </div>    
+                                                        
                                                         <!-- Drop down list -->
-                                <table id="f1">
+                                                <form class="form-horizontal" action="./php/addtmpbloodtype.php" method="post">
+                                                        <table id="f1">
                                                              
-                                    <tr class="control-group">
-                                   
-                                             <td>
-                                                 
-                                    <label class="control-label" for="bloodgroup">Blood Type</label>
+                                                        <tr class="control-group">
+                                                         <td>
+                                                <label class="control-label" for="bloodgroup">Blood Type</label>
 					            <select class="form-control" id="bloodgroup" name="bloodtype" disabled style="width: 100px">
 									<option selected="selected" disabled></option>
                                                                         <option>A</option>
@@ -126,7 +114,8 @@ $id = null;
 							  </div>
                                                                      </td>
 					                             <td style="padding-left: 20px; padding-top: 25px">
-                                                                         <button type="submit" class="btn btn-default" name="btid">+</button>
+                                                                         <button type="submit" class="btn btn-default" name="btid"><span class="glyphicon glyphicon-plus-sign"></span></button>
+                                                                         
                                                                      </td>
                                                                      
                                                            
@@ -138,16 +127,16 @@ $id = null;
                                                         <br>
                                                        <!-- Table -->
                                                         <div class="table-responsive" style="width: 5in" id="f1">
-			<table class="table table-hover table-striped">
-				<thead>
-					<tr class="alert-info">
-                                            <th class="text-center">Blood Type</th>  
-                                            <th class="text-center">RH Type</th>
-                                            <th class="text-center">Quantity</th>
-                                            <th class="text-center">Action</th>
-					</tr>
-				</thead>
-				<tbody>					
+                                                            <table class="table table-hover table-striped">
+                                                                <thead>
+                                                                <tr class="alert-info">
+                                                                    <th class="text-center">Blood Type</th>  
+                                                                    <th class="text-center">RH Type</th>
+                                                                    <th class="text-center">Quantity</th>
+                                                                    <th class="text-center">Action</th>
+                                                                </tr>
+                                                                </thead>
+                                            <tbody>					
 					<?php
 						require 'dbconnect.php';
 							$pdo = Database::connect();
@@ -159,8 +148,7 @@ $id = null;
 									echo '<td>'.$row['rhtype'].'</td>';
 									echo '<td>'.$row['btqty'].'</td>';
 									echo '<td class="text-center">
-												<a class="btn btn-warning btn-md" href="userupdate.php?id='.$row['btid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
-												<a class="btn btn-danger btn-md" href="userdelete.php?id='.$row['btid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-trash"></span></a>
+												<a class="btn btn-default btn-md" href="tmpbtdelete.php?id='.$row['btid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-trash"></span></a>
 								  		  </td>';
 								echo '</tr>';
 							}
@@ -170,7 +158,7 @@ $id = null;
 			</table>
 		</div>
                                                         <!--End of Table-->
-                                                        
+                                                         <form class="form-horizontal" action="./php/addtmpbloodcomponent.php" method="post">
                                                         <!-- Drop Down List -->
                                                         <table id="f2">
                                                         <tr class="control-group">
@@ -192,10 +180,12 @@ $id = null;
 							  </div>
                                  </td>
 									<td style="padding-left: 20px; padding-top: 25px">
-									<button type="submit" class="btn btn-default">+</button>
-									</td>
-									</tr>
+                                                                         <button type="submit" class="btn btn-default" name="bcid"><span class="glyphicon glyphicon-plus-sign"></span></button>
+                                                                         
+                                                                        </td>
+                                                                    </tr>
                                 </table>
+                                                         </form>
                                                         
                                                         <br>
                                                        <!-- Table -->
@@ -219,8 +209,7 @@ $id = null;
 									echo '<td>'.$row['bloodcomponent']. '</td>';
 									echo '<td>'.$row['bcqty'].'</td>';
 									echo '<td class="text-center">
-												<a class="btn btn-warning btn-md" href="userupdate.php?id='.$row['bcid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
-												<a class="btn btn-danger btn-md" href="userdelete.php?id='.$row['bcid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-trash"></span></a>
+												<a class="btn btn-default btn-md" href="tmpbcdelete.php?id='.$row['bcid'].'" data-toggle="tooltip" title="Delete"><span class="glyphicon glyphicon-trash"></span></a>
 								  		  </td>';
 								echo '</tr>';
 							}
@@ -264,7 +253,7 @@ $id = null;
 							<div class="control-group">
 							  <label class="control-label" for="bankaddress">Address</label>
 							  <div class="controls">
-                                  <input id="bankaddress" name="bankaddress" type="text" placeholder="Address" class="form-control" required="" value="<?php echo $bloodbank['bankaddress']?>"disabled>
+                                                        <input id="bankaddress" name="bankaddress" type="text" placeholder="Address" class="form-control" required="" value="<?php echo $bloodbank['bankaddress']?>"disabled>
 							    
 							  </div>
 							</div>
@@ -296,7 +285,7 @@ $id = null;
                                                                         <a class="btn" href="c_Philippines_1.php">Cancel</a>
 								</div>		
 						  	</div>		
-						
+         </form>
 					</div>
                                       </div>
                         </div>
@@ -320,11 +309,9 @@ $id = null;
     } else {
         $('#f1 :input').attr('disabled', true);
     }
-    }
-	
-       
-    
+    } 
 </script>
+
 
 	<?php 
 		include('footer.php');

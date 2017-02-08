@@ -12,7 +12,7 @@ $start = ($page > 1) ? ($page * $perPage) - $perPage : 0;
 $pdo = Database::connect();
 $user = $pdo->prepare("
 	SELECT SQL_CALC_FOUND_ROWS * 
-	FROM byCountry 
+	FROM transfer 
 	ORDER BY requester
 	LIMIT {$start},{$perPage}
 ");
@@ -42,7 +42,7 @@ $pages = ceil($total / $perPage);
 					<h2>Blood Request for Transfer</h2>
 				</div>
                     <div class="col-md-5 text-right" style="padding-top:20px;">
-                            <a href="viewtransfer_byChapter.php" class="btn btn-success btn-md"><span class="glyphicon glyphicon-view"></span>View by Chapter/Hospital</a>
+                            <a href="viewtransfer.php" class="btn btn-success btn-md"><span class="glyphicon glyphicon-view"></span>View by Country</a>
 				</div>
 				
 			</div>
@@ -64,7 +64,7 @@ $pages = ceil($total / $perPage);
 						require 'dbconnect.php';
 							$pdo = Database::connect();
 							$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-							$sql = 'SELECT * FROM byCountry ORDER BY requester DESC';							
+							$sql = 'SELECT * FROM transfer ORDER BY requester DESC';							
 							foreach ($pdo->query($sql) as $row) {
 								echo '<tr>';
 									echo '<td>'.$row['requester'].'</td>';
@@ -73,8 +73,8 @@ $pages = ceil($total / $perPage);
 									echo '<td>'.$row['bankname'].'</td>';
 									echo '<td>'.$row['remarks'].'</td>';
 									echo '<td class="text-center">
-											<a class="btn btn-warning btn-md" href="updatetransferbyCountry.php?id='.$row['cid'].'" data-toggle="tooltip" title="View"><span class="glyphicon glyphicon-eye-open"></span></a>
-                                                                                        <a class="btn btn-danger btn-md" href="deletetransferbyCountry.php?id='.$row['cid'].'" data-toggle="tooltip" title="Decline"><span class="glyphicon glyphicon-remove"></span></a>	
+											<a class="btn btn-warning btn-md" href="userupdate.php?id='.$row['reqid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
+                                                                                        <a class="btn btn-danger btn-md" href="userdelete.php?id='.$row['reqid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-remove"></span></a>	
 								  		  </td>';
 								echo '</tr>';
 							}

@@ -45,6 +45,15 @@
     $notification->execute();
     $notification = $notification->fetchAll(PDO::FETCH_ASSOC);
     $total_request_pending = $pdo->query("SELECT FOUND_ROWS() AS total")->fetch()['total'];
+    
+    $notification = $pdo->prepare("
+    SELECT SQL_CALC_FOUND_ROWS * 
+    FROM byCountry
+    WHERE remarks LIKE 'pending' 
+    ");
+    $notification->execute();
+    $notification = $notification->fetchAll(PDO::FETCH_ASSOC);
+    $total_transfer_pending = $pdo->query("SELECT FOUND_ROWS() AS total")->fetch()['total'];
 
     $notification = $pdo->prepare("
     SELECT SQL_CALC_FOUND_ROWS * 
@@ -180,6 +189,12 @@
                                                 <hr class="notif-divider"/>
                                                 <li><a href="notification.php"><?php echo $total_prep_pending; ?>  
                                                 Components<br> Preparation is Pending</a></li>
+                                            <?php } ?>
+                                                
+                                            <?php if($total_transfer_pending > 0){ ?>
+                                                <hr class="notif-divider"/>
+                                                <li><a href="notification.php"><?php echo $total_transfer_pending; ?>  
+                                                Blood Transfer<br> Request is Pending</a></li>
                                             <?php } ?>
                                         </ul>
                                     <?php } ?>

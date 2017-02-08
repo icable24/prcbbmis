@@ -152,6 +152,50 @@
 							</tbody>
 						</table>
 					</div>	
+                    <?php } elseif($category == 'Blood Transfer') { ?>
+					<div class="table-responsive">
+	                <table class="table table-hover table-striped" id="myTable">
+						<thead>
+							<tr class="alert-info">
+								<th class="text-center">Requester</th>  
+                                                                <th class="text-center">Date Needed</th>
+                                                                <th class="text-center">Blood Group</th>
+                                                                <th class="text-center">Blood Bank</th>
+                                                                <th class="text-center">Remarks</th>
+                                                                <th class="text-center">Action</th>
+							</tr>
+						</thead>	
+						<tbody>
+							<?php 
+								$pdo = Database::connect();
+								$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+								$sql2 = "SELECT * FROM byCountry WHERE remarks like 'pending'";
+							    $q2 = $pdo->prepare($sql2);
+							    $q2->execute();
+							    $pending_screen = $q2->fetchAll(PDO::FETCH_ASSOC);
+
+								foreach ($pending_screen as $row) {
+									$sql3 = "SELECT * FROM byCountry WHERE cid = ?";
+									$q3 = $pdo->prepare($sql3);
+									$q3->execute(array($row['cid']));
+									$donor = $q3->fetch(PDO::FETCH_ASSOC);
+									echo '<tr>';
+										echo '<td>'.$row['requester'].'</td>';
+                                                                        echo '<td>'.$row['dateneeded'].'</td>';
+                                                                        echo '<td>'.$row['bloodcomponent'].'</td>';
+									echo '<td>'.$row['bankname'].'</td>';
+									echo '<td>'.$row['remarks'].'</td>';
+									echo '<td class="text-center">
+														<a class="btn btn-primary btn-md" href="updatetransferbycountry.php?id='.$row['cid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
+                                                                                                                <a class="btn btn-danger btn-md" href="deletetransferbyCountry.php?id='.$row['cid'].'" data-toggle="tooltip" title="Decline"><span class="glyphicon glyphicon-remove"></span></a>
+										  		  </td>';
+									echo '</tr>';
+								}
+							?>
+						</tbody>		
+					</table>
+				</div>
+                    
 				<?php } }?>
 			<ul class="nav nav-tabs nav-tabs-black">
 				<li class="active"><a data-toggle="tab" href="#home" class="nav-tabs-black">Examination</a></li>

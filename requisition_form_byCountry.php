@@ -10,7 +10,7 @@
         $user->execute(array($username));
 	$user = $user->fetch(PDO:: FETCH_ASSOC);
 
-        $bloodbank = $pdo->prepare("SELECT * FROM bloodbank WHERE bankname = ?");
+        $bloodbank = $pdo->prepare("SELECT * FROM bloodbank WHERE bankname = ? ");
         $bloodbank->execute(array($user['bankname']));
         $bloodbank = $bloodbank->fetch(PDO:: FETCH_ASSOC);
 	Database:: disconnect();
@@ -46,7 +46,7 @@
 					</div>
 					
 					<div class="panel-body">
-                                            <form class="form-horizontal" action="./php/addRequisitionbyChapters.php" method="post">
+                                            <form class="form-horizontal" action="./php/addRequisitionbyCountry.php" method="post">
 
 							<!-- Text input-->
 							<div class="control-group">
@@ -59,15 +59,15 @@
 							</div>
                                                        
                                                          <!-- Multiple Radios -->
-							<div class="control-group">
-                                                            <label class="control-label" for="need">Blood Component</label><br>
-                                                            <div style="font-size: 16px"><input type="checkbox" name="need" value="1" id="wb" onchange="toggleStatus()">&nbsp;Whole Blood (32 days)
+							<div class="control-group" >
+                                                            <label class="control-label" for="bloodcomponent">Blood Component</label><br>
+                                                            <div style="font-size: 16px"><input type="radio" name="bloodcomponent" value="Whole Blood" id="wb" onchange="toggleStatus()">&nbsp;Whole Blood (32 days)
                                                                 <div id="f1"><input id="qty" name="qty" type="number" placeholder="qty" class="form-control" required="" style="width: 65px" disabled></div> 
                                                             </div>
-                                                            <div style="font-size: 16px"><input type="checkbox" name="need" value="2" id="ffp" onchange="toggleStatus()">&nbsp;Fresh Frozen Plasma (1 Year)
+                                                            <div style="font-size: 16px"><input type="radio" name="bloodcomponent" value="Fresh Frozen Plasma" id="ffp" onchange="toggleStatus()">&nbsp;Fresh Frozen Plasma (1 Year)
                                                                 <div id="f2"><input id="qty" name="qty" type="number" placeholder="qty" class="form-control" required="" style="width: 65px" disabled></div> 
                                                             </div>
-                                                            <div style="font-size: 16px"><input type="checkbox" name="need" value="3" id="p" onchange="toggleStatus()">&nbsp;Platelets (5 Days)
+                                                            <div style="font-size: 16px"><input type="radio" name="bloodcomponent" value="Platelet" id="p" onchange="toggleStatus()">&nbsp;Platelets (5 Days)
                                                                 <div id="f3"><input id="qty" name="qty" type="number" placeholder="qty" class="form-control" required="" style="width: 65px" disabled></div> 
                                                             </div>
                                                         </div>
@@ -97,16 +97,17 @@
 							<!-- Text input-->
 							<div class="control-group">
 							  <label class="control-label" for="bankname">Blood Bank</label>
-							  <div class="controls">
-							    <input id="bankname" name="bankname" type="text" placeholder="Name" class="form-control" required="" value="<?php echo $bloodbank['bankname']?>" disabled>
-							    
-							  </div>
+							   <div class="controls">
+							  <input class="form-control" value="<?php echo $bloodbank['bankname']?>" disabled></input>
+                                                        <input id="bankname" name="bankname" type="hidden" placeholder="bank name" class="form-control" required="" value="<?php echo $bloodbank['bankname']?>">
+                                                           </div>
 							</div>
                                                         <!-- Text input-->
 							<div class="control-group">
 							  <label class="control-label" for="bankaddress">Address</label>
-							  <div class="controls">
-                                                          <input id="bankaddress" name="bankaddress" type="text" placeholder="Address" class="form-control" required="" value="<?php echo $bloodbank['bankaddress']?>"disabled>
+							   <div class="controls">
+							  <input class="form-control" value="<?php echo $bloodbank['bankaddress']?>" disabled></input>
+                                                        <input id="bankaddress" name="bankaddress" type="hidden" placeholder="Bank Address" class="form-control" required="" value="<?php echo $bloodbank['bankaddress']?>">
 							    
 							  </div>
 							</div>
@@ -116,7 +117,7 @@
 							  <label class="control-label" for="contactdetails">Contact Number</label>
 							  <div class="controls">
 							  <input class="form-control" value="<?php echo $bloodbank['contactdetails']?>" disabled></input>
-                                  <input id="contactdetails" name="contactdetails" type="hidden" placeholder="Contact Number" class="form-control" required="" value="<?php echo $bloodbank['contactdetails']?>">
+                                                        <input id="contactdetails" name="contactdetails" type="hidden" placeholder="Contact Number" class="form-control" required="" value="<?php echo $bloodbank['contactdetails']?>">
 							    
 							  </div>
 							</div>
