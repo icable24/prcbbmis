@@ -52,7 +52,8 @@ $pages = ceil($total / $perPage);
 					<tr class="alert-info">
                                                 <th class="text-center">Requester</th>  
                                                 <th class="text-center">Date Needed</th>
-						<th class="text-center">Blood Group</th>
+						<th class="text-center">Blood Component</th>
+                                                <th class="text-center">Blood Type</th>
                                                 <th class="text-center">Blood Bank</th>
 						<th class="text-center">Remarks</th>
                                                 <th class="text-center">Action</th>
@@ -70,6 +71,7 @@ $pages = ceil($total / $perPage);
 									echo '<td>'.$row['requester'].'</td>';
                                                                         echo '<td>'.$row['dateneeded'].'</td>';
                                                                         echo '<td>'.$row['bloodcomponent'].'</td>';
+                                                                        echo '<td>'.$row['bloodtype'].'</td>';
 									echo '<td>'.$row['bankname'].'</td>';
 									echo '<td>'.$row['remarks'].'</td>';
 									echo '<td class="text-center">

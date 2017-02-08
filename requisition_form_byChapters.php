@@ -27,7 +27,10 @@ $id = null;
         $bloodbank = $pdo->prepare("SELECT * FROM bloodbank WHERE bankname = ?");
         $bloodbank->execute(array($user['bankname']));
         $bloodbank = $bloodbank->fetch(PDO:: FETCH_ASSOC);
-
+        
+        
+        
+        
        
     
 ?>
@@ -63,14 +66,17 @@ $id = null;
 					</div>
 					
 					<div class="panel-body">
-                                           
+                                            <form id="form_a" action="./php/addRequisitionbyChapters.php" method="post"></form>
+                                            <form id="form_b" action="./php/addtmpbloodtype.php" method="post"></form>
+                                            <form id="form_c" action="./php/addtmpbloodcomponent.php" method="post"></form>
+                                            
                                             
 							<!-- Text input-->
 							<div class="control-group">
 							  <label class="control-label" for="requester">Requester</label>
 							  <div class="controls">
-							  <input class="form-control" value="<?php echo $user['fname'].' '. substr($user['mname'],0,1).'. '.$user['lname'] ?>" disabled>
-                                                              <input id="requester" name="requester" value="<?php echo $user['fname'].' '. substr($user['mname'],0,1).'. '.$user['lname'] ?>" type="hidden" placeholder="Fullname" class="form-control" required="">
+                                                              <input class="form-control" form="form_a" value="<?php echo $user['fname'].' '. substr($user['mname'],0,1).'. '.$user['lname'] ?>" disabled>
+                                                              <input id="requester" form="form_a" name="requester" value="<?php echo $user['fname'].' '. substr($user['mname'],0,1).'. '.$user['lname'] ?>" type="hidden" placeholder="Fullname" class="form-control" required="">
 							    
 							  </div>
 							</div>
@@ -83,13 +89,13 @@ $id = null;
 							  </div>    
                                                         
                                                         <!-- Drop down list -->
-                                                <form class="form-horizontal" action="./php/addtmpbloodtype.php" method="post">
+                                               <!-- <form2 class="form-horizontal" action="./php/addtmpbloodtype.php" method="post">-->
                                                         <table id="f1">
                                                              
                                                         <tr class="control-group">
                                                          <td>
                                                 <label class="control-label" for="bloodgroup">Blood Type</label>
-					            <select class="form-control" id="bloodgroup" name="bloodtype" disabled style="width: 100px">
+                                                <select class="form-control" id="bloodgroup" name="bloodtype" disabled style="width: 100px" form="form_b">
 									<option selected="selected" disabled></option>
                                                                         <option>A</option>
 									<option>B</option>
@@ -100,7 +106,7 @@ $id = null;
                                                                      </td>
 					                      <td style="padding-left: 20px">
 								<label class="control-label" for="rhtype">Rh Type</label>
-					                       <select class="form-control" name="rhtype" id="rhtype" disabled style="width: 100px">
+                                                                <select class="form-control" name="rhtype" id="rhtype" disabled style="width: 100px" form="form_b">
 									<option selected="selected" disabled></option>
 									<option>Positive</option>
 									<option>Negative</option>
@@ -109,12 +115,12 @@ $id = null;
 					                                                                        <td style="padding-left: 20px">
 							  <label class="control-label" for="btqty">Quantity</label>
 							  <div class="controls">
-                                                              <input id="qty" name="btqty" type="number" class="form-control" required="" disabled style="width: 100px">
+                                                              <input id="qty" name="btqty" type="number" class="form-control" required="" disabled style="width: 100px" form="form_b">
 							     
 							  </div>
                                                                      </td>
 					                             <td style="padding-left: 20px; padding-top: 25px">
-                                                                         <button type="submit" class="btn btn-default" name="btid"><span class="glyphicon glyphicon-plus-sign"></span></button>
+                                                                         <button type="submit" class="btn btn-default" name="btid" form="form_b"><span class="glyphicon glyphicon-plus-sign"></span></button>
                                                                          
                                                                      </td>
                                                                      
@@ -123,7 +129,7 @@ $id = null;
                                   
                                                        
                                                             </table>
-                                                        </form>
+                                                        <!--</form2>-->
                                                         <br>
                                                        <!-- Table -->
                                                         <div class="table-responsive" style="width: 5in" id="f1">
@@ -158,13 +164,13 @@ $id = null;
 			</table>
 		</div>
                                                         <!--End of Table-->
-                                                         <form class="form-horizontal" action="./php/addtmpbloodcomponent.php" method="post">
+                                                    <!--     <form3 class="form-horizontal" action="./php/addtmpbloodcomponent.php" method="post">-->
                                                         <!-- Drop Down List -->
                                                         <table id="f2">
                                                         <tr class="control-group">
                                                             <td>
                                                             <label class="control-label" for="bloodgroup">Blood Component</label>
-                                                            <select class="form-control" id="bankname" name="bloodcomponent" disabled style="width: 2.3in">
+                                                            <select class="form-control" id="bankname" name="bloodcomponent" disabled style="width: 2.3in" form="form_c">
                                                               <?php
                                                               foreach($bank as $row){
                                                                  echo '<option value="'.$row['component'].'">'.$row['component'].'</option>';
@@ -175,17 +181,17 @@ $id = null;
 					                  <td style="padding-left: 20px">
 							  <label class="control-label" for="bcqty">Quantity</label>
 							  <div class="controls">
-					<input id="qty" name="bcqty" type="number" class="form-control" required="" disabled style="width: 100px">
+                                                              <input id="qty" name="bcqty" type="number" class="form-control" required="" disabled style="width: 100px" form="form_c">
 							     
 							  </div>
                                  </td>
 									<td style="padding-left: 20px; padding-top: 25px">
-                                                                         <button type="submit" class="btn btn-default" name="bcid"><span class="glyphicon glyphicon-plus-sign"></span></button>
+                                                                            <button type="submit" class="btn btn-default" name="bcid" form="form_c"><span class="glyphicon glyphicon-plus-sign"></span></button>
                                                                          
                                                                         </td>
                                                                     </tr>
                                 </table>
-                                                         </form>
+                                                        <!-- </form3> -->
                                                         
                                                         <br>
                                                        <!-- Table -->
@@ -224,7 +230,7 @@ $id = null;
 							<div class="control-group">
 							  <label class="control-label" for="dateneeded">Date Needed</label>
 							  <div class="controls">
-							    <input id="dateneeded" name="dateneeded" type="date" class="form-control" required="">
+                                                              <input id="dateneeded" name="dateneeded" type="date" class="form-control" required="" form="form_a">
 							   		<script src="js/jquery-1.9.1.min.js"></script>
 										<script src="js/bootstrap-datepicker.js"></script>
 										<script type="text/javascript">
@@ -244,16 +250,17 @@ $id = null;
 							<!-- Text input-->
 							<div class="control-group">
 							  <label class="control-label" for="bankname">Blood Bank</label>
-							  <div class="controls">
-							    <input id="bankname" name="bankname" type="text" placeholder="Name" class="form-control" required="" value="<?php echo $bloodbank['bankname']?>" disabled>
-							    
-							  </div>
+							   <div class="controls">
+                                                               <input class="form-control" value="<?php echo $bloodbank['bankname']?>" disabled form="form_a"></input>
+                                                        <input id="bankname" name="bankname" type="hidden" placeholder="bank name" class="form-control" form="form_a" required="" value="<?php echo $bloodbank['bankname']?>">
+                                                           </div>
 							</div>
                                                         <!-- Text input-->
 							<div class="control-group">
 							  <label class="control-label" for="bankaddress">Address</label>
-							  <div class="controls">
-                                                        <input id="bankaddress" name="bankaddress" type="text" placeholder="Address" class="form-control" required="" value="<?php echo $bloodbank['bankaddress']?>"disabled>
+							   <div class="controls">
+							  <input class="form-control" value="<?php echo $bloodbank['bankaddress']?>" disabled form="form_a"></input>
+                                                        <input id="bankaddress" name="bankaddress" type="hidden" placeholder="Bank Address" class="form-control" form="form_a" required="" value="<?php echo $bloodbank['bankaddress']?>">
 							    
 							  </div>
 							</div>
@@ -261,9 +268,9 @@ $id = null;
 							<!-- Text input-->
 							<div class="control-group">
 							  <label class="control-label" for="contactdetails">Contact Number</label>
-							  <div class="controls">
-							  <input class="form-control" value="<?php echo $bloodbank['contactdetails']?>" disabled></input>
-                                                          <input id="contactdetails" name="contactdetails" type="hidden" placeholder="Contact Number" class="form-control" required="" value="<?php echo $bloodbank['contactdetails']?>">
+							   <div class="controls">
+							  <input class="form-control" value="<?php echo $bloodbank['contactdetails']?>" disabled form="form_a"></input>
+                                                        <input id="contactdetails" name="contactdetails" type="hidden" placeholder="contact number" form="form_a" class="form-control" required="" value="<?php echo $bloodbank['contactdetails']?>">
 							    
 							  </div>
 							</div>
@@ -272,7 +279,7 @@ $id = null;
 							<div class="control-group">
 							  <label class="control-label" for="reason">Reason</label>
 							  <div class="controls">
-                                                              <textarea id="reason" name="reason" placeholder="Enter text here..." class="form-control" required=""></textarea>
+                                                              <textarea id="reason" name="reason" placeholder="Enter text here..." form="form_a" class="form-control" required=""></textarea>
 							    
 							  </div>
 							</div>
@@ -281,11 +288,11 @@ $id = null;
 							<!--Buttons-->
 							<div class="panel-footer">	
 								<div class="form-actions text-center forms">
-									<button type="submit" class="btn btn-success">Request</button>
+                                                                    <button type="submit" class="btn btn-success" name="submit" form="form_a">Request</button>
                                                                         <a class="btn" href="c_Philippines_1.php">Cancel</a>
 								</div>		
 						  	</div>		
-        
+                                            
 					</div>
                                       </div>
                         </div>
