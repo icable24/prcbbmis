@@ -52,10 +52,8 @@
 	                <br>
 	                <br>
 	                <br><!-- /container -->
-                        <br><br><br><br>
 				</div>
 			</div>
-            <br><br>
 	<?php 
 			include ('footer.php');
 		?>
