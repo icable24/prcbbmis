@@ -285,7 +285,7 @@ $id = null;
                                                                         <a class="btn" href="c_Philippines_1.php">Cancel</a>
 								</div>		
 						  	</div>		
-         </form>
+         
 					</div>
                                       </div>
                         </div>

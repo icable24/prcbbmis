@@ -85,9 +85,7 @@
                    		<li class="nav-item">
                     	 <a href="#detailed" class="nav-link active" role="tab" data-toggle="tab">Detailed</a>
                     	</li>
-                    	<li class="nav-item">
-                    	  <a href="#statistical" class="nav-link active" role="tab" data-toggle="tab">Statistical</a>
-                    	   </li>
+                    	
                    	</ul>
                    	
                    		<div class = "tab-content">
@@ -96,21 +94,10 @@
 	                                                                <option value="none">-- Select Category --</option>
 																	<p><option value="donor">Donor</option>
 																	<option value="patient">Patient</option>
-	                                                                <option value="bd">Blood Dispensed</option>
 	                                                                <option value="inventory">Blood Inventory</option></p>
 	                                                				<div style="text-align:center; width: 3in; font-size: 16px" >
-                                                             	   <p>
-                                                                  <input type="checkbox" hidden="" name="donor[]" value="did"  id="donor" /> ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                  <input type="checkbox" hidden="" name="donor[]" id="donor" value="dfname" /> Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                  <input type="checkbox" hidden="" name="donor[]" id="donor" value="dbirthdate" /> Birthdate &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                  <input type="checkbox" hidden="" name="donor[]" id="donor" name="dgender"/>Gender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                  <input type="checkbox" hidden="" name="donor[]" id="donor" value="daddress"/> Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                                                                  <input type="checkbox" hidden="" name="donor[]" id="donor" value="dcontact" /> Contact &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                   </p>
-                                                                   <div class="form-actions text-center forms">
-									<button type="submit" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span> Generate</a>
-									
-								</div>	
+                                                             	   
+                                                                   
                                      
                                                               </div>
                                                               </select>
@@ -128,34 +115,22 @@
 																	<p><option value="collection" id="collection" onchange="toggleStatus()">Blood Collection
 																	</option>
 																	<option value="request" id="request" onchange="toggleStatus()">Blood Request</option>
-	                                                                <option value="3" id="rd" onchange="toggleStatus()">Blood Dispensing</option>
-	                                                                <option value="4" id="rt" onchange="toggleStatus()">Blood Test</option></p>
 	                                                				<div style="text-align:center; width: 3in; font-size: 16px" >
                                                              	   </p> </select>
                                                              	   <br></br>
-                                                             	   <button type="submit" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span> Generate Detailed</a>
-                        </div></br>
+                                                             	   </br>
                         
-                   		<div role = "tabpanel" class="tab-pane fade" id="statistical">
-                   		<select id="categ2" name="categ2" class="form-control" style="width: 3in" onchange="updateCheckBox(this)" >
-	                                                                
-	                                                                <option value="none">-- Select Category --</option>
-																	<p><option value="Rbloodcollection.php">Blood Collection</option>
-																	<option value="RbloodRequest.php">Blood Request</option>
-	                                                                <option value="Rdispensing.php">Blood Dispensing</option>
-	                                                                <option value="Rtest.php">Blood Test</option></p>
-	                                                				<div style="text-align:center; width: 3in; font-size: 16px">
-                                                             	   </p></select>
-                                                             	   <br></br><button type="submit" name="categ1" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span> Generate Statistical</a>
-                                                             	   </div>
+                   		
                    
-                   	</div>
+                   	
 
                    	</br>
 								
-						
 					</div>
+<button type="submit" name="submit" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span> Generate </a>
+						
 				</div>		
+
 			</div>
 			
 		
