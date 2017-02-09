@@ -13,6 +13,14 @@
 	$blood->execute(array($dispense['component'], $dispense['bloodid'], 'Inventory'));
 	$blood = $blood->fetchAll(PDO::FETCH_ASSOC);
 
+	$patient = $pdo->prepare("SELECT * FROM patient WHERE pid = ?");
+	$patient->execute(array($dispense['pid']));
+	$patient = $patient->fetch(PDO::FETCH_ASSOC);
+
+	$info = $pdo->prepare("SELECT * FROM bloodinformation WHERE bloodid = ?");
+	$info->execute(array($patient['bloodinfo']));
+	$info = $info->fetch(PDO::FETCH_ASSOC);
+
 	if(!count($blood) < $dispense['quantity']){
 ?>
 <!DOCTYPE html>
@@ -37,44 +45,55 @@
 					</div>
 					<div class="panel-body">
 						<form class="form-horizontal" action="./php/adddispensing.php" method="post">
+						
 						<?php for($i = 0; $i < $dispense['quantity']; $i++){ 
 								$b = $blood[$i];
 							?>
 							<div class="control-group">
 								<label for="bloodbagserialno">Blood Bag No.</label>
-								<input type="text" class="form-control" required id="bloodbagserialno" name="bloodbagserialno" placeholder="Bag Serial Number" value="<?php echo $b['unitserialno'] ?>">
+								<input type="text" class="form-control" required id="bloodbagserialno" name="<?php echo 'bagserialno'. $i ?>" placeholder="Bag Serial Number" value="<?php echo $b['unitserialno'] ?>">
 							</div>
 						<?php } ?>
 							<div class="control-group">
+								<input type="hidden" id="qty" name="qty" value="<?php echo $dispense['quantity'] ?>">
+							</div>
+							<div class="control-group">
 								<label class="control-label" for="dispensingdate">Date</label>
 								<div class="controls">
-								<input id="dispensingdate" name="dispensingdate" type="date" class="form-control" required id ="dispensingdate">
+								<input id="dispensingdate" name="dispensingdate" type="date" class="form-control" required="">
+							   		<script src="js/jquery-1.9.1.min.js"></script>
+										<script src="js/bootstrap-datepicker.js"></script>
+										<script type="text/javascript">
+											// When the document is ready
+											$(document).ready(function () {
+												
+												$('#dispensingdate').datepicker({
+													format: "yyyy-mm-dd"
+												});  
+											
+											});
+									</script>
+							</div>
+
+
+							<div class="control-group">
+								<label for="patient" class="control-label">Patient</label>
+								<input type="hidden" required id="patient" name="patient" placeholder="Patient" value="<?php echo $patient['pid'] ?>">
+
+								<input type="text" class="form-control" value="<?php echo $patient['pfname'] . ' ' . substr($patient['pmname'], 0, 1) . '. ' . $patient['plname']?>" disabled>
 							</div>
 
 							<div class="control-group">
-							<label for="requestid" class="control-label">Request ID</label>
-							<input type="text" class="form-control" required id="requestid" name="requestid" placeholder="Request ID">
-							</div>
+	                            <label class="control-label" for="bloodgroup">Blood Type</label>
+	                            <input type="text" class="form-control" value="<?php echo $info['bloodgroup'] ?>" disabled>
+	                            <input type="hidden" value="<?php echo $info['bloodgroup'] ?>" >
+                        	</div>
 
-							<div class="control-group">
-							<label for="patient" class="control-label">Patient</label>
-							<input type="text" class="form-control" required id="patient" name="patient" placeholder="Patient">
-							</div>
-							<div class="control-group">
-                            <label class="control-label" for="bloodtype">Blood Type</label>
-                            <select class="form-control" required="required" id="bloodtype" name="bloodtype">
-                                <option></option>
-                                <option value="">A</option>
-                                <option value="">B</option>
-                                <option value="">O</option>
-                                <option value="">AB</option>
-                                <option value="">-A</option>
-                                <option value="">-B</option>
-                                <option value="">-O</option>
-                                <option value="">-AB</option>
-                            </select>
-                        </div>
-
+                        	<div class="control-group">
+	                            <label class="control-label" for="rhtype">Rh Type</label>
+	                            <input type="text" class="form-control" value="<?php echo $info['rhtype'] ?>" disabled>
+	                            <input type="hidden" value="<?php echo $info['rhtype'] ?>" >
+                        	</div>
 
 						<br>
 						<div class="control-group">
@@ -89,8 +108,8 @@
 						</div>
 						<br>
 						 <div class="text-center">
-						<button type="submit" class="btn btn-primary">Save</button>
-						<button type="submit" class="btn btn-primary">Search</button>
+						<button type="submit" class="btn btn-success">Save</button>
+						<a href="viewdispensing.php" type="button">Back</a>
 						</div>
 						</table>
 									
