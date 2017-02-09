@@ -36,6 +36,15 @@
     $notification->execute();
     $notification = $notification->fetchAll(PDO::FETCH_ASSOC);
     $total_screen_pending = $pdo->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
+    
+    $notification = $pdo->prepare("
+    SELECT SQL_CALC_FOUND_ROWS * 
+    FROM transfer
+    WHERE remarks LIKE 'pending'
+    ");
+    $notification->execute();
+    $notification = $notification->fetchAll(PDO::FETCH_ASSOC);
+    $total_trans_pending = $pdo->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
 
     $notification = $pdo->prepare("
     SELECT SQL_CALC_FOUND_ROWS * 
@@ -196,6 +205,8 @@
                                                 <li><a href="notification.php"><?php echo $total_transfer_pending; ?>  
                                                 Blood Transfer<br> Request is Pending</a></li>
                                             <?php } ?>
+                                                
+                                                
                                         </ul>
                                     <?php } ?>
                                 </a>

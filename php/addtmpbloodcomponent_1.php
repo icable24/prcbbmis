@@ -14,7 +14,7 @@
                 $sql = "INSERT INTO tmpbloodcomponent (bloodtype, btqty) values(?, ?)";
                 $q = $pdo->prepare($sql);     
                 $q->execute(array($bloodtype, $btqty));
-                header("Location: ../requisition_form_byChapters.php");
+                header("Location: ../requisition_form_byChapters1.php");
                 
      }
 	
