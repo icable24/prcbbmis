@@ -19,7 +19,7 @@
                 $q = $pdo->prepare($sql);     
                 $q->execute(array($requester, $bloodcomponent, $qty, $dateneeded, $bankname, $bankaddress, $contactdetails, $reason));
                 Database::disconnect();
-                header("Location: ../viewtransfer.php");
+                header("Location: ../home.php");
                 
         }
 ?>

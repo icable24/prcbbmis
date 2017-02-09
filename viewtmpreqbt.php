@@ -39,7 +39,7 @@ $pages = ceil($total / $perPage);
     <div class="table-responsive" style="width: 5in;" id="btype">
 			<table class="table table-hover table-striped">
 				<thead>
-					<tr class="alert-info">
+                                    <tr class="alert-info">
                                             <th class="text-center">Blood Type</th>  
                                             <th>RH Type</th>
                                             <th>Quantity</th>

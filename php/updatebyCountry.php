@@ -8,7 +8,7 @@
 		
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "UPDATE byCountry SET remarks = ? WHERE cid = ?";
+        $sql = "UPDATE bycountry SET remarks = ? WHERE cid = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($remarks, $id));
         header("Location: ../viewtransfer.php?id=$id");	
