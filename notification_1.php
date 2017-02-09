@@ -154,36 +154,38 @@
 					</div>	
                     <?php } elseif($category == 'Blood Transfer') { ?>
 					<div class="table-responsive">
-                                            <a class="btn btn-warning btn-md pull-right" href="" data-toggle="tooltip" title="View by Chapter/Hospital"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                            <a class="btn btn-warning btn-md pull-right" href="e5notification.php" data-toggle="tooltip" title="View by Country"><span class="glyphicon glyphicon-eye-open"></span></a>
 	                <table class="table table-hover table-striped" id="myTable">
 						<thead>
 							<tr class="alert-info">
-								<th class="text-center">Requester</th>  
-                                                                <th class="text-center">Date Needed</th>
-                                                                <th class="text-center">Blood Group</th>
-                                                                <th class="text-center">Blood Bank</th>
-                                                                <th class="text-center">Remarks</th>
-                                                                <th class="text-center">Action</th>
+								 <th class="text-center">Requester</th>  
+                                                <th class="text-center">Date Needed</th>
+						<th class="text-center">Blood Component</th>
+                                                <th class="text-center">Blood Type</th>
+                                                <th class="text-center">Blood Bank</th>
+						<th class="text-center">Remarks</th>
+                                                <th class="text-center">Action</th>
 							</tr>
 						</thead>	
 						<tbody>
 							<?php 
 								$pdo = Database::connect();
 								$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-								$sql2 = "SELECT * FROM byCountry WHERE remarks like 'pending'";
+								$sql2 = "SELECT * FROM transfer WHERE remarks like 'pending'";
 							    $q2 = $pdo->prepare($sql2);
 							    $q2->execute();
 							    $pending_screen = $q2->fetchAll(PDO::FETCH_ASSOC);
 
 								foreach ($pending_screen as $row) {
-									$sql3 = "SELECT * FROM bycountry WHERE cid = ?";
+									$sql3 = "SELECT * FROM transfer WHERE reqid = ?";
 									$q3 = $pdo->prepare($sql3);
-									$q3->execute(array($row['cid']));
+									$q3->execute(array($row['reqid']));
 									$donor = $q3->fetch(PDO::FETCH_ASSOC);
 									echo '<tr>';
-										echo '<td>'.$row['requester'].'</td>';
+                                                                        echo '<td>'.$row['requester'].'</td>';
                                                                         echo '<td>'.$row['dateneeded'].'</td>';
                                                                         echo '<td>'.$row['bloodcomponent'].'</td>';
+                                                                        echo '<td>'.$row['bloodtype'].'</td>';
 									echo '<td>'.$row['bankname'].'</td>';
 									echo '<td>'.$row['remarks'].'</td>';
 									echo '<td class="text-center">

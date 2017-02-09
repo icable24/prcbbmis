@@ -28,6 +28,10 @@ $id = null;
         $bloodbank->execute(array($user['bankname']));
         $bloodbank = $bloodbank->fetch(PDO:: FETCH_ASSOC);
         
+        $transfer = $pdo->prepare("SELECT * FROM transfer WHERE rtid = ?");
+        $transfer->execute(array($transfer['rtid']));
+        $transfer = $transfer->fetch(PDO:: FETCH_ASSOC);
+        
         
         
         
@@ -66,10 +70,19 @@ $id = null;
 					</div>
 					
 					<div class="panel-body">
-                                            <form id="form_a" action="./php/addRequisitionbyChapters.php" method="post"></form>
-                                            <form id="form_b" action="./php/addtmpbloodtype.php" method="post"></form>
-                                            <form id="form_c" action="./php/addtmpbloodcomponent.php" method="post"></form>
+                                            <form id="form_a" action="./php/addRequisitionbyChapters_1.php" method="post"></form>
+                                            <form id="form_b" action="./php/addtmpbloodtype_1.php" method="post"></form>
+                                            <form id="form_c" action="./php/addtmpbloodcomponent_1.php" method="post"></form>
                                             
+                                            
+                                                        <!-- Text input-->
+							<div class="control-group">
+							  
+                                                            <input class="form-control" value="<?php echo $transfer['rtid']?>" disabled hidden></input>
+                                                            <input id="rtid" name="rtid" type="hidden" class="form-control" hidden value="<?php echo $transfer['rtid']?>">
+							    
+							  </div>
+							</div>
                                             
 							<!-- Text input-->
 							<div class="control-group">
@@ -90,10 +103,9 @@ $id = null;
                                                         
                                                         <!-- Drop down list -->
                                                <!-- <form2 class="form-horizontal" action="./php/addtmpbloodtype.php" method="post">-->
-                                                        <table id="f1" form="form_a">
+                                                        <table id="f1">
                                                              
                                                         <tr class="control-group">
-                              
                                                          <td>
                                                 <label class="control-label" for="bloodgroup">Blood Type</label>
                                                 <select class="form-control" id="bloodgroup" name="bloodtype" disabled style="width: 100px" form="form_b">
@@ -167,7 +179,7 @@ $id = null;
                                                         <!--End of Table-->
                                                     <!--     <form3 class="form-horizontal" action="./php/addtmpbloodcomponent.php" method="post">-->
                                                         <!-- Drop Down List -->
-                                                        <table id="f2" form="form_a">
+                                                        <table id="f2">
                                                         <tr class="control-group">
                                                             <td>
                                                             <label class="control-label" for="bloodgroup">Blood Component</label>
@@ -293,6 +305,7 @@ $id = null;
                                                                         <a class="btn" href="c_Philippines_1.php">Cancel</a>
 								</div>		
 						  	</div>		
+                                            
 					</div>
                                       </div>
                         </div>
