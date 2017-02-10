@@ -85,6 +85,9 @@
                    		<li class="nav-item">
                     	 <a href="#detailed" class="nav-link active" role="tab" data-toggle="tab">Detailed</a>
                     	</li>
+                    	<li class="nav-item">
+                    	 <a href="#exception" class="nav-link active" role="tab" data-toggle="tab">Exception</a>
+                    	</li>
                     	
                    	</ul>
                    	
@@ -115,18 +118,30 @@
 																	<p><option value="collection" id="collection" onchange="toggleStatus()">Blood Collection
 																	</option>
 																	<option value="request" id="request" onchange="toggleStatus()">Blood Request</option>
+																	<option value="test" id="test" onchange="toggleStatus()">Blood Test</option>
 	                                                				<div style="text-align:center; width: 3in; font-size: 16px" >
                                                              	   </p> </select>
                                                              	   <br></br>
                                                              	   </br>
-                        
-                   		
-                   
-                   	
 
                    	</br>
 								
 					</div>
+					<div role = "tabpanel" class="tab-pane fade" id="exception"><select id="categ2" name="categ2" class="form-control" style="width: 3in" onchange="updateCheckBox(this)" >
+	                                                                
+	                                                                <option value="none">-- Select Category --</option>
+																	<option value="deferred" id="deferred" onchange="toggleStatus()">Deferred</option>
+																	<option value="accepted" id="accepted" onchange="toggleStatus()">Accepted</option>
+																	<option value="gquality" id="gquality" onchange="toggleStatus()">Good Quality</option>
+																	<option value="pquality" id="pquality" onchange="toggleStatus()">Poor Quality</option>
+																	<option value="walkin" id="walkin" onchange="toggleStatus()">Walk in</option>
+																	<option value="rep" id="rep" onchange="toggleStatus()">Replacement</option>
+	                                                				<div style="text-align:center; width: 3in; font-size: 16px" >
+                                                             	   </p> </select>
+                                                             	   <br></br>
+                                                             	   </br>
+                                                             	   </br>
+                                                             	   </div>
 <button type="submit" name="submit" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span> Generate </a>
 						
 				</div>		

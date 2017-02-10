@@ -42,7 +42,7 @@ $pages = ceil($total / $perPage);
 					<h2>Dispensing List</h2>
 				</div>
 				<div class="col-md-5 text-right" style="padding-top:20px;">
-                                    <a href="dispensing.php" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span>Add New Dispensing</a>
+                                    <a href="viewrequest.php" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span>Add New Dispensing</a>
 				</div>
 			</div>
 		<div class="table-responsive">
