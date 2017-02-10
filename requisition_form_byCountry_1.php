@@ -1,22 +1,6 @@
 <?php 
 	include 'login_success.php';
 	require 'dbconnect.php';
-        
-        $id = null;
-    if ( !empty($_GET['id'])) {
-        $id = $_REQUEST['id'];
-    
-     
-   
-    } else {
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT SQL_CALC_FOUND_ROWS *  FROM inventory WHERE remarks LIKE 'Ok'";
-        $q = $pdo->prepare($sql);
-        $q->execute();
-        $data = $q->fetch(PDO::FETCH_ASSOC);
-        Database::disconnect();
-    }
 
         $username = $_SESSION['login_username'];
 	$pdo = Database:: connect();
@@ -73,29 +57,22 @@
 							    
 							  </div>
 							</div>
-                                                        <!--Table -->
-                                                        <table>
-                                                            <tr>
-                                                            
-                                                            <td>
-                                                           <!-- Text input-->
-                                                         <label class="control-label" for="ffpqty">Fresh Frozen Plasma(1 Year)</label>
-                                                               <input class="form-control" name="ffpqty" type="number" style="width: 65px">
-                                                        
-                                                         <!-- Text input-->
-							  <label class="control-label" for="pcqty">Platelet Concentrate(5 Days)</label>
-                                                               <input class="form-control" name="pcqty" type="number" style="width: 65px">
-                                                        
-                                                         <!-- Text input-->
-							  <label class="control-label" for="wbqty">Whole Blood(32 Days)</label>
-                                                               <input class="form-control" name="wbqty" type="number" style="width: 65px">
-                                                         <!-- Text input-->
-							  <label class="control-label" for="cqty">Cryoprecipitate (1 Year)</label>
-                                                               <input class="form-control" name="cqty" type="number" style="width: 65px">
-                                                         </td> 
-                                                         </tr>
-                                                        </table>
-                                                        <!-- End Table -->
+                                                       
+                                                         <!-- Multiple Radios -->
+							<div class="control-group" >
+                                                            <label class="control-label" for="bloodcomponent">Blood Component</label><br>
+                                                            <div style="font-size: 16px"><input type="radio" name="bloodcomponent" value="Whole Blood" id="wb" onchange="toggleStatus()">&nbsp;Whole Blood (32 days)
+                                                                <div id="f1"><input id="qty" name="qty" type="number" placeholder="qty" class="form-control" required="" style="width: 65px" disabled></div> 
+                                                            </div>
+                                                            <div style="font-size: 16px"><input type="radio" name="bloodcomponent" value="Fresh Frozen Plasma" id="ffp" onchange="toggleStatus()">&nbsp;Fresh Frozen Plasma (1 Year)
+                                                                <div id="f2"><input id="qty" name="qty" type="number" placeholder="qty" class="form-control" required="" style="width: 65px" disabled></div> 
+                                                            </div>
+                                                            <div style="font-size: 16px"><input type="radio" name="bloodcomponent" value="Platelet" id="p" onchange="toggleStatus()">&nbsp;Platelets (5 Days)
+                                                                <div id="f3"><input id="qty" name="qty" type="number" placeholder="qty" class="form-control" required="" style="width: 65px" disabled></div> 
+                                                            </div>
+                                                        </div>
+                                                               
+
 							<!-- Text input-->
 							<div class="control-group">
 							  <label class="control-label" for="dateneeded">Date Needed</label>

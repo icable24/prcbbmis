@@ -13,7 +13,7 @@
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "SELECT SQL_CALC_FOUND_ROWS *  FROM inventory WHERE remarks LIKE 'Ok'";
         $q = $pdo->prepare($sql);
-        $q->execute(array($id));
+        $q->execute();
         $data = $q->fetch(PDO::FETCH_ASSOC);
         Database::disconnect();
     }
@@ -62,7 +62,7 @@
                     <a href="p_NegrosOccidental_1.php">By Hospitals?</a>
     </div>
 	</div>
-    </form>
+    
 </div>
 	
 	

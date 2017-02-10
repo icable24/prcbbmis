@@ -8,11 +8,11 @@
     }
      
     if ( null==$id ) {
-        header("Location: viewtransfer.php");
+        header("Location: viewtransfer_byChapter.php");
     } else {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM bycountry where cid = ?";
+        $sql = "SELECT * FROM transfer where rtid = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         $data = $q->fetch(PDO::FETCH_ASSOC);
@@ -33,12 +33,12 @@
         
         <div class="panel panel-info">    
                 <div class="panel panel-body"> 
-                    <form class="form-horizontal" action="./php/deletetransferbyCountry.php" method="post">
+                    <form class="form-horizontal" action="./php/deletetransferbyChapterHospital.php" method="post">
                         <input type="hidden" name="id" value="<?php echo $id;?>"/>
                         <?php
                             $pdo = Database::connect();
                             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                            $sql = "SELECT * FROM bycountry where cid = ?";
+                            $sql = "SELECT * FROM transfer where rtid = ?";
                             $q = $pdo->prepare($sql);
                             $q->execute(array($id));
                             $data = $q->fetch(PDO::FETCH_ASSOC);
@@ -48,7 +48,7 @@
                         ?>
                             <div class="panel panel-footer">
                                 <button type="submit" class="btn btn-danger">Yes</button>
-                                <a class="btn" href="viewtransfer.php">No</a>
+                                <a class="btn" href="viewtransfer_byChapter.php">No</a>
                             </div>
                     </form>
                 </div>     

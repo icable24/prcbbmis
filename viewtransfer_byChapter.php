@@ -1,4 +1,4 @@
-<?php 
+    <?php 
 	require 'dbconnect.php';
 
 // User Input
@@ -13,7 +13,7 @@ $pdo = Database::connect();
 $user = $pdo->prepare("
 	SELECT SQL_CALC_FOUND_ROWS * 
 	FROM transfer 
-	ORDER BY requester
+        ORDER BY requester
 	LIMIT {$start},{$perPage}
 ");
 $user->execute();
@@ -47,19 +47,31 @@ $pages = ceil($total / $perPage);
 				
 			</div>
 		<div class="table-responsive">
-			<table class="table table-hover table-striped">
+                    <table class="table table-hover table-striped">
 				<thead>
-					<tr class="alert-info">
-                                                <th class="text-center">Requester</th>  
-                                                <th class="text-center">Date Needed</th>
-						<th class="text-center">Blood Component</th>
-                                                <th class="text-center">Blood Type</th>
-                                                <th class="text-center">Blood Bank</th>
-						<th class="text-center">Remarks</th>
+                                    <tr style="background-color: #ff9999">
+                                                <th class="text-center">Requester</th>
+                                                <th colspan="8" class="text-center">Blood Type</th>
+                                                <th colspan="4" class="text-center">Blood Component</th>
                                                 <th class="text-center">Action</th>
-						
-					</tr>
-				</thead>
+                                        </tr>        
+                                        <tr style="background-color: #ffccff">
+                                                <th class="text-center"></th>
+                                                <th class="text-center">A</th>
+                                                <th class="text-center">A-</th>
+                                                <th class="text-center">B</th>
+                                                <th class="text-center">B-</th>
+                                                <th class="text-center">O</th>
+                                                <th class="text-center">O-</th>
+                                                <th class="text-center">AB</th>
+                                                <th class="text-center">AB-</th>
+                                                <th class="text-center">ffp</th>
+                                                <th class="text-center">pc</th>
+                                                <th class="text-center">wb</th>
+                                                <th class="text-center">c</th>
+                                                <th class="text-center"></th>
+                                        </tr>
+                                  </thead>
 				<tbody>					
 					<?php
 						require 'dbconnect.php';
@@ -68,14 +80,21 @@ $pages = ceil($total / $perPage);
 							$sql = 'SELECT * FROM transfer ORDER BY requester DESC';							
 							foreach ($pdo->query($sql) as $row) {
 								echo '<tr>';
-									echo '<td>'.$row['requester'].'</td>';
-                                                                        echo '<td>'.$row['dateneeded'].'</td>';
-                                                                        echo '<td>'.$row['bloodcomponent'].'</td>';
-                                                                        echo '<td>'.$row['bloodtype'].'</td>';
-									echo '<td>'.$row['bankname'].'</td>';
-									echo '<td>'.$row['remarks'].'</td>';
+									echo '<td class="text-center">'.$row['requester'].'</td>';
+                                                                        echo '<td class="text-center">'.$row['positiveA'].'</td>';
+                                                                        echo '<td class="text-center">'.$row['negativeA'].'</td>';
+                                                                        echo '<td class="text-center">'.$row['positiveB'].'</td>';
+                                                                        echo '<td class="text-center">'.$row['negativeB'].'</td>';
+                                                                        echo '<td class="text-center">'.$row['positiveO'].'</td>';
+                                                                        echo '<td class="text-center">'.$row['negativeO'].'</td>';
+                                                                        echo '<td class="text-center">'.$row['positiveAB'].'</td>';
+                                                                        echo '<td class="text-center">'.$row['negativeAB'].'</td>';
+                                                                        echo '<td class="text-center">'.$row['ffpqty'].'</td>';
+                                                                        echo '<td class="text-center">'.$row['pcqty'].'</td>';
+                                                                        echo '<td class="text-center">'.$row['wbqty'].'</td>';
+                                                                        echo '<td class="text-center">'.$row['cqty'].'</td>';
 									echo '<td class="text-center">
-											<a class="btn btn-primary btn-md" href="printfortransfer_byChapter.php?id='.$row['rtid'].'" data-toggle="tooltip" title="Print"><span class="glyphicon glyphicon-print"></span></a>
+											<a class="btn btn-danger btn-md" href="deletetransferbyChapterHospital.php?id='.$row['rtid'].'" data-toggle="tooltip" title="Done"><span class="glyphicon glyphicon-remove"></span></a>
 								  		  </td>';
 								echo '</tr>';
 							}

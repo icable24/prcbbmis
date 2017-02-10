@@ -85,28 +85,26 @@
                    		<li class="nav-item">
                     	 <a href="#detailed" class="nav-link active" role="tab" data-toggle="tab">Detailed</a>
                     	</li>
+                    	<li class="nav-item">
+                    	 <a href="#exception" class="nav-link active" role="tab" data-toggle="tab">Exception</a>
+                    	</li>
                     	
                    	</ul>
                    	
                    		<div class = "tab-content">
                    		<div role = "tabpanel" class="tab-pane fade" id="summary"><select id="categ" name="categ" class="form-control" style="width: 3in" onchange="updateCheckBox(this)" >
 	                                                                
-	                                                                <option value="none">-- Select Category --</option>
-																	<p><option value="donor">Donor</option>
-																	<option value="patient">Patient</option>
-	                                                                <option value="inventory">Blood Inventory</option></p>
-	                                                				<div style="text-align:center; width: 3in; font-size: 16px" >
-                                                             	   
-                                                                   
-                                     
-                                                              </div>
-                                                              </select>
-                                                              </div>
-                                                              </form>
-                                                              
-
-
-	                     <br>
+                        <option value="none">-- Select Category --</option>
+						<p><option value="donor">Donor</option>
+						<option value="patient">Patient</option>
+                        <option value="inventory">Blood Inventory</option></p>
+        				<div style="text-align:center; width: 3in; font-size: 16px" >
+                          </div>
+                          </select>
+                          </div>
+                          </form>
+                          </div>
+                          <br>
 
 
                    		<div role = "tabpanel" class="tab-pane fade" id="detailed"><select id="categ1" name="categ1" class="form-control" style="width: 3in" onchange="updateCheckBox(this)" >
@@ -115,18 +113,30 @@
 																	<p><option value="collection" id="collection" onchange="toggleStatus()">Blood Collection
 																	</option>
 																	<option value="request" id="request" onchange="toggleStatus()">Blood Request</option>
+																	<option value="test" id="test" onchange="toggleStatus()">Blood Test</option>
 	                                                				<div style="text-align:center; width: 3in; font-size: 16px" >
                                                              	   </p> </select>
                                                              	   <br></br>
                                                              	   </br>
-                        
-                   		
-                   
-                   	
 
                    	</br>
 								
 					</div>
+					<div role = "tabpanel" class="tab-pane fade" id="exception"><select id="categ2" name="categ2" class="form-control" style="width: 3in" onchange="updateCheckBox(this)" >
+	                                                                
+	                                                                <option value="none">-- Select Category --</option>
+																	<option value="deferred" id="deferred" onchange="toggleStatus()">Deferred</option>
+																	<option value="accepted" id="accepted" onchange="toggleStatus()">Accepted</option>
+																	<option value="gquality" id="gquality" onchange="toggleStatus()">Good Quality</option>
+																	<option value="pquality" id="pquality" onchange="toggleStatus()">Poor Quality</option>
+																	<option value="walkin" id="walkin" onchange="toggleStatus()">Walk in</option>
+																	<option value="rep" id="rep" onchange="toggleStatus()">Replacement</option>
+	                                                				<div style="text-align:center; width: 3in; font-size: 16px" >
+                                                             	   </p> </select>
+                                                             	   <br></br>
+                                                             	   </br>
+                                                             	   </br>
+                                                             	   </div>
 <button type="submit" name="submit" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span> Generate </a>
 						
 				</div>		

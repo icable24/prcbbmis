@@ -12,7 +12,7 @@ $start = ($page > 1) ? ($page * $perPage) - $perPage : 0;
 $pdo = Database::connect();
 $user = $pdo->prepare("
 	SELECT SQL_CALC_FOUND_ROWS * 
-	FROM byCountry 
+	FROM bycountry 
 	ORDER BY requester
 	LIMIT {$start},{$perPage}
 ");
@@ -49,13 +49,18 @@ $pages = ceil($total / $perPage);
 		<div class="table-responsive">
 			<table class="table table-hover table-striped">
 				<thead>
-					<tr class="alert-info">
-                                                <th class="text-center">Requester</th>  
-                                                <th class="text-center">Date Needed</th>
-						<th class="text-center">Blood Group</th>
-                                                <th class="text-center">Blood Bank</th>
-						<th class="text-center">Remarks</th>
+					<tr style="background-color: #ff9999">
+                                                <th class="text-center">Requester</th>
+                                                <th colspan="4" class="text-center">Blood Component</th>
                                                 <th class="text-center">Action</th>
+                                        </tr>
+                                        <tr style="background-color: #ffccff">
+                                                <th class="text-center"></th>
+                                                <th class="text-center">Fresh Frozen Plasma</th>
+                                                <th class="text-center">Platelets</th>
+                                                <th class="text-center">Whole Blood</th>
+                                                <th class="text-center">Cryoprecipitate</th>
+						<th class="text-center"></th>
 						
 					</tr>
 				</thead>
@@ -64,16 +69,16 @@ $pages = ceil($total / $perPage);
 						require 'dbconnect.php';
 							$pdo = Database::connect();
 							$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-							$sql = 'SELECT * FROM byCountry ORDER BY requester DESC';							
+							$sql = 'SELECT * FROM bycountry ORDER BY requester DESC';							
 							foreach ($pdo->query($sql) as $row) {
 								echo '<tr>';
-									echo '<td>'.$row['requester'].'</td>';
-                                                                        echo '<td>'.$row['dateneeded'].'</td>';
-                                                                        echo '<td>'.$row['bloodcomponent'].'</td>';
-									echo '<td>'.$row['bankname'].'</td>';
-									echo '<td>'.$row['remarks'].'</td>';
+									echo '<td class="text-center">'.$row['requester'].'</td>';
+                                                                        echo '<td class="text-center">'.$row['ffpqty'].'</td>';
+                                                                        echo '<td class="text-center">'.$row['pcqty'].'</td>';
+                                                                        echo '<td class="text-center">'.$row['wbqty'].'</td>';
+                                                                        echo '<td class="text-center">'.$row['cqty'].'</td>';
 									echo '<td class="text-center">
-											<a class="btn btn-primary btn-md" href="printfortransfer.php?id='.$row['cid'].'" data-toggle="tooltip" title="Print"><span class="glyphicon glyphicon-print"></span></a>
+											<a class="btn btn-danger btn-md" href="deletetransferbyCountry.php?id='.$row['cid'].'" data-toggle="tooltip" title="Done"><span class="glyphicon glyphicon-remove"></span></a>
 								  		  </td>';
 								echo '</tr>';
 							}

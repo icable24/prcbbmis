@@ -162,7 +162,7 @@ include('dbconnect.php');
 					<button type="submit" class="btn btn-success">Generate</button>
 				</div>
 				</form>
-			</div>
+                </div>
 		</div>
 	</div>
 </div>

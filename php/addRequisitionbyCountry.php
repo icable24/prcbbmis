@@ -3,8 +3,10 @@
 
 	if(!empty($_POST)){
 		$requester = $_POST['requester'];
-		$bloodcomponent = $_POST['bloodcomponent'];
-                $qty = $_POST['qty'];
+		$ffpqty = $_POST['ffpqty'];
+                $pcqty = $_POST['pcqty'];
+                $wbqty = $_POST['wbqty'];
+                $cqty = $_POST['cqty'];
 		$dateneeded = $_POST['dateneeded'];
 		$bankname = $_POST['bankname'];
 		$bankaddress = $_POST['bankaddress'];
@@ -15,9 +17,9 @@
                 
                 $pdo = Database::connect();
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $sql = "INSERT INTO byCountry (requester, bloodcomponent, qty, dateneeded, bankname, bankaddress, contactdetails, reason) values(?, ?, ?, ?, ?, ?, ?, ?)";
+                $sql = "INSERT INTO bycountry (requester, ffpqty, pcqty, wbqty, cqty, dateneeded, bankname, bankaddress, contactdetails, reason) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $q = $pdo->prepare($sql);     
-                $q->execute(array($requester, $bloodcomponent, $qty, $dateneeded, $bankname, $bankaddress, $contactdetails, $reason));
+                $q->execute(array($requester, $ffpqty, $pcqty, $wbqty, $cqty, $dateneeded, $bankname, $bankaddress, $contactdetails, $reason));
                 Database::disconnect();
                 header("Location: ../home.php");
                 

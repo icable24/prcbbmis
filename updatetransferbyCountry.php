@@ -72,18 +72,36 @@
 
 							<!-- Text input-->
 							<div class="control-group">
-							  <label class="control-label" for="bloodcomponent">Blood Component</label>
+							  <label class="control-label" for="ffpqty">Fresh Frozen Plasma(qty)</label>
 							  <div class="controls">
-							    <input id="bloodcomponent" name="bloodcomponent" type="text" class="form-control" disabled="" value="<?php echo $data['bloodcomponent']?>">
+							    <input id="ffpqty" name="ffpqty" style="width: 1in; text-align: center" type="text" class="form-control" disabled="" value="<?php echo $data['ffpqty']?>">
 							    
 							  </div>
 							</div>
 
 							<!-- Text input-->
 							<div class="control-group">
-							  <label class="control-label" for="qty">Quantity</label>
+							  <label class="control-label" for="pcqty">Platelet(qty)</label>
 							  <div class="controls">
-                                                              <input id="qty" name="qty" type="text" class="form-control" disabled="" value="<?php echo $data['qty']?>">
+                                                              <input id="pcqty" name="pcqty" style="width: 1in; text-align: center" type="text" class="form-control" disabled="" value="<?php echo $data['pcqty']?>">
+							    
+							  </div>
+							</div>
+                                                        
+                                                        <!-- Text input-->
+							<div class="control-group">
+							  <label class="control-label" for="wbqty">Whole Blood(qty)</label>
+							  <div class="controls">
+							    <input id="wbqty" name="wbqty" style="width: 1in; text-align: center" type="text" class="form-control" disabled="" value="<?php echo $data['wbqty']?>">
+							    
+							  </div>
+							</div>
+
+							<!-- Text input-->
+							<div class="control-group">
+							  <label class="control-label" for="cqty">Cryoprecipitate(qty)</label>
+							  <div class="controls">
+                                                              <input id="cqty" name="cqty" style="width: 1in; text-align: center" type="text" class="form-control" disabled="" value="<?php echo $data['cqty']?>">
 							    
 							  </div>
 							</div>
@@ -151,7 +169,7 @@
 							<!--Buttons-->
 							<div class="panel-footer">	
 								<div class="form-actions text-center forms">
-									<button type="submit" class="btn btn-warning">Accept</button>
+									<button type="submit" class="btn btn-warning">Ok</button>
                                                                         <a class="btn" href="notification.php">Back</a>
 								</div>		
 						  	</div>			

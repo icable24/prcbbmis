@@ -81,6 +81,8 @@ Blood Bank Management Information System
 
 Requisition for Blood Transfer
 
+(Chapter and Hospital)
+
 
 
 EOD;
@@ -129,14 +131,13 @@ $q->execute(array($rtid));
 $transfer = $q->fetch(PDO::FETCH_ASSOC);
 Database::disconnect();
 
-5
 
 // $tbl = $tbl . '
 //       <tr>
 //           <td style="border: 1p x solid #ffffff; width: 130px;">'.'Donor ID: '.$did.'</td>
 //           <td style="border: 1px solid #ffffff; width: 110px;">'.'Unit Serial Number' .$collect['unitserialno'].'</td>
 //       </tr>';
-$tbl = '<body><p style="font-size: 12px">'.'<b>Name:</b>&nbsp;&nbsp;&nbsp;'. $transfer['requester'] .'<br><br>'.'<b>Blood Component:</b>&nbsp;&nbsp;&nbsp;'.$transfer['bloodcomponent'] . '<br><br>'.'<b>Quantity:</b>&nbsp;&nbsp;&nbsp;'.$transfer['bcqty']. '<br><br>'.'<b>Blood Bank Name:</b>&nbsp;&nbsp;&nbsp;' .$transfer['bankname']. '<br><br>'.'<b>Blood Bank Address:</b>&nbsp;&nbsp;&nbsp;' .$transfer['bankaddress'].'<br><br>'.'<b>Contact Number:</b>&nbsp;&nbsp;&nbsp;' .$transfer['contactdetails'].'<br><br>'.'<b>Reason:</b>&nbsp;&nbsp;&nbsp;'.$transfer['reason'].'<br><br><br><br>'.'</p>' ;
+$tbl = '<body><p style="font-size: 11px; align-text: left">'.'<b>Date Needed:</b>&nbsp;&nbsp;&nbsp;'. $transfer['dateneeded'] .'<br><br>'.'<b>Name:</b>&nbsp;&nbsp;&nbsp;'. $transfer['requester'] .'<br><br>'.'<b>A:</b>&nbsp;&nbsp;&nbsp;'. $transfer['positiveA'] .'<br><br>'.'<b>A-:</b>&nbsp;&nbsp;&nbsp;'. $transfer['negativeA'] .'<br><br>'.'<b>B:</b>&nbsp;&nbsp;&nbsp;'. $transfer['positiveB'] .'<br><br>'.'<b>B-:</b>&nbsp;&nbsp;&nbsp;'. $transfer['negativeB'] .'<br><br>'.'<b>O:</b>&nbsp;&nbsp;&nbsp;'. $transfer['positiveO'] .'<br><br>'.'<b>O-:</b>&nbsp;&nbsp;&nbsp;'. $transfer['negativeO'] .'<br><br>'.'<b>AB:</b>&nbsp;&nbsp;&nbsp;'. $transfer['positiveAB'] .'<br><br>'.'<b>AB-:</b>&nbsp;&nbsp;&nbsp;'. $transfer['negativeAB'] .'<br><br>'.'<b>Fresh Frozen Plasma:</b>&nbsp;&nbsp;&nbsp;'. $transfer['ffpqty'] .'<br><br>'.'<b>Platelet Concentrate:</b>&nbsp;&nbsp;&nbsp;'.$transfer['pcqty'].'<br><br>'.'<b>Whole Blood:</b>&nbsp;&nbsp;&nbsp;'.$transfer['wbqty'].'<br><br>'.'<b>Cryoprecipitate:</b>&nbsp;&nbsp;&nbsp;'.$transfer['cqty']. '<br><br>'.'<b>Blood Bank Name:</b>&nbsp;&nbsp;&nbsp;' .$transfer['bankname']. '<br><br>'.'<b>Blood Bank Address:</b>&nbsp;&nbsp;&nbsp;' .$transfer['bankaddress'].'<br><br>'.'<b>Contact Number:</b>&nbsp;&nbsp;&nbsp;' .$transfer['contactdetails'].'<br><br>'.'<b>Reason:</b>&nbsp;&nbsp;&nbsp;'.$transfer['reason'].'<br><br>'.'</p>' ;
 
 $tbl = $tbl . '
 Approved By,
