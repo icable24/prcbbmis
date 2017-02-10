@@ -51,11 +51,16 @@
 							?>
 							<div class="control-group">
 								<label for="bloodbagserialno">Blood Bag No.</label>
-								<input type="text" class="form-control" required id="bloodbagserialno" name="<?php echo 'bagserialno'. $i ?>" placeholder="Bag Serial Number" value="<?php echo $b['unitserialno'] ?>">
+								<input type="hidden" class="form-control" required id="bloodbagserialno" name="<?php echo 'bagserialno'. $i ?>" placeholder="Bag Serial Number" value="<?php echo $b['unitserialno'] ?>">
+								<input type="text" class="form-control" disabled="" value="<?php echo $b['unitserialno'] ?>">
+
 							</div>
 						<?php } ?>
 							<div class="control-group">
 								<input type="hidden" id="qty" name="qty" value="<?php echo $dispense['quantity'] ?>">
+							</div>
+							<div class="control-group">
+								<input type="hidden" id="reqid" name="reqid" value="<?php echo $_REQUEST['id'] ?>">
 							</div>
 							<div class="control-group">
 								<label class="control-label" for="dispensingdate">Date</label>
@@ -103,13 +108,18 @@
 						</div>
 
 						<div class="control-group">
-						<label for="rcontact">Contact</label>
-						<input type="text" class="form-control" required id="rcontact" name="rcontact" placeholder="Contact">
+							<label for="raddress" class="control-label">Address</label>
+							<input type="text" class="form-control" id="raddress" name="raddress" required="" placeholder="Address">
+						</div>
+					
+						<div class="control-group">
+							<label for="rcontact">Contact</label>
+							<input type="text" class="form-control" required id="rcontact" name="rcontact" placeholder="Contact">
 						</div>
 						<br>
-						 <div class="text-center">
-						<button type="submit" class="btn btn-success">Save</button>
-						<a href="viewdispensing.php" type="button">Back</a>
+						<div class="text-center">
+							<button type="submit" class="btn btn-success">Save</button>
+							<a href="viewdispensing.php" type="button">Back</a>
 						</div>
 						</table>
 									

@@ -13,7 +13,6 @@ $pdo = Database::connect();
 $dispensing = $pdo->prepare("
 	SELECT SQL_CALC_FOUND_ROWS * 
 	FROM dispensing
-	ORDER BY dispensingid
 	LIMIT {$start},{$perPage}
 ");
 $dispensing->execute();
@@ -49,25 +48,33 @@ $pages = ceil($total / $perPage);
 			<table class="table table-hover table-striped">
 				<thead>
 					<tr class="alert-info">
-						<th class="text-center">Blood Bag Serial No.</th>
-						<th class="text-center">Dispensing Date</th>
-						<th class="text-center">Request ID</th>
-						<th class="text-center">patient</th>
-                                                <th class="text-center">Blood Type</th>
-						<th class="text-center">Received by</th>
-						<th class="text-center">Contact</th>
-						
+						<th>Dispensing Date</th>
+						<th>Request ID</th>
+						<th>Patient</th>
+                        <th>Blood Type</th>
+						<th>Received by</th>
+						<th>Contact</th>
+						<th class="text-center">Action</th>
 					</tr>
 				</thead>
 				<tbody>					
 					<?php								
 						foreach ($dispensing as $row) {
+							$pdo = Database::connect();
+							$query1 = $pdo->prepare("SELECT * FROM bloodrequest WHERE reqid = ? ");
+							$query1->execute(array($row['reqid']));
+							$query1 = $query1->fetch(PDO::FETCH_ASSOC);
+							$patient = $pdo->prepare("SELECT * FROM patient WHERE pid = ?");
+							$patient->execute(array($query1['pid']));
+							$patient = $patient->fetch(PDO::FETCH_ASSOC);
+							$blood = $pdo->prepare("SELECT * FROM bloodinformation WHERE bloodid = ?");
+							$blood->execute(array($patient['bloodinfo']));
+							$blood = $blood->fetch(PDO::FETCH_ASSOC);
 							echo '<tr>';
-								echo '<td>'. $row['bloodbagserialno'] . '</td>';
 								echo '<td>'.$row['dispensingdate'].'</td>';
-								echo '<td>'.$row['requestid'].'</td>';
-								echo '<td>'.$row['patient'].'</td>';
-                                                                echo '<td>'.$row['bloodtype'].'</td>';
+								echo '<td>'.$row['reqid'].'</td>';
+								echo '<td>'.$patient['pfname'] . ' ' . substr($patient['pmname'], 0, 1) . '. ' . $patient['plname'] . '</td>';
+                                                                echo '<td>'.$blood['bloodgroup'] . ' ' . $blood['rhtype'] .'</td>';
                                                                 echo '<td>'.$row['rname'].'</td>';
                                                                 echo '<td>'.$row['rcontact'].'</td>';
                                                                 
