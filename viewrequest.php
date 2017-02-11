@@ -91,7 +91,7 @@
 								echo '<td>'. $row['status'] .'</td>';
                                                                 
 								echo '<td class="text-center">
-										<a class="btn btn-primary btn-md" href="dispensing.php?id='.$row['reqid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
+										<a class="btn btn-primary btn-md" href="dispensing.php?id='.$row['reqid'].'" data-toggle="tooltip" title="Dispense"><span class="glyphicon glyphicon-edit"></span></a>
 							  		  </td>';
 							echo '</tr>';
 						}
@@ -151,7 +151,7 @@
 								echo '<td>'. $row['status'] .'</td>';
                                                                 
 								echo '<td class="text-center">
-										<a class="btn btn-primary btn-md" href="confirmrequest.php?id='.$row['reqid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
+										<a class="btn btn-primary btn-md" href="confirmrequest.php?id='.$row['reqid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-tint"></span></a>
 							  		  </td>';
 							echo '</tr>';
 						}

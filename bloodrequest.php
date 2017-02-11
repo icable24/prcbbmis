@@ -62,7 +62,7 @@ if($id != null){
 </div>
 	<div class="control-group">
 		<label class="control-label">Patient Name</label>
-			<input class="form-control" value="<?php echo $d['pfname'] . ' ' . substr($d['pmname'], 0, 1) . '. ' . $d['plname']; 
+			<input disabled="" class="form-control" value="<?php echo $d['pfname'] . ' ' . substr($d['pmname'], 0, 1) . '. ' . $d['plname']; 
 			?>
 			">
 			</input>
@@ -139,7 +139,7 @@ if($id != null){
 									echo '<td>'. $row['pid'] . '</td>';
 									echo '<td>'.$row['pfname'] . ' ' . substr($row['pmname'], 0, 1). '. ' . $row['plname'] . '</td>';
 									echo '<td class="text-center">
-													<a class="btn btn-primary btn-md" href="bloodrequest.php?id='.$row['pid'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit">
+													<a class="btn btn-primary btn-md" href="bloodrequest.php?id='.$row['pid'].'" data-toggle="tooltip" title="Select"><span class="glyphicon glyphicon-edit">
 									  		  </td>';
 								echo '</tr>';
 							}
