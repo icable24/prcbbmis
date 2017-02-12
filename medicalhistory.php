@@ -42,12 +42,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A1" value="Yes">
+														<input type="radio" class="form-control" name="A1" value="Yes" required required>
 													</div>
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A1" value="No">
+														<input type="radio" class="form-control" name="A1" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -62,12 +62,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A2" value="Yes">
+														<input type="radio" class="form-control" name="A2" value="Yes" required required>
 													</div>
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A2" value="No">
+														<input type="radio" class="form-control" name="A2" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -81,12 +81,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A3" value="Yes">
+														<input type="radio" class="form-control" name="A3" value="Yes" required required>
 													</div>
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A3" value="No">
+														<input type="radio" class="form-control" name="A3" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -100,12 +100,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A4" value="Yes">
+														<input type="radio" class="form-control" name="A4" value="Yes" required required>
 													</div>
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A4" value="No">
+														<input type="radio" class="form-control" name="A4" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -119,12 +119,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A5" value="Yes">
+														<input type="radio" class="form-control" name="A5" value="Yes" required required>
 													</div>
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A5" value="No">
+														<input type="radio" class="form-control" name="A5" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -138,12 +138,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A6" value="Yes">
+														<input type="radio" class="form-control" name="A6" value="Yes" required required>
 													</div>
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A6" value="No">
+														<input type="radio" class="form-control" name="A6" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -157,12 +157,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A7" value="Yes">
+														<input type="radio" class="form-control" name="A7" value="Yes" required required>
 													</div>
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A7" value="No">
+														<input type="radio" class="form-control" name="A7" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -176,12 +176,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A8" value="Yes">
+														<input type="radio" class="form-control" name="A8" value="Yes" required required>
 													</div>
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A8" value="No">
+														<input type="radio" class="form-control" name="A8" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -195,12 +195,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A9" value="Yes">
+														<input type="radio" class="form-control" name="A9" value="Yes" required required>
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A9" value="No">
+														<input type="radio" class="form-control" name="A9" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -223,12 +223,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A10" value="Yes">
+														<input type="radio" class="form-control" name="A10" value="Yes" required required>
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A10" value="No">
+														<input type="radio" class="form-control" name="A10" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -242,12 +242,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A11" value="Yes">
+														<input type="radio" class="form-control" name="A11" value="Yes" required required>
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A11" value="No">
+														<input type="radio" class="form-control" name="A11" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -261,12 +261,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A12" value="Yes">
+														<input type="radio" class="form-control" name="A12" value="Yes" required required>
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A12" value="No">
+														<input type="radio" class="form-control" name="A12" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -280,12 +280,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A13" value="Yes">
+														<input type="radio" class="form-control" name="A13" value="Yes" required required>
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A13" value="No">
+														<input type="radio" class="form-control" name="A13" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -308,12 +308,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A14" value="Yes">
+														<input type="radio" class="form-control" name="A14" value="Yes" required required>
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A14" value="No">
+														<input type="radio" class="form-control" name="A14" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -327,12 +327,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A15" value="Yes">
+														<input type="radio" class="form-control" name="A15" value="Yes" required required>
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A15" value="No">
+														<input type="radio" class="form-control" name="A15" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -346,12 +346,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A16" value="Yes">
+														<input type="radio" class="form-control" name="A16" value="Yes" required required>
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A16" value="No">
+														<input type="radio" class="form-control" name="A16" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -365,12 +365,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A17" value="Yes">
+														<input type="radio" class="form-control" name="A17" value="Yes" required required>
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A17" value="No">
+														<input type="radio" class="form-control" name="A17" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -384,12 +384,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A18" value="Yes">
+														<input type="radio" class="form-control" name="A18" value="Yes" required>
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A18" value="No">
+														<input type="radio" class="form-control" name="A18" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -403,12 +403,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A19" value="Yes">
+														<input type="radio" class="form-control" name="A19" value="Yes" required>
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A19" value="No">
+														<input type="radio" class="form-control" name="A19" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -422,12 +422,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A20" value="Yes">
+														<input type="radio" class="form-control" name="A20" value="Yes" required>
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A20" value="No">
+														<input type="radio" class="form-control" name="A20" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -441,12 +441,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A21" value="Yes">
+														<input type="radio" class="form-control" name="A21" value="Yes" required>
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A21" value="No">
+														<input type="radio" class="form-control" name="A21" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -469,12 +469,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A22" value="Yes">
+														<input type="radio" class="form-control" name="A22" value="Yes" required>
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A22" value="No">
+														<input type="radio" class="form-control" name="A22" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -488,12 +488,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A23" value="Yes">
+														<input type="radio" class="form-control" name="A23" value="Yes" required>
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A23" value="No">
+														<input type="radio" class="form-control" name="A23" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -507,12 +507,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A24" value="Yes">
+														<input type="radio" class="form-control" name="A24" value="Yes" required>
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A24" value="No">
+														<input type="radio" class="form-control" name="A24" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -526,12 +526,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A25" value="Yes">
+														<input type="radio" class="form-control" name="A25" value="Yes" required>
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A25" value="No">
+														<input type="radio" class="form-control" name="A25" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -545,12 +545,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A26" value="Yes">
+														<input type="radio" class="form-control" name="A26" value="Yes" required>
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A26" value="No">
+														<input type="radio" class="form-control" name="A26" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -564,12 +564,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A27" value="Yes">
+														<input type="radio" class="form-control" name="A27" value="Yes" required>
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A27" value="No">
+														<input type="radio" class="form-control" name="A27" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -583,12 +583,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A28" value="Yes">
+														<input type="radio" class="form-control" name="A28" value="Yes" required>
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A28" value="No">
+														<input type="radio" class="form-control" name="A28" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -602,12 +602,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A29" value="Yes">
+														<input type="radio" class="form-control" name="A29" value="Yes" required>
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A29" value="No">
+														<input type="radio" class="form-control" name="A29" value="No" required>
 													</div>
 												</div>
 											</tr>
@@ -621,12 +621,12 @@
 												</div>
 												<div class="col-lg-1">
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A30" value="Yes">
+														<input type="radio" class="form-control" name="A30" value="Yes" required required="">
 													</div>
 												</div>
 												<div class="col-lg-1"> 
 													<div class="control-group">
-														<input type="radio" class="form-control" name="A30" value="No">
+														<input type="radio" class="form-control" name="A30" value="No" required required="">
 													</div>
 												</div>
 											</tr>

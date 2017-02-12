@@ -62,11 +62,11 @@
 								<div class="control-group">
 									<div class="col-lg-6">
 										<label class="control-label" for="hepab1">Hepatitis B</label>
-										<input class="form-control" type="Number" step="any" name="hepab1">
+										<input class="form-control" type="Number" step="any" name="hepab1" required="">
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks11">Remarks</label>
-										<select name="remarks11" id="remarks11" class="form-control">
+										<select name="remarks11" id="remarks11" class="form-control" required="">
 											<option></option>
 											<option value="Positive">Positive</option>
 											<option value="Negative">Negative</option>
@@ -76,11 +76,11 @@
 								<div class="control-group">
 									<div class="col-lg-6">
 										<label class="control-label" for="hepac1">Hepatitis C</label>
-										<input class="form-control" type="Number" step="any" name="hepac1">
+										<input class="form-control" type="Number" step="any" name="hepac1" required="">
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks12">Remarks</label>
-										<select name="remarks12" id="remarks12" class="form-control">
+										<select name="remarks12" id="remarks12" class="form-control" required="">
 											<option></option>
 											<option value="Positive">Positive</option>
 											<option value="Negative">Negative</option>
@@ -90,11 +90,11 @@
 								<div class="control-group">
 									<div class="col-lg-6">
 										<label class="control-label" for="syphillis1">Syphillis</label>
-										<input class="form-control" type="Number" step="any" name="syphillis1">
+										<input class="form-control" type="Number" step="any" name="syphillis1" required="">
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks13">Remarks</label>
-										<select name="remarks13" id="remarks13" class="form-control">
+										<select name="remarks13" id="remarks13" class="form-control" required="">
 											<option></option>
 											<option value="Positive">Positive</option>
 											<option value="Negative">Negative</option>
@@ -104,11 +104,11 @@
 								<div class="control-group">
 									<div class="col-lg-6">
 										<label class="control-label" for="hiv1">HIV</label>
-										<input class="form-control" type="Number" step="any" name="hiv1">
+										<input class="form-control" type="Number" step="any" name="hiv1" required="">
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks14">Remarks</label>
-										<select name="remarks14" id="remarks14" class="form-control">
+										<select name="remarks14" id="remarks14" class="form-control" required="">
 											<option></option>
 											<option value="Positive">Positive</option>
 											<option value="Negative">Negative</option>
@@ -118,11 +118,11 @@
 								<div class="control-group">
 									<div class="col-lg-6">
 										<label class="control-label" for="malaria1">Malaria</label>
-										<input class="form-control" type="Number" step="any" name="malaria1">
+										<input class="form-control" type="Number" step="any" name="malaria1" required="">
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks15">Remarks</label>
-										<select name="remarks15" id="remarks15" class="form-control">
+										<select name="remarks15" id="remarks15" class="form-control" required="">
 											<option></option>
 											<option value="Positive">Positive</option>
 											<option value="Negative">Negative</option>
@@ -140,11 +140,11 @@
 								<div class="control-group">
 									<div class="col-lg-6">
 										<label class="control-label" for="hepab2">Hepatitis B</label>
-										<input class="form-control" type="Number" step="any" name="hepab2">
+										<input class="form-control" type="Number" step="any" name="hepab2" required="">
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks21">Remarks</label>
-										<select name="remarks21" id="remarks21" class="form-control">
+										<select name="remarks21" id="remarks21" class="form-control" required="">
 											<option></option>
 											<option value="Positive">Positive</option>
 											<option value="Negative">Negative</option>
@@ -154,11 +154,11 @@
 								<div class="control-group">
 									<div class="col-lg-6">
 										<label class="control-label" for="hepac2">Hepatitis C</label>
-										<input class="form-control" type="Number" step="any" name="hepac2">
+										<input class="form-control" type="Number" step="any" name="hepac2" required="">
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks22">Remarks</label>
-										<select name="remarks22" id="remarks22" class="form-control">
+										<select name="remarks22" id="remarks22" class="form-control" required="">
 											<option></option>
 											<option value="Positive">Positive</option>
 											<option value="Negative">Negative</option>
@@ -168,11 +168,11 @@
 								<div class="control-group">
 									<div class="col-lg-6">
 										<label class="control-label" for="syphillis2">Syphillis</label>
-										<input class="form-control" type="Number" step="any" name="syphillis2">
+										<input class="form-control" type="Number" step="any" name="syphillis2" required="">
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks23">Remarks</label>
-										<select name="remarks23" id="remarks23" class="form-control">
+										<select name="remarks23" id="remarks23" class="form-control" required="">
 											<option></option>
 											<option value="Positive">Positive</option>
 											<option value="Negative">Negative</option>
@@ -182,11 +182,11 @@
 								<div class="control-group">
 									<div class="col-lg-6">
 										<label class="control-label" for="hiv2">HIV</label>
-										<input class="form-control" type="Number" step="any" name="hiv2">
+										<input class="form-control" type="Number" step="any" name="hiv2" required="">
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks24">Remarks</label>
-										<select name="remarks24" id="remarks24" class="form-control">
+										<select name="remarks24" id="remarks24" class="form-control" required="">
 											<option></option>
 											<option value="Positive">Positive</option>
 											<option value="Negative">Negative</option>
@@ -196,11 +196,11 @@
 								<div class="control-group">
 									<div class="col-lg-6">
 										<label class="control-label" for="malaria2">Malaria</label>
-										<input class="form-control" type="Number" step="any" name="malaria2">
+										<input class="form-control" type="Number" step="any" name="malaria2" required="">
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks25">Remarks</label>
-										<select name="remarks25" id="remarks25" class="form-control">
+										<select name="remarks25" id="remarks25" class="form-control" required="">
 											<option></option>
 											<option value="Positive">Positive</option>
 											<option value="Negative">Negative</option>
@@ -217,11 +217,11 @@
 								<div class="control-group">
 									<div class="col-lg-6">
 										<label class="control-label" for="hepab3">Hepatitis B</label>
-										<input class="form-control" type="Number" step="any" name="hepab3">
+										<input class="form-control" type="Number" step="any" name="hepab3" required="">
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks31">Remarks</label>
-										<select name="remarks31" id="remarks31" class="form-control">
+										<select name="remarks31" id="remarks31" class="form-control" required="">
 											<option></option>
 											<option value="Positive">Positive</option>
 											<option value="Negative">Negative</option>
@@ -231,11 +231,11 @@
 								<div class="control-group">
 									<div class="col-lg-6">
 										<label class="control-label" for="hepac3">Hepatitis C</label>
-										<input class="form-control" type="Number" step="any" name="hepac3">
+										<input class="form-control" type="Number" step="any" name="hepac3" required="">
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks32">Remarks</label>
-										<select name="remarks32" id="remarks32" class="form-control">
+										<select name="remarks32" id="remarks32" class="form-control" required="">
 											<option></option>
 											<option value="Positive">Positive</option>
 											<option value="Negative">Negative</option>
@@ -245,11 +245,11 @@
 								<div class="control-group">
 									<div class="col-lg-6">
 										<label class="control-label" for="syphillis3">Syphillis</label>
-										<input class="form-control" type="Number" step="any" name="syphillis3">
+										<input class="form-control" type="Number" step="any" name="syphillis3" required="">
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks33">Remarks</label>
-										<select name="remarks33" id="remarks33" class="form-control">
+										<select name="remarks33" id="remarks33" class="form-control" required="">
 											<option></option>
 											<option value="Positive">Positive</option>
 											<option value="Negative">Negative</option>
@@ -259,11 +259,11 @@
 								<div class="control-group">
 									<div class="col-lg-6">
 										<label class="control-label" for="hiv3">HIV</label>
-										<input class="form-control" type="Number" step="any" name="hiv3">
+										<input class="form-control" type="Number" step="any" name="hiv3" required="">
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks34">Remarks</label>
-										<select name="remarks34" id="remarks34" class="form-control">
+										<select name="remarks34" id="remarks34" class="form-control" required="">
 											<option></option>
 											<option value="Positive">Positive</option>
 											<option value="Negative">Negative</option>
@@ -273,11 +273,11 @@
 								<div class="control-group">
 									<div class="col-lg-6">
 										<label class="control-label" for="malaria3">Malaria</label>
-										<input class="form-control" type="Number" step="any" name="malaria3">
+										<input class="form-control" type="Number" step="any" name="malaria3" required="">
 									</div>
 									<div class="col-lg-6">
 										<label class="control-label" for="remarks35">Remarks</label>
-										<select name="remarks35" id="remarks35" class="form-control">
+										<select name="remarks35" id="remarks35" class="form-control" required="">
 											<option></option>
 											<option value="Positive">Positive</option>
 											<option value="Negative">Negative</option>

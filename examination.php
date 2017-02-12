@@ -83,7 +83,7 @@
 							<div class="control-group">
 								<label class="control-label" for="bldpressure">Blood Pressure</label><label class="control-label eg">(eg. 120/80)</label>
 								<div class="controls">
-									<input id="bldpressure" name="bldpressure" type="text" placeholder="Blood Pressure" class="form-control" required="" autocomplete="off" value="<?php echo $data2['bldpressure'] ?>">							    
+									<input id="bldpressure" name="bldpressure" type="text" placeholder="Blood Pressure" class="form-control" required="" value="<?php echo $data2['bldpressure'] ?>">							    
 							  </div>
 							</div>
 
@@ -91,7 +91,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="pulserate">Pulse Rate</label><label class="control-label eg">(Beats per minute)</label>
 							  <div class="controls">
-							    <input id="pulserate" name="pulserate" type="Number" placeholder="Pulse Rate" class="form-control" required="" autocomplete="off" value="<?php echo $data2['pulserate'] ?>">
+							    <input id="pulserate" name="pulserate" type="Number" placeholder="Pulse Rate" class="form-control" required="" value="<?php echo $data2['pulserate'] ?>">
 							    
 							  </div>
 							</div>
@@ -100,7 +100,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="bodytemp">Body Temperature</label><label class="control-label eg">(in &deg;C)</label>
 							  <div class="controls">
-							    <input id="bodytemp" name="bodytemp" type="Number" step="any" placeholder="Body Temperature" class="form-control" required="" autocomplete="off" value="<?php echo $data2['bodytemp'] ?>">
+							    <input id="bodytemp" name="bodytemp" type="Number" step="any" placeholder="Body Temperature" class="form-control" required="" value="<?php echo $data2['bodytemp'] ?>">
 							    
 							  </div>
 							</div>
@@ -110,7 +110,7 @@
 							<div class="control-group">
 								<label class="control-label" for="genapp">General Appearance</label>
 							    <div class="controls">
-							    	<input id="genapp" name="genapp" type="text" placeholder="General Appearance" class="form-control" required="" autocomplete="off" value="<?php echo $data2['genapp'] ?>">
+							    	<input id="genapp" name="genapp" type="text" placeholder="General Appearance" class="form-control" required="" value="<?php echo $data2['genapp'] ?>">
 							  	</div>
 							</div>
 
@@ -118,7 +118,7 @@
 							<div class="control-group">
 								<label class="control-label" for="skin">Skin</label>
 							    <div class="controls">
-							    	<input id="skin" name="skin" type="text" placeholder="Skin" class="form-control" required="" autocomplete="off" value="<?php echo $data2['skin'] ?>">
+							    	<input id="skin" name="skin" type="text" placeholder="Skin" class="form-control" required=""  value="<?php echo $data2['skin'] ?>">
 							  	</div>
 							</div>
 
@@ -126,7 +126,7 @@
 							<div class="control-group">
 								<label class="control-label" for="heent">HEENT</label>
 							    <div class="controls">
-							    	<input id="heent" name="heent" type="text" placeholder="Head, Eyes, Ears, Nose, and Throat" class="form-control" required="" autocomplete="off" value="<?php echo $data2['heent'] ?>">
+							    	<input id="heent" name="heent" type="text" placeholder="Head, Eyes, Ears, Nose, and Throat" class="form-control" required="" value="<?php echo $data2['heent'] ?>">
 							  	</div>
 							</div>
 

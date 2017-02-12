@@ -173,7 +173,7 @@
                         <?php if($user['usertype'] == 'Admin'){?>
                             <div class="navbar navbar-right" style="background-color: #cc0000; margin-left: 10px; margin-top: 10px; min-height: 0px">
                                 <a data-toggle="dropdown" style="color: white">
-                                <span class="glyphicon glyphicon-envelope"><span class="notification-counter">
+                                <span class="glyphicon glyphicon-bell"><span class="notification-counter">
                                     <?php if($total_notif > 0){
                                         echo $total_notif;
                                         } ?></span><b class="caret"> </b></span>
@@ -238,13 +238,13 @@
                             <a href="home.php" data-toggle="dropdown">TRANSACTIONS</a>
                             <ul class="dropdown-menu submenus">
                                 <li><a href="viewcollection.php">BLOOD COLLECTION</a></li>
-                                <li><a href="viewrequest.php">BLOOD REQUEST</a></li>
-                                <li><a href="viewdispensing.php" >DISPENSING</a></li>
-                                <li><a href="viewactivityscheduling.php" >ACTIVITY SCHEDULING</a></li>
+                                <li><a href="components_prep.php">COMPONENTS PREP</a></li>
                                 <li><a href="viewtest.php" >SEROLOGY</a></li>
                                 <li><a href="inventory_list.php" >BLOOD INVENTORY</a></li>
-                                <li><a href="components_prep.php">COMPONENTS PREP</a></li>
+                                <li><a href="viewrequest.php">BLOOD REQUEST</a></li>
+                                <li><a href="viewdispensing.php" >DISPENSING</a></li>
                                 <li><a href="viewtransfer.php">BLOOD TRANSFER</a></li>
+                                <li><a href="viewactivityscheduling.php" >ACTIVITY SCHEDULING</a></li>
                             </ul>
                         </li>
                          <?php if($user['usertype'] == 'Admin'){ ?>

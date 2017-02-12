@@ -14,7 +14,7 @@
 	
 	include('header.php');
        ?> 
-    <br><br><br><br>
+    <br><br>
     <p style="font-size: 50px; text-align: center; color: black; font-weight: bold">Good Day! <br>
          <?php $_SESSION["username"] = $username; 
             $pdo = Database::connect();
@@ -28,7 +28,7 @@
          ?> </p>
     <br>
 <center> <img src="img/welcome.png" alt=""/></center>
-    <br><br><br><br>
+    <br><br>
         <?php 
 	
 	include ('footer.php');

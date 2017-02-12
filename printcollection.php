@@ -17,15 +17,12 @@ class MYPDF extends TCPDF {
 
     //Page header
     public function Header() {
-        // Logo
-        //$image_file = K_PATH_IMAGES.'logo_example.jpg';
-       // $this->Image($image_file, 10, 10, 15, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
-        // Set font
-        $this->SetY(15);   
 
+        $this->SetY(15);   
+        $image_file = K_PATH_IMAGES.'img/PRClogo.png';
+        $this->Image($image_file, 15, 10, 30, '', 'PNG', '', '', false, 300, '', false, false, 0, false, false, false);
         $this->SetFont('times', 'B', 24);
-        $this->Image("img/watermark.png");
-        $this->Cell(0, 15, 'Philippine Red Cross ', 0, false, 'C', 0, '', 0, false, 'M', 'M');
+        $this->Cell(0, 15, 'Philippine Red Cross', 0, false, 'C', 0, '', 0, false, 'M', 'M');
 
     }
 

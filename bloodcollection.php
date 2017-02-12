@@ -40,14 +40,15 @@
 
 <div class="control-group">
 <label for="donorcollectid">Donor No.</label>
-<input type="text" class="form-control" required id="donorcollectid" name="donorcollectid" placeholder="Donor No." data-toggle="modal" data-target="#myModal" value="<?php 
+<input required="" type="text" class="form-control" required id="donorcollectid" name="donorcollectid" placeholder="Donor No." data-toggle="modal" data-target="#myModal" value="<?php 
 
 $id = $_REQUEST['id'];
 if($id != null){
 	echo $id;
 }else{
-	echo "";
-}?> ">
+	echo null;
+}
+?> ">
 </div>
 
 
@@ -65,7 +66,7 @@ if($id != null){
 
         echo $data1['dfname']
 ?>">
-<input class="form-control" type="text" id="name" value="<?php
+<input class="form-control" type="text" id="name" disabled value="<?php
 echo $data1['dfname'] . ' ' . substr($data1['dmname'], 0, 1). ', ' . $data1['dlname'];
 ?>">
 </div>
@@ -97,10 +98,10 @@ echo $data1['dfname'] . ' ' . substr($data1['dmname'], 0, 1). ', ' . $data1['dln
 
 							        echo $data2['bloodgroup'];
 							?>">
-							<input class="form-control" disabled="" value="<?php echo $data2['bloodgroup']. ' ' . $data2['rhtype'] ?>">
-							<input type="text" hidden="" name="bloodtype" value="<?php echo $data2['bloodgroup'] ?>">
+							<input class="form-control" required="" disabled="" value="<?php echo $data2['bloodgroup']. ' ' . $data2['rhtype'] ?>">
+							<input type="text" hidden="" required="" name="bloodtype" value="<?php echo $data2['bloodgroup'] ?>">
                         </div>
-                            <input hidden name="rhtype" value="<?php echo $data2['rhtype']?>">
+                            <input hidden name="rhtype" required value="<?php echo $data2['rhtype']?>">
 
 
 						<div class="control-group">
