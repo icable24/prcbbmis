@@ -94,7 +94,7 @@
 
     <!-- Modal content-->
     <div class="modal-content" style="margin-top: 40%">
-      <div class="modal-header">
+      <div class="modal-header btn-danger">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Error Date!</h4>
       </div>

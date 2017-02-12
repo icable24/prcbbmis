@@ -7,7 +7,7 @@
 		$quantity = $_POST['qty'];
 		$reqid = $_POST['reqid'];
 		$rname = $_POST['rname'];
-		$dispensingdate = $_POST['dispensingdate']
+		$dispensingdate = $_POST['dispensingdate'];
 		$raddress = $_POST['raddress'];
 		$rcontact = $_POST['rcontact'];
 

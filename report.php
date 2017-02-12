@@ -94,17 +94,22 @@
                    		<div class = "tab-content">
                    		<div role = "tabpanel" class="tab-pane fade" id="summary"><select id="categ" name="categ" class="form-control" style="width: 3in" onchange="updateCheckBox(this)" >
 	                                                                
-                        <option value="none">-- Select Category --</option>
-						<p><option value="donor">Donor</option>
-						<option value="patient">Patient</option>
-                        <option value="inventory">Blood Inventory</option></p>
-        				<div style="text-align:center; width: 3in; font-size: 16px" >
-                          </div>
-                          </select>
-                          </div>
-                          </form>
-                          </div>
-                          <br>
+	                                                                <option value="none">-- Select Category --</option>
+																	<p><option value="donor">Donor</option>
+																	<option value="patient">Patient</option>
+	                                                                <option value="inventory">Blood Inventory</option></p>
+	                                                				<div style="text-align:center; width: 3in; font-size: 16px" >
+                                                             	   
+                                                                   
+                                     
+                                                              </div>
+                                                              </select>
+                                                              </div>
+                                                              </form>
+                                                              
+
+
+	                     <br>
 
 
                    		<div role = "tabpanel" class="tab-pane fade" id="detailed"><select id="categ1" name="categ1" class="form-control" style="width: 3in" onchange="updateCheckBox(this)" >
