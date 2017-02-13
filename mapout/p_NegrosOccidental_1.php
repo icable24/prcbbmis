@@ -69,7 +69,7 @@
 
 <script type="text/javascript">
     var locations = [
-      ['<form action="inventory_list.php" method="post">\<strong>Philippine Red Cross Bacolod Chapter</strong><br>\<p>Available Blood</p>\
+      ['<form action="../inventory_list.php" method="post">\<strong>Philippine Red Cross Bacolod Chapter</strong><br>\<p>Available Blood</p>\
         <p style="font-weight: bold"><?php echo $data['component']?></p>\
 	<p><a href="requisition_form_byChapters.php">Request</a></form>', 10.6761724,122.9570703,19],
       ['<strong>Alfredo F. Marañon, Sr. Memorial District Hospital<br></strong><br>\<p>Available Blood</p><br>\

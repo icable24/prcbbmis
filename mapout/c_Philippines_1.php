@@ -40,16 +40,16 @@
 <div class="container">
 	<div class="col-lg-3">
 		<div class="list-group side_bar">
-                        <a href="c_Brunei.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/bruneiflg.png"></span>&nbsp;&nbsp; Brunei</a>
-                        <a href="c_Cambodia.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/cambodiaflg.png"></span>&nbsp;&nbsp; Cambodia</a>
-                        <a href="c_Indonesia.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/indonesiaflg.png"></span>&nbsp;&nbsp; Indonesia</a>
-			<a href="c_Laos.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/laosflg.png"></span>&nbsp;&nbsp; Laos</a>
-			<a href="c_Malaysia.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/malaysiaflg.png"></span>&nbsp;&nbsp; Malaysia</a>
-			<a href="c_Myanmar.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/myanmarflg.png"></span>&nbsp;&nbsp; Myanmar</a>
-                        <a href="c_Philippines_1.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/philippinesflg.png"></span>&nbsp;&nbsp; Philippines</a>
-			<a href="c_Singapore.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/singaporeflg.png"></span>&nbsp;&nbsp; Singapore</a>
-			<a href="c_Thailand.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/thailandflg.png"></span>&nbsp;&nbsp; Thailand</a>
-			<a href="c_Vietnam.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/vietnamflg.png"></span>&nbsp;&nbsp; Vietnam</a>
+                    <a href="c_Brunei.php" class="list-group-item bg"><span aria-hidden="true"><img src="../img/bruneiflg.png"></span>&nbsp;&nbsp; Brunei</a>
+                        <a href="c_Cambodia.php" class="list-group-item bg"><span aria-hidden="true"><img src="../img/cambodiaflg.png"></span>&nbsp;&nbsp; Cambodia</a>
+                        <a href="c_Indonesia.php" class="list-group-item bg"><span aria-hidden="true"><img src="../img/indonesiaflg.png"></span>&nbsp;&nbsp; Indonesia</a>
+			<a href="c_Laos.php" class="list-group-item bg"><span aria-hidden="true"><img src="../img/laosflg.png"></span>&nbsp;&nbsp; Laos</a>
+			<a href="c_Malaysia.php" class="list-group-item bg"><span aria-hidden="true"><img src="../img/malaysiaflg.png"></span>&nbsp;&nbsp; Malaysia</a>
+			<a href="c_Myanmar.php" class="list-group-item bg"><span aria-hidden="true"><img src="../img/myanmarflg.png"></span>&nbsp;&nbsp; Myanmar</a>
+                        <a href="c_Philippines_1.php" class="list-group-item bg"><span aria-hidden="true"><img src="../img/philippinesflg.png"></span>&nbsp;&nbsp; Philippines</a>
+			<a href="c_Singapore.php" class="list-group-item bg"><span aria-hidden="true"><img src="../img/singaporeflg.png"></span>&nbsp;&nbsp; Singapore</a>
+			<a href="c_Thailand.php" class="list-group-item bg"><span aria-hidden="true"><img src="../img/thailandflg.png"></span>&nbsp;&nbsp; Thailand</a>
+			<a href="c_Vietnam.php" class="list-group-item bg"><span aria-hidden="true"><img src="../img/vietnamflg.png"></span>&nbsp;&nbsp; Vietnam</a>
 		</div>
 	</div>
     
@@ -71,11 +71,12 @@
     var locations = [
       ['<strong>Philippine Red Cross Main<br></strong><br>\<p>Available Blood</p><br>\
 	<a href="requisition_form_byChapters.php">Request</a>', 14.5720757,121.0466793,21] , 
-      ['<form action="inventory_list.php" method="post">\<strong>Philippine Red Cross Bacolod Chapter</strong><br>\<p>Available Blood</p>\
+      ['<form action="../inventory_list.php" method="post">\<strong>Philippine Red Cross Bacolod Chapter</strong><br>\<p>Available Blood</p>\
         <p style="font-weight: bold"><?php echo $data['component']?></p>\
 	<p><a href="requisition_form_byChapters.php">Request</a></form>', 10.6761724,122.9570703,19],
-      ['<strong>Philippine Red Cross Cebu Chapter</strong><br>\<p>Available Blood</p><br>\
-	<a href="requisition_form_byChapters.php">Request</a>', 10.3124335,123.8917013,21],
+      ['<form action="../inventory_list.php" method="post">\<strong>Philippine Red Cross Cebu Chapter</strong><br>\<p>Available Blood</p>\
+        <p style="font-weight: bold"><?php echo $data['component']?></p>\
+	<p><a href="requisition_form_byChapters.php">Request</a></form>', 10.3124335,123.8917013,21],
       ['<strong>Philippine Red Cross Cagayan Chapter</strong><br>\<p>Available Blood</p><br>\
 	<a href="requisition_form_byChapters.php">Request</a>', 17.6132213,121.7273084,21],
       ['<strong>Philippine Red Cross Vigan Chapter</strong><br>\<p>Available Blood</p><br>\
