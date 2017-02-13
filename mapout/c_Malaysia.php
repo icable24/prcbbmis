@@ -20,16 +20,16 @@
 <div class="container">
 	<div class="col-lg-3">
 		<div class="list-group side_bar">
-                        <a href="c_Brunei.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/bruneiflg.png"></span>&nbsp;&nbsp; Brunei</a>
-                        <a href="c_Cambodia.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/cambodiaflg.png"></span>&nbsp;&nbsp; Cambodia</a>
-                        <a href="c_Indonesia.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/indonesiaflg.png"></span>&nbsp;&nbsp; Indonesia</a>
-			<a href="c_Laos.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/laosflg.png"></span>&nbsp;&nbsp; Laos</a>
-			<a href="c_Malaysia.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/malaysiaflg.png"></span>&nbsp;&nbsp; Malaysia</a>
-			<a href="c_Myanmar.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/myanmarflg.png"></span>&nbsp;&nbsp; Myanmar</a>
-                        <a href="c_Philippines_1.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/philippinesflg.png"></span>&nbsp;&nbsp; Philippines</a>
-			<a href="c_Singapore.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/singaporeflg.png"></span>&nbsp;&nbsp; Singapore</a>
-			<a href="c_Thailand.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/thailandflg.png"></span>&nbsp;&nbsp; Thailand</a>
-			<a href="c_Vietnam.php" class="list-group-item bg"><span aria-hidden="true"><img src="./img/vietnamflg.png"></span>&nbsp;&nbsp; Vietnam</a>
+                    <a href="c_Brunei.php" class="list-group-item bg"><span aria-hidden="true"><img src="../img/bruneiflg.png"></span>&nbsp;&nbsp; Brunei</a>
+                        <a href="c_Cambodia.php" class="list-group-item bg"><span aria-hidden="true"><img src="../img/cambodiaflg.png"></span>&nbsp;&nbsp; Cambodia</a>
+                        <a href="c_Indonesia.php" class="list-group-item bg"><span aria-hidden="true"><img src="../img/indonesiaflg.png"></span>&nbsp;&nbsp; Indonesia</a>
+			<a href="c_Laos.php" class="list-group-item bg"><span aria-hidden="true"><img src="../img/laosflg.png"></span>&nbsp;&nbsp; Laos</a>
+			<a href="c_Malaysia.php" class="list-group-item bg"><span aria-hidden="true"><img src="../img/malaysiaflg.png"></span>&nbsp;&nbsp; Malaysia</a>
+			<a href="c_Myanmar.php" class="list-group-item bg"><span aria-hidden="true"><img src="../img/myanmarflg.png"></span>&nbsp;&nbsp; Myanmar</a>
+                        <a href="c_Philippines_1.php" class="list-group-item bg"><span aria-hidden="true"><img src="../img/philippinesflg.png"></span>&nbsp;&nbsp; Philippines</a>
+			<a href="c_Singapore.php" class="list-group-item bg"><span aria-hidden="true"><img src="../img/singaporeflg.png"></span>&nbsp;&nbsp; Singapore</a>
+			<a href="c_Thailand.php" class="list-group-item bg"><span aria-hidden="true"><img src="../img/thailandflg.png"></span>&nbsp;&nbsp; Thailand</a>
+			<a href="c_Vietnam.php" class="list-group-item bg"><span aria-hidden="true"><img src="../img/vietnamflg.png"></span>&nbsp;&nbsp; Vietnam</a>
 		</div>
 	</div>
 	<div class="col-lg-9">
