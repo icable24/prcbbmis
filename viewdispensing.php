@@ -54,7 +54,6 @@ $pages = ceil($total / $perPage);
                         <th>Blood Type</th>
 						<th>Received by</th>
 						<th>Contact</th>
-						<th class="text-center">Action</th>
 					</tr>
 				</thead>
 				<tbody>					
@@ -77,11 +76,6 @@ $pages = ceil($total / $perPage);
                                                                 echo '<td>'.$blood['bloodgroup'] . ' ' . $blood['rhtype'] .'</td>';
                                                                 echo '<td>'.$row['rname'].'</td>';
                                                                 echo '<td>'.$row['rcontact'].'</td>';
-                                                                
-								echo '<td class="text-center">
-											<a class="btn btn-warning btn-md" href="#" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-pencil"></span></a>
-											<a class="btn btn-danger btn-md" href="#" data-toggle="tooltip" title="Delete"><span class="glyphicon glyphicon-trash"></span></a>
-							  		  </td>';
 							echo '</tr>';
 						}
 						Database::disconnect();
