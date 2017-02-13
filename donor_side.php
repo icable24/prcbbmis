@@ -17,5 +17,6 @@
 				echo ' red';
 			}?>"><span aria-hidden="true"></span>&nbsp;&nbsp;Examination</a>
 		<a href="viewscreening.php?id=<?php echo $_GET['id'] ?>" class="list-group-item bg"><span aria-hidden="true"></span>&nbsp;&nbsp; Screening</a>
+		<a href="medicalhistory.php?id=<?php echo $_GET['id'] ?>" class="list-group-item bg"><span aria-hidden="true"></span>&nbsp;&nbsp; Medical History</a>
 	</div>
 </div>

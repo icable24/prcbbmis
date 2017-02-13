@@ -50,17 +50,22 @@
 	<!-- MAIN PAGE -->
 			<!--Form Starts Here-->
 		<div class="container">
-			<div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
-				<div class="row">
-					<h2 style="text-align: center;">Donor Profile</h2>
-					<br />
-				</div>
-						
+            <div class="row col-lg-offset-3">
+                <div class="col-md-4">
+                    <h2>
+                        &nbsp;&nbsp; Screening
+                    </h2>
+                </div>
+            </div>
+            <?php 
+                include 'donor_side.php'
+            ?>
+			<div class="col-lg-8">
+	
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						<h4>Screening</h4>
-					</div>
-					
+                        <h4><?php echo $data['dfname'] . ' ' . substr($data['dmname'], 0 , 1) . '. ' . $data['dlname'] ?></h4>
+                    </div>	
 					<div class="panel-body">
                             <form class="form-horizontal" method="post" action="./php/addscreening.php">
 
@@ -76,7 +81,7 @@
                                 <div class="control-group">
                                   <label class="control-label" for="spgravity">Weight</label><label class="control-label eg">(in Kg)</label>
                                   <div class="controls">
-                                    <input class="form-control" id="weight" name="weight" required="">
+                                    <input class="form-control" id="weight" name="weight" required="" value="<?php echo $data2['weight'] ?>">
                                     
                                   </div>
                                 </div>
@@ -85,7 +90,7 @@
                                 <div class="control-group">
                                   <label class="control-label" for="spgravity">Specific Gravity</label><label class="control-label eg">()</label>
                                   <div class="controls">
-                                    <input class="form-control" id="spgravity" name="spgravity" required="">
+                                    <input class="form-control" id="spgravity" name="spgravity" required="" value="<?php echo $data2['spgravity'] ?>">
                                     
                                   </div>
                                 </div>
@@ -94,7 +99,7 @@
                                 <div class="control-group">
                                   <label class="control-label" for="hemgb">Hemoglobin</label><label class="control-label eg">()</label>
                                   <div class="controls">
-                                    <input class="form-control" id="hemgb" name="hemgb" required="">
+                                    <input class="form-control" id="hemgb" name="hemgb" required="" value="<?php echo $data2['hemgb'] ?>">
                                     
                                   </div>
                                 </div>
@@ -104,7 +109,7 @@
                                 <div class="control-group">
                                     <label class="control-label" for="hemtcrt">Hematocrit</label><label class="control-label eg">()</label>
                                     <div class="controls">
-                                        <input class="form-control" id="hemtcrt" name="hemtcrt" required="">
+                                        <input class="form-control" id="hemtcrt" name="hemtcrt" required="" value="<?php echo $data2['hemtcrt'] ?>">
                                     </div>
                                 </div>
 
@@ -112,7 +117,7 @@
                                 <div class="control-group">
                                     <label class="control-label" for="rbc">Red Blood Cell</label><label class="control-label eg">()</label>
                                     <div class="controls">
-                                        <input class="form-control" id="rbc" name="rbc" required="">
+                                        <input class="form-control" id="rbc" name="rbc" required="" value="<?php echo $data2['rbc'] ?>">
                                     </div>
                                 </div>
 
@@ -120,7 +125,7 @@
                                 <div class="control-group">
                                     <label class="control-label" for="wbc">White Blood Cell</label>
                                     <div class="controls">
-                                        <input class="form-control" id="wbc" name="wbc" required="">
+                                        <input class="form-control" id="wbc" name="wbc" required="" value="<?php echo $data2['wbc'] ?>">
                                     </div>
                                 </div>
 
@@ -128,7 +133,7 @@
                                 <div class="control-group">
                                     <label class="control-label" for="pltcount">Platelet Count</label><label class="control-label eg">()</label>
                                     <div class="controls">
-                                        <input class="form-control" id="pltcount" name="pltcount" required="">
+                                        <input class="form-control" id="pltcount" name="pltcount" required="" value="<?php echo $data2['pltcount'] ?>">
                                     </div>
                                 </div>
 

@@ -155,8 +155,8 @@ if($id != null){
 <br>
 
  <div class="text-center">
-<button type="submit" class="btn btn-primary" >Save</button>
-<button type="submit" class="btn btn-primary">Search</button>
+<button type="submit" class="btn btn-success" >Save</button>
+<a href="viewrequest.php">Back</a>
 </div>	
 </table>
 </div>

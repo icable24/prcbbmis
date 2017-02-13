@@ -69,20 +69,18 @@
 							<div class="control-group">
 							  <label class="control-label" for="dbirthdate">Birth Date</label>
 							  <div class="controls">
-							    <input id="dbirthdate" name="dbirthdate" type="date" class="form-control" required="">
+							    <input id="dbirthdate" name="dbirthdate" type="date" class="form-control" required="" max="1999-2-13">
 							   		<script src="js/jquery-1.9.1.min.js"></script>
 										<script src="js/bootstrap-datepicker.js"></script>
 										<script type="text/javascript">
 											// When the document is ready
 											$(document).ready(function () {
-												
 												$('#dbirthdate').datepicker({
-													format: "yyyy-mm-dd"
+													format: "yyyy-mm-dd",
+													maxDate: new Date(1999, 2,13)
 												});  
-											
 											});
 									</script>
-							    
 							  </div>
 							</div>
 
@@ -104,9 +102,9 @@
 
 							<!-- Text input-->
 							<div class="control-group">
-							  <label class="control-label" for="dcontact">Contact Number</label>
+							  <label class="control-label" for="dcontact">Contact Number</label><label class="control-label eg">(Format: +63xxxxxxxxxx)</label>
 							  <div class="controls">
-							    <input id="dcontact" name="dcontact" type="number" placeholder="Contact Number" class="form-control" required="">
+							    <input id="dcontact" name="dcontact" type="tel" placeholder="Contact Number" class="form-control" required="" pattern="[\+]\d{2}\d{10}">
 							    
 							  </div>
 							</div>
@@ -120,6 +118,7 @@
 							      <option>Walk-in</option>
 							      <option>Replacement</option>
 							      <option>Patient Directed</option>
+							      <option>Mobile Blood Donation</option>
 							    </select>
 							  </div>
 							</div>
@@ -161,7 +160,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="demail">Email Address</label>
 							  <div class="controls">
-							    <input id="demail" name="demail" type="text" placeholder="Email Address" class="form-control">
+							    <input id="demail" name="demail" type="email" placeholder="Email Address" class="form-control">
 							  </div>
 							</div>
 
@@ -179,7 +178,8 @@
 			</div>
 		</div>
   	</div>
-	
+
+
 <!--edit @ footer.php-->
 <?php
 	include('footer.php');

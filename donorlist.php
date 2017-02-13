@@ -6,7 +6,7 @@
 
 // User Input
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-$perPage = isset($_GET['per-page']) && $_GET['per-page'] <= 50 ? (int)$_GET['per-page'] : 10;
+$perPage = isset($_GET['per-page']) && $_GET['per-page'] <= 50 ? (int)$_GET['per-page'] : 100;
 
 // Positioning
 $start = ($page > 1) ? ($page * $perPage) - $perPage : 0;

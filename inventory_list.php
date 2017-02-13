@@ -13,12 +13,12 @@
 		$update = $update->fetchAll(PDO::FETCH_ASSOC);
 
 		foreach ($update as $row2) {
-			$sql = $pdo->prepare("UPDATE inventory SET remarks = ?, status = ? WHERE unitserialno = ?");
+			$sql = $pdo->prepare("UPDATE inventory SET remarks = ?, status = ? WHERE unitserialno = ? AND quality = 'Good Quality'");
 			$sql->execute(array('Ok', 'Inventory', $row['unitserialno']));
 		}
 	}
 
-	$inventory = $pdo->prepare("SELECT * FROM inventory WHERE remarks = 'Ok' ");
+	$inventory = $pdo->prepare("SELECT * FROM inventory WHERE remarks = 'Ok' ORDER BY component");
 	$inventory->execute();
 	$inventory = $inventory->fetchAll(PDO::FETCH_ASSOC);
 ?>

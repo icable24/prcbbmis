@@ -21,6 +21,10 @@ require '../dbconnect.php';
 		$aa->execute(array($bloodtype, $rhtype));
 		$bloodinfo = $aa->fetch(PDO::FETCH_ASSOC);
 
+		$sql2 = "INSERT INTO bloodbag (unitserialno, bagtype, bloodinfo, status) VALUES(?,?,?,?)";
+		$q2 = $pdo->prepare($sql2);
+		$q2->execute(array($unitserialno, $bagtype, $bloodinfo['bloodid'], 'For Testing'));
+
 		$sql = "INSERT INTO collection(donorcollectid, cfname, cmname, clname, unitserialno, collectiondate, bagtype, bloodinfo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		$q = $pdo->prepare($sql);
 		$q->execute(array($donorcollectid, $cfname, $cmname, $clname, $unitserialno, $collectiondate, $bagtype, $bloodinfo['bloodid']));
@@ -33,8 +37,6 @@ require '../dbconnect.php';
 		if($bagtype == '450cc Single'){
 			$q1 = $pdo->prepare("INSERT INTO inventory(unitserialno, component, status, bloodinfo, amount, quality) VALUES(?, ?, ?, ?, ?, ?)");
 			$q1->execute(array($unitserialno, 'Whole Blood', 'For Testing', $bloodinfo['bloodid'], '450', 'Good Quality'));
-			$q4 = $pdo->prepare("UPDATE bloodbag SET status = 'For Testing' WHERE unitserialno = '$unitserialno'");
-			$q4->execute();
 
 		}else{
 			$q3 = $pdo->prepare("INSERT INTO componentsprep(collid, bagserialno, remarks) VALUES (?, ?, ?)");

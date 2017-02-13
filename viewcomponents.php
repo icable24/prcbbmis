@@ -72,7 +72,7 @@
 										<div class="control-group">
 											<label class="control-label">Amount</label>
 											<div class="controls">
-												<input type="text" name="component5" class="form-control">
+												<input type="text" name="component5" class="form-control" required="">
 											</div>				
 										</div>
 									</div>
@@ -86,7 +86,7 @@
 										<div class="control-group">
 											<label class="control-label">Amount</label>
 											<div class="controls">
-												<input type="text" name="component1" class="form-control">
+												<input type="text" name="component1" class="form-control" required="" min="100" max="450">
 											</div>				
 										</div>
 									</div>
@@ -97,7 +97,7 @@
 										<div class="control-group">
 											<label class="control-label">Amount</label>
 											<div class="controls">
-												<input type="text" name="component2" class="form-control">
+												<input type="text" name="component2" class="form-control" required="">
 											</div>				
 										</div>
 									</div>
@@ -108,7 +108,7 @@
 										<div class="control-group">
 											<label class="control-label">Amount</label>
 											<div class="controls">
-												<input type="text" name="component3" class="form-control">
+												<input type="text" name="component3" class="form-control" required="">
 											</div>				
 										</div>
 									</div>
@@ -120,7 +120,7 @@
 											<div class="control-group">
 												<label class="control-label">Amount</label>
 												<div class="controls">
-													<input type="text" name="component4" class="form-control">
+													<input type="text" name="component4" class="form-control" required="">
 												</div>				
 											</div>
 										</div>
