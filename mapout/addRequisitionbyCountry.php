@@ -21,7 +21,7 @@
                 $q = $pdo->prepare($sql);     
                 $q->execute(array($requester, $ffpqty, $pcqty, $wbqty, $cqty, $dateneeded, $bankname, $bankaddress, $contactdetails, $reason));
                 Database::disconnect();
-                header("Location: ../home.php");
+                header("Location: mapout.php");
                 
         }
 ?>

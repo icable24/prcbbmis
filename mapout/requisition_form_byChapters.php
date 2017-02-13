@@ -1,6 +1,6 @@
 <?php 
-	include 'login_success.php';
-	require 'dbconnect.php';
+	
+	require '../dbconnect.php';
 $id = null;
     if ( !empty($_GET['id'])) {
         $id = $_REQUEST['id'];
@@ -16,33 +16,16 @@ $id = null;
         $bank = $q->fetchAll(PDO::FETCH_ASSOC);
     }
      
-        $username = $_SESSION['login_username'];
-	$pdo = Database:: connect();
-	$pdo->setAttribute(PDO:: ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
-        $user = $pdo->prepare("SELECT * FROM user WHERE username = ?");
-        $user->execute(array($username));
-	$user = $user->fetch(PDO:: FETCH_ASSOC);
-
-        $bloodbank = $pdo->prepare("SELECT * FROM bloodbank WHERE bankname = ?");
-        $bloodbank->execute(array($user['bankname']));
-        $bloodbank = $bloodbank->fetch(PDO:: FETCH_ASSOC);
-        
-        
-        
-        
-       
-    
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="./js/addnewfieldr1.js" type="text/javascript"></script>
-    <script src="./js/addnewfieldr2.js" type="text/javascript"></script>
-	<link rel="stylesheet" href="./css/custom_style.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.theme.mis.css">
-	<link rel="stylesheet" href="css/datepicker.css">
-	<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+    <script src="../js/addnewfieldr1.js" type="text/javascript"></script>
+    <script src="../js/addnewfieldr2.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../css/custom_style.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.theme.mis.css">
+	<link rel="stylesheet" href="../css/datepicker.css">
+	<link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css">
 </head>
 <body>
 	<!--Header edit @ header.php-->
@@ -68,15 +51,15 @@ $id = null;
 					
 					<div class="panel-body">
                                             
-                                            <form id="form_a" action="./php/addRequisitionbyChapters.php" method="post">
+                                            <form id="form_a" action="../php/addRequisitionbyChapters.php" method="post">
                                             
                                             
 							<!-- Text input-->
 							<div class="control-group">
 							<label class="control-label" for="requester">Requester</label>
 							<div class="controls">
-                                                        <input class="form-control" form="form_a" value="<?php echo $user['fname'].' '. substr($user['mname'],0,1).'. '.$user['lname'] ?>" disabled>
-                                                        <input id="requester" form="form_a" name="requester" value="<?php echo $user['fname'].' '. substr($user['mname'],0,1).'. '.$user['lname'] ?>" type="hidden" placeholder="Fullname" class="form-control" required="">
+                                                        
+                                                            <input id="requester" name="requester" type="text" placeholder="Fullname" class="form-control" required="">
 							</div>
 							</div>
                                                         <!-- End of Text Input -->
@@ -147,8 +130,8 @@ $id = null;
 							<label class="control-label" for="dateneeded">Date Needed</label>
 							<div class="controls">
                                                         <input id="dateneeded" name="dateneeded" type="date" class="form-control" required="" form="form_a">
-							<script src="js/jquery-1.9.1.min.js"></script>
-                                                        <script src="js/bootstrap-datepicker.js"></script>
+							<script src="../js/jquery-1.9.1.min.js"></script>
+                                                        <script src="../js/bootstrap-datepicker.js"></script>
                                                         <script type="text/javascript">
 							// When the document is ready
 							$(document).ready(function () {
@@ -163,16 +146,14 @@ $id = null;
 							<div class="control-group">
 							<label class="control-label" for="bankname">Blood Bank</label>
 							<div class="controls">
-                                                        <input class="form-control" value="<?php echo $bloodbank['bankname']?>" disabled></input>
-                                                        <input id="bankname" name="bankname" type="hidden" placeholder="bank name" class="form-control" required="" value="<?php echo $bloodbank['bankname']?>">
+                                                            <input id="bankname" name="bankname" type="text" placeholder="bank name" class="form-control" required="">
                                                         </div>
 							</div>
                                                         <!-- Text input-->
 							<div class="control-group">
 							  <label class="control-label" for="bankaddress">Address</label>
 							   <div class="controls">
-							  <input class="form-control" value="<?php echo $bloodbank['bankaddress']?>" disabled ></input>
-                                                        <input id="bankaddress" name="bankaddress" type="hidden" placeholder="Bank Address" class="form-control"required="" value="<?php echo $bloodbank['bankaddress']?>">
+                                                               <input id="bankaddress" name="bankaddress" type="text" placeholder="Bank Address" class="form-control"required="">
 							    
 							  </div>
 							</div>
@@ -181,8 +162,7 @@ $id = null;
 							<div class="control-group">
 							  <label class="control-label" for="contactdetails">Contact Number</label>
 							   <div class="controls">
-							  <input class="form-control" value="<?php echo $bloodbank['contactdetails']?>" disabled ></input>
-                                                        <input id="contactdetails" name="contactdetails" type="hidden" placeholder="contact number" class="form-control" required="" value="<?php echo $bloodbank['contactdetails']?>">
+                                                               <input id="contactdetails" name="contactdetails" type="text" placeholder="contact number" class="form-control" required="">
 							    
 							  </div>
 							</div>
@@ -193,7 +173,7 @@ $id = null;
 							  <div class="controls">
                                                               <textarea id="reason" name="reason" placeholder="Enter text here..."class="form-control" required=""></textarea>
 							    
-							  </div>
+							  </div>    
 							</div>
 							<!-- End -->
 					

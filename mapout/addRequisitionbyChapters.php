@@ -30,6 +30,6 @@
                 $q = $pdo->prepare($sql);     
                 $q->execute(array($requester,$positiveA, $negativeA, $positiveB, $negativeB, $positiveO, $negativeO, $positiveAB, $negativeAB, $ffpqty, $pcqty, $wbqty, $cqty, $dateneeded, $bankname, $bankaddress, $contactdetails, $reason));
                 Database::disconnect();
-                header("Location: ../home.php");
+                header("Location: mapout.php");
 	}
 ?>

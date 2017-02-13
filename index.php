@@ -19,10 +19,13 @@
 		<div class="container-fluid header">
 			<div class="row">
                             <div class="col-lg-1" id="image"><img src="./img/PRClogo.png" width="90px" height="90px"/></div>
+                            
 				<div class="col-lg-11" id="label">
                                     <p><span style="font-size:42px; letter-spacing: 1px; font-weight: bold">PHILIPPINE RED CROSS</span><br>
                 		&nbsp;&nbsp;<span style="font-size:18px;padding-top:0px; letter-spacing: 1px">10th LACSON STREET, BACOLOD CITY, 6100 NEGROS OCCIDENTAL</span>
-            		</div>
+                                <a href="./mapout/mapout.php" ><img src="./img/map.png" class="pull-right"  alt="icon" width="30px" height="30px"/></a>
+                                </div>
+                            
 			</div>
 		</div>	
 		

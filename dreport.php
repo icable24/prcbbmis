@@ -1,4 +1,7 @@
 <?php
+include 'login_success.php';
+require 'dbconnect.php';
+
 
 require_once('tcpdf.php');
 
@@ -19,13 +22,23 @@ class MYPDF extends TCPDF {
     // Page footer
     public function Footer() {
         // Position at 15 mm from bottom
+        date_default_timezone_set("Asia/Taipei");
+        $uname = $_SESSION['login_username'];
+
+        $pdo = Database::connect();
+        $user = $pdo->prepare("SELECT * FROM user WHERE username = '$uname'");
+        $user->execute();
+        $user = $user->fetch(PDO::FETCH_ASSOC);
         $this->SetY(-15);
         // Set font
-        $this->SetFont('times', 'R', 12);
+        $this->SetFont('times', 'R', 8);
         // Title
-        $this->Cell(0, 10, 'Philippine Red Cross Blood Bank Management Information System', 0, false, 'C', 0, '', 0, false, 'M', 'M');
+       // $this->Cell(0, 10, 'Printed by: ' . $user['fname'] . ' ' .  substr($user['mname'], 0, 1) . '. ' . $user['lname'] , 0, false, 'L', 0, '', 0, false, 'M', 'M');
+        $this->Cell(0, 10,'Printed by: '. $user['fname'] . ' ' .  substr($user['mname'], 0, 1) . '. ' . $user['lname'] . '              '. date("m-d-Y H:i:s"), 0, false, 'L', 0, '', 0, false, 'M', 'M');
         // Page number
         $this->Cell(0, 10, 'Page '.$this->getAliasNumPage().'/'.$this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
+
+        $this->Cell(0, 10, '', 0, false, 'C', 0, '', 0, false, 'T', 'M');
     }
 }
 
@@ -47,7 +60,7 @@ class MYPDF extends TCPDF {
 //patient
 if($categ == 'patient'){
   // create new PDF document
-$pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+$pdf = new MYPDF(LANDSCAPE, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 //$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
 // set document information
@@ -137,45 +150,57 @@ if(!empty($_POST['sdate']) && !empty($_POST['edate'])){
 $query = "SELECT * FROM `patient` WHERE pregdate between '$sdate' and '$edate'";
 $select_query = mysqli_query($db_con,$query);
 
-$tbl = '<table style="width: 638px;" cellspacing="0">';
+
+
+   $tbl = '<table style="width: 638px;" cellspacing="0">';
 
 
     $pid = "Patient ID";
     $pfname = "Name";
+    $pmname = "Middle name";
+    $plname = "Last name";
     $paddress = "Address";
     $pbirthdate = "Birthdate";
     $pgender = "Gender";
     $pcontact = "Contact";
+    $pregdate = "Registration Date";
+
+
 $tbl = $tbl . '
       <tr>
-          <td style="border: 1px solid #000000; width: 100px;">'.$pid.'</td>
+          <td style="border: 1px solid #000000; width: 80px;">'.$pid.'</td>
           <td style="border: 1px solid #000000; width: 50px;">'.$pfname.'</td>
-          <td style="border: 1px solid #000000; width: 150px;">'.$paddress.'</td>
-          <td style="border: 1px solid #000000; width: 100px;">'.$pbirthdate.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$pgender.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$paddress.'</td>
+          <td style="border: 1px solid #000000; width: 80px;">'.$pbirthdate.'</td>
+          <td style="border: 1px solid #000000; width: 60px;">'.$pgender.'</td>
           <td style="border: 1px solid #000000; width: 90px;">'.$pcontact.'</td>
+          <td style="border: 1px solid #000000; width: 90px;">'.$pregdate.'</td>
 
       </tr>';
 
 while($row = mysqli_fetch_array($select_query)){
   $pid = $row["pid"];
   $pfname = $row["pfname"];
+  $pmname = $row["plname"];
+  $plname = $row["plname"];
   $paddress = $row["paddress"];
   $pbirthdate = $row["pbirthdate"];
   $pgender = $row["pgender"];
   $pcontact = $row["pcontact"];
+  $pregdate = $row["pregdate"];
 
   
   // -----------------------------------------------------------------------------
 
   $tbl = $tbl . '
        <tr>
-          <td style="border: 1px solid #000000; width: 100px;">'.$pid.'</td>
-          <td style="border: 1px solid #000000; width: 50px;">'.$pfname.'</td>
-          <td style="border: 1px solid #000000; width: 150px;">'.$paddress.'</td>
-          <td style="border: 1px solid #000000; width: 100px;">'.$pbirthdate.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$pgender.'</td>
+          <td style="border: 1px solid #000000; width: 80px;">'.$pid.'</td>
+          <td style="border: 1px solid #000000; width: 130px;">'.$pfname. ' ' . substr($pmname, 0, 1) . '. ' . $plname.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$paddress.'</td>
+          <td style="border: 1px solid #000000; width: 80px;">'.$pbirthdate.'</td>
+          <td style="border: 1px solid #000000; width: 60px;">'.$pgender.'</td>
           <td style="border: 1px solid #000000; width: 90px;">'.$pcontact.'</td>
+          <td style="border: 1px solid #000000; width: 90px;">'.$pregdate.'</td>
 
       </tr>';
   }  
@@ -186,11 +211,11 @@ while($row = mysqli_fetch_array($select_query)){
 
 //==============================================================
 ob_start();
-$pdf->Output('donor_report.pdf', 'I');
+$pdf->Output('patient1_report.pdf', 'I');
 }
 if($categ == 'patient'){
   // create new PDF document
-$pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+$pdf = new MYPDF(LANDSCAPE, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 //$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
 // set document information
@@ -273,28 +298,37 @@ $tbl = '<table style="width: 638px;" cellspacing="0">';
 
     $pid = "Patient ID";
     $pfname = "Name";
+    $pmname = "Middle name";
+    $plname = "Last name";
     $paddress = "Address";
     $pbirthdate = "Birthdate";
     $pgender = "Gender";
     $pcontact = "Contact";
+    $pregdate = "Registration Date";
+
+
 $tbl = $tbl . '
       <tr>
           <td style="border: 1px solid #000000; width: 100px;">'.$pid.'</td>
-          <td style="border: 1px solid #000000; width: 50px;">'.$pfname.'</td>
-          <td style="border: 1px solid #000000; width: 150px;">'.$paddress.'</td>
+          <td style="border: 1px solid #000000; width: 130px;">'.$pfname.'</td>
+          <td style="border: 1px solid #000000; width: 170px;">'.$paddress.'</td>
           <td style="border: 1px solid #000000; width: 100px;">'.$pbirthdate.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$pgender.'</td>
-          <td style="border: 1px solid #000000; width: 90px;">'.$pcontact.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$pgender.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$pcontact.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$pregdate.'</td>
 
       </tr>';
 
 while($row = mysqli_fetch_array($select_query)){
   $pid = $row["pid"];
   $pfname = $row["pfname"];
+  $pmname = $row["plname"];
+  $plname = $row["plname"];
   $paddress = $row["paddress"];
   $pbirthdate = $row["pbirthdate"];
   $pgender = $row["pgender"];
   $pcontact = $row["pcontact"];
+  $pregdate = $row["pregdate"];
 
   
   // -----------------------------------------------------------------------------
@@ -302,11 +336,12 @@ while($row = mysqli_fetch_array($select_query)){
   $tbl = $tbl . '
        <tr>
           <td style="border: 1px solid #000000; width: 100px;">'.$pid.'</td>
-          <td style="border: 1px solid #000000; width: 50px;">'.$pfname.'</td>
-          <td style="border: 1px solid #000000; width: 150px;">'.$paddress.'</td>
+          <td style="border: 1px solid #000000; width: 130px;">'.$pfname. ' ' . substr($pmname, 0, 1) . '. ' . $plname.'</td>
+          <td style="border: 1px solid #000000; width: 170px;">'.$paddress.'</td>
           <td style="border: 1px solid #000000; width: 100px;">'.$pbirthdate.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$pgender.'</td>
-          <td style="border: 1px solid #000000; width: 90px;">'.$pcontact.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$pgender.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$pcontact.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$pregdate.'</td>
 
       </tr>';
   }  
@@ -322,7 +357,7 @@ $pdf->Output('patient1_report.pdf', 'I');
 }
   if($categ == 'donor'){
 // create new PDF document
-$pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+$pdf = new MYPDF(LANDSCAPE, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 //$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
 // set document information
@@ -403,34 +438,47 @@ $tbl = '<table style="width: 638px;" cellspacing="0">';
     $dfname = "Name";
     $daddress = "Address";
     $dcontact = "Contact";
+    $dnationality = "Nationality";
     $dregdate = "Registration Date";
+    $dgender = "Gender";
 
 $tbl = $tbl . '
       <tr>
           <td style="border: 1px solid #000000; width: 130px;">'.$did.'</td>
-          <td style="border: 1px solid #000000; width: 110px;">'.$dfname.'</td>
-          <td style="border: 1px solid #000000; width: 130px;">'.$daddress.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$dcontact.'</td>
+          <td style="border: 1px solid #000000; width: 130px;">'.$dfname .'</td>
+          <td style="border: 1px solid #000000; width: 80px;">'.$dgender.'</td>
+          <td style="border: 1px solid #000000; width: 80px;">'.$dnationality.'</td>
+          <td style="border: 1px solid #000000; width: 170px;">'.$daddress.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$dcontact.'</td>
           <td style="border: 1px solid #000000; width: 80px;">'.$dregdate.'</td>
+          
       </tr>';
 
 
 while($row = mysqli_fetch_array($select_query)){
   $did = $row["did"];
   $dfname = $row["dfname"];
+  $dmname = $row["dmname"];
+  $dlname = $row["dlname"];
+  $dgender = $row["dgender"];
+  $dnationality = $row ["dnationality"];
   $daddress = $row["daddress"];
   $dcontact = $row["dcontact"];
   $dregdate = $row["dregdate"];
+  
   
   // -----------------------------------------------------------------------------
 
   $tbl = $tbl . '
       <tr>
           <td style="border: 1px solid #000000; width: 130px;">'.$did.'</td>
-          <td style="border: 1px solid #000000; width: 110px;">'.$dfname.'</td>
-          <td style="border: 1px solid #000000; width: 130px;">'.$daddress.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$dcontact.'</td>
+          <td style="border: 1px solid #000000; width: 130px;">'.$dfname. ' ' . substr($dmname, 0, 1) . '. ' . $dlname.'</td>
+          <td style="border: 1px solid #000000; width: 80px;">'.$dgender.'</td>
+          <td style="border: 1px solid #000000; width: 80px;">'.$dnationality.'</td>
+          <td style="border: 1px solid #000000; width: 170px;">'.$daddress.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$dcontact.'</td>
           <td style="border: 1px solid #000000; width: 80px;">'.$dregdate.'</td>
+
       </tr>';
   }  
   $tbl = $tbl . '</table>';
@@ -447,7 +495,7 @@ $pdf->Output('donor1_report.pdf', 'I');
   //donor
   if($categ == 'donor'){
 // create new PDF document
-$pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+$pdf = new MYPDF(LANDSCAPE, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 //$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
 // set document information
@@ -541,34 +589,47 @@ $tbl = '<table style="width: 638px;" cellspacing="0">';
     $dfname = "Name";
     $daddress = "Address";
     $dcontact = "Contact";
+    $dnationality = "Nationality";
     $dregdate = "Registration Date";
+    $dgender = "Gender";
 
 $tbl = $tbl . '
       <tr>
           <td style="border: 1px solid #000000; width: 130px;">'.$did.'</td>
-          <td style="border: 1px solid #000000; width: 110px;">'.$dfname.'</td>
-          <td style="border: 1px solid #000000; width: 130px;">'.$daddress.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$dcontact.'</td>
+          <td style="border: 1px solid #000000; width: 130px;">'.$dfname .'</td>
+          <td style="border: 1px solid #000000; width: 80px;">'.$dgender.'</td>
+          <td style="border: 1px solid #000000; width: 80px;">'.$dnationality.'</td>
+          <td style="border: 1px solid #000000; width: 170px;">'.$daddress.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$dcontact.'</td>
           <td style="border: 1px solid #000000; width: 80px;">'.$dregdate.'</td>
+          
       </tr>';
 
 
 while($row = mysqli_fetch_array($select_query)){
   $did = $row["did"];
   $dfname = $row["dfname"];
+  $dmname = $row["dmname"];
+  $dlname = $row["dlname"];
+  $dgender = $row["dgender"];
+  $dnationality = $row ["dnationality"];
   $daddress = $row["daddress"];
   $dcontact = $row["dcontact"];
   $dregdate = $row["dregdate"];
+  
   
   // -----------------------------------------------------------------------------
 
   $tbl = $tbl . '
       <tr>
           <td style="border: 1px solid #000000; width: 130px;">'.$did.'</td>
-          <td style="border: 1px solid #000000; width: 110px;">'.$dfname.'</td>
-          <td style="border: 1px solid #000000; width: 130px;">'.$daddress.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$dcontact.'</td>
+          <td style="border: 1px solid #000000; width: 130px;">'.$dfname. ' ' . substr($dmname, 0, 1) . '. ' . $dlname.'</td>
+          <td style="border: 1px solid #000000; width: 80px;">'.$dgender.'</td>
+          <td style="border: 1px solid #000000; width: 80px;">'.$dnationality.'</td>
+          <td style="border: 1px solid #000000; width: 170px;">'.$daddress.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$dcontact.'</td>
           <td style="border: 1px solid #000000; width: 80px;">'.$dregdate.'</td>
+
       </tr>';
   }  
   $tbl = $tbl . '</table>';
@@ -667,6 +728,7 @@ $unitserialno = "Unit Serial Number";
 $component = "component";
 $status = "Status";
 $bloodinfo = "Blood Info";
+$quality = "quality";
 
 
 
@@ -678,6 +740,7 @@ $tbl = $tbl . '
           <td style="border: 1px solid #000000; width: 110px;">'.$component.'</td>
           <td style="border: 1px solid #000000; width: 130px;">'.$status.'</td>
           <td style="border: 1px solid #000000; width: 80px;">'.$bloodinfo.'</td>
+          <td style="border: 1px solid #000000; width: 80px;">'.$quality.'</td>
          
       </tr>';
 
@@ -686,6 +749,7 @@ while($row = mysqli_fetch_array($select_query)){
   $component = $row["component"];
   $status = $row["status"];
   $bloodinfo = $row["bloodinfo"];
+  $quality = $row["quality"];
 
   
   
@@ -697,6 +761,7 @@ while($row = mysqli_fetch_array($select_query)){
           <td style="border: 1px solid #000000; width: 110px;">'.$component.'</td>
           <td style="border: 1px solid #000000; width: 130px;">'.$status.'</td>
           <td style="border: 1px solid #000000; width: 80px;">'.$bloodinfo.'</td>
+          <td style="border: 1px solid #000000; width: 80px;">'.$quality.'</td>
          
       </tr>';
   }  

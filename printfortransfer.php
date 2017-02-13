@@ -81,7 +81,7 @@ Blood Bank Management Information System
 
 Requisition for Blood Transfer
 
-
+(Country)
 
 EOD;
 
@@ -136,7 +136,7 @@ Database::disconnect();
 //           <td style="border: 1p x solid #ffffff; width: 130px;">'.'Donor ID: '.$did.'</td>
 //           <td style="border: 1px solid #ffffff; width: 110px;">'.'Unit Serial Number' .$collect['unitserialno'].'</td>
 //       </tr>';
-$tbl = '<body><p style="font-size: 12px">'.'<b>Name:</b>&nbsp;&nbsp;&nbsp;'. $bycountry['requester'] .'<br><br>'.'<b>Blood Component:</b>&nbsp;&nbsp;&nbsp;'.$bycountry['bloodcomponent'] . '<br><br>'.'<b>Quantity:</b>&nbsp;&nbsp;&nbsp;'.$bycountry['qty']. '<br><br>'.'<b>Blood Bank Name:</b>&nbsp;&nbsp;&nbsp;' .$bycountry['bankname']. '<br><br>'.'<b>Blood Bank Address:</b>&nbsp;&nbsp;&nbsp;' .$bycountry['bankaddress'].'<br><br>'.'<b>Contact Number:</b>&nbsp;&nbsp;&nbsp;' .$bycountry['contactdetails'].'<br><br>'.'<b>Reason:</b>&nbsp;&nbsp;&nbsp;'.$bycountry['reason'].'<br><br><br><br>'.'</p>' ;
+$tbl = '<body><p style="font-size: 12px">'.'<b>Date Needed:</b>&nbsp;&nbsp;&nbsp;'. $bycountry['dateneeded'] .'<br><br>'.'<b>Name:</b>&nbsp;&nbsp;&nbsp;'. $bycountry['requester'] .'<br><br>'.'<b>Fresh Frozen Plasma:</b>&nbsp;&nbsp;&nbsp;'.$bycountry['ffpqty'].'<br><br>'.'<b>Platelet Concentrate:</b>&nbsp;&nbsp;&nbsp;'.$bycountry['pcqty'].'<br><br>'.'<b>Whole Blood:</b>&nbsp;&nbsp;&nbsp;'.$bycountry['wbqty'].'<br><br>'.'<b>Cryoprecipitate:</b>&nbsp;&nbsp;&nbsp;'.$bycountry['cqty']. '<br><br>'.'<b>Blood Bank Name:</b>&nbsp;&nbsp;&nbsp;' .$bycountry['bankname']. '<br><br>'.'<b>Blood Bank Address:</b>&nbsp;&nbsp;&nbsp;' .$bycountry['bankaddress'].'<br><br>'.'<b>Contact Number:</b>&nbsp;&nbsp;&nbsp;' .$bycountry['contactdetails'].'<br><br>'.'<b>Reason:</b>&nbsp;&nbsp;&nbsp;'.$bycountry['reason'].'<br><br><br><br>'.'</p>' ;
 
 $tbl = $tbl . '
 Approved By,

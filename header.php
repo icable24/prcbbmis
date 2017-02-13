@@ -44,7 +44,16 @@
     ");
     $notification->execute();
     $notification = $notification->fetchAll(PDO::FETCH_ASSOC);
-    $total_trans_pending = $pdo->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
+    $total_transbych_pending = $pdo->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
+    
+    $notification = $pdo->prepare("
+    SELECT SQL_CALC_FOUND_ROWS * 
+    FROM bycountry
+    WHERE remarks LIKE 'pending'
+    ");
+    $notification->execute();
+    $notification = $notification->fetchAll(PDO::FETCH_ASSOC);
+    $total_transbyc_pending = $pdo->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
 
     $notification = $pdo->prepare("
     SELECT SQL_CALC_FOUND_ROWS * 
@@ -55,14 +64,6 @@
     $notification = $notification->fetchAll(PDO::FETCH_ASSOC);
     $total_request_pending = $pdo->query("SELECT FOUND_ROWS() AS total")->fetch()['total'];
     
-    $notification = $pdo->prepare("
-    SELECT SQL_CALC_FOUND_ROWS * 
-    FROM byCountry
-    WHERE remarks LIKE 'pending' 
-    ");
-    $notification->execute();
-    $notification = $notification->fetchAll(PDO::FETCH_ASSOC);
-    $total_transfer_pending = $pdo->query("SELECT FOUND_ROWS() AS total")->fetch()['total'];
 
     $notification = $pdo->prepare("
     SELECT SQL_CALC_FOUND_ROWS * 
@@ -200,12 +201,17 @@
                                                 Components<br> Preparation is Pending</a></li>
                                             <?php } ?>
                                                 
-                                            <?php if($total_transfer_pending > 0){ ?>
+                                            <?php if($total_transbyc_pending > 0){ ?>
                                                 <hr class="notif-divider"/>
-                                                <li><a href="notification.php"><?php echo $total_transfer_pending; ?>  
-                                                Blood Transfer<br> Request is Pending</a></li>
+                                                <li><a href="notification.php"><?php echo $total_transbyc_pending; ?>  
+                                                Blood Transfer<br>by Country<br> Request is Pending</a></li>
                                             <?php } ?>
-                                                
+                                            
+                                            <?php if($total_transbych_pending > 0){ ?>
+                                                <hr class="notif-divider"/>
+                                                <li><a href="notification.php"><?php echo $total_transbych_pending; ?>  
+                                                Blood Transfer by <br>Chapter/Hospital<br> Request is Pending</a></li>
+                                            <?php } ?>    
                                                 
                                         </ul>
                                     <?php } ?>

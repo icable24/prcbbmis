@@ -1,6 +1,5 @@
-<?php 
-	include 'login_success.php';
-	require 'dbconnect.php';
+<?php
+	require '../dbconnect.php';
 
 	$id = null;
     if ( !empty($_GET['id'])) {
