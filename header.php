@@ -75,7 +75,7 @@
     $total_prep_pending = $pdo->query("SELECT FOUND_ROWS() AS total")->fetch()['total'];
 
 
-    $total_notif = ((int)$total_exam_pending + (int)$total_screen_pending + (int)$total_request_pending + (int)$total_prep_pending);
+    $total_notif = ((int)$total_exam_pending + (int)$total_screen_pending + (int)$total_request_pending + (int)$total_prep_pending) + (int)$total_transbyc_pending + (int)$total_transbych_pending;
 
     $pdo = Database::connect();
     $d = $pdo->prepare("

@@ -104,7 +104,7 @@
 							<div class="control-group">
 							  <label class="control-label" for="dcontact">Contact Number</label><label class="control-label eg">(Format: +63xxxxxxxxxx)</label>
 							  <div class="controls">
-							    <input id="dcontact" name="dcontact" type="tel" placeholder="Contact Number" class="form-control" required="" pattern="[\+]\d{2}\d{10}">
+							    <input id="dcontact" name="dcontact" type="tel" placeholder="Contact Number" class="form-control" required="">
 							    
 							  </div>
 							</div>
