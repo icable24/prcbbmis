@@ -31,7 +31,7 @@
             <div class="container-fluid header">
             	
             		<div class="col-md-1" style="margin-right:0px">
-                            <a href="index.php"><img src="../img/PRClogo.png" alt="thesis-logo" id="logo"/></a>
+                            <a href="../index.php"><img src="../img/PRClogo.png" alt="thesis-logo" id="logo"/></a>
                 	</div>
                     <div class="col-md-8">
                 		<span style="font-size:42px; letter-spacing: 1px; margin-left: 10px;" >PHILIPPINE RED CROSS</span><br>

@@ -216,6 +216,9 @@
 					<div class="col-md-7">
 						<h2>Blood Inventory</h2>
 					</div>
+                                     <div class="col-md-5 text-right" style="padding-top:20px;">
+                                         <a href="inventory_list.php" class="btn btn-success btn-md"><span class="glyphicon glyphicon-view"></span>Detailed View</a>
+				</div>
 				</div>
 				<div class="table-responsive">
 					<table class="table table-hover table-striped">

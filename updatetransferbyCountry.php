@@ -157,6 +157,7 @@
 							    <select id="remarks" name="remarks" class="form-control">
                                                                 <option></option>
                                                                 <option>Accepted</option>
+                                                                <option>Denied</option>
                                                               
 							    </select>
 							  </div>

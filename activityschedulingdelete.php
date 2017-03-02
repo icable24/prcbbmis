@@ -46,7 +46,7 @@
                             $data = $q->fetch(PDO::FETCH_ASSOC);
                             Database::disconnect();
                             
-                            echo '<div class="alert alert-warning" role="alert">Proceed in deleting this activity: '.$data['actname'].' ?</div>';
+                            echo '<div class="alert alert-warning" role="alert">Is this activity already done? '.$data['actname'].' </div>';
                         ?>
                             <div class="panel panel-footer">
                                 <button type="submit" class="btn btn-danger">Yes</button>

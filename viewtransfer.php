@@ -52,7 +52,7 @@ $pages = ceil($total / $perPage);
 					<tr style="background-color: #ff9999">
                                                 <th class="text-center">Requester</th>
                                                 <th colspan="4" class="text-center">Blood Component</th>
-                                                <th class="text-center">Action</th>
+                                                <th class="text-center">Status</th>
                                         </tr>
                                         <tr style="background-color: #ffccff">
                                                 <th class="text-center"></th>
@@ -77,8 +77,10 @@ $pages = ceil($total / $perPage);
                                                                         echo '<td class="text-center">'.$row['pcqty'].'</td>';
                                                                         echo '<td class="text-center">'.$row['wbqty'].'</td>';
                                                                         echo '<td class="text-center">'.$row['cqty'].'</td>';
+                                                                        echo '<td class="text-center">'.$row['remarks'].'</td>';
+                                                                        
 									echo '<td class="text-center">
-											<a class="btn btn-danger btn-md" href="deletetransferbyCountry.php?id='.$row['cid'].'" data-toggle="tooltip" title="Done"><span class="glyphicon glyphicon-remove"></span></a>
+											
 								  		  </td>';
 								echo '</tr>';
 							}

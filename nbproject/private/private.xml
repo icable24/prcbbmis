@@ -4,21 +4,23 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/prcbbmis/mapout/addRequisitionbyCountry.php</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/inventory_list.php</file>
             <file>file:/C:/xampp/htdocs/prcbbmis/mapout/c_Laos.php</file>
-            <file>file:/C:/xampp/htdocs/prcbbmis/mapout/c_Myanmar.php</file>
-            <file>file:/C:/xampp/htdocs/prcbbmis/mapout/c_Vietnam.php</file>
-            <file>file:/C:/xampp/htdocs/prcbbmis/viewuser.php</file>
-            <file>file:/C:/xampp/htdocs/prcbbmis/mapout/c_Thailand.php</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/viewtransfer_byChapter.php</file>
             <file>file:/C:/xampp/htdocs/prcbbmis/mapout/c_Indonesia.php</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/index.php</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/inventory.php</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/wrong_password.php</file>
             <file>file:/C:/xampp/htdocs/prcbbmis/mapout/p_NegrosOccidental_1.php</file>
-            <file>file:/C:/xampp/htdocs/prcbbmis/php/addhistory.php</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/activityschedulingdelete.php</file>
             <file>file:/C:/xampp/htdocs/prcbbmis/mapout/c_Philippines_1.php</file>
             <file>file:/C:/xampp/htdocs/prcbbmis/mapout/c_Singapore.php</file>
-            <file>file:/C:/xampp/htdocs/prcbbmis/export.php</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/php/reguser.php</file>
             <file>file:/C:/xampp/htdocs/prcbbmis/mapout/addRequisitionbyChapters.php</file>
             <file>file:/C:/xampp/htdocs/prcbbmis/mapout/c_Cambodia.php</file>
-            <file>file:/C:/xampp/htdocs/prcbbmis/mapout/c_Malaysia.php</file>
             <file>file:/C:/xampp/htdocs/prcbbmis/mapout/mapout.php</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/map.php</file>
+            <file>file:/C:/xampp/htdocs/prcbbmis/usercreate.php</file>
             <file>file:/C:/xampp/htdocs/prcbbmis/mapout/c_Brunei.php</file>
         </group>
     </open-files>
