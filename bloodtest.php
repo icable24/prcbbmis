@@ -68,8 +68,8 @@
 										<label class="control-label" for="remarks11">Remarks</label>
 										<select name="remarks11" id="remarks11" class="form-control" required="">
 											<option></option>
-											<option value="Positive">Positive</option>
-											<option value="Negative">Negative</option>
+											<option value="Reactive">Reactive</option>
+											<option value="Non-Reactive">Non-Reactive</option>
 										</select>
 									</div>	
 								</div>
@@ -82,8 +82,8 @@
 										<label class="control-label" for="remarks12">Remarks</label>
 										<select name="remarks12" id="remarks12" class="form-control" required="">
 											<option></option>
-											<option value="Positive">Positive</option>
-											<option value="Negative">Negative</option>
+											<option value="Reactive">Reactive</option>
+											<option value="Non-Reactive">Non-Reactive</option>
 										</select>
 									</div>
 								</div>
@@ -96,8 +96,8 @@
 										<label class="control-label" for="remarks13">Remarks</label>
 										<select name="remarks13" id="remarks13" class="form-control" required="">
 											<option></option>
-											<option value="Positive">Positive</option>
-											<option value="Negative">Negative</option>
+											<option value="Reactive">Reactive</option>
+											<option value="Non-Reactive">Non-Reactive</option>
 										</select>
 									</div>
 								</div>
@@ -110,8 +110,8 @@
 										<label class="control-label" for="remarks14">Remarks</label>
 										<select name="remarks14" id="remarks14" class="form-control" required="">
 											<option></option>
-											<option value="Positive">Positive</option>
-											<option value="Negative">Negative</option>
+											<option value="Reactive">Reactive</option>
+											<option value="Non-Reactive">Non-Reactive</option>
 										</select>
 									</div>
 								</div>
@@ -124,8 +124,8 @@
 										<label class="control-label" for="remarks15">Remarks</label>
 										<select name="remarks15" id="remarks15" class="form-control" required="">
 											<option></option>
-											<option value="Positive">Positive</option>
-											<option value="Negative">Negative</option>
+											<option value="Reactive">Reactive</option>
+											<option value="Non-Reactive">Non-Reactive</option>
 										</select>
 									</div>
 								</div>
@@ -146,8 +146,8 @@
 										<label class="control-label" for="remarks21">Remarks</label>
 										<select name="remarks21" id="remarks21" class="form-control" required="">
 											<option></option>
-											<option value="Positive">Positive</option>
-											<option value="Negative">Negative</option>
+											<option value="Reactive">Reactive</option>
+											<option value="Non-Reactive">Non-Reactive</option>
 										</select>
 									</div>	
 								</div>
@@ -160,8 +160,8 @@
 										<label class="control-label" for="remarks22">Remarks</label>
 										<select name="remarks22" id="remarks22" class="form-control" required="">
 											<option></option>
-											<option value="Positive">Positive</option>
-											<option value="Negative">Negative</option>
+											<option value="Reactive">Reactive</option>
+											<option value="Non-Reactive">Non-Reactive</option>
 										</select>
 									</div>
 								</div>
@@ -174,8 +174,8 @@
 										<label class="control-label" for="remarks23">Remarks</label>
 										<select name="remarks23" id="remarks23" class="form-control" required="">
 											<option></option>
-											<option value="Positive">Positive</option>
-											<option value="Negative">Negative</option>
+											<option value="Reactive">Reactive</option>
+											<option value="Non-Reactive">Non-Reactive</option>
 										</select>
 									</div>
 								</div>
@@ -188,8 +188,8 @@
 										<label class="control-label" for="remarks24">Remarks</label>
 										<select name="remarks24" id="remarks24" class="form-control" required="">
 											<option></option>
-											<option value="Positive">Positive</option>
-											<option value="Negative">Negative</option>
+											<option value="Reactive">Reactive</option>
+											<option value="Non-Reactive">Non-Reactive</option>
 										</select>
 									</div>
 								</div>
@@ -202,8 +202,8 @@
 										<label class="control-label" for="remarks25">Remarks</label>
 										<select name="remarks25" id="remarks25" class="form-control" required="">
 											<option></option>
-											<option value="Positive">Positive</option>
-											<option value="Negative">Negative</option>
+											<option value="Reactive">Reactive</option>
+											<option value="Non-Reactive">Non-Reactive</option>
 										</select>
 									</div>
 								</div>
@@ -223,8 +223,8 @@
 										<label class="control-label" for="remarks31">Remarks</label>
 										<select name="remarks31" id="remarks31" class="form-control" required="">
 											<option></option>
-											<option value="Positive">Positive</option>
-											<option value="Negative">Negative</option>
+											<option value="Reactive">Reactive</option>
+											<option value="Non-Reactive">Non-Reactive</option>
 										</select>
 									</div>	
 								</div>
@@ -237,8 +237,8 @@
 										<label class="control-label" for="remarks32">Remarks</label>
 										<select name="remarks32" id="remarks32" class="form-control" required="">
 											<option></option>
-											<option value="Positive">Positive</option>
-											<option value="Negative">Negative</option>
+											<option value="Reactive">Reactive</option>
+											<option value="Non-Reactive">Non-Reactive</option>
 										</select>
 									</div>
 								</div>
@@ -251,8 +251,8 @@
 										<label class="control-label" for="remarks33">Remarks</label>
 										<select name="remarks33" id="remarks33" class="form-control" required="">
 											<option></option>
-											<option value="Positive">Positive</option>
-											<option value="Negative">Negative</option>
+											<option value="Reactive">Reactive</option>
+											<option value="Non-Reactive">Non-Reactive</option>
 										</select>
 									</div>
 								</div>
@@ -265,8 +265,8 @@
 										<label class="control-label" for="remarks34">Remarks</label>
 										<select name="remarks34" id="remarks34" class="form-control" required="">
 											<option></option>
-											<option value="Positive">Positive</option>
-											<option value="Negative">Negative</option>
+											<option value="Reactive">Reactive</option>
+											<option value="Non-Reactive">Non-Reactive</option>
 										</select>
 									</div>
 								</div>
@@ -279,8 +279,8 @@
 										<label class="control-label" for="remarks35">Remarks</label>
 										<select name="remarks35" id="remarks35" class="form-control" required="">
 											<option></option>
-											<option value="Positive">Positive</option>
-											<option value="Negative">Negative</option>
+											<option value="Reactive">Reactive</option>
+											<option value="Non-Reactive">Non-Reactive</option>
 										</select>
 									</div>
 								</div>

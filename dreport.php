@@ -13,8 +13,11 @@ class MYPDF extends TCPDF {
         //$image_file = K_PATH_IMAGES.'logo_example.jpg';
        // $this->Image($image_file, 10, 10, 15, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
         // Set font
+        $image_file = K_PATH_IMAGES.'img/PRClogo.png';
+        $this->Image($image_file, 15, 10, 30, '', 'PNG', '', '', false, 300, '', false, false, 0, false, false, false);
         $this->SetY(15);
         $this->SetFont('times', 'B', 24);
+
         // Title
         $this->Cell(0, 15, 'Philippine Red Cross ', 0, false, 'C', 0, '', 0, false, 'M', 'M');
     }
@@ -435,6 +438,7 @@ $select_query = mysqli_query($db_con,$query);
 
 $tbl = '<table style="width: 638px;" cellspacing="0">';
     $did = "Donor ID";
+
     $dfname = "Name";
     $daddress = "Address";
     $dcontact = "Contact";
@@ -722,6 +726,7 @@ $db_con = mysqli_connect(DB_SERVER , DB_USER, DB_PASSWORD, DB_DATABASE);
 $query = "SELECT * FROM inventory";
 $select_query = mysqli_query($db_con,$query);
 
+
 $tbl = '<table style="width: 638px;" cellspacing="0">';
 
 $unitserialno = "Unit Serial Number";
@@ -729,9 +734,6 @@ $component = "component";
 $status = "Status";
 $bloodinfo = "Blood Info";
 $quality = "quality";
-
-
-
 
 
 $tbl = $tbl . '
@@ -751,6 +753,9 @@ while($row = mysqli_fetch_array($select_query)){
   $bloodinfo = $row["bloodinfo"];
   $quality = $row["quality"];
 
+  $query1 = "SELECT * FROM bloodinformation WHERE bloodid = '$bloodinfo'";
+  $select_query1 = mysqli_query($db_con, $query1);
+  $bloodinformation = mysqli_fetch_array($select_query1);
   
   
   // -----------------------------------------------------------------------------
@@ -760,7 +765,7 @@ while($row = mysqli_fetch_array($select_query)){
           <td style="border: 1px solid #000000; width: 130px;">'.$unitserialno.'</td>
           <td style="border: 1px solid #000000; width: 110px;">'.$component.'</td>
           <td style="border: 1px solid #000000; width: 130px;">'.$status.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$bloodinfo.'</td>
+          <td style="border: 1px solid #000000; width: 80px;">'.$bloodinformation['bloodgroup']. ' ' . $bloodinformation['rhtype'] .'</td>
           <td style="border: 1px solid #000000; width: 80px;">'.$quality.'</td>
          
       </tr>';
@@ -773,6 +778,131 @@ while($row = mysqli_fetch_array($select_query)){
 //==============================================================
 
 $pdf->Output('inventory_report.pdf', 'I');
+}
+elseif($categ == 'date'){
+$pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+//$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+// set document information
+$pdf->SetCreator(PDF_CREATOR);
+$pdf->SetAuthor('Philippine Red Cross');
+$pdf->SetTitle('MBD Bloor Request Report');
+$pdf->SetSubject(' ');
+$pdf->SetKeywords(' ');
+
+
+// set default header data
+//$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
+// ---------------------------------------------------------
+
+// set font
+$pdf->SetFont('times', 'R', 12);
+
+
+// add a page
+$pdf->AddPage();
+
+// set some text to print
+$txt = <<<EOD
+
+
+Philippine Red Cross Blood Bank Management Information System
+
+Blood Request Report
+
+
+
+EOD;
+
+
+// print a block of text using Write()
+$pdf->Write(0, $txt, '', 0, 'C', true, 0, false, false, 0);
+
+// ---------------------------------------------------------
+
+// set header and footer fonts
+$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+// set margins
+$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+$pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+// set auto page breaks
+$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
+    require_once(dirname(__FILE__).'/lang/eng.php');
+    $pdf->setLanguageArray($l);
+}
+
+//$pdf->SetFont('helvetica', '', 9);
+//$pdf->AddPage();
+
+
+
+
+//==============================================================
+include 'dbconnect.php';
+
+define("DB_SERVER", "localhost");
+define("DB_USER", "root");
+define("DB_PASSWORD", "");
+define("DB_DATABASE", "prcbbmis");
+
+$db_con = mysqli_connect(DB_SERVER , DB_USER, DB_PASSWORD, DB_DATABASE);
+
+
+$query = "SELECT * FROM activityschedule";
+$select_query = mysqli_query($db_con,$query);
+
+$tbl = '<table style="width: 638px;" cellspacing="0">';
+
+$actid = "Activity ID";
+$actname = "Name";
+$detail = "Detail";
+$place = "place";
+$date = "Date";
+
+
+$tbl = $tbl . '
+      <tr>
+           <td style="border: 1px solid #000000; width: 100px;">'.$actid.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$actname.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$detail.'</td>
+          <td style="border: 1px solid #000000; width: 130px;">'.$place.'</td>
+          <td style="border: 1px solid #000000; width: 130px;">'.$date.'</td>
+      </tr>';
+
+while($row = mysqli_fetch_array($select_query)){
+  echo implode(",", $row);
+  $actid = $row["actid"];
+  $actname = $row["actname"];
+  $detail = $row["detail"];
+  $place = $row["place"];
+  $date = $row["date"];
+
+  
+  // -----------------------------------------------------------------------------
+
+  $tbl = $tbl . '
+      <tr>
+           <td style="border: 1px solid #000000; width: 100px;">'.$actid.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$actname.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$detail.'</td>
+          <td style="border: 1px solid #000000; width: 130px;">'.$place.'</td>
+          <td style="border: 1px solid #000000; width: 130px;">'.$date.'</td>
+      </tr>';
+  }  
+  $tbl = $tbl . '</table>';
+  $pdf->writeHTML($tbl, true, false, false, false, '');
+
+
+
+//==============================================================
+ob_clean();
+$pdf->Output('Activity.pdf', 'I');
 }
 
 //state5
@@ -1026,7 +1156,8 @@ ob_clean();
 $pdf->Output('BloodRequest_report.pdf', 'I');
 }
 elseif($categ1 == 'test'){
-$pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+$pdf = new MYPDF(LANDSCAPE, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
 //$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
 // set document information
@@ -1107,31 +1238,34 @@ $tbl = '<table style="width: 638px;" cellspacing="0">';
 
 $testid = "Test ID";
 $bagserialno = "Serial No.";
-$remarks1 = "Remarks1";
-$remarks2 = "Remarks2";
-$remarks3 = "Remarks3";
-$remarks4 = "Remarks4";
+$hepab = "Hepa B";
+$syphillis = "syphillis";
+$hepac = "Hepa C";
+$hiv = "HIV";
+$malaria = "Malaria";
 $remarks5 = "Remarks5";
 
 $tbl = $tbl . '
       <tr>
          <td style="border: 1px solid #000000; width: 80px;">'.$testid.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$bagserialno.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$remarks1.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$remarks2.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$remarks3.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$remarks4.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$remarks5.'</td>
+          <td style="border: 1px solid #000000; width: 120px;">'.$bagserialno.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$hepab.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$syphillis.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$hepac.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$hiv.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$malaria.'</td>
+          <td style="border: 1px solid #000000; width: 90px;">'.$remarks5.'</td>
       </tr>';
 
 while($row = mysqli_fetch_array($select_query)){
   echo implode(",", $row);
   $testid = $row["testid"];
   $bagserialno = $row["bagserialno"];
-  $remarks1 = $row["remarks1"];
-  $remarks2 = $row["remarks2"];
-  $remarks3 = $row["remarks3"];
-  $remarks4 = $row["remarks4"];
+  $hepab = $row["hepab"];
+  $syphillis = $row["syphillis"];
+  $hepac = $row["hepac"];
+  $hiv = $row["hiv"];
+  $malaria = $row["malaria"];
   $remarks5 = $row["remarks5"];
 
   
@@ -1140,12 +1274,13 @@ while($row = mysqli_fetch_array($select_query)){
   $tbl = $tbl . '
       <tr>
           <td style="border: 1px solid #000000; width: 80px;">'.$testid.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$bagserialno.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$remarks1.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$remarks2.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$remarks3.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$remarks4.'</td>
-          <td style="border: 1px solid #000000; width: 80px;">'.$remarks5.'</td>
+          <td style="border: 1px solid #000000; width: 120px;">'.$bagserialno.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$hepab.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$syphillis.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$hepac.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$hiv.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$malaria.'</td>
+          <td style="border: 1px solid #000000; width: 90px;">'.$remarks5.'</td>
       </tr>';
   }  
   $tbl = $tbl . '</table>';
@@ -1156,6 +1291,146 @@ while($row = mysqli_fetch_array($select_query)){
 //==============================================================
 ob_clean();
 $pdf->Output('BloodTest_report.pdf', 'I');
+}
+elseif($categ1 == 'bycountry'){
+$pdf = new MYPDF(LANDSCAPE, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+//$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+// set document information
+$pdf->SetCreator(PDF_CREATOR);
+$pdf->SetAuthor('Philippine Red Cross');
+$pdf->SetTitle('MBD Bloor Request Report');
+$pdf->SetSubject(' ');
+$pdf->SetKeywords(' ');
+
+
+// set default header data
+//$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
+// ---------------------------------------------------------
+
+// set font
+$pdf->SetFont('times', 'R', 12);
+
+
+// add a page
+$pdf->AddPage();
+
+// set some text to print
+$txt = <<<EOD
+
+
+Philippine Red Cross Blood Bank Management Information System
+
+Blood Test Report
+
+
+
+EOD;
+
+
+// print a block of text using Write()
+$pdf->Write(0, $txt, '', 0, 'C', true, 0, false, false, 0);
+
+// ---------------------------------------------------------
+
+// set header and footer fonts
+$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+// set margins
+$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+$pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+// set auto page breaks
+$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
+    require_once(dirname(__FILE__).'/lang/eng.php');
+    $pdf->setLanguageArray($l);
+}
+
+//$pdf->SetFont('helvetica', '', 9);
+//$pdf->AddPage();
+
+
+
+
+//==============================================================
+include 'dbconnect.php';
+
+define("DB_SERVER", "localhost");
+define("DB_USER", "root");
+define("DB_PASSWORD", "");
+define("DB_DATABASE", "prcbbmis");
+
+$db_con = mysqli_connect(DB_SERVER , DB_USER, DB_PASSWORD, DB_DATABASE);
+
+
+$query = "SELECT * FROM bycountry";
+$select_query = mysqli_query($db_con,$query);
+
+$tbl = '<table style="width: 638px;" cellspacing="0">';
+
+$cid = "transfer ID";
+$requester = "Requester Name";
+$bloodcomponent = "Blood Component";
+$qty = "Quantity";
+$dateneeded = "Date Needed";
+$bankname = "Bank Name";
+$bankaddress = "Bank Address";
+$contactdetails = "Contact Details";
+$reason = "Reason";
+
+$tbl = $tbl . '
+      <tr>
+         <td style="border: 1px solid #000000; width: 80px;">'.$cid.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$requester.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$bloodcomponent.'</td>
+          <td style="border: 1px solid #000000; width: 50px;">'.$qty.'</td>
+          <td style="border: 1px solid #000000; width: 80px;">'.$dateneeded.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$bankname.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$bankaddress.'</td>
+          <td style="border: 1px solid #000000; width: 80px;">'.$contactdetails.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$reason.'</td>
+      </tr>';
+
+while($row = mysqli_fetch_array($select_query)){
+  echo implode(",", $row);
+  $cid = $row["cid"];
+  $requester = $row["requester"];
+  $bloodcomponent = $row["bloodcomponent"];
+  $qty = $row["qty"];
+  $dateneeded = $row["dateneeded"];
+  $bankname = $row["bankname"];
+  $bankaddress = $row["bankaddress"];
+  $contactdetails = $row["contactdetails"];
+  $reason = $row["reason"];
+
+  
+  // -----------------------------------------------------------------------------
+
+  $tbl = $tbl . '
+      <tr>
+          <td style="border: 1px solid #000000; width: 80px;">'.$cid.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$requester.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$bloodcomponent.'</td>
+          <td style="border: 1px solid #000000; width: 50px;">'.$qty.'</td>
+          <td style="border: 1px solid #000000; width: 80px;">'.$dateneeded.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$bankname.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$bankaddress.'</td>
+          <td style="border: 1px solid #000000; width: 80px;">'.$contactdetails.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$reason.'</td>
+      </tr>';
+  }  
+  $tbl = $tbl . '</table>';
+  $pdf->writeHTML($tbl, true, false, false, false, '');
+
+
+
+//==============================================================
+ob_clean();
+$pdf->Output('RequestbyCountry.pdf', 'I');
 }
 elseif($categ2 == 'deferred'){
   $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -2222,6 +2497,131 @@ while($row = mysqli_fetch_array($select_query)){
 ob_start();
 $pdf->Output('Walkin.pdf', 'I');
 }
+}
+elseif($categ2 == 'approved'){
+$pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+//$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+// set document information
+$pdf->SetCreator(PDF_CREATOR);
+$pdf->SetAuthor('Philippine Red Cross');
+$pdf->SetTitle('MBD Bloor Request Report');
+$pdf->SetSubject(' ');
+$pdf->SetKeywords(' ');
+
+
+// set default header data
+//$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
+// ---------------------------------------------------------
+
+// set font
+$pdf->SetFont('times', 'R', 12);
+
+
+// add a page
+$pdf->AddPage();
+
+// set some text to print
+$txt = <<<EOD
+
+
+Philippine Red Cross Blood Bank Management Information System
+
+Blood Request Report
+
+
+
+EOD;
+
+
+// print a block of text using Write()
+$pdf->Write(0, $txt, '', 0, 'C', true, 0, false, false, 0);
+
+// ---------------------------------------------------------
+
+// set header and footer fonts
+$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+// set margins
+$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+$pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+// set auto page breaks
+$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
+    require_once(dirname(__FILE__).'/lang/eng.php');
+    $pdf->setLanguageArray($l);
+}
+
+//$pdf->SetFont('helvetica', '', 9);
+//$pdf->AddPage();
+
+
+
+
+//==============================================================
+include 'dbconnect.php';
+
+define("DB_SERVER", "localhost");
+define("DB_USER", "root");
+define("DB_PASSWORD", "");
+define("DB_DATABASE", "prcbbmis");
+
+$db_con = mysqli_connect(DB_SERVER , DB_USER, DB_PASSWORD, DB_DATABASE);
+
+
+$query = "SELECT * FROM bloodrequest WHERE status = 'Approved'";
+$select_query = mysqli_query($db_con,$query);
+
+$tbl = '<table style="width: 638px;" cellspacing="0">';
+
+$reqid = "Request ID";
+$status = "status";
+$pid = "Patient ID";
+$component = "component";
+$quantity = "quantity";
+
+
+$tbl = $tbl . '
+      <tr>
+           <td style="border: 1px solid #000000; width: 100px;">'.$reqid.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$status.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$pid.'</td>
+          <td style="border: 1px solid #000000; width: 130px;">'.$component.'</td>
+          <td style="border: 1px solid #000000; width: 130px;">'.$quantity.'</td>
+      </tr>';
+
+while($row = mysqli_fetch_array($select_query)){
+  echo implode(",", $row);
+  $reqid = $row["reqid"];
+  $status = $row["status"];
+  $pid = $row["pid"];
+  $component = $row["component"];
+  $quantity = $row["quantity"];
+
+  
+  // -----------------------------------------------------------------------------
+
+  $tbl = $tbl . '
+      <tr>
+          <td style="border: 1px solid #000000; width: 100px;">'.$reqid.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$status.'</td>
+          <td style="border: 1px solid #000000; width: 100px;">'.$pid.'</td>
+          <td style="border: 1px solid #000000; width: 130px;">'.$component.'</td>
+          <td style="border: 1px solid #000000; width: 130px;">'.$quantity.'</td>
+      </tr>';
+  }  
+  $tbl = $tbl . '</table>';
+  $pdf->writeHTML($tbl, true, false, false, false, '');
+
+
+
+//==============================================================
+ob_clean();
+$pdf->Output('Approved.pdf', 'I');
 }
 }
 ?>

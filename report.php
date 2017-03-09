@@ -97,7 +97,9 @@
 	                                                                <option value="none">-- Select Category --</option>
 																	<p><option value="donor">Donor</option>
 																	<option value="patient">Patient</option>
-	                                                                <option value="inventory">Blood Inventory</option></p>
+	                                                                <option value="inventory">Blood Inventory</option>
+	                                                                <option value="date">Activity</option>
+	                                                                </p>
 	                                                				<div style="text-align:center; width: 3in; font-size: 16px" >
                                                              	   
                                                                    
@@ -119,6 +121,7 @@
 																	</option>
 																	<option value="request" id="request" onchange="toggleStatus()">Blood Request</option>
 																	<option value="test" id="test" onchange="toggleStatus()">Blood Test</option>
+																	<option value="bycountry" id="bycountry" onchange="toggleStatus()">Blood Transfer(By Country)</option>
 	                                                				<div style="text-align:center; width: 3in; font-size: 16px" >
                                                              	   </p> </select>
                                                              	   <br></br>
@@ -136,6 +139,7 @@
 																	<option value="pquality" id="pquality" onchange="toggleStatus()">Poor Quality</option>
 																	<option value="walkin" id="walkin" onchange="toggleStatus()">Walk in</option>
 																	<option value="rep" id="rep" onchange="toggleStatus()">Replacement</option>
+																	<option value="approved" id="approved" onchange="toggleStatus()">Approved</option>
 	                                                				<div style="text-align:center; width: 3in; font-size: 16px" >
                                                              	   </p> </select>
                                                              	   <br></br>

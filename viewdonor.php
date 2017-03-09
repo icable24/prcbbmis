@@ -26,6 +26,11 @@
     $user = $pdo->prepare("SELECT * FROM user WHERE username like '$uname'");
     $user->execute();
     $user = $user->fetch(PDO::FETCH_ASSOC);
+
+    $donation = $pdo->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM collection WHERE donorcollectid = ?");
+    $donation->execute(array($id));
+    $donation = $donation->fetchAll(PDO::FETCH_ASSOC);
+    $total_donation = $pdo->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -73,11 +78,16 @@
 						  <label class="control-label">Name</label>
 						  <div class="controls">
 						    <input class="form-control" value="<?php echo $data['dfname'] . ' ' . substr($data['dmname'], 0 , 1) . '. ' .  $data['dlname']?> " disabled>
-						    
 						  </div>
 						</div>
 
-						<!-- Text input-->
+						<div class="control-group">
+							<label for="total_donation" class="control-label">Total Number of Donations</label>
+							<div class="controls">
+								<input type="text" class="form-control" disabled="" value="<?php echo $total_donation ?>">
+							</div>
+						</div>
+
 						<div class="control-group">
 						  <label class="control-label">Address</label>
 						  <div class="controls">
